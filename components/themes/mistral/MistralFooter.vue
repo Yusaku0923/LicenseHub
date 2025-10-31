@@ -15,7 +15,7 @@
         <!-- column 2: menu -->
         <div>
           <h3 class="font-semibold text-slate-900 mb-3">メニュー</h3>
-          <ul class="space-y-2 text-sm">
+          <ul class="space-y-2 text-sm list-none">
             <li v-for="item in menu" :key="item.path">
               <NuxtLink
                 :to="item.path"
@@ -39,7 +39,7 @@
         <!-- column 3: CTA / info area -->
         <div>
           <h3 class="font-semibold text-slate-900 mb-3">関連リンク</h3>
-          <ul class="space-y-2 text-sm">
+          <ul class="space-y-2 text-sm list-none">
             <li>
               <a
                 href="https://www.mhlw.go.jp/"

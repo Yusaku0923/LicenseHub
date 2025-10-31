@@ -1,7 +1,7 @@
 <template>
     <MistralHeader />
-    <main class="mt-14">
-        <div class="mx-auto max-w-[1330px] md:p-4">
+    <main class="mt-2">
+        <div class="mx-auto max-w-6xl md:p-4">
             <div class="">
                 <h1 class="p-4 text-4xl font-bold">
                     Tag : {{ tag }}

@@ -1,6 +1,6 @@
 <template>
     <main>
-        <div class="mx-auto max-w-[1330px] md:p-4">
+        <div class="mx-auto max-w-6xl md:p-4">
             <ContentList :query="query">
                 <template #not-found>
                     <p>No posts found.</p>

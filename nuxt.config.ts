@@ -3,21 +3,19 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   extends: [
     '@bloggrify/core',
-    '@bloggrify/mistral',
   ],
   css: [
     '~/assets/css/theme.css'
   ],
   content: {
     markdown: {
-      mdc: true, // MarkdownでVueコンポーネントを使えるようにする
+      mdc: true,
     },
   },
   components: {
     global: true,
     dirs: [
-      '~/components',            // ここに AffiliateBox.vue を置く
-      // 必要なら '~/components/themes/mistral'
+      '~/components',
     ],
   },
 })

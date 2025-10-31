@@ -1,7 +1,7 @@
 ---
 title: "My first blog post"
 description: "This is my first blog post"
-date: "2024-02-24"
+date: "2025-10-31"
 categories:
   - blog
   - opensource
