@@ -1,0 +1,309 @@
+/* ==========================================================================
+   Global Theme Styles for 登録販売者ブログ
+   Tone: 医療・資格・信頼 + やや女性寄せ
+   ========================================================================== */
+
+/* === FONT SETUP ========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;600&display=swap');
+
+:root {
+  /* Color system */
+  --page-bg: #f7f6f9;
+  --surface: #ffffff;
+  --line: rgba(15, 23, 42, 0.05);
+
+  /* main / accent */
+  --brand: #325dce;          /* 信頼寄せの青 */
+  --brand-soft: rgba(50, 93, 206, 0.08);
+  --accent: #e47b88;         /* バナーやCTAにだけ使う */
+  --accent-soft: rgba(228, 123, 136, 0.08);
+
+  /* text */
+  --text: #1f2933;
+  --text-muted: #6b7280;
+  --heading: #1b2430;
+
+  /* layout */
+  --content-max: 1100px;
+  --article-max: 720px;
+
+  /* space */
+  --space-1: .5rem;
+  --space-2: .9rem;
+  --space-3: 1.4rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+
+  /* radius / shadow */
+  --radius-sm: .6rem;
+  --radius-md: 1rem;
+  --shadow-sm: 0 12px 30px rgba(15, 23, 42, 0.04);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--page-bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-family: 'Noto Sans JP', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === CONTAINER & LAYOUT ================================================= */
+.container,
+.page-shell {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .container,
+  .page-shell {
+    padding-inline: 1.5rem;
+  }
+}
+
+/* === TYPOGRAPHY ========================================================= */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -.01em;
+  color: var(--heading);
+}
+
+h1 {
+  font-size: clamp(1.9rem, 2.7vw, 2.6rem);
+  margin-bottom: 1.3rem;
+  padding-bottom: .4rem;
+  border-bottom: 4px solid var(--brand);
+  width: fit-content;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  margin-top: 2.4rem;
+  margin-bottom: 1rem;
+  color: var(--heading);
+  border-left: 4px solid var(--brand);
+  padding-left: .7rem;
+}
+
+h3 {
+  font-size: 1.15rem;
+  margin-top: 1.5rem;
+  margin-bottom: .6rem;
+  color: var(--heading);
+}
+
+p {
+  margin-bottom: 1.1rem;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+ul,
+ol {
+  margin-left: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+ul li {
+  list-style: disc;
+  margin-bottom: .3rem;
+}
+
+ol li {
+  list-style: decimal;
+  margin-bottom: .3rem;
+}
+
+/* === LINKS =============================================================== */
+a {
+  color: var(--brand);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color .15s ease-out;
+}
+a:hover {
+  color: #25479d;
+  text-decoration-thickness: 2px;
+}
+
+/* === CALLOUT / BLOCKQUOTE =============================================== */
+blockquote {
+  border-left: 4px solid var(--brand);
+  background: rgba(50, 93, 206, 0.04);
+  padding: .9rem 1.2rem .9rem 1.1rem;
+  border-radius: .6rem;
+  color: #1f2937;
+  font-style: normal;
+  margin-block: 1.4rem;
+}
+
+/* === CARD ================================================================ */
+.card,
+.aff-box,
+.info-box {
+  background: var(--surface);
+  border: 1px solid rgba(15, 23, 42, 0.02);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-sm);
+  padding: 1.1rem 1.25rem 1.25rem;
+}
+
+.aff-box {
+  border-left: 4px solid var(--accent);
+  background: #fff7f8;
+}
+.aff-box-title {
+  font-weight: 600;
+  margin-bottom: .4rem;
+  color: #b4334a;
+}
+.aff-box-text {
+  font-size: .9rem;
+  color: var(--text-muted);
+  margin-bottom: .75rem;
+}
+
+/* === BUTTONS ============================================================= */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--brand);
+  color: #fff;
+  font-weight: 600;
+  padding: .55rem 1.25rem;
+  border-radius: .6rem;
+  gap: .35rem;
+  transition: background .15s ease-out;
+}
+.btn-primary:hover {
+  background: #25479d;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.04);
+  color: var(--text);
+  font-weight: 500;
+  padding: .55rem 1.1rem;
+  border-radius: .5rem;
+  transition: background .15s ease-out;
+}
+.btn-secondary:hover {
+  background: rgba(15, 23, 42, 0.07);
+}
+
+/* === HEADER ============================================================= */
+.site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  background: rgba(255, 255, 255, .92);
+  backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.04);
+  z-index: 50;
+  transition: box-shadow .15s ease-out;
+}
+.site-header.scrolled {
+  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.05);
+}
+.header-inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding: .75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+/* === FOOTER ============================================================= */
+.site-footer {
+  background: #edf1f7;
+  color: #4b5563;
+  padding: 2.5rem 1.25rem;
+  font-size: .82rem;
+  margin-top: 4rem;
+}
+.site-footer a {
+  color: var(--brand);
+}
+
+/* === ARTICLE WRAPPER ===================================================== */
+.article-shell {
+  max-width: var(--article-max);
+  margin-inline: auto;
+  background: var(--surface);
+  border-radius: 1.2rem;
+  padding: 1.7rem 1.4rem 2.1rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(15, 23, 42, 0.02);
+}
+@media (min-width: 768px) {
+  .article-shell {
+    padding: 2.1rem 2.2rem 2.4rem;
+  }
+}
+
+.article-shell img {
+  border-radius: .7rem;
+  margin-block: 1.3rem;
+  max-width: 100%;
+  height: auto;
+}
+
+/* === TABLE OF CONTENTS =================================================== */
+.toc {
+  background: var(--surface);
+  border: 1px solid rgba(15, 23, 42, 0.03);
+  border-radius: 1rem;
+  padding: 1rem 1.1rem;
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.03);
+  font-size: .85rem;
+}
+.toc-title {
+  font-weight: 600;
+  margin-bottom: .35rem;
+}
+.toc a {
+  display: block;
+  padding-block: .3rem;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.toc a:hover {
+  color: var(--brand);
+}
+
+/* === AFFILIATE BANNERS =================================================== */
+.affiliate-banner {
+  margin-block: 1.6rem;
+  text-align: center;
+}
+.affiliate-banner img {
+  border-radius: .6rem;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.09);
+  transition: transform .15s ease-out, box-shadow .15s ease-out;
+}
+.affiliate-banner img:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.09);
+}
+
+/* === RESPONSIVE ========================================================== */
+@media (max-width: 768px) {
+  h1 { font-size: 1.7rem; }
+  h2 { font-size: 1.35rem; }
+  .toc {
+    font-size: .8rem;
+    padding: .8rem .8rem 1rem;
+  }
+}
