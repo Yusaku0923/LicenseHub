@@ -28,9 +28,6 @@
               <NuxtLink to="/about" class="hover:text-emerald-700 transition-colors">運営者情報</NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/disclaimer" class="hover:text-emerald-700 transition-colors">免責事項</NuxtLink>
-            </li>
-            <li>
               <NuxtLink to="/privacy" class="hover:text-emerald-700 transition-colors">プライバシーポリシー</NuxtLink>
             </li>
           </ul>
@@ -80,7 +77,7 @@
       { name: '受験対策', path: '/exam' },
       { name: '教材比較', path: '/materials' },
       { name: '仕事・転職', path: '/work' },
-      { name: 'ニュース', path: '/news' },
+      { name: '記事一覧', path: '/articles' },
     ]
   </script>
   

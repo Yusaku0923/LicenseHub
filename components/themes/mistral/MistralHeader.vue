@@ -92,7 +92,7 @@
       { name: '受験対策', path: '/exam' },
       { name: '教材比較', path: '/materials' },
       { name: '仕事・転職', path: '/work' },
-      { name: 'ニュース', path: '/news' }
+      { name: '記事一覧', path: '/articles' }
     ]
   const blogName = config.name || '登録販売者ナビ'
   const mobileMenuOpen = ref(false)

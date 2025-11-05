@@ -49,30 +49,41 @@
             <NuxtLink to="/articles" class="text-sm text-[color:var(--brand)] hover:underline">もっと見る</NuxtLink>
           </div>
   
-          <!-- 今はモック、後でMistralLimitedListOfPostsに差し替え -->
-          <div class="grid gap-6 md:grid-cols-3">
+          <!-- 新着記事 -->
+          <div v-if="latestPosts.length > 0" class="grid gap-6 md:grid-cols-3">
             <article
-              v-for="(post, i) in latestPosts"
-              :key="i"
+              v-for="post in latestPosts"
+              :key="post._path"
               class="bg-white rounded-xl border border-[rgba(15,23,42,0.02)] shadow-sm overflow-hidden flex flex-col"
             >
-              <div class="h-32 bg-slate-100 flex items-center justify-center text-slate-400 text-sm">
-                {{ post.cover ? 'thumbnail' : 'no image' }}
+              <div v-if="post.cover" class="h-32 bg-slate-100 flex items-center justify-center text-slate-400 text-sm">
+                <NuxtImg
+                  :src="'/images/' + post.cover"
+                  :alt="post.title"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div v-else class="h-32 bg-slate-100 flex items-center justify-center text-slate-400 text-sm">
+                no image
               </div>
               <div class="p-4 flex flex-col gap-3 flex-1">
                 <p
+                  v-if="post.tags && post.tags.length"
                   class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[rgba(50,93,206,0.08)] text-[0.6rem] text-[color:var(--brand)] font-semibold w-fit"
                 >
-                  {{ post.category || 'お知らせ' }}
+                  {{ post.tags[0] }}
                 </p>
                 <NuxtLink :to="post._path" class="font-semibold text-[color:var(--heading)] leading-snug line-clamp-2">
                   {{ post.title }}
                 </NuxtLink>
-                <p class="text-xs text-[color:var(--text-muted)]">
+                <p v-if="post.date" class="text-xs text-[color:var(--text-muted)]">
                   {{ formatDate(post.date) }}
                 </p>
               </div>
             </article>
+          </div>
+          <div v-else class="text-center text-[color:var(--text-muted)] py-8">
+            記事がまだありません
           </div>
         </section>
   
@@ -83,17 +94,20 @@
               <h2 class="section-title mb-0">{{ section.title }}</h2>
               <NuxtLink :to="section.to" class="text-sm text-[color:var(--brand)] hover:underline">もっと見る</NuxtLink>
             </div>
-            <div class="grid gap-6 md:grid-cols-3">
+            <div v-if="section.items.length > 0" class="grid gap-6 md:grid-cols-3">
               <article
-                v-for="(post, i) in section.items"
-                :key="i"
+                v-for="post in section.items"
+                :key="post._path"
                 class="bg-white rounded-xl border border-[rgba(15,23,42,0.02)] shadow-sm p-4"
               >
-                <p class="text-xs text-[color:var(--text-muted)] mb-1">{{ formatDate(post.date) }}</p>
+                <p v-if="post.date" class="text-xs text-[color:var(--text-muted)] mb-1">{{ formatDate(post.date) }}</p>
                 <NuxtLink :to="post._path" class="font-semibold text-[color:var(--heading)] leading-snug line-clamp-2">
                   {{ post.title }}
                 </NuxtLink>
               </article>
+            </div>
+            <div v-else class="text-center text-[color:var(--text-muted)] py-4 text-sm">
+              該当する記事がありません
             </div>
           </div>
         </section>
@@ -120,39 +134,127 @@
     { to: '/work', title: '仕事・転職', desc: 'ドラッグストア・調剤薬局', icon: '💼' },
   ]
   
-  // いったんモック。後で content から取得に差し替え
-  const latestPosts = [
-    { title: '【2025年版】登録販売者試験の出題傾向と対策', date: '2025-10-25', category: '受験対策', _path: '/posts/sample-1' },
-    { title: '主婦・パートでの勉強時間の目安', date: '2025-10-24', category: '受験対策', _path: '/posts/sample-2' },
-    { title: 'ユーキャンとフォーサイトの比較', date: '2025-10-23', category: '教材・講座', _path: '/posts/sample-3' },
-  ]
+  // 実際のコンテンツから取得
+  const { data: allPosts } = await useAsyncData('home-posts', async () => {
+    try {
+      console.log('[home.vue] Fetching posts from content...')
+      const posts = await queryContent()
+        .only(['title', 'description', 'date', 'tags', '_path', 'cover', 'listed'])
+        .find()
+      
+      console.log('[home.vue] Total posts found:', posts.length)
+      console.log('[home.vue] Post paths:', posts.map((p: any) => p._path))
+      
+      // フィルタリングとソート
+      const filtered = posts
+        .filter((p: any) => {
+          // トップページは除外
+          if (p._path === '/' || p._path === '/index') return false
+          // listedが明示的にfalseのものは除外
+          if (p.listed === false) return false
+          // dateがあるもののみ
+          return !!p.date
+        })
+        .sort((a: any, b: any) => {
+          const dateA = new Date(a.date).getTime()
+          const dateB = new Date(b.date).getTime()
+          return dateB - dateA
+        })
+        .slice(0, 10)
+      
+      console.log('[home.vue] Filtered posts:', filtered.length)
+      console.log('[home.vue] Filtered paths:', filtered.map((p: any) => p._path))
+      
+      return filtered
+    } catch (error: any) {
+      console.error('[home.vue] Error fetching posts:', error)
+      if (error.statusCode === 404) {
+        console.error('[home.vue] 404 Error - Document not found!')
+        console.error('[home.vue] Query that caused 404:', error.data?.query)
+      }
+      console.error('[home.vue] Error details:', JSON.stringify(error, null, 2))
+      console.error('[home.vue] Error stack:', error.stack)
+      return []
+    }
+  })
   
-  const categorySections = [
-    {
-      slug: 'exam',
-      title: '受験対策',
-      to: '/exam',
-      items: latestPosts,
-    },
-    {
-      slug: 'materials',
-      title: '教材・通信講座',
-      to: '/materials',
-      items: latestPosts,
-    },
-    {
-      slug: 'work',
-      title: '仕事・転職',
-      to: '/work',
-      items: latestPosts,
-    },
-  ]
+  const latestPosts = computed(() => {
+    return (allPosts.value || []).slice(0, 3)
+  })
   
-  const tags = ['試験情報', '合格体験記', '独学', 'テキスト', 'ドラッグストア', '調剤薬局']
+  const categorySections = computed(() => {
+    const posts = allPosts.value || []
+    return [
+      {
+        slug: 'exam',
+        title: '受験対策',
+        to: '/exam',
+        items: posts.filter((p: any) => 
+          p.tags?.includes('試験情報') || p._path?.startsWith('/exam')
+        ).slice(0, 3),
+      },
+      {
+        slug: 'materials',
+        title: '教材・通信講座',
+        to: '/materials',
+        items: posts.filter((p: any) => 
+          p.tags?.some((tag: string) => ['教材', '通信講座', 'レビュー'].includes(tag)) || 
+          p._path?.startsWith('/materials')
+        ).slice(0, 3),
+      },
+      {
+        slug: 'work',
+        title: '仕事・転職',
+        to: '/work',
+        items: posts.filter((p: any) => 
+          p.tags?.some((tag: string) => ['仕事', '転職'].includes(tag)) || 
+          p._path?.startsWith('/work')
+        ).slice(0, 3),
+      },
+    ]
+  })
   
-  const formatDate = (date: string) => {
-    const d = new Date(date)
-    return `${d.getFullYear()}/${String(d.getMonth() + 1).padStart(2, '0')}/${String(d.getDate()).padStart(2, '0')}`
+  // タグ一覧を取得
+  const { data: allTags } = await useAsyncData('home-tags', async () => {
+    try {
+      console.log('[home.vue] Fetching tags from content...')
+      const posts = await queryContent()
+        .only(['tags'])
+        .find()
+      
+      console.log('[home.vue] Total posts for tags:', posts.length)
+      
+      const tagSet = new Set<string>()
+      posts.forEach((post: any) => {
+        if (Array.isArray(post.tags)) {
+          post.tags.forEach((tag: string) => tagSet.add(tag))
+        }
+      })
+      const tags = Array.from(tagSet).slice(0, 6)
+      console.log('[home.vue] Extracted tags:', tags)
+      return tags
+    } catch (error: any) {
+      console.error('[home.vue] Error fetching tags:', error)
+      if (error.statusCode === 404) {
+        console.error('[home.vue] 404 Error - Document not found!')
+        console.error('[home.vue] Query that caused 404:', error.data?.query)
+      }
+      console.error('[home.vue] Error details:', JSON.stringify(error, null, 2))
+      console.error('[home.vue] Error stack:', error.stack)
+      return []
+    }
+  })
+  
+  const tags = computed(() => allTags.value || ['試験情報', '合格体験記', '独学', 'テキスト', 'ドラッグストア', '調剤薬局'])
+  
+  const formatDate = (date: string | undefined) => {
+    if (!date) return ''
+    try {
+      const d = new Date(date)
+      return `${d.getFullYear()}/${String(d.getMonth() + 1).padStart(2, '0')}/${String(d.getDate()).padStart(2, '0')}`
+    } catch {
+      return ''
+    }
   }
   </script>
   

@@ -18,4 +18,11 @@ export default defineNuxtConfig({
       '~/components',
     ],
   },
+  nitro: {
+    logLevel: 4, // より詳細なログ
+  },
+  // 詳細なログを有効化
+  vite: {
+    logLevel: 'info',
+  },
 })

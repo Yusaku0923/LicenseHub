@@ -1,0 +1,17 @@
+{
+  "name": "MedLicenseNavi - 登録販売者ナビ",
+  "short_name": "登録販売者ナビ",
+  "description": "登録販売者試験の合格と実務に役立つ情報を発信しています",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#325dce",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}
+
