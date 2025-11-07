@@ -1,6 +1,6 @@
 ---
 title: このメディアについて
-description: MedLicenseNavi の目的と運営方針
+description: LicenseHub の目的と運営方針
 listed: true
 date: 2025-10-31
 ---

@@ -6,12 +6,12 @@
           <NuxtImg
             v-if="config.logo"
             :src="config.logo"
-            class="h-10 w-10 rounded-full border border-slate-100 group-hover:opacity-80 transition"
+            class="h-12 w-auto group-hover:opacity-80 transition"
             alt="logo"
           />
-          <span class="text-lg sm:text-xl font-bold text-slate-800 group-hover:text-emerald-700 transition">
+          <!-- <span class="text-lg sm:text-xl font-bold text-slate-800 group-hover:text-emerald-700 transition">
             {{ blogName }}
-          </span>
+          </span> -->
         </NuxtLink>
   
         <!-- right: nav (desktop) -->
@@ -20,11 +20,11 @@
             v-for="item in menu"
             :key="item.path"
             :to="item.path"
-            class="hover:text-emerald-700 transition-colors"
+            class="hover:text-indigo-700 transition-colors"
           >
             {{ item.name }}
           </NuxtLink>
-          <NuxtLink to="/about" class="hover:text-emerald-700">
+          <NuxtLink to="/about" class="hover:text-indigo-700">
             運営者情報
           </NuxtLink>
         </nav>
@@ -71,13 +71,6 @@
             >
               {{ item.name }}
             </NuxtLink>
-            <NuxtLink
-              to="/about"
-              class="text-slate-700 hover:text-emerald-700 text-sm font-medium"
-              @click="mobileMenuOpen = false"
-            >
-              運営者情報
-            </NuxtLink>
           </div>
         </div>
       </transition>
@@ -87,12 +80,11 @@
   <script setup lang="ts">
   const config = useAppConfig()
   const menu =
-    config.menu ||
     [
-      { name: '受験対策', path: '/exam' },
-      { name: '教材比較', path: '/materials' },
-      { name: '仕事・転職', path: '/work' },
-      { name: '記事一覧', path: '/articles' }
+      { name: '受験対策', path: '/licenses/tohan/exam' },
+      { name: '教材比較', path: '/licenses/tohan/materials' },
+      { name: '仕事・転職', path: '/licenses/tohan/work' },
+      { name: '記事一覧', path: '/licenses/tohan/articles' }
     ]
   const blogName = config.name || '登録販売者ナビ'
   const mobileMenuOpen = ref(false)

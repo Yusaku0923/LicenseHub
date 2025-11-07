@@ -1,24 +1,42 @@
 <template>
   <div class="mb-8">
-    <div class="flex items-start gap-4 md:gap-6">
-      <!-- 左: 日付ブロック -->
-      <div v-if="article.date" class="pr-4 md:pr-6 border-r border-slate-200 select-none">
-        <div class="text-slate-500 text-[11px] md:text-xs text-center">
+    <div class="flex flex-col gap-3 md:flex-row md:items-start md:gap-6">
+      <!-- 日付ブロック -->
+      <div
+        v-if="article.date"
+        class="flex items-center gap-2 text-xs text-slate-500 md:flex-col md:items-center md:justify-center md:pr-6 md:border-r md:border-slate-200 md:select-none"
+      >
+        <!-- スマホ：日付ピル -->
+        <span class="inline-flex md:hidden items-center rounded-full bg-slate-100 px-2 py-0.5 font-medium">
+          {{ jpDate }}
+        </span>
+
+        <!-- PC：年 + 月日を縦並び -->
+        <div class="hidden md:block text-[11px] md:text-xs text-center">
           {{ year }}
         </div>
-        <div class="text-slate-800 font-bold text-2xl md:text-3xl leading-none text-center">
+        <div class="hidden md:block text-slate-800 font-bold text-2xl md:text-3xl leading-none text-center">
           {{ month }}/{{ day }}
         </div>
       </div>
 
-      <!-- 右: タイトル + メタ -->
+      <!-- タイトル + メタ -->
       <div class="flex-1 min-w-0">
-        <h1 class="text-[color:var(--heading)] font-extrabold leading-tight mb-2 text-2xl sm:text-3xl md:text-4xl">
+        <h1
+          class="text-[color:var(--heading)] font-extrabold leading-tight mb-2 text-2xl sm:text-3xl md:text-4xl"
+        >
           {{ article.title }}
         </h1>
 
-        <!-- バッジ + 公開日 -->
-        <div class="flex flex-wrap items-center gap-2 md:gap-3 text-xs">
+        <p
+          v-if="article.lead"
+          class="text-sm md:text-base text-[color:var(--text-muted)] leading-relaxed mb-3"
+        >
+          {{ article.lead }}
+        </p>
+
+        <!-- カテゴリ / タグ -->
+        <div class="flex flex-wrap items-center gap-2 md:gap-3 text-xs mt-1">
           <span
             v-for="cat in categories"
             :key="`cat-${cat}`"
@@ -35,19 +53,12 @@
           >
             #{{ tag }}
           </NuxtLink>
-
-          <!-- <span class="inline-flex items-center gap-1 text-slate-500 ml-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            {{ jpDate }}
-          </span> -->
         </div>
       </div>
     </div>
   </div>
 </template>
-  
+
 <script setup lang="ts">
 const props = defineProps<{
   article: any
@@ -66,4 +77,3 @@ const categories = computed<string[]>(() => {
   return []
 })
 </script>
-  

@@ -5,12 +5,12 @@
     <!-- ② パンくず + サイドバー付きレイアウトに -->
     <MistralHomeLayout>
       <template #posts>
-        <div class="px-4 md:px-0">
+        <div class="px-4 mt-6 md:px-0">
           <MistralBreadcrumbs :doc="doc" />
         </div>
-        <div v-if="doc" class="pt-6 pb-16">
+        <div v-if="doc" class="pt-6 pb-0 px-4 md:px-0">
           <!-- カバー画像（あれば） -->
-          <div v-if="doc.cover" class="hidden md:flex justify-center mb-8">
+          <div v-if="doc.cover" class="flex justify-center mb-8">
             <NuxtImg
               :src="'/images/' + doc.cover"
               :alt="doc.title"
@@ -22,27 +22,29 @@
     
           <!-- ③ 記事ヘッダーをカード化したやつに -->
           <ArticleHeader :article="doc" />
-    
-          <!-- ④ 本文＋TOC の2カラム -->
-          <div class="mt-8 flex flex-col lg:flex-row gap-8">
-            <!-- TOC -->
-            <aside v-if="isTocEnabled" class="lg:w-1/4">
-              <PageSidebar :toc="doc.body.toc.links" />
-            </aside>
-    
-            <!-- 本文 -->
+
+          <!-- ★ 目次カード（ArticleToc） -->
+          <div class="mt-8 md:mt-10">
+            <ArticleToc
+              :links="doc.body.toc.links"
+            />
+          </div>
+
+          <!-- ④ 本文（カード）＋ 中に TOC を入れる -->
+          <div class="mt-6">
             <article
-              class="flex-1"
+              class="flex-1 bg-white rounded-2xl shadow-sm border border-slate-100 px-5 py-6 md:px-7 md:py-7"
               :class="{ 'lg:max-w-[var(--article-max)]': !isTocEnabled }"
             >
+              <!-- 本文 -->
               <ContentRenderer
                 id="nuxtContent"
                 :value="doc"
-                class="prose max-w-none"
+                class="prose article-body max-w-none"
               />
             </article>
           </div>
-    
+
           <!-- タグ -->
           <div class="flex flex-wrap gap-3 mt-10">
             <NuxtLink
@@ -86,9 +88,14 @@ doc: any
 
 const config = useAppConfig()
 
-const isTocEnabled =
-props.doc?.body?.toc?.links?.length &&
-(config.table_of_contents || props.doc?.table_of_contents)
+const isTocEnabled = computed(() => {
+  const hasTocLinks = !!props.doc?.body?.toc?.links?.length
+  const globalEnabled = config.table_of_contents !== false
+  const localEnabled = props.doc?.table_of_contents !== false
+
+  return hasTocLinks && globalEnabled && localEnabled
+})
+
 </script>
 <style lang="scss">
 .prose {

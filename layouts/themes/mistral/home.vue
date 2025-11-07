@@ -15,10 +15,7 @@
             <p class="text-[15px] md:text-lg text-[color:var(--text-muted)] mb-5">
               試験対策・教材比較・現場での働き方まで、登録販売者に関する情報を発信しています。
             </p>
-            <div class="flex flex-wrap gap-3">
-              <NuxtLink to="/exam" class="btn-primary">受験対策をみる</NuxtLink>
-              <NuxtLink to="/materials" class="btn-secondary">教材を比較する</NuxtLink>
-            </div>
+
           </div>
         </section>
   
@@ -46,7 +43,7 @@
         <section class="mb-12">
           <div class="flex items-center justify-between mb-4">
             <h2 class="section-title mb-0">新着記事</h2>
-            <NuxtLink to="/articles" class="text-sm text-[color:var(--brand)] hover:underline">もっと見る</NuxtLink>
+            <NuxtLink to="/licenses/tohan/articles" class="text-sm text-[color:var(--brand)] hover:underline">もっと見る</NuxtLink>
           </div>
   
           <!-- 新着記事 -->
@@ -129,9 +126,9 @@
   import MistralSidebar from '~/components/themes/mistral/MistralSidebar.vue'
   
   const quickLinks = [
-    { to: '/exam', title: '受験対策', desc: '合格に必要な範囲を整理', icon: '📘' },
-    { to: '/materials', title: '教材・講座比較', desc: '通信講座・独学テキスト', icon: '📚' },
-    { to: '/work', title: '仕事・転職', desc: 'ドラッグストア・調剤薬局', icon: '💼' },
+    { to: '/licenses/tohan/exam', title: '受験対策', desc: '合格に必要な範囲を整理', icon: '📘' },
+    { to: '/licenses/tohan/materials', title: '教材・講座比較', desc: '通信講座・独学テキスト', icon: '📚' },
+    { to: '/licenses/tohan/work', title: '仕事・転職', desc: 'ドラッグストア・調剤薬局', icon: '💼' },
   ]
   
   // 実際のコンテンツから取得
@@ -188,27 +185,27 @@
       {
         slug: 'exam',
         title: '受験対策',
-        to: '/exam',
+        to: '/licenses/tohan/exam',
         items: posts.filter((p: any) => 
-          p.tags?.includes('試験情報') || p._path?.startsWith('/exam')
+          p.tags?.includes('試験情報') || p._path?.startsWith('/licenses/tohan/exam')
         ).slice(0, 3),
       },
       {
         slug: 'materials',
         title: '教材・通信講座',
-        to: '/materials',
+        to: '/licenses/tohan/materials',
         items: posts.filter((p: any) => 
           p.tags?.some((tag: string) => ['教材', '通信講座', 'レビュー'].includes(tag)) || 
-          p._path?.startsWith('/materials')
+          p._path?.startsWith('/licenses/tohan/materials')
         ).slice(0, 3),
       },
       {
         slug: 'work',
         title: '仕事・転職',
-        to: '/work',
+        to: '/licenses/tohan/work',
         items: posts.filter((p: any) => 
           p.tags?.some((tag: string) => ['仕事', '転職'].includes(tag)) || 
-          p._path?.startsWith('/work')
+          p._path?.startsWith('/licenses/tohan/work')
         ).slice(0, 3),
       },
     ]

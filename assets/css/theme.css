@@ -1,6 +1,6 @@
 /* ==========================================================================
-   Global Theme Styles for 登録販売者ブログ
-   Tone: 医療・資格・信頼 + やや女性寄せ
+   Global Theme Styles for MediLicenceNavi / LicenceHub
+   Tone: 医療・資格・信頼 + やや女性寄せ（穏やか・安心感）
    ========================================================================== */
 
 /* === FONT SETUP ========================================================= */
@@ -13,9 +13,12 @@
   --line: rgba(15, 23, 42, 0.05);
 
   /* main / accent */
-  --brand: #325dce;          /* 信頼寄せの青 */
+  --brand: #325dce;          /* 信頼寄せの青（共通軸） */
   --brand-soft: rgba(50, 93, 206, 0.08);
-  --accent: #e47b88;         /* バナーやCTAにだけ使う */
+  --brand-sub: #1f9e8f;      /* キャリア・ハブ感を出すサブカラー（穏やかなグリーン） */
+  --brand-sub-soft: rgba(31, 158, 143, 0.08);
+
+  --accent: #e47b88;         /* バナーやCTAにだけ使う柔らかいピンク */
   --accent-soft: rgba(228, 123, 136, 0.08);
 
   /* text */
@@ -38,6 +41,10 @@
   --radius-sm: .6rem;
   --radius-md: 1rem;
   --shadow-sm: 0 12px 30px rgba(15, 23, 42, 0.04);
+
+  /* header */
+  --header-height: 5rem; /* 必要に応じて 4.5rem / 5rem などに調整 */
+
 }
 
 html {
@@ -50,6 +57,13 @@ body {
   line-height: 1.7;
   font-family: 'Noto Sans JP', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+/* 見出しのスクロールマージン */
+.article-body h2[id],
+.article-body h3[id],
+.article-body h4[id] {
+  scroll-margin-top: calc(var(--header-height) + 1.5rem);
 }
 
 /* === CONTAINER & LAYOUT ================================================= */
@@ -67,7 +81,7 @@ body {
   }
 }
 
-/* === TYPOGRAPHY ========================================================= */
+/* === TYPOGRAPHY（グローバル） ========================================= */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   letter-spacing: -.01em;
@@ -75,26 +89,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: clamp(1.9rem, 2.7vw, 2.6rem);
+  font-size: 1.5rem !important;
   margin-bottom: 1.3rem;
-  padding-bottom: .4rem;
-  width: fit-content;
 }
 
 h2 {
-  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  font-size: 1.2rem !important;
   margin-top: 2.4rem;
   margin-bottom: 1rem;
-  color: var(--heading);
-  border-left: 4px solid var(--brand);
-  padding-left: .7rem;
 }
 
 h3 {
-  font-size: 1.15rem;
+  font-size: 1rem !important;
   margin-top: 1.5rem;
   margin-bottom: .6rem;
-  color: var(--heading);
 }
 
 p {
@@ -110,11 +118,7 @@ ol {
   color: var(--text);
 }
 
-ul li {
-  list-style: none;
-  margin-bottom: .3rem;
-}
-
+ul li,
 ol li {
   list-style: none;
   margin-bottom: .3rem;
@@ -154,7 +158,6 @@ blockquote {
   padding: 1.1rem 1.25rem 1.25rem;
 }
 
-
 /* === BUTTONS ============================================================= */
 .btn-primary {
   display: inline-flex;
@@ -166,10 +169,12 @@ blockquote {
   padding: .55rem 1.25rem;
   border-radius: .6rem;
   gap: .35rem;
-  transition: background .15s ease-out;
+  transition: background .15s ease-out, transform .15s ease-out, box-shadow .15s ease-out;
 }
 .btn-primary:hover {
   background: #25479d;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(37, 71, 157, 0.25);
 }
 
 .btn-secondary {
@@ -195,7 +200,7 @@ blockquote {
   backdrop-filter: saturate(180%) blur(14px);
   border-bottom: 1px solid rgba(15, 23, 42, 0.04);
   z-index: 50;
-  transition: box-shadow .15s ease-out;
+  transition: box-shadow .15s ease-out, background-color .15s ease-out;
 }
 .site-header.scrolled {
   box-shadow: 0 14px 35px rgba(15, 23, 42, 0.05);
@@ -225,50 +230,77 @@ blockquote {
   list-style:none;
 }
 
-/* === ARTICLE WRAPPER ===================================================== */
-.article-shell {
+/* === ARTICLE BODY（ContentRenderer 内） ================================ */
+/* .prose article-body に対して装飾をまとめる */
+.article-body {
   max-width: var(--article-max);
-  margin-inline: auto;
-  background: var(--surface);
-  border-radius: 1.2rem;
-  padding: 1.7rem 1.4rem 2.1rem;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid rgba(15, 23, 42, 0.02);
-}
-@media (min-width: 768px) {
-  .article-shell {
-    padding: 2.1rem 2.2rem 2.4rem;
-  }
+  color: var(--text);
+
 }
 
-.article-shell img {
+/* 見出しの箱感 */
+.article-body h2 {
+  background: rgba(50, 93, 206, 0.04);
+  border-left: 4px solid var(--brand);
+  padding: .6rem .8rem;
+  margin-top: 2.3rem;
+  margin-bottom: 1.2rem;
+}
+
+.article-body h2:first-child {
+  margin-top: 0;
+}
+
+.article-body h2 + p {
+  margin-top: 0.5rem;
+}
+
+.article-body h3 {
+  margin-top: 1.6rem;
+  margin-bottom: .7rem;
+}
+
+/* 画像 */
+.article-body img {
   border-radius: .7rem;
   margin-block: 1.3rem;
   max-width: 100%;
   height: auto;
 }
 
-/* === TABLE OF CONTENTS =================================================== */
-.toc {
-  background: var(--surface);
-  border: 1px solid rgba(15, 23, 42, 0.03);
-  border-radius: 1rem;
-  padding: 1rem 1.1rem;
-  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.03);
-  font-size: .85rem;
+/* 段落の余白をやや広めに */
+.article-body p {
+  margin-bottom: 1.4rem;
 }
-.toc-title {
-  font-weight: 600;
-  margin-bottom: .35rem;
+
+/* リストのカスタムドット */
+.article-body ul {
+  margin-left: 1.2rem;
+  padding-left: .2rem;
 }
-.toc a {
-  display: block;
-  padding-block: .3rem;
-  color: var(--text-muted);
-  text-decoration: none;
+.article-body ul li {
+  position: relative;
+  padding-left: .9rem;
 }
-.toc a:hover {
-  color: var(--brand);
+.article-body ul li::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  top: .7em;
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--brand-sub);
+}
+
+/* 強調ボックス（まとめ等） */
+.article-body .summary-box {
+  background: var(--brand-soft);
+  border-left: 3px solid var(--brand);
+  border-radius: .7rem;
+  padding: 1rem 1.2rem;
+  margin-block: 1.8rem;
+  color: var(--text);
 }
 
 /* === AFFILIATE BANNERS =================================================== */
@@ -286,6 +318,161 @@ blockquote {
   box-shadow: 0 14px 35px rgba(15, 23, 42, 0.09);
 }
 
+/* === TABLE ============================================================= */
+.article-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  @media (max-width: 768px) {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+/* ヘッダー */
+.article-body thead th {
+  background: rgba(50, 93, 206, 0.04);
+  font-weight: 600;
+  text-align: left;
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* ボディ共通 */
+.article-body tbody td {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* ゼブラ（奇数行のみ） */
+.article-body tbody tr:nth-child(odd) {
+  background: #f9fafb;
+}
+
+/* ホバー時：ゼブラより優先されるよう最後に記述 */
+.article-body tbody tr:hover {
+  background: rgba(50, 93, 206, 0.04);
+}
+
+/* 最終行の下線だけ消す（好み） */
+.article-body tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* === BLOCKQUOTE ========================================================= */
+.article-body blockquote {
+  position: relative;
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--brand);
+  background: #f9fafb;
+  border-radius: 0.5rem;
+  font-style: normal;
+}
+
+/* 自動付与の引用符を消す */
+.article-body blockquote::before,
+.article-body blockquote::after {
+  content: none !important;
+}
+
+/* === SECTION SUMMARY ===================================================== */
+.article-body .section-summary {
+  margin: 1.75rem 0 1rem;                 /* 上は少し広め、下は詰めて次の章へつなぐ */
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  background: #f9fafb;                    /* ごく薄いグレー */
+  border: 1px solid rgba(148, 163, 184, .35);
+  font-size: 0.95rem;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.03);
+  @media (max-width: 768px) {
+    padding: 0.7rem 0.9rem;
+    font-size: 0.85rem;
+  }
+}
+
+.article-body .section-summary__title {
+  margin: 0 0 0.4rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  color: var(--brand-sub);                         /* サブトーンの落ち着いたグレー */
+}
+
+.article-body .section-summary p {
+  margin: 0;
+  line-height: 1.7;
+}
+
+
+/* === LICENCE HUB ELEMENTS =============================================== */
+.license-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  padding: .18rem .6rem;
+  border-radius: 999px;
+  font-size: .78rem;
+  font-weight: 500;
+  background: var(--brand-soft);
+  color: var(--brand);
+}
+.license-pill--career {
+  background: var(--brand-sub-soft);
+  color: var(--brand-sub);
+}
+.license-pill--accent {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.license-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.4rem;
+}
+.license-card {
+  background: var(--surface);
+  border-radius: 1rem;
+  border: 1px solid rgba(15, 23, 42, 0.03);
+  box-shadow: var(--shadow-sm);
+  padding: 1.1rem 1.3rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+}
+.license-card-title {
+  font-size: .98rem;
+  font-weight: 700;
+  color: var(--heading);
+}
+.license-card-summary {
+  font-size: .86rem;
+  color: var(--text-muted);
+}
+.license-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+  margin-top: .4rem;
+}
+
+.section-eyebrow {
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--brand-sub);
+  margin-bottom: .3rem;
+}
+.section-heading {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--heading);
+  margin-bottom: .8rem;
+}
+
 /* === RESPONSIVE ========================================================== */
 @media (max-width: 768px) {
   h1 { font-size: 1.7rem; }
@@ -293,5 +480,8 @@ blockquote {
   .toc {
     font-size: .8rem;
     padding: .8rem .8rem 1rem;
+  }
+  .license-grid {
+    gap: 1.1rem;
   }
 }
