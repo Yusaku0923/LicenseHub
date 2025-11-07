@@ -4,9 +4,9 @@
         <div class="mx-auto max-w-6xl md:p-4">
             <div class="">
                 <h1 class="p-4 text-4xl font-bold">
-                    Tag : {{ tag }}
+                    タグ「{{ tag }}」の記事一覧
                 </h1>
-                <MinimalistListing format="list" :tag="tag" />
+                <MistralMinimalistListing format="list" :tag="tag" />
             </div>
         </div>
     </main>

@@ -1,10 +1,10 @@
 <template>
   <div class="space-y-6">
     <!-- タグなど -->
-    <div v-if="tags && tags.length > 0" class="card">
+    <div v-if="displayTags.length > 0" class="card">
       <h3 class="text-sm font-semibold mb-3 text-[color:var(--heading)]">タグ</h3>
       <div class="flex flex-wrap gap-2">
-        <NuxtLink v-for="tag in tags" :key="tag" :to="`/tags/${tag}`" class="bg-slate-100 px-2 py-1 rounded text-xs">
+        <NuxtLink v-for="tag in displayTags" :key="tag" :to="`/tags/${tag}`" class="bg-slate-100 px-2 py-1 rounded text-xs">
           {{ tag }}
         </NuxtLink>
       </div>
@@ -21,18 +21,24 @@
 
       <AffiliateBanner type="studying" />
       <AffiliateBanner type="onsuku" />
+      <AffiliateBanner type="sanko" />
     </div>
 
   </div>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+import { LICENSE_HUB_PHASE1_TAGS } from '~/data/tags'
+
 interface Props {
   tags?: string[]
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   tags: () => [],
 })
+
+const displayTags = computed(() => (props.tags.length ? props.tags : [...LICENSE_HUB_PHASE1_TAGS]))
 </script>
 
