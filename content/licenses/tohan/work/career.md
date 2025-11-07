@@ -5,7 +5,7 @@ description: "登録販売者としてのキャリアアップの可能性や、
 tags: ["登録販売者", "キャリアアップ", "仕事内容"]
 date: 2025-11-07
 update: 2025-11-07
-draft: true
+draft: false
 ---
 
 <!-- TODO: 本文を追加 -->

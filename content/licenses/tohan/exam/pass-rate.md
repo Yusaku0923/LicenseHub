@@ -5,7 +5,7 @@ description: "登録販売者試験の過去の合格率や難易度の推移を
 tags: ["登録販売者", "合格率", "試験概要"]
 date: 2025-11-07
 update: 2025-11-07
-draft: true
+draft: false
 ---
 
 <!-- TODO: 本文を追加 -->

@@ -58,6 +58,12 @@
                   :src="'/images/' + post.cover"
                   :alt="post.title"
                   class="w-full h-full object-cover"
+                  width="360"
+                  height="192"
+                  sizes="(max-width: 768px) 100vw, 360px"
+                  format="webp"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div v-else class="h-32 bg-slate-100 flex items-center justify-center text-slate-400 text-sm">

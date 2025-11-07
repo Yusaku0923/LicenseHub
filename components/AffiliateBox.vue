@@ -18,6 +18,10 @@
             :src="item.img"
             :alt="item.program"
             class="w-20 h-20 rounded-md object-cover mb-3 border border-emerald-100"
+            width="80"
+            height="80"
+            loading="lazy"
+            decoding="async"
           />
 
           <!-- 案件名 -->

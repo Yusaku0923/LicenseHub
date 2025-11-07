@@ -7,6 +7,8 @@
             class="rounded-full border border-gray-300"
             width="100"
             height="100"
+            loading="lazy"
+            decoding="async"
         />
     </div>
     <div class="font-semibold text-xl mt-2">

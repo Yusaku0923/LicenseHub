@@ -2,16 +2,18 @@
     <header class="sticky top-0 z-50 w-full bg-white/90 backdrop-blur border-b border-slate-200">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <!-- left: logo / title -->
-        <NuxtLink to="/" class="flex items-center gap-2 group">
+        <NuxtLink to="/" class="flex items-center gap-3 group" :aria-label="logoAlt">
           <NuxtImg
-            v-if="config.logo"
-            :src="config.logo"
+            :src="logoSrc"
+            :alt="logoAlt"
             class="h-12 w-auto group-hover:opacity-80 transition"
-            alt="logo"
+            width="160"
+            height="48"
+            sizes="(max-width: 768px) 120px, 160px"
+            preload
+            loading="eager"
+            decoding="async"
           />
-          <!-- <span class="text-lg sm:text-xl font-bold text-slate-800 group-hover:text-emerald-700 transition">
-            {{ blogName }}
-          </span> -->
         </NuxtLink>
   
         <!-- right: nav (desktop) -->
@@ -23,9 +25,6 @@
             class="hover:text-indigo-700 transition-colors"
           >
             {{ item.name }}
-          </NuxtLink>
-          <NuxtLink to="/about" class="hover:text-indigo-700">
-            運営者情報
           </NuxtLink>
         </nav>
   
@@ -77,27 +76,44 @@
     </header>
   </template>
   
-  <script setup lang="ts">
-  const config = useAppConfig()
-  const menu =
+<script setup lang="ts">
+import { computed, ref } from 'vue'
+import { useHead } from '#imports'
+
+useHead({
+  link: [
+    { rel: 'preconnect', href: 'https://fonts.googleapis.com', crossorigin: 'anonymous' },
+    { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' },
+    {
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap',
+    },
+  ],
+})
+
+const config = useAppConfig()
+const fallbackLogo = '/images/logo.svg'
+const blogName = computed(() => config.name || '登録販売者ナビ')
+const logoSrc = computed(() => config.logo || fallbackLogo)
+const logoAlt = computed(() => config.logoAlt || blogName.value)
+
+const menu =
     [
       { name: '受験対策', path: '/licenses/tohan/exam' },
       { name: '教材比較', path: '/licenses/tohan/materials' },
       { name: '仕事・転職', path: '/licenses/tohan/work' },
       { name: '記事一覧', path: '/licenses/tohan/articles' }
     ]
-  const blogName = config.name || '登録販売者ナビ'
-  const mobileMenuOpen = ref(false)
-  </script>
-  
-  <style scoped>
-  .fade-enter-active,
-  .fade-leave-active {
-    transition: opacity 0.3s;
-  }
-  .fade-enter-from,
-  .fade-leave-to {
-    opacity: 0;
-  }
-  </style>
-  
+const mobileMenuOpen = ref(false)
+</script>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>

@@ -39,6 +39,15 @@ const props = withDefaults(defineProps<Props>(), {
   tags: () => [],
 })
 
-const displayTags = computed(() => (props.tags.length ? props.tags : [...LICENSE_HUB_PHASE1_TAGS]))
+const displayTags = computed(() => {
+  const merged = new Set<string>()
+
+  LICENSE_HUB_PHASE1_TAGS.forEach((tag) => merged.add(tag))
+  props.tags
+    .filter((tag): tag is string => typeof tag === 'string' && tag.trim().length > 0)
+    .forEach((tag) => merged.add(tag))
+
+  return Array.from(merged)
+})
 </script>
 

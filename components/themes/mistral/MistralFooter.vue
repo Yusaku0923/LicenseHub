@@ -4,7 +4,17 @@
         <!-- column 1: site info -->
         <div class="space-y-3">
           <NuxtLink to="/" class="block text-lg font-bold text-slate-800 hover:text-emerald-700 transition">
-            {{ config.name || '登録販売者ナビ' }}
+            <NuxtImg
+              src="/images/logo.webp"
+              alt="LicenseHub"
+              class="h-12 w-auto group-hover:opacity-80 transition"
+              width="160"
+              height="48"
+              sizes="(max-width: 768px) 120px, 160px"
+              preload
+              loading="eager"
+              decoding="async"
+            />
           </NuxtLink>
           <p class="text-sm leading-relaxed text-slate-600">
             登録販売者試験の合格と実務に役立つ情報を発信しています。<br>

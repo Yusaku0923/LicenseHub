@@ -9,19 +9,33 @@
           <MistralBreadcrumbs :doc="doc" />
         </div>
         <div v-if="doc" class="pt-6 pb-0 px-4 md:px-0">
-          <!-- カバー画像（あれば） -->
-          <div v-if="doc.cover" class="flex justify-center mb-8">
+          <!-- ③ 記事ヘッダーをカード化したやつに -->
+          <ArticleHeader :article="doc" />
+
+           <!-- ② カバー画像 -->
+          <div v-if="doc.cover" class="flex justify-center mb-4 mt-4">
             <NuxtImg
               :src="'/images/' + doc.cover"
               :alt="doc.title"
               fit="cover"
               placeholder
+              loading="eager"
+              preload
+              width="1200"
+              height="630"
+              sizes="(max-width: 768px) 100vw, 960px"
+              format="webp"
               class="rounded-lg max-h-[420px] object-cover w-full"
             />
           </div>
-    
-          <!-- ③ 記事ヘッダーをカード化したやつに -->
-          <ArticleHeader :article="doc" />
+
+          <!-- ③ リード文（カバーのあとに表示） -->
+          <p
+            v-if="doc.lead"
+            class="text-sm md:text-base text-[color:var(--heading)]/85 leading-relaxed mb-6"
+          >
+            {{ doc.lead }}
+          </p>
 
           <!-- ★ 目次カード（ArticleToc） -->
           <div class="mt-8 md:mt-10">

@@ -5,7 +5,7 @@ description: "試験申込、受験票、当日の持ち物など、試験に関
 tags: ["登録販売者", "よくある質問", "試験概要"]
 date: 2025-11-07
 update: 2025-11-07
-draft: true
+draft: false
 ---
 
 <!-- TODO: 本文を追加 -->

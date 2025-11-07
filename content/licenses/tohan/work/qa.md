@@ -5,7 +5,7 @@ description: "勤務条件、転職活動、福利厚生についての一般的
 tags: ["登録販売者", "よくある質問", "仕事内容"]
 date: 2025-11-07
 update: 2025-11-07
-draft: true
+draft: false
 ---
 
 <!-- TODO: 本文を追加 -->

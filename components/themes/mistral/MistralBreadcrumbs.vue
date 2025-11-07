@@ -20,14 +20,14 @@
         <NuxtLink
           v-if="idx < trail.length - 1"
           :to="item.to"
-          class="hover:underline text-ellipsis overflow-hidden inline-block align-middle max-w-[120px]"
+          class="hover:underline text-ellipsis overflow-hidden inline-block align-middle max-w-[120px] md:max-w-none"
         >
           {{ item.label }}
         </NuxtLink>
 
         <span
           v-else
-          class="text-[color:var(--heading)] text-ellipsis overflow-hidden inline-block align-middle max-w-[200px]"
+          class="text-[color:var(--heading)] text-ellipsis overflow-hidden inline-block align-middle max-w-[200px] md:max-w-none"
         >
           {{ item.label }}
         </span>
@@ -64,3 +64,17 @@ const trail = computed(() => {
   return items
 })
 </script>
+<style scoped>
+/* パンくずのリンクは全体スタイルをリセット */
+nav[aria-label="Breadcrumb"] a {
+  color: inherit;
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+/* hover 時だけ、細めの下線を出す */
+nav[aria-label="Breadcrumb"] a:hover {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px; /* or `from-font` でもOK */
+}
+</style>

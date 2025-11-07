@@ -8,7 +8,7 @@ date: 2025-10-31
 
 ## 教材・講座ハブ
 
-- 通信講座一覧: /materials/courses
-- 比較表: /materials/compare
-- 市販テキスト: /materials/books
-- 学習プラン: /materials/study-plan
+- 通信講座一覧: [/licenses/tohan/materials/courses](/licenses/tohan/materials/courses)
+- 比較表: [/licenses/tohan/materials/compare](/licenses/tohan/materials/compare)
+- 市販テキスト: [/licenses/tohan/materials/books](/licenses/tohan/materials/books)
+- 学習プラン: [/licenses/tohan/materials/tools](/licenses/tohan/materials/tools)

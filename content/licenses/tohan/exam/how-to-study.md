@@ -5,7 +5,7 @@ description: "登録販売者試験に合格するための効率的な勉強法
 tags: ["登録販売者", "勉強法", "通信講座"]
 date: 2025-11-07
 update: 2025-11-07
-draft: true
+draft: false
 ---
 
 <!-- TODO: 本文を追加 -->

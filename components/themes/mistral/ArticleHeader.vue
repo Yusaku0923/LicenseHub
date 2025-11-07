@@ -27,14 +27,7 @@
         >
           {{ article.title }}
         </h1>
-
-        <p
-          v-if="article.lead"
-          class="text-sm md:text-base text-[color:var(--text-muted)] leading-relaxed mb-3"
-        >
-          {{ article.lead }}
-        </p>
-
+        
         <!-- カテゴリ / タグ -->
         <div class="flex flex-wrap items-center gap-2 md:gap-3 text-xs mt-1">
           <span

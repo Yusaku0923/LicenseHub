@@ -51,9 +51,12 @@
                                     :src="'/images/' + article.cover"
                                     :alt="article.title"
                                     class="w-full object-cover"
-                                    sizes="233px sm:400px md:400px"
+                                    width="400"
+                                    height="250"
+                                    sizes="(max-width: 768px) 100vw, 320px"
                                     format="webp"
                                     loading="lazy"
+                                    decoding="async"
                                     placeholder
                                 />
                             </NuxtLink>

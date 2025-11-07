@@ -5,7 +5,7 @@ description: "登録販売者試験の日程、申込方法、注意事項など
 tags: ["登録販売者", "試験日程", "試験概要"]
 date: 2025-11-07
 update: 2025-11-07
-draft: true
+draft: false
 ---
 
 <!-- TODO: 本文を追加 -->

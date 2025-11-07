@@ -5,7 +5,7 @@ description: "登録販売者試験の受験資格、実施時期、試験の形
 tags: ["登録販売者", "試験概要", "国家資格"]
 date: 2025-11-07
 update: 2025-11-07
-draft: true
+draft: false
 ---
 
 <!-- TODO: 本文を追加 -->

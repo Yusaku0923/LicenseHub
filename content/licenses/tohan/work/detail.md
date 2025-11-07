@@ -5,7 +5,7 @@ description: "登録販売者としての典型的な仕事の流れや勤務先
 tags: ["登録販売者", "仕事内容", "医薬品販売"]
 date: 2025-11-07
 update: 2025-11-07
-draft: true
+draft: false
 ---
 
 <!-- TODO: 本文を追加 -->
