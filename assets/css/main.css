@@ -10,7 +10,7 @@
   /* Color system */
   --page-bg:rgb(36, 194, 175);
   --surface: #ffffff;
-  --line: rgba(15, 23, 42, 0.05);
+  --line: rgb(36, 194, 175, 0.5);
 
   /* main / accent */
   --brand: #229c8e;          /* 落ち着いたターコイズグリーン */
@@ -157,7 +157,7 @@ blockquote {
 .aff-box,
 .info-box {
   background: var(--surface);
-  border: 1px solid rgba(15, 23, 42, 0.02);
+  border: 1px solid var(--line);
   border-radius: 1rem;
   box-shadow: var(--shadow-sm);
   padding: 1.1rem 1.25rem 1.25rem;
@@ -369,17 +369,16 @@ blockquote {
 .article-body blockquote {
   position: relative;
   margin: 1.5rem 0;
-  padding: 1rem 1.25rem;
-  border-left: 4px solid var(--brand);
-  background: #f9fafb;
-  border-radius: 0.5rem;
-  font-style: normal;
-}
-
-/* 自動付与の引用符を消す */
-.article-body blockquote::before,
-.article-body blockquote::after {
-  content: none !important;
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.75rem;
+  background: #ffffff;
+  border: 2px solid transparent;
+  background-image:
+    linear-gradient(#ffffff, #ffffff),
+    linear-gradient(135deg, var(--brand), #74d1c6);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
 }
 
 /* === SECTION SUMMARY ===================================================== */
@@ -492,6 +491,22 @@ blockquote {
   font-weight: 700;
   color: var(--heading);
   margin-bottom: .8rem;
+}
+
+/* === AFFILIATE BANNERS =================================================== */
+.aff-link a {
+  display: inline-block;
+  background-color: rgba(34, 156, 142, 0.08);
+  border: 1px solid rgba(34, 156, 142, 0.2);
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-weight: 600;
+  color: var(--brand);
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+.aff-link a:hover {
+  background-color: rgba(34, 156, 142, 0.12);
 }
 
 /* === RESPONSIVE ========================================================== */

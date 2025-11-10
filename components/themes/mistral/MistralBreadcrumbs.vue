@@ -54,10 +54,17 @@ function humanize(segment: string): string {
 const trail = computed(() => {
   const items: Array<{ label: string; to: string }> = []
   const allSegs = route.path.split('/').filter(Boolean)
-  allSegs.forEach((seg, idx) => {
-    if (seg === 'licenses') return
-    const actualPath = '/' + allSegs.slice(0, idx + 1).join('/')
-    const isLast = idx === allSegs.length - 1
+  // パンくずから除外するセグメント
+  const excludedSegments = ['licenses', 'materials', 'articles', 'work', 'exam']
+  
+  // 除外されないセグメントのみをフィルタリング
+  const filteredSegs = allSegs.filter(seg => !excludedSegments.includes(seg))
+  
+  filteredSegs.forEach((seg, idx) => {
+    // 除外されないセグメントのみでパスを構築
+    const pathSegs = filteredSegs.slice(0, idx + 1)
+    const actualPath = '/' + pathSegs.join('/')
+    const isLast = idx === filteredSegs.length - 1
     const label = isLast ? (props.doc?.title || humanize(seg)) : humanize(seg)
     items.push({ label, to: actualPath })
   })

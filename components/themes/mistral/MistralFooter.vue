@@ -40,6 +40,12 @@
             <li>
               <NuxtLink to="/privacy" class="hover:text-emerald-700 transition-colors">プライバシーポリシー</NuxtLink>
             </li>
+            <li>
+              <NuxtLink to="/disclaimer" class="hover:text-emerald-700 transition-colors">免責事項</NuxtLink>
+            </li>
+            <li>
+              <NuxtLink to="/contact" class="hover:text-emerald-700 transition-colors">お問い合わせ</NuxtLink>
+            </li>
           </ul>
         </div>
   

@@ -1,4 +1,9 @@
 export default defineAppConfig({
+  site: {
+    name: 'LicenceHub',
+    email: 'contact@licencehub.com',
+    domain: 'https://licencehub.com',
+  },
   theme: 'mistral',
   name: 'LicenseHub',
   description: 'LicenseHub is a platform for medical license navigation',

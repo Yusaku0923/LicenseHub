@@ -30,13 +30,13 @@
         
         <!-- カテゴリ / タグ -->
         <div class="flex flex-wrap items-center gap-2 md:gap-3 text-xs mt-1">
-          <span
+          <!-- <span
             v-for="cat in categories"
             :key="`cat-${cat}`"
             class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-800 text-white"
           >
             {{ cat }}
-          </span>
+          </span> -->
 
           <NuxtLink
             v-for="tag in (article.tags || [])"

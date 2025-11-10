@@ -54,7 +54,7 @@
     }
     .layout-sidebar {
       order: 0;
-      margin-top: 5rem; /* 上マージンは不要 */
+      margin-top: 2.5rem; /* 上マージンは不要 */
     }
   }
   </style>

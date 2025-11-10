@@ -93,7 +93,7 @@ const toggle = () => (isOpen.value = !isOpen.value)
 
 /* リスト */
 .toc-list {
-  padding-left: 0;
+  padding-left: 1rem;
   margin: 0;
   list-style: none;
 }

@@ -4,7 +4,7 @@
     <div v-if="displayTags.length > 0" class="card">
       <h3 class="text-sm font-semibold mb-3 text-[color:var(--heading)]">タグ</h3>
       <div class="flex flex-wrap gap-2">
-        <NuxtLink v-for="tag in displayTags" :key="tag" :to="`/tags/${tag}`" class="bg-slate-100 px-2 py-1 rounded text-xs">
+        <NuxtLink v-for="tag in displayTags" :key="tag" :to="`/tags/${tag}`" class="bg-[rgba(15,23,42,0.04)] px-2 py-1 rounded text-xs hover:bg-[rgba(15,23,42,0.07)] transition-colors">
           {{ tag }}
         </NuxtLink>
       </div>

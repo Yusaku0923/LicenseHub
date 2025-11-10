@@ -6,38 +6,67 @@
       <template #posts>
         <!-- ① Hero -->
         <section
-          class="rounded-2xl bg-[rgba(50,93,206,0.08)] border border-[rgba(50,93,206,0.05)] p-6 md:p-10 flex flex-col gap-6 md:flex-row md:items-center mb-10"
+          class="rounded-2xl bg-[rgba(50,93,206,0.08)] border border-[rgba(50,93,206,0.05)] p-6 md:p-10 flex flex-col gap-6 md:flex-row md:items-center mt-10 mb-10 relative overflow-hidden"
         >
-          <div class="flex-1">
+          <!-- 背景に流れるアイコン（左下⇔右上交互横断） -->
+          <!-- <FloatingIconsBackground /> -->
+          <div class="flex-1 relative z-10">
+            <p class="inline-flex items-center px-2 py-1 mb-3 text-xs font-semibold rounded-full bg-white/70 text-[color:var(--brand)] border border-[rgba(50,93,206,0.16)]">
+              LicenceHub｜登録販売者の情報ガイド
+            </p>
+
             <h1 class="text-3xl md:text-4xl font-bold text-[color:var(--heading)] mb-4 leading-tight">
-              登録販売者の勉強・合格・仕事探しをまとめたガイド
+              登録販売者をめざすあなたへ。<br class="hidden md:block" />
+              勉強・合格・仕事探しを、この一つに。
             </h1>
+
             <p class="text-[15px] md:text-lg text-[color:var(--text-muted)] mb-5">
               試験対策・教材比較・現場での働き方まで、登録販売者に関する情報を発信しています。
             </p>
 
+            <div class="flex flex-wrap gap-3">
+              <NuxtLink
+                to="/licenses/tohan/exam"
+                class="inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold bg-[color:var(--brand)] text-white shadow-sm hover:opacity-90 transition"
+              >
+                勉強の始め方を見る
+              </NuxtLink>
+              <NuxtLink
+                to="/licenses/tohan/materials"
+                class="inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold bg-white text-[color:var(--brand)] border border-[rgba(50,93,206,0.25)] hover:bg-[rgba(50,93,206,0.03)] transition"
+              >
+                通信講座・教材を比較する
+              </NuxtLink>
+            </div>
           </div>
         </section>
   
         <!-- ② カテゴリクイックリンク -->
-        <section class="grid gap-4 md:grid-cols-3 mb-12">
-          <NuxtLink
-            v-for="item in quickLinks"
-            :key="item.to"
-            :to="item.to"
-            class="bg-white rounded-xl border border-[rgba(15,23,42,0.03)] shadow-sm p-4 flex items-center gap-3 hover:border-[rgba(50,93,206,0.35)] transition"
-          >
-            <div
-              class="w-10 h-10 rounded-full bg-[rgba(50,93,206,0.08)] flex items-center justify-center text-[color:var(--brand)] text-lg"
+        <section class="mb-12">
+          <h2 class="section-title mb-3">まずはここから</h2>
+          <p class="text-xs text-[color:var(--text-muted)] mb-4">
+            勉強・教材・仕事の3つの入り口から、目的に合わせて情報を探せます。
+          </p>
+          <div class="grid gap-4 md:grid-cols-3">
+            <NuxtLink
+              v-for="item in quickLinks"
+              :key="item.to"
+              :to="item.to"
+              class="group bg-white rounded-xl border border-[rgba(15,23,42,0.03)] shadow-sm p-4 flex items-center gap-3 transition"
             >
-              {{ item.icon }}
-            </div>
-            <div>
-              <p class="font-semibold text-[color:var(--heading)]">{{ item.title }}</p>
-              <p class="text-xs text-[color:var(--text-muted)]">{{ item.desc }}</p>
-            </div>
-          </NuxtLink>
+              <div
+                class="w-10 h-10 rounded-full bg-[rgba(50,93,206,0.08)] flex items-center justify-center text-[color:var(--brand)] text-lg"
+              >
+                {{ item.icon }}
+              </div>
+              <div>
+                <p class="font-semibold text-[color:var(--heading)] text-sm group-hover:text-[color:var(--brand)] transition-colors">{{ item.title }}</p>
+                <p class="text-xs text-[color:var(--text-muted)] group-hover:text-[color:var(--brand)] transition-colors">{{ item.desc }}</p>
+              </div>
+            </NuxtLink>
+          </div>
         </section>
+
   
         <!-- ③ 新着記事（ここに元の Mistral のコンポーネントを入れてもいい） -->
         <section class="mb-12">
@@ -48,16 +77,17 @@
   
           <!-- 新着記事 -->
           <div v-if="latestPosts.length > 0" class="grid gap-6 md:grid-cols-3">
-            <article
+            <NuxtLink
               v-for="post in latestPosts"
               :key="post._path"
-              class="bg-white rounded-xl border border-[rgba(15,23,42,0.02)] shadow-sm overflow-hidden flex flex-col"
+              :to="post._path"
+              class="group bg-white rounded-xl border border-[rgba(15,23,42,0.02)] shadow-sm overflow-hidden flex flex-col transition"
             >
               <div v-if="post.cover" class="h-32 bg-slate-100 flex items-center justify-center text-slate-400 text-sm">
                 <NuxtImg
                   :src="'/images/' + post.cover"
                   :alt="post.title"
-                  class="w-full h-full object-cover"
+                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                   width="360"
                   height="192"
                   sizes="(max-width: 768px) 100vw, 360px"
@@ -76,14 +106,14 @@
                 >
                   {{ post.tags[0] }}
                 </p>
-                <NuxtLink :to="post._path" class="font-semibold text-[color:var(--heading)] leading-snug line-clamp-2">
+                <p class="font-semibold text-[color:var(--heading)] leading-snug line-clamp-2 group-hover:text-[color:var(--brand)] transition-colors">
                   {{ post.title }}
-                </NuxtLink>
-                <p v-if="post.date" class="text-xs text-[color:var(--text-muted)]">
+                </p>
+                <p v-if="post.date" class="text-xs text-[color:var(--text-muted)] mt-auto">
                   {{ formatDate(post.date) }}
                 </p>
               </div>
-            </article>
+            </NuxtLink>
           </div>
           <div v-else class="text-center text-[color:var(--text-muted)] py-8">
             記事がまだありません
@@ -95,25 +125,60 @@
           <div v-for="section in categorySections" :key="section.slug">
             <div class="flex items-center justify-between mb-4">
               <h2 class="section-title mb-0">{{ section.title }}</h2>
-              <NuxtLink :to="section.to" class="text-sm text-[color:var(--brand)] hover:underline">もっと見る</NuxtLink>
+              <NuxtLink :to="section.to" class="text-sm text-[color:var(--brand)] hover:underline">
+                もっと見る
+              </NuxtLink>
             </div>
+
             <div v-if="section.items.length > 0" class="grid gap-6 md:grid-cols-3">
-              <article
+              <NuxtLink
                 v-for="post in section.items"
                 :key="post._path"
-                class="bg-white rounded-xl border border-[rgba(15,23,42,0.02)] shadow-sm p-4"
+                :to="post._path"
+                class="group bg-white rounded-xl border border-[rgba(15,23,42,0.02)] shadow-sm overflow-hidden flex flex-col transition"
               >
-                <p v-if="post.date" class="text-xs text-[color:var(--text-muted)] mb-1">{{ formatDate(post.date) }}</p>
-                <NuxtLink :to="post._path" class="font-semibold text-[color:var(--heading)] leading-snug line-clamp-2">
-                  {{ post.title }}
-                </NuxtLink>
-              </article>
+                <!-- サムネイル（新着と同じレイアウト） -->
+                <div v-if="post.cover" class="h-32 bg-slate-100 flex items-center justify-center text-slate-400 text-sm">
+                  <NuxtImg
+                    :src="'/images/' + post.cover"
+                    :alt="post.title"
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                    width="360"
+                    height="192"
+                    sizes="(max-width: 768px) 100vw, 360px"
+                    format="webp"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div v-else class="h-32 bg-slate-100 flex items-center justify-center text-slate-400 text-sm">
+                  no image
+                </div>
+
+                <!-- テキスト部（タイトル＋任意で説明＋日付） -->
+                <div class="p-4 flex flex-col gap-3 flex-1">
+                  <p v-if="post.date" class="text-xs text-[color:var(--text-muted)]">
+                    {{ formatDate(post.date) }}
+                  </p>
+                  <p class="font-semibold text-[color:var(--heading)] leading-snug line-clamp-2 group-hover:text-[color:var(--brand)] transition-colors">
+                    {{ post.title }}
+                  </p>
+                  <p
+                    v-if="post.description"
+                    class="text-xs text-[color:var(--text-muted)] leading-snug line-clamp-2"
+                  >
+                    {{ post.description }}
+                  </p>
+                </div>
+              </NuxtLink>
             </div>
+
             <div v-else class="text-center text-[color:var(--text-muted)] py-4 text-sm">
               該当する記事がありません
             </div>
           </div>
         </section>
+
       </template>
   
       <!-- サイドバー -->
@@ -130,6 +195,7 @@
   import MistralFooter from '~/components/themes/mistral/MistralFooter.vue'
   import MistralHomeLayout from '~/components/content/MistralHomeLayout.vue'
   import MistralSidebar from '~/components/themes/mistral/MistralSidebar.vue'
+  import FloatingIconsBackground from '~/components/themes/mistral/FloatingIconsBackground.vue'
   
   const quickLinks = [
     { to: '/licenses/tohan/exam', title: '受験対策', desc: '合格に必要な範囲を整理', icon: '📘' },
@@ -260,4 +326,3 @@
     }
   }
   </script>
-  
