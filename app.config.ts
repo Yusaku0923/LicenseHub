@@ -3,6 +3,19 @@ export default defineAppConfig({
     name: 'LicenceHub',
     email: 'contact@licencehub.com',
     domain: 'https://licencehub.com',
+    author: 'LicenceHub編集部',
+    publisher: 'LicenceHub',
+    ogTitle: 'LicenceHub',
+    ogDescription: 'LicenceHubは、医療・資格・信頼をテーマに、登録販売者をはじめとする国家資格・通信講座をわかりやすく解説します。',
+    ogUrl: 'https://licencehub.com',
+    ogType: 'website',
+    ogLocale: 'ja_JP',
+    ogSiteName: 'LicenceHub',
+    ogImage: '/images/ogp/ogp_default.webp',
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogImageType: 'image/webp',
+    ogImageAlt: 'LicenceHub',
   },
   theme: 'mistral',
   name: 'LicenseHub',
@@ -26,6 +39,7 @@ export default defineAppConfig({
   // theme: 'neo-minimalist',
   logo: '/images/logo.webp',
   favicon: '/favicon.ico',
+  lang: 'ja',
 
   robots: [
     {

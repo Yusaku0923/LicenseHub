@@ -46,7 +46,13 @@ const props = defineProps<{ doc?: DocLike }>()
 const route = useRoute()
 
 function humanize(segment: string): string {
-  const labelMap: Record<string, string> = { tohan: '登録販売者' }
+  const labelMap: Record<string, string> = { 
+    tohan: '登録販売者',
+    exam: '受験対策',
+    materials: '教材比較',
+    work: '仕事・転職',
+    articles: '記事一覧'
+  }
   if (labelMap[segment]) return labelMap[segment]
   return segment.replace(/[-_]/g, ' ')
 }
@@ -54,17 +60,33 @@ function humanize(segment: string): string {
 const trail = computed(() => {
   const items: Array<{ label: string; to: string }> = []
   const allSegs = route.path.split('/').filter(Boolean)
+  // ハブページとして表示するセグメント（日本語ラベルに変換）
+  const hubSegments = ['exam', 'materials', 'work', 'articles']
   // パンくずから除外するセグメント
-  const excludedSegments = ['licenses', 'materials', 'articles', 'work', 'exam']
+  const excludedSegments = ['licenses']
   
-  // 除外されないセグメントのみをフィルタリング
-  const filteredSegs = allSegs.filter(seg => !excludedSegments.includes(seg))
+  // パス構築用のセグメント（すべて含める）
+  const pathSegments: string[] = []
   
-  filteredSegs.forEach((seg, idx) => {
-    // 除外されないセグメントのみでパスを構築
-    const pathSegs = filteredSegs.slice(0, idx + 1)
-    const actualPath = '/' + pathSegs.join('/')
-    const isLast = idx === filteredSegs.length - 1
+  allSegs.forEach((seg, idx) => {
+    // パスは常に完全なパスを使用
+    pathSegments.push(seg)
+    const actualPath = '/' + pathSegments.join('/')
+    const isLast = idx === allSegs.length - 1
+    
+    // 除外セグメントは表示しない
+    if (excludedSegments.includes(seg)) {
+      return
+    }
+    
+    // ハブセグメントの場合は日本語ラベルに変換して表示
+    if (hubSegments.includes(seg)) {
+      const label = isLast ? (props.doc?.title || humanize(seg)) : humanize(seg)
+      items.push({ label, to: actualPath })
+      return
+    }
+    
+    // その他のセグメントも表示
     const label = isLast ? (props.doc?.title || humanize(seg)) : humanize(seg)
     items.push({ label, to: actualPath })
   })

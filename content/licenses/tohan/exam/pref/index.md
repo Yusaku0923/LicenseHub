@@ -3,6 +3,7 @@ title: 都道府県別の試験情報
 description: 登録販売者試験の都道府県別スケジュールと実施概要をまとめています。
 listed: true
 tags: [試験日程, 都道府県]
+draft: true
 ---
 
 ## 都道府県別ガイド

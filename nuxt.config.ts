@@ -1,5 +1,3 @@
-import Critters from 'critters'
-
 const prerenderErrors: Array<{ route: string; error: unknown }> = []
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -8,6 +6,13 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || '',
+    },
+  },
+  app: {
+    head: {
+      htmlAttrs: {
+        lang: 'ja',
+      },
     },
   },
   extends: [

@@ -88,8 +88,6 @@
 </template>
 <script setup lang="ts">
 import ArticleHeader from '~/components/themes/mistral/ArticleHeader.vue'
-import ShareSection from '~/components/themes/mistral/ShareSection.vue'
-import PageSidebar from '~/components/themes/mistral/PageSidebar.vue'
 import MistralHeader from '~/components/themes/mistral/MistralHeader.vue'
 import MistralFooter from '~/components/themes/mistral/MistralFooter.vue'
 import MistralHomeLayout from '~/components/content/MistralHomeLayout.vue'
@@ -97,10 +95,11 @@ import MistralSidebar from '~/components/themes/mistral/MistralSidebar.vue'
 import MistralBreadcrumbs from '~/components/themes/mistral/MistralBreadcrumbs.vue'
 
 const props = defineProps<{
-doc: any
+  doc: any
 }>()
 
 const config = useAppConfig()
+const route = useRoute()
 
 const isTocEnabled = computed(() => {
   const hasTocLinks = !!props.doc?.body?.toc?.links?.length
@@ -110,7 +109,58 @@ const isTocEnabled = computed(() => {
   return hasTocLinks && globalEnabled && localEnabled
 })
 
+/**
+ * キーワード（frontmatter の keywords → なければ tags を利用）
+ */
+const keywordString = computed(() => {
+  if (props.doc?.keywords?.length) {
+    return props.doc.keywords.join(', ')
+  }
+  if (props.doc?.tags?.length) {
+    return props.doc.tags.join(', ')
+  }
+  return undefined
+})
+
+/**
+ * SEO メタ設定
+ * Nuxt 3 では useSeoMeta は自動インポートされているので、
+ * 追加の import は不要です。
+ */
+ useSeoMeta({
+  title: () => props.doc?.title ?? config.site.name,
+  description: () =>
+    props.doc?.description ?? props.doc?.lead ?? config.site.description,
+  keywords: () => keywordString.value,
+  ogTitle: () => props.doc?.ogTitle ?? props.doc?.title ?? config.site.name,
+  ogDescription: () =>
+    props.doc?.ogDescription ??
+    props.doc?.description ??
+    config.site.description,
+  ogType: () => 'article',
+  ogUrl: () => `${config.site.domain}${route.path}`,
+  ogImage: () =>
+    props.doc?.ogImage ??
+    (props.doc?.cover
+      ? `${config.site.domain}/images/${props.doc.cover}`
+      : `${config.site.domain}${config.site.ogImage}`),
+  author: config.site.author,
+  publisher: config.site.publisher,
+})
+
+useHead({
+  htmlAttrs: {
+    lang: 'ja',
+  },
+  link: [
+    {
+      rel: 'canonical',
+      href: `${config.site.domain}${route.path}`,
+    },
+  ],
+})
 </script>
+
 <style lang="scss">
 .prose {
   a {

@@ -4,6 +4,7 @@ description: 東京都の申込期間・会場・実施機関
 listed: true
 tags: [試験情報, 都道府県]
 date: 2025-10-31
+draft: true
 ---
 
 ## 東京都の試験情報

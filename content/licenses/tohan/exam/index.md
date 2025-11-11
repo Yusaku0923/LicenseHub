@@ -1,26 +1,25 @@
 ---
-title: 登録販売者試験の全体像
-description: 試験概要や学習計画、出題範囲、過去問対策などを集約したガイドです。
+title: 登録販売者試験ガイド
+description: 登録販売者試験に関する情報をまとめたハブページです。試験概要、勉強法、日程、合格率などの情報にアクセスできます。
+layout: hub
 listed: true
 tags: [試験概要, 勉強法, 試験情報]
 ---
 
 ## 登録販売者試験ガイド
 
-登録販売者試験の概要から勉強方法、スケジュールまでをまとめています。初めて受験する方でも最短ルートで必要な情報にアクセスできるよう構成しています。
+登録販売者試験に関する情報をカテゴリー別にまとめています。初めて受験する方でも、必要な情報に最短ルートでアクセスできるよう構成しています。
 
-### 学習の進め方
+### 📘 試験の基礎知識
 
-- [試験概要のポイント](/licenses/tohan/exam/overview)
-- [出題範囲の整理](/licenses/tohan/exam/range)
-- [効率的な勉強法](/licenses/tohan/exam/how-to-study)
-- [合格率と難易度分析](/licenses/tohan/exam/pass-rate)
-- [試験日程・スケジュール](/licenses/tohan/exam/schedule)
+- [試験概要と出題範囲](/licenses/tohan/exam/overview) - 受験資格・実施要項・出題範囲を解説
+- [合格率と難易度分析](/licenses/tohan/exam/pass-rate) - 都道府県別の合格率データと難易度の目安
 
-### 地域別の情報
+### 📅 試験スケジュール
 
-- [都道府県別の試験情報](/licenses/tohan/exam/pref)
+- [試験日程・申込スケジュール](/licenses/tohan/exam/schedule) - 年度別の試験日程と申込期間
+- [都道府県別の試験情報](/licenses/tohan/exam/pref) - 各地域の実施要領と詳細情報
 
-### よくある質問
+### 📚 学習方法
 
-- [受験に関する FAQ](/licenses/tohan/exam/faq)
+- [効率的な勉強法](/licenses/tohan/exam/how-to-study) - 独学と通信講座の比較、学習計画の立て方

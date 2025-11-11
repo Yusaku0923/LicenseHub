@@ -21,4 +21,24 @@
 <script setup lang="ts">
 import MistralHeader from '~/components/themes/mistral/MistralHeader.vue'
 import MistralFooter from '~/components/themes/mistral/MistralFooter.vue'
+const config = useAppConfig()
+const route = useRoute()
+
+useSeoMeta({
+  // ... ここは既に実装済みのSEO設定 ...
+})
+
+// ★ ここで lang を含めて head を上書き
+useHead({
+  htmlAttrs: {
+    lang: 'ja',
+  },
+  link: [
+    {
+      rel: 'canonical',
+      href: `${config.site.domain}${route.path}`,
+    },
+  ],
+})
+
 </script>

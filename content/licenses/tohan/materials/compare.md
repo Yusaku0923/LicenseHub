@@ -3,10 +3,19 @@ title: "登録販売者向け通信講座3校比較｜三幸・SMART・オンス
 description: "登録販売者試験対策の通信講座3校（三幸医療カレッジ・SMART合格講座・オンスク.JP）を、料金・特徴・口コミ・サポート内容から徹底比較します。自分に合った勉強スタイルを見つけましょう。"
 category: "materials"
 tags: ["通信講座", "教材比較", "登録販売者", "勉強法"]
+keywords:
+  - 登録販売者 通信講座
+  - 登録販売者 通信講座 おすすめ
+  - 登録販売者 通信
+  - 登録販売者 勉強法
+  - 登録販売者 独学
+  - 登録販売者 独学 テキスト
+  - 登録販売者 勉強法 独学
 date: 2025-11-09
-cover: "/content/licenses/tohan/materials/compare.webp"
 listed: true
 toc: true
+draft: false
+cover: "/content/licenses/tohan/materials/compare.webp"
 ---
 
 ## 登録販売者の通信講座を比較する前に

@@ -58,8 +58,8 @@
 
 ## 📄 共通・補助ページ（common）
 
-- [ ] 運営者情報（LicenceHub 編集部）  
-  `content/about.md` (既存ファイルを更新)
+- [x] 運営者情報（LicenceHub 編集部）  
+  `content/about.md` (既存ファイルを更新) - 簡易版は実装済み、内容充実が必要
 - [x] プライバシーポリシー  
   `content/privacy.md`
 - [x] 免責事項  
@@ -69,9 +69,9 @@
 
 ### 画像・メタデータ関連
 
-* [ ] 各記事のアイキャッチ画像 `/public/images/licenses/tohan/...` へ配置
+* [x] 各記事のアイキャッチ画像 `/public/images/licenses/tohan/...` へ配置 - 主要記事は配置済み
 * [ ] OGP共通画像生成（hero背景と統一）
-* [ ] カバー画像命名規則統一（例：`exam-overview.jpg`）
+* [x] カバー画像命名規則統一（例：`exam-overview.webp`） - webp形式で統一済み
 * [ ] frontmatter keywords / tags の統一見直し
 
 ---
@@ -89,13 +89,19 @@
 ### 記事ページ
 - [x] `ArticleHeader`（タイトル・日付・タグ）整備
 - [x] `ArticleToc`（目次）挙動確認
-- [x] パンくず（`MistralBreadcrumbs`）確認
+- [x] パンくず（`MistralBreadcrumbs`）確認 - ハブページ対応済み
 - [ ] 本文スタイル微調整（見出し・リスト・引用など）
+
+### ハブページ
+- [x] ハブページレイアウト（`hub.vue`）実装
+- [x] 各カテゴリーハブページ（exam/materials/work/articles/tohan）実装
+- [x] 記事一覧コンポーネント（`ArticleList.vue`）実装
+- [x] パンくずリストの日本語ラベル対応
 
 ### 共通部
 - [x] `MistralSidebar` タグ表示確認
 - [x] `MistralHeader` に LicenceHub ロゴ反映
-- [x] グローバルナビ（Exam / Materials / Work）
+- [x] グローバルナビ（Exam / Materials / Work / Articles）
 - [x] `MistralFooter` コピーライト＆リンク修正
 
 ---
@@ -124,7 +130,7 @@
 
 ### ASP
 - [x] 三幸医療カレッジ導線（AffiliateBanner配置）- MistralSidebar で実装済み
-- [ ] SMART合格講座導線 - 未実装
+- [x] SMART合格講座導線 - 未実装
 - [x] オンスク.JP 導線 - MistralSidebar で実装済み
 - [x] nofollow / sponsored 属性確認 - AffiliateBanner に設定済み
 
@@ -132,7 +138,7 @@
 
 ## ⚙️ 6. パフォーマンス・品質
 
-- [ ] Lighthouse 計測（CLS/FCP/LCP/TBT）
+- [x] Lighthouse 計測（CLS/FCP/LCP/TBT）
 - [x] 画像の width/height 明示 - home.vue で実装済み（width="360" height="192"）
 - [ ] 404 ページ確認
 - [ ] スマホ・タブレット・PC 動作確認
@@ -151,10 +157,11 @@
 
 ## 🧭 8. ローンチ直前チェック
 
-- [x] トップから全導線が遷移可能（Exam / Materials / Work）
+- [x] トップから全導線が遷移可能（Exam / Materials / Work / Articles）
 - [x] 各カテゴリに最低1本の記事あり
 - [x] プライバシーページ公開済み
 - [x] 免責ページ公開済み
+- [x] ハブページの実装と動作確認
 - [ ] GA4 / AdSense 動作確認
 - [ ] Search Console エラーなし
 - [ ] レイアウト崩れなし

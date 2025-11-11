@@ -3,12 +3,21 @@ title: "SMART合格講座の口コミ・評判まとめ｜スマホ1つで完結
 description: "登録販売者の学習を効率化する通信講座「SMART合格講座」。本記事では、講座の特徴・料金・口コミ評判をまとめ、スマホ完結型学習が向いている人を解説します。"
 category: "materials"
 tags: ["登録販売者", "通信講座", "勉強法"]
+keywords:
+  - smart合格講座
+  - smart合格講座 評判
+  - 登録販売者 通信講座
+  - 登録販売者 勉強法
+  - 登録販売者 独学
+  - 登録販売者 独学 テキスト
+  - 登録販売者 勉強法 独学
 date: 2025-11-09
 listed: true
 toc: true
 draft: false
 cover: "/content/licenses/tohan/materials/smart.webp"
 ---
+
 
 # SMART合格講座の口コミ・評判まとめ｜スマホ1つで完結する登録販売者学習法
 

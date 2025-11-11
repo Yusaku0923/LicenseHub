@@ -1,17 +1,31 @@
 ---
 title: 登録販売者 資格ハブ
-description: 登録販売者資格に関する情報をまとめたハブページです。
+description: 登録販売者資格に関する情報をまとめたハブページです。試験対策、教材比較、仕事・キャリア情報、コラム記事にアクセスできます。
+layout: hub
 listed: true
 tags: [登録販売者, 国家資格]
 ---
 
 ## 登録販売者ナビへようこそ
 
-このセクションでは、登録販売者資格に関する学習・実務・キャリア情報を体系的にまとめています。以下のカテゴリから目的に合わせてお選びください。
+登録販売者資格に関する学習・実務・キャリア情報を体系的にまとめています。目的に合わせて、以下のカテゴリからお選びください。
 
-- 受験対策ガイド: [/licenses/tohan/exam](/licenses/tohan/exam)
-- 教材・通信講座比較: [/licenses/tohan/materials](/licenses/tohan/materials)
-- 仕事・転職情報: [/licenses/tohan/work](/licenses/tohan/work)
-- コラム・最新記事: [/licenses/tohan/articles](/licenses/tohan/articles)
+### 📘 試験対策
+
+- [受験対策ガイド](/licenses/tohan/exam) - 試験概要、勉強法、日程、合格率などの情報
+
+### 📚 教材・通信講座
+
+- [教材・通信講座ガイド](/licenses/tohan/materials) - 通信講座の比較、各校の評判・口コミ
+
+### 💼 仕事・キャリア
+
+- [仕事・キャリアガイド](/licenses/tohan/work) - 仕事内容、年収、キャリアパス、転職情報
+
+### 📰 コラム・記事
+
+- [記事一覧](/licenses/tohan/articles) - 最新のニュース、お知らせ、コラム記事
+
+---
 
 各ページでは、試験概要や教材の選び方、働き方のリアルな情報まで、受験前後で役立つ知識を詳しく解説しています。

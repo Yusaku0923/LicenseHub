@@ -80,7 +80,8 @@
       <!-- copyright -->
       <div class="border-t border-slate-100 py-6 text-center text-xs text-slate-500">
         © {{ new Date().getFullYear() }} {{ config.name || '登録販売者ナビ' }}. All rights reserved.<br>
-        本サイトは資格取得や転職の参考情報を提供するものであり、正確性・最新性を保証するものではありません。
+        本サイトは資格取得や転職の参考情報を提供するものであり、正確性・最新性を保証するものではありません。<br>
+        本サイトの記事には、アフィリエイト広告を含む場合があります。
       </div>
     </footer>
   </template>
