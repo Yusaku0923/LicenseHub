@@ -32,7 +32,7 @@ LicenceHub（ライセンスハブ）は、**「資格を活かして人生の�
 ## 運営者情報
 
 - 運営者：LicenceHub編集部  
-- お問い合わせ先：contact@licencehub.com  
+- お問い合わせ先：contact@licencehub.jp  
 - 運営形態：個人メディア（ウェブ開発・運営支援 Duff株式会社 協力）  
 - 開設日：2025年10月  
 

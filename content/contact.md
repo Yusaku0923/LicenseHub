@@ -12,7 +12,7 @@ LicenceHub（ライセンスハブ）へのご連絡は、以下のメールア�
 ---
 
 📧 **メールアドレス**  
-<a href="mailto:contact@licencehub.com">contact@licencehub.com</a>
+<a href="mailto:contact@licencehub.jp">contact@licencehub.jp</a>
 
 ---
 

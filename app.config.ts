@@ -1,13 +1,13 @@
 export default defineAppConfig({
   site: {
     name: 'LicenceHub',
-    email: 'contact@licencehub.com',
-    domain: 'https://licencehub.com',
+    email: 'contact@licencehub.jp',
+    domain: 'https://licencehub.jp',
     author: 'LicenceHub編集部',
     publisher: 'LicenceHub',
     ogTitle: 'LicenceHub',
     ogDescription: 'LicenceHubは、医療・資格・信頼をテーマに、登録販売者をはじめとする国家資格・通信講座をわかりやすく解説します。',
-    ogUrl: 'https://licencehub.com',
+    ogUrl: 'https://licencehub.jp',
     ogType: 'website',
     ogLocale: 'ja_JP',
     ogSiteName: 'LicenceHub',
