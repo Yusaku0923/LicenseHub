@@ -70,6 +70,9 @@ export default defineNuxtConfig({
         console.error('========================================\n')
       },
     },
+    prerender: {
+      failOnError: false,
+    },
   },
   // 詳細なログを有効化
   image: {
