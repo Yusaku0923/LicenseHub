@@ -1,0 +1,7 @@
+# Google AdSense ads.txt for LicenceHub
+# 実際に AdSense を開設したら、YOUR_PUBLISHER_ID を本番の ID に必ず置き換えてください。
+# 参考: https://support.google.com/adsense/answer/7532444
+
+google.com, YOUR_PUBLISHER_ID, DIRECT, f08c47fec0942fa0
+
+

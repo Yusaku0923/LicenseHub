@@ -16,7 +16,7 @@
                             class="mb-4"
                         >
                             <span class="text-3xl font-bold">{{
-                                getYear(article.date)
+                                `${getYear(article.date)}年`
                             }}</span>
                         </div>
                         <NuxtLink :to="article._path" class="text-gray-700 underline decoration-dashed underline-offset-4">
@@ -37,15 +37,19 @@
 const query = {
     path: '',
     where: [{ hidden: { $ne: true }, listed: { $ne: false } }],
-    sort: [{ date: -1 }],
+    sort: [{ date: -1 as const }],
 }
 
-function getYear(date) {
-    return new Date(date).getFullYear()
+function getYear(date: string | number | Date | undefined): number | null {
+    if (date === undefined || date === null || date === '') return null
+    const d = new Date(date as any)
+    if (isNaN(d.getTime())) return null
+    return d.getFullYear()
 }
 
-function shouldDisplayYear(list, date, index) {
+function shouldDisplayYear(list: any[], date: string | number | Date | undefined, index: number): boolean {
     const currentYear = getYear(date)
+    if (currentYear === null) return false
     const prevYear = index > 0 ? getYear(list[index - 1].date) : null
     return currentYear !== prevYear
 }

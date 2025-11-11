@@ -5,10 +5,10 @@
     <!-- ② パンくず + サイドバー付きレイアウトに -->
     <MistralHomeLayout>
       <template #posts>
-        <div class="px-4 mt-6 md:px-0">
+        <div class="px-0 mt-6">
           <MistralBreadcrumbs :doc="doc" />
         </div>
-        <div v-if="doc" class="pt-6 pb-0 px-4 md:px-0">
+        <div v-if="doc" class="pt-6 pb-0 px-0">
           <!-- ③ 記事ヘッダーをカード化したやつに -->
           <ArticleHeader :article="doc" />
 
@@ -123,20 +123,25 @@ const keywordString = computed(() => {
 })
 
 /**
+ * SEO 用タイトル（seoTitle があれば優先、なければ title、さらにサイト名）
+ */
+const seoTitle = computed(() => props.doc?.seoTitle || props.doc?.title || config.site.name)
+
+/**
  * SEO メタ設定
  * Nuxt 3 では useSeoMeta は自動インポートされているので、
  * 追加の import は不要です。
  */
- useSeoMeta({
-  title: () => props.doc?.title ?? config.site.name,
+useSeoMeta({
+  title: () => seoTitle.value,
   description: () =>
-    props.doc?.description ?? props.doc?.lead ?? config.site.description,
+    props.doc?.description ?? props.doc?.lead ?? config.description,
   keywords: () => keywordString.value,
-  ogTitle: () => props.doc?.ogTitle ?? props.doc?.title ?? config.site.name,
+  ogTitle: () => seoTitle.value,
   ogDescription: () =>
     props.doc?.ogDescription ??
     props.doc?.description ??
-    config.site.description,
+    config.site.ogDescription,
   ogType: () => 'article',
   ogUrl: () => `${config.site.domain}${route.path}`,
   ogImage: () =>

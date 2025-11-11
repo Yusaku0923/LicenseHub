@@ -214,6 +214,8 @@ useSeoMeta({
   ogImageHeight: appConfig.site.ogImageHeight,
   ogImageAlt: appConfig.site.ogImageAlt,
   twitterCard: 'summary_large_image',
+  keywords:
+    '登録販売者, 登録販売者 試験, 登録販売者 勉強, 登録販売者 独学, 登録販売者 通信講座, 登録販売者 勉強法, 登録販売者 仕事内容, 登録販売者 仕事・転職',
 })
 
 useHead({

@@ -25,7 +25,15 @@ const config = useAppConfig()
 const route = useRoute()
 
 useSeoMeta({
-  // ... ここは既に実装済みのSEO設定 ...
+  title: () => `記事一覧 | ${config.site.name}`,
+  description: () =>
+    `記事一覧 - ${config.site.ogDescription || (config as any).description}`,
+  ogTitle: () => `記事一覧 | ${config.site.name}`,
+  ogDescription: () =>
+    `記事一覧 - ${config.site.ogDescription || (config as any).description}`,
+  ogType: () => 'website',
+  ogUrl: () => `${config.site.domain}${route.path}`,
+  ogImage: () => `${config.site.domain}${config.site.ogImage}`,
 })
 
 // ★ ここで lang を含めて head を上書き

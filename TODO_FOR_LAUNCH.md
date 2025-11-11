@@ -70,9 +70,9 @@
 ### 画像・メタデータ関連
 
 * [x] 各記事のアイキャッチ画像 `/public/images/licenses/tohan/...` へ配置 - 主要記事は配置済み
-* [ ] OGP共通画像生成（hero背景と統一）
+* [x] OGP共通画像生成（hero背景と統一）
 * [x] カバー画像命名規則統一（例：`exam-overview.webp`） - webp形式で統一済み
-* [ ] frontmatter keywords / tags の統一見直し
+* [x] frontmatter keywords / tags の統一見直し
 
 ---
 
@@ -84,13 +84,13 @@
 - [x] 新着記事カード（全体リンク化）
 - [x] 画像ホバー時のみズーム（影なし）- 実装済み（group-hover:scale-[1.02]）
 - [x] カテゴリ別カードを新着と同スタイルに統一 - 実装済み
-- [ ] スマホ〜PCでのレスポンシブ最終確認
+- [x] スマホ〜PCでのレスポンシブ最終確認
 
 ### 記事ページ
 - [x] `ArticleHeader`（タイトル・日付・タグ）整備
 - [x] `ArticleToc`（目次）挙動確認
 - [x] パンくず（`MistralBreadcrumbs`）確認 - ハブページ対応済み
-- [ ] 本文スタイル微調整（見出し・リスト・引用など）
+- [x] 本文スタイル微調整（見出し・リスト・引用など）
 
 ### ハブページ
 - [x] ハブページレイアウト（`hub.vue`）実装
@@ -111,8 +111,8 @@
 - [x] robots.txt 設定（本番: index / ステージング: noindex）- nuxt.config.ts で設定済み
 - [x] sitemap.xml 生成（公開記事のみ）- @nuxtjs/sitemap モジュールで設定済み
 - [x] draft:true → noindex 除外 plugin（必要なら）- sitemap は公開記事のみを含む設定
-- [ ] サイト全体の meta / OGP 設定
-- [ ] OGP画像作成（共通1枚）
+- [x] サイト全体の meta / OGP 設定
+- [x] OGP画像作成（共通1枚）
 - [ ] Google Search Console 登録
 
 ---
