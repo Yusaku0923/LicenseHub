@@ -14,7 +14,7 @@ date: 2025-11-09
 listed: true
 toc: true
 draft: false
-cover: "/content/licenses/tohan/exam/schedule/2026.webp"
+cover: "content/licenses/tohan/exam/schedule/2026.webp"
 ---
 
 
