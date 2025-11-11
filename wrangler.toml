@@ -1,5 +1,0 @@
-name = "licencehub"
-compatibility_date = "2025-11-11"
-
-# Nuxt の静的出力ディレクトリ
-pages_build_output_dir = ".output/public"
