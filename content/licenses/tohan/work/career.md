@@ -16,7 +16,7 @@ date: 2025-11-09
 listed: true
 toc: true
 draft: false
-cover: "licenses/tohan/work/career.webp"
+cover: "content/licenses/tohan/work/career.webp"
 ---
 
 

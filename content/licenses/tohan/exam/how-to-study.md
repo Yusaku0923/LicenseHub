@@ -14,7 +14,7 @@ date: 2025-11-09
 listed: true
 toc: true
 draft: false
-cover: "licenses/tohan/exam/how-to-study.webp"
+cover: "content/licenses/tohan/exam/how-to-study.webp"
 ---
 
 ## 登録販売者の勉強法は「独学」か「通信講座」か

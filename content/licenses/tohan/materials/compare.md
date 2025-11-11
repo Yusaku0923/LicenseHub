@@ -15,7 +15,7 @@ date: 2025-11-09
 listed: true
 toc: true
 draft: false
-cover: "licenses/tohan/materials/compare.webp"
+cover: "content/licenses/tohan/materials/compare.webp"
 ---
 
 ## 登録販売者の通信講座を比較する前に
