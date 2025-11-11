@@ -15,7 +15,7 @@ date: 2025-11-09
 listed: true
 toc: true
 draft: false
-cover: "content/licenses/tohan/materials/smart.webp"
+cover: "licenses/tohan/materials/smart.webp"
 ---
 
 
