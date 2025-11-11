@@ -84,14 +84,13 @@
             class="group bg-white rounded-xl border border-[rgba(15,23,42,0.02)] shadow-sm overflow-hidden flex flex-col transition"
           >
             <div v-if="post.cover" class="h-32 bg-slate-100 flex items-center justify-center text-slate-400 text-sm">
-              <NuxtImg
+              <img
                 :src="'/images/' + post.cover"
                 :alt="post.title"
                 class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                 width="360"
                 height="192"
                 sizes="(max-width: 768px) 100vw, 360px"
-                format="webp"
                 loading="lazy"
                 decoding="async"
               />
@@ -139,14 +138,13 @@
             >
               <!-- サムネイル（新着と同じレイアウト） -->
               <div v-if="post.cover" class="h-32 bg-slate-100 flex items-center justify-center text-slate-400 text-sm">
-                <NuxtImg
+                <img
                   :src="'/images/' + post.cover"
                   :alt="post.title"
                   class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                   width="360"
                   height="192"
                   sizes="(max-width: 768px) 100vw, 360px"
-                  format="webp"
                   loading="lazy"
                   decoding="async"
                 />
@@ -206,7 +204,7 @@ useSeoMeta({
   ogTitle: appConfig.site.ogTitle,
   ogDescription: appConfig.site.ogDescription,
   ogUrl: appConfig.site.ogUrl,
-  ogType: appConfig.site.ogType,
+  ogType: () => appConfig.site.ogType as any,
   ogLocale: appConfig.site.ogLocale,
   ogSiteName: appConfig.site.ogSiteName,
   ogImage: appConfig.site.ogImage,

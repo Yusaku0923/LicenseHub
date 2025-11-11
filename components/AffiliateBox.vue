@@ -13,7 +13,7 @@
       >
         <div class="flex flex-col items-center text-center">
           <!-- 画像 -->
-          <NuxtImg
+          <img
             v-if="item.img"
             :src="item.img"
             :alt="item.program"

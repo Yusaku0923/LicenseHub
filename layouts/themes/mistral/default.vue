@@ -14,17 +14,13 @@
 
            <!-- ② カバー画像 -->
           <div v-if="doc.cover" class="flex justify-center mb-4 mt-4">
-            <NuxtImg
+            <img
               :src="'/images/' + doc.cover"
               :alt="doc.title"
-              fit="cover"
-              placeholder
               loading="eager"
-              preload
               width="1200"
               height="630"
               sizes="(max-width: 768px) 100vw, 960px"
-              format="webp"
               class="rounded-lg max-h-[420px] object-cover w-full"
             />
           </div>

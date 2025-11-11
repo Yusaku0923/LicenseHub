@@ -3,14 +3,13 @@
       <div class="max-w-6xl mx-auto px-4 sm:px-6 md:pl-0 md:pr-6 lg:pr-8 h-16 flex items-center justify-between">
         <!-- left: logo / title -->
         <NuxtLink to="/" class="flex items-center gap-3 group" :aria-label="logoAlt">
-          <NuxtImg
+          <img
             :src="logoSrc"
             :alt="logoAlt"
             class="h-12 w-auto group-hover:opacity-80 transition"
             width="160"
             height="48"
             sizes="(max-width: 768px) 120px, 160px"
-            preload
             loading="eager"
             decoding="async"
           />

@@ -46,18 +46,16 @@
                             v-if="article.cover"
                             class="col-span-1 p-4 flex justify-center items-center"
                         >
-                            <NuxtLink :to="article._path" class="w-full">
-                                <NuxtImg
+                    <NuxtLink :to="article._path" class="w-full">
+                                <img
                                     :src="'/images/' + article.cover"
                                     :alt="article.title"
                                     class="w-full object-cover"
                                     width="400"
                                     height="250"
                                     sizes="(max-width: 768px) 100vw, 320px"
-                                    format="webp"
                                     loading="lazy"
                                     decoding="async"
-                                    placeholder
                                 />
                             </NuxtLink>
                         </div>
@@ -79,7 +77,7 @@ const query = {
     path: '',
     where: [{ hidden: { $ne: true }, listed: { $ne: false } }],
     limit: 10,
-    sort: [{ date: -1 }],
+    sort: [{ date: -1 as const }],
 }
 
 function desc(article: any): string {

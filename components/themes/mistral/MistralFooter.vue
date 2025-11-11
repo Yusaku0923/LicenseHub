@@ -4,14 +4,13 @@
         <!-- column 1: site info -->
         <div class="space-y-3">
           <NuxtLink to="/" class="block text-lg font-bold text-slate-800 hover:text-emerald-700 transition">
-            <NuxtImg
+            <img
               src="/images/logo.webp"
               alt="LicenseHub"
               class="h-12 w-auto group-hover:opacity-80 transition"
               width="160"
               height="48"
               sizes="(max-width: 768px) 120px, 160px"
-              preload
               loading="eager"
               decoding="async"
             />

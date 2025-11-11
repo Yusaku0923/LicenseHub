@@ -1,6 +1,6 @@
 <template>
     <div class="w-[110px] h-[110px] border border-gray-300 rounded-full flex items-center justify-center p-1">
-        <NuxtImg
+        <img
             v-if="author.avatar"
             :src="author.avatar"
             :alt="author.name"
