@@ -5,32 +5,11 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   runtimeConfig: {
     public: {
-      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || '',
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://licencehub.jp',
     },
   },
   app: {
     head: {
-      htmlAttrs: {
-        lang: 'ja',
-      },
-      script: [
-        {
-          hid: 'gtag1',
-          src: 'https://www.googletagmanager.com/gtag/js?id=G-L4M0DCYZYK',
-          async: true
-        },
-        {
-          hid: 'gtag2',
-          innerHTML: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-L4M0DCYZYK');
-          `,
-          type: 'text/javascript',
-          charset: 'utf-8'
-        }
-      ],
       __dangerouslyDisableSanitizersByTagID: {
         'gtag2': ['innerHTML']
       }
@@ -96,12 +75,8 @@ export default defineNuxtConfig({
   image: {
     format: ['webp'],
   },
-  robots: process.env.NODE_ENV === 'production'
-    ? {
-        rules: [{ UserAgent: '*', Disallow: '' }],
-        sitemap: 'https://licencehub.jp/sitemap.xml',
-      }
-    : {
-        rules: [{ UserAgent: '*', Disallow: '/' }],
-      },
+  robots: {
+    rules: [{ UserAgent: '*', Disallow: '' }],
+    sitemap: 'https://licencehub.jp/sitemap.xml',
+  }
 })

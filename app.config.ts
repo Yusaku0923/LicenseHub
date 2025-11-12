@@ -19,6 +19,7 @@ export default defineAppConfig({
   },
   theme: 'mistral',
   name: 'LicenceHub',
+  language: 'ja',
   description: 'LicenceHub is a platform for medical license navigation',
   menu: [
     { name: '受験対策', path: '/licenses/tohan/exam' },
@@ -39,7 +40,6 @@ export default defineAppConfig({
   // theme: 'neo-minimalist',
   logo: '/images/logo.webp',
   favicon: '/favicon.ico',
-  lang: 'ja',
 
   robots: [
     {
@@ -47,4 +47,13 @@ export default defineAppConfig({
       Allow: ['/'],
     },
   ],
+
+  analytics: {
+    providers: [
+      {
+        provider: 'google',     // GA4連携
+        code: 'G-L4M0DCYZYK'      // ← ご自身の測定ID
+      }
+    ]
+  }
 })
