@@ -6,7 +6,7 @@
     <template #posts>
       <!-- ① Hero -->
       <section
-        class="rounded-2xl bg-[rgba(50,93,206,0.08)] border border-[rgba(50,93,206,0.05)] p-6 md:p-10 flex flex-col gap-6 md:flex-row md:items-center mt-10 mb-10 relative overflow-hidden"
+        class="hero-section rounded-2xl bg-[rgba(50,93,206,0.08)] border border-[rgba(50,93,206,0.05)] p-6 md:p-10 flex flex-col gap-6 md:flex-row md:items-center mt-10 mb-10 relative overflow-hidden"
       >
         <!-- 背景に流れるアイコン（左下⇔右上交互横断） -->
         <!-- <FloatingIconsBackground /> -->

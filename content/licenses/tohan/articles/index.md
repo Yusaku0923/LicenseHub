@@ -1,7 +1,7 @@
 ---
 title: 記事一覧
 description: 登録販売者に関する新着記事・お知らせ・コラムの一覧をまとめたハブページです。
-layout: hub
+layout: section-hub
 listed: true
 tags: [お知らせ, コラム]
 ---

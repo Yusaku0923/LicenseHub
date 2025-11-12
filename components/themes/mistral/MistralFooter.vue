@@ -6,7 +6,7 @@
           <NuxtLink to="/" class="block text-lg font-bold text-slate-800 hover:text-emerald-700 transition">
             <img
               src="/images/logo.webp"
-              alt="LicenseHub"
+              alt="LicenceHub"
               class="h-12 w-auto group-hover:opacity-80 transition"
               width="160"
               height="48"

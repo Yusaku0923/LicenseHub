@@ -13,5 +13,5 @@ export const LICENSE_HUB_PHASE1_TAGS = [
   'よくある質問',
 ] as const
 
-export type LicenseHubPhase1Tag = typeof LICENSE_HUB_PHASE1_TAGS[number]
+export type LicenceHubPhase1Tag = typeof LICENSE_HUB_PHASE1_TAGS[number]
 

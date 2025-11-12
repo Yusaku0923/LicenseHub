@@ -1,6 +1,7 @@
 ---
 title: 仕事・キャリアガイド
 description: 登録販売者として働くための情報をまとめたハブページです。仕事内容、年収、キャリアパス、転職情報にアクセスできます。
+layout: section-hub
 listed: true
 tags: [仕事内容, 仕事, 転職]
 ---

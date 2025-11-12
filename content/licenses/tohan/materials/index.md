@@ -2,7 +2,7 @@
 title: "教材・通信講座ガイド｜登録販売者の独学・通信講座比較まとめ"
 description: "登録販売者試験の教材と通信講座を比較・紹介するハブページです。通信講座の評判、独学テキスト、学習ツールの情報にアクセスできます。"
 category: "materials"
-layout: hub
+layout: section-hub
 tags: ["教材", "通信講座", "独学", "登録販売者"]
 keywords:
   - 登録販売者 通信講座 比較
@@ -24,10 +24,10 @@ draft: false
 
 ### 📊 通信講座の比較
 
-- [通信講座3校徹底比較](/licenses/tohan/materials/compare) - 三幸・SMART・オンスクの特徴を比較
+- [通信講座 3 校徹底比較](/licenses/tohan/materials/compare) - 三幸・SMART・オンスクの特徴を比較
 
 ### 🏫 各通信講座の詳細レビュー
 
 - [三幸医療カレッジの評判・口コミ](/licenses/tohan/materials/sanko) - サポート・料金・合格率を徹底解説
-- [SMART合格講座の特徴・評判](/licenses/tohan/materials/smart) - スマホ完結で効率学習
-- [オンスク.JPの評判・使い方](/licenses/tohan/materials/onsuku) - 月額1628円の資格学習サービス
+- [SMART 合格講座の特徴・評判](/licenses/tohan/materials/smart) - スマホ完結で効率学習
+- [オンスク.JP の評判・使い方](/licenses/tohan/materials/onsuku) - 月額 1628 円の資格学習サービス

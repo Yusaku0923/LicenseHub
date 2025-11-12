@@ -1,7 +1,7 @@
 ---
 title: 登録販売者試験ガイド
 description: 登録販売者試験に関する情報をまとめたハブページです。試験概要、勉強法、日程、合格率などの情報にアクセスできます。
-layout: hub
+layout: section-hub
 listed: true
 tags: [試験概要, 勉強法, 試験情報]
 ---

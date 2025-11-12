@@ -1,6 +1,6 @@
 {
-  "name": "LicenseHub - 資格情報ハブ",
-  "short_name": "LicenseHub",
+  "name": "LicenceHub - 資格情報ハブ",
+  "short_name": "LicenceHub",
   "description": "資格の学びとキャリアをつなぐ情報ハブ",
   "start_url": "/",
   "display": "standalone",

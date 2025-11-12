@@ -18,8 +18,8 @@ export default defineAppConfig({
     ogImageAlt: 'LicenceHub',
   },
   theme: 'mistral',
-  name: 'LicenseHub',
-  description: 'LicenseHub is a platform for medical license navigation',
+  name: 'LicenceHub',
+  description: 'LicenceHub is a platform for medical license navigation',
   menu: [
     { name: '受験対策', path: '/licenses/tohan/exam' },
     { name: '教材比較', path: '/licenses/tohan/materials' },
