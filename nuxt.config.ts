@@ -38,10 +38,14 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxtjs/robots',
   ],
+  image: {
+    format: ['webp']
+  },
   nitro: {
     routeRules: {
       '/_nuxt/**': { headers: { 'Cache-Control': 'public, max-age=31536000, immutable' } },
       '/**': { headers: { 'Cache-Control': 'public, max-age=0, must-revalidate' } },
+      '/_ipx/**': { prerender: false },
     },
     logLevel: 4, // より詳細なログ
     hooks: {
