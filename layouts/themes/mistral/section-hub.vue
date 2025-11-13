@@ -53,16 +53,26 @@ const listQuery = (doc: any) => {
 
       <div v-if="props.doc" class="pt-6 pb-10 px-4 md:px-0">
         <!-- セクション用ミニHero -->
-        <section class="hero-section">
-          <h1 class="text-2xl md:text-3xl font-bold text-[color:var(--heading)] mb-2">
-            {{ props.doc.title }}
-          </h1>
-          <p v-if="props.doc.description" class="text-sm md:text-[15px] text-[color:var(--text-muted)]">
-            {{ props.doc.description }}
-          </p>
+        <section class="hero-section relative overflow-hidden">
+          <NuxtImg
+            src="/images/hub_mv.webp"
+            alt="Section Hero Background"
+            layout="fill"
+            objectFit="cover"
+            class="absolute inset-0 z-0"
+            fetchpriority="high"
+          />
+          <div class="relative z-10">
+            <h1 class="text-2xl md:text-3xl font-bold text-[color:var(--heading)] mb-2">
+              {{ props.doc.title }}
+            </h1>
+            <p v-if="props.doc.description" class="text-sm md:text-[15px] text-[color:var(--heading)]">
+              {{ props.doc.description }}
+            </p>
 
-          <div v-if="props.doc.body" class="mt-3 text-sm text-[color:var(--text-muted)]">
-            <ContentRenderer :value="props.doc" class="prose max-w-none" />
+            <div v-if="props.doc.body" class="mt-3 text-sm text-[color:var(--heading)]">
+              <ContentRenderer :value="props.doc" class="prose max-w-none" />
+            </div>
           </div>
         </section>
 
@@ -132,7 +142,7 @@ const listQuery = (doc: any) => {
   <MistralFooter />
 </template>
 
-<style scoped>
+<style scoped lang="postcss">
 .hero-section {
   @apply rounded-2xl border border-[rgba(50,93,206,0.14)] bg-gradient-to-br from-[rgba(50,93,206,0.06)] via-white to-[rgba(133,196,255,0.08)] px-6 py-5 md:px-8 md:py-6 mb-6;
 }

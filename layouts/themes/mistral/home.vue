@@ -6,12 +6,18 @@
     <template #posts>
       <!-- ① Hero -->
       <section
-        class="hero-section rounded-2xl bg-[rgba(50,93,206,0.08)] border border-[rgba(50,93,206,0.05)] p-6 md:p-10 flex flex-col gap-6 md:flex-row md:items-center mt-10 mb-10 relative overflow-hidden"
+        class="hero-section bg-white rounded-2xl border border-[rgba(50,93,206,0.05)] p-6 md:p-10 flex flex-col gap-6 md:flex-row md:items-center mt-10 mb-10 relative overflow-hidden"
       >
-        <!-- 背景に流れるアイコン（左下⇔右上交互横断） -->
-        <!-- <FloatingIconsBackground /> -->
+        <NuxtImg
+          src="/images/mv.webp"
+          alt="Hero Background"
+          layout="fill"
+          objectFit="cover"
+          class="absolute inset-0 z-0"
+          fetchpriority="high"
+        />
         <div class="flex-1 relative z-10">
-          <p class="inline-flex items-center px-2 py-1 mb-3 text-xs font-semibold rounded-full bg-white/70 text-[color:var(--brand)] border border-[rgba(50,93,206,0.16)]">
+          <p class="inline-flex items-center px-2 py-1 mb-3 text-xs font-semibold rounded-full bg-white text-[color:var(--brand)] border border-[rgba(50,93,206,0.16)]">
             LicenceHub｜登録販売者の情報ガイド
           </p>
 
@@ -20,20 +26,20 @@
             勉強・合格・仕事探しを、この一つに。
           </h1>
 
-          <p class="text-[15px] md:text-lg text-[color:var(--text-muted)] mb-5">
+          <p class="text-[15px] md:text-lg text-[color:var(--heading)] mb-5">
             試験対策・教材比較・現場での働き方まで、登録販売者に関する情報を発信しています。
           </p>
 
           <div class="flex flex-wrap gap-3">
             <NuxtLink
               to="/licenses/tohan/exam"
-              class="inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold bg-[color:var(--brand)] text-white shadow-sm hover:opacity-90 transition"
+              class="inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold bg-white text-[color:var(--brand)] border border-[rgba(50,93,206,0.25)] hover:bg-[color:var(--brand)] hover:text-white transition"
             >
               勉強の始め方を見る
             </NuxtLink>
             <NuxtLink
               to="/licenses/tohan/materials"
-              class="inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold bg-white text-[color:var(--brand)] border border-[rgba(50,93,206,0.25)] hover:bg-[rgba(50,93,206,0.03)] transition"
+              class="inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold bg-white text-[color:var(--brand)] border border-[rgba(50,93,206,0.25)] hover:bg-[color:var(--brand)] hover:text-white transition"
             >
               通信講座・教材を比較する
             </NuxtLink>
@@ -357,3 +363,10 @@ const formatDate = (date: string | undefined) => {
   }
 }
 </script>
+
+<style scoped>
+.hero-button:hover {
+  background-color: var(--brand) !important;
+  color: white !important;
+}
+</style>

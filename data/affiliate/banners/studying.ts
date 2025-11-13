@@ -13,7 +13,7 @@ export const studying: AffiliateBanner = {
            src="https://www22.a8.net/svt/bgt?aid=251031067677&wid=001&eno=01&mid=s00000021473001075000&mc=1"
            alt="スタディング オンライン資格講座">
     </a>
-    <img border="0" width="1" height="1" loading="lazy" decoding="async"
+    <img border="0" width="1" height="1" loading="lazy" fetchpriority="low"decoding="async"
          src="https://www18.a8.net/0.gif?a8mat=45GGT7+B72HBM+4LOQ+6EER5" alt="">
   `,
 }

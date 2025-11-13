@@ -13,7 +13,7 @@ export const sanko: AffiliateBanner = {
            src="https://www22.a8.net/svt/bgt?aid=251031067675&wid=001&eno=01&mid=s00000021679001009000&mc=1"
            alt="登録販売者向け教材の広告バナー">
     </a>
-    <img border="0" width="1" height="1" loading="lazy" decoding="async"
+    <img border="0" width="1" height="1" loading="lazy" fetchpriority="low" decoding="async"
          src="https://www15.a8.net/0.gif?a8mat=45GGT7+B5VM42+4N9Y+609HT" alt="">
   `,
 }
