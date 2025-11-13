@@ -39,13 +39,13 @@ export default defineNuxtConfig({
     '@nuxtjs/robots',
   ],
   image: {
-    format: ['webp']
+    format: ['webp'],
+    provider: 'none',
   },
   nitro: {
     routeRules: {
       '/_nuxt/**': { headers: { 'Cache-Control': 'public, max-age=31536000, immutable' } },
       '/**': { headers: { 'Cache-Control': 'public, max-age=0, must-revalidate' } },
-      '/_ipx/**': { prerender: false },
     },
     logLevel: 4, // より詳細なログ
     hooks: {
