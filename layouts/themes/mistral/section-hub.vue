@@ -54,13 +54,11 @@ const listQuery = (doc: any) => {
       <div v-if="props.doc" class="pt-6 pb-10 px-4 md:px-0">
         <!-- セクション用ミニHero -->
         <section class="hero-section relative overflow-hidden">
-          <NuxtImg
+          <img
             src="/images/hub_mv.webp"
             alt="Section Hero Background"
-            layout="fill"
-            objectFit="cover"
-            class="absolute inset-0 z-0"
-            fetchpriority="high"
+            class="absolute inset-0 z-0 w-full h-full object-cover"
+            loading="eager"
           />
           <div class="relative z-10">
             <h1 class="text-2xl md:text-3xl font-bold text-[color:var(--heading)] mb-2">

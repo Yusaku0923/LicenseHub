@@ -8,13 +8,11 @@
       <section
         class="hero-section bg-white rounded-2xl border border-[rgba(50,93,206,0.05)] p-6 md:p-10 flex flex-col gap-6 md:flex-row md:items-center mt-10 mb-10 relative overflow-hidden"
       >
-        <NuxtImg
+        <img
           src="/images/mv.webp"
           alt="Hero Background"
-          layout="fill"
-          objectFit="cover"
-          class="absolute inset-0 z-0"
-          fetchpriority="high"
+          class="absolute inset-0 z-0 w-full h-full object-cover"
+          loading="eager"
         />
         <div class="flex-1 relative z-10">
           <p class="inline-flex items-center px-2 py-1 mb-3 text-xs font-semibold rounded-full bg-white text-[color:var(--brand)] border border-[rgba(50,93,206,0.16)]">
