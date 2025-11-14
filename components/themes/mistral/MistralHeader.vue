@@ -64,7 +64,7 @@
               v-for="item in menu"
               :key="item.path"
               :to="item.path"
-              class="text-slate-700 hover:text-emerald-700 text-sm font-medium transition-colors"
+              class="text-slate-700 hover:text-[var(--brand)] text-sm font-medium transition-colors"
               @click="mobileMenuOpen = false"
             >
               {{ item.name }}
@@ -114,5 +114,8 @@ const mobileMenuOpen = ref(false)
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+a:hover {
+  @apply text-[var(--brand)] transition-colors;
 }
 </style>

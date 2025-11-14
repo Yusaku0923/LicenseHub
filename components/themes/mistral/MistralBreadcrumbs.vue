@@ -106,4 +106,7 @@ nav[aria-label="Breadcrumb"] a:hover {
   text-decoration-line: underline;
   text-decoration-thickness: 1px; /* or `from-font` でもOK */
 }
+nav[aria-label="Breadcrumb"] a:hover {
+  @apply text-[var(--brand)] transition-colors;
+}
 </style>

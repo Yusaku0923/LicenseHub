@@ -141,4 +141,15 @@ const { data: docs } = useAsyncData(id, () => {
 })
 const totalNumberOfPages = await queryContent(props.prefix || '').where(where).count()
 
+const formatDate = (date: string | Date) => {
+    if (!date) {
+        return ''
+    }
+    return new Date(date).toLocaleDateString('ja-JP', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    })
+}
+
 </script>

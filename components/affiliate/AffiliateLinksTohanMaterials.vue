@@ -9,7 +9,6 @@
             target="_blank"
             class="inline-flex items-center gap-1 font-semibold text-[color:var(--brand)] hover:underline"
           >
-            <Icon v-if="link.icon" :icon="link.icon" class="text-lg" />
             <span>{{ link.label }}</span>
           </a>
         </li>
