@@ -37,14 +37,18 @@
           <div class="mt-8 md:mt-10">
             <ArticleToc
               :links="doc.body.toc.links"
+              class="toc"
             />
           </div>
 
           <!-- ④ 本文（カード）＋ 中に TOC を入れる -->
           <div class="mt-6">
             <article
-              class="flex-1 bg-white rounded-2xl shadow-sm border border-slate-100 px-5 py-6 md:px-7 md:py-7"
-              :class="{ 'lg:max-w-[var(--article-max)]': !isTocEnabled }"
+              class="bg-white rounded-2xl shadow-sm border border-slate-100 px-5 py-6 md:px-7 md:py-7 mx-auto"
+              :class="[
+                'w-full',
+                isTocEnabled ? 'lg:max-w-[var(--article-max)]' : 'lg:max-w-[var(--article-max)]'
+              ]"
             >
               <!-- 本文 -->
               <ContentRenderer

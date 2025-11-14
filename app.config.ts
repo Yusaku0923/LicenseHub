@@ -5,8 +5,10 @@ export default defineAppConfig({
     domain: 'https://licencehub.jp',
     author: 'LicenceHub編集部',
     publisher: 'LicenceHub',
-    ogTitle: 'LicenceHub',
-    ogDescription: 'LicenceHubは、医療・資格・信頼をテーマに、登録販売者をはじめとする国家資格・通信講座をわかりやすく解説します。',
+    title: 'LicenceHub｜登録販売者の試験情報・勉強法・通信講座ガイド',
+    description: 'LicenceHubは、登録販売者の試験情報・勉強法・通信講座比較・教材レビューをわかりやすく解説する専門メディアです。',
+    ogTitle: 'LicenceHub｜登録販売者の試験情報ガイド',
+    ogDescription: '登録販売者の試験対策・勉強法・教材比較を網羅。初学者でも理解しやすい情報を提供します。',
     ogUrl: 'https://licencehub.jp',
     ogType: 'website',
     ogLocale: 'ja_JP',
@@ -38,7 +40,7 @@ export default defineAppConfig({
     facebook: ''
   },
   // theme: 'neo-minimalist',
-  logo: '/images/logo.webp',
+  logo: '/images/logo.svg',
   favicon: '/favicon.ico',
 
   robots: [

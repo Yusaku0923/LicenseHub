@@ -19,12 +19,12 @@
             LicenceHub｜登録販売者の情報ガイド
           </p>
 
-          <h1 class="text-3xl md:text-4xl font-bold text-[color:var(--heading)] mb-4 leading-tight">
+          <h1 class="text-3xl md:text-4xl font-bold text-[color:#1f1f1f] mb-4 leading-tight">
             登録販売者をめざすあなたへ。<br class="hidden md:block" />
             勉強・合格・仕事探しを、この一つに。
           </h1>
 
-          <p class="text-[15px] md:text-lg text-[color:var(--heading)] mb-5">
+          <p class="text-[15px] md:text-lg text-[color:#1f1f1f] mb-5">
             試験対策・教材比較・現場での働き方まで、登録販売者に関する情報を発信しています。
           </p>
 
@@ -59,9 +59,9 @@
             class="group bg-white rounded-xl border border-[rgba(15,23,42,0.03)] shadow-sm p-4 flex items-center gap-3 transition"
           >
             <div
-              class="w-10 h-10 rounded-full bg-[rgba(50,93,206,0.08)] flex items-center justify-center text-[color:var(--brand)] text-lg"
+              class="w-10 h-10 rounded-full bg-[rgba(50,93,206,0.08)] flex items-center justify-center text-[color:var(--brand)]"
             >
-              {{ item.icon }}
+              <Icon :icon="item.icon" class="text-xl" />
             </div>
             <div>
               <p class="font-semibold text-[color:var(--heading)] text-sm group-hover:text-[color:var(--brand)] transition-colors">{{ item.title }}</p>
@@ -203,8 +203,8 @@ const appConfig = useAppConfig()
 const route = useRoute()
 
 useSeoMeta({
-  title: appConfig.site.ogTitle,
-  description: appConfig.site.ogDescription,
+  title: appConfig.site.title,
+  description: appConfig.site.description,
   ogTitle: appConfig.site.ogTitle,
   ogDescription: appConfig.site.ogDescription,
   ogUrl: appConfig.site.ogUrl,
@@ -233,9 +233,9 @@ useHead({
 })
 
 const quickLinks = [
-  { to: '/licenses/tohan/exam', title: '受験対策', desc: '合格に必要な範囲を整理', icon: '📘' },
-  { to: '/licenses/tohan/materials', title: '教材・講座比較', desc: '通信講座・独学テキスト', icon: '📚' },
-  { to: '/licenses/tohan/work', title: '仕事・転職', desc: 'ドラッグストア・調剤薬局', icon: '💼' },
+  { to: '/licenses/tohan/exam', title: '受験対策', desc: '合格に必要な範囲を整理', icon: 'mdi:school' },
+  { to: '/licenses/tohan/materials', title: '教材・講座比較', desc: '通信講座・独学テキスト', icon: 'mdi:book-open-variant' },
+  { to: '/licenses/tohan/work', title: '仕事・転職', desc: 'ドラッグストア・調剤薬局', icon: 'mdi:briefcase' },
 ]
 
 // 実際のコンテンツから取得

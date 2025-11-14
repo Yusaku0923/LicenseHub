@@ -5,7 +5,7 @@
         <div class="space-y-3">
           <NuxtLink to="/" class="block text-lg font-bold text-slate-800 hover:text-emerald-700 transition">
             <img
-              src="/images/logo.webp"
+              src="/images/logo.svg"
               alt="LicenceHub"
               class="h-12 w-auto group-hover:opacity-80 transition"
               width="160"

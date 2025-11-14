@@ -28,6 +28,7 @@
 
   /* layout */
   --content-max: 1100px;
+  /* ★ 記事本文の最大幅：読みやすさ優先で少し狭く */
   --article-max: 1100px;
 
   /* space */
@@ -52,11 +53,6 @@ html {
 }
 
 body {
-  /* background: var(--page-bg);
-  color: var(--text);
-  line-height: 1.7;
-  font-family: 'Noto Sans JP', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  -webkit-font-smoothing: antialiased; */
   background: linear-gradient(180deg, #EAF8F6 0%, #DFF5F2 100%);
   color: var(--text);
   line-height: 1.7;
@@ -64,7 +60,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* 見出しのスクロールマージン */
+/* 見出しのスクロールマージン（固定ヘッダー対策） */
 .article-body h2[id],
 .article-body h3[id],
 .article-body h4[id] {
@@ -93,21 +89,20 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--heading);
 }
 
-h1 {
-  font-size: 1.5rem !important;
-  margin-bottom: 1.3rem;
+/* ★ 記事本文内の見出しサイズ（marginは後半の .article-body ブロックで定義） */
+.article-body h1 {
+  font-size: 1.6rem;
+  line-height: 1.4;
 }
 
-h2 {
-  font-size: 1.2rem !important;
-  margin-top: 2.4rem;
-  margin-bottom: 1rem;
+.article-body h2 {
+  font-size: 1.25rem;
+  line-height: 1.5;
 }
 
-h3 {
-  font-size: 1rem !important;
-  margin-top: 1.5rem;
-  margin-bottom: .6rem;
+.article-body h3 {
+  font-size: 1.05rem;
+  line-height: 1.5;
 }
 
 p {
@@ -137,7 +132,7 @@ a {
   transition: color .15s ease-out;
 }
 a:hover {
-  color: #188070; /* ← brand より 15〜20% 濃いグリーン */
+  color: #188070; /* brand より 15〜20% 濃いグリーン */
   text-decoration-thickness: 2px;
 }
 
@@ -240,16 +235,23 @@ blockquote {
 .article-body {
   max-width: var(--article-max);
   color: var(--text);
-
+  line-height: 1.75;         /* ★ 本文は少し広めの行間 */
+  margin-inline: auto;       /* ★ 中央寄せで左右に広がりすぎないように */
 }
 
-/* 見出しの箱感 */
+/* ★ 最初の一文だけ軽く強調して“入り口”を作る */
+.article-body p:first-of-type {
+  font-weight: 500;
+  color: var(--heading);
+}
+
+/* 見出しの箱感＋余白調整 */
 .article-body h2 {
   background: rgba(50, 93, 206, 0.04);
   border-left: 4px solid var(--brand);
   padding: .6rem .8rem;
-  margin-top: 2.3rem;
-  margin-bottom: 1.2rem;
+  margin-top: 3rem;          /* 上を広くとって章の切り替わりを強調 */
+  margin-bottom: 1.1rem;
 }
 
 .article-body h2:first-child {
@@ -257,12 +259,13 @@ blockquote {
 }
 
 .article-body h2 + p {
-  margin-top: 0.5rem;
+  margin-top: 0.6rem;
 }
 
+/* H3 は文章の中見出しとして余白をやや広めに */
 .article-body h3 {
-  margin-top: 1.6rem;
-  margin-bottom: .7rem;
+  margin-top: 2rem;
+  margin-bottom: .8rem;
 }
 
 /* 画像 */
@@ -273,7 +276,7 @@ blockquote {
   height: auto;
 }
 
-/* 段落の余白をやや広めに */
+/* 段落の余白をやや広めに（1段落ごとの塊を意識） */
 .article-body p {
   margin-bottom: 1.4rem;
 }
@@ -365,6 +368,11 @@ blockquote {
   border-bottom: none;
 }
 
+.article-body p strong,
+.article-body li strong {
+  font-size: 1.1em; /* 1.02〜1.06em の範囲でお好みで */
+}
+
 /* === BLOCKQUOTE ========================================================= */
 .article-body blockquote {
   position: relative;
@@ -401,7 +409,7 @@ blockquote {
   font-weight: 600;
   font-size: 0.9rem;
   letter-spacing: 0.03em;
-  color: var(--brand-sub);                         /* サブトーンの落ち着いたグレー */
+  color: var(--brand-sub);
 }
 
 .article-body .section-summary p {
@@ -413,18 +421,16 @@ blockquote {
 .inline-highlight {
   padding: 0 0.25em;
   border-radius: 0.25em;
-  /* 蛍光ペン本体 */
   background-image: linear-gradient(
     100deg,
     rgba(31, 158, 143, 0.26),
     rgba(31, 158, 143, 0.16)
   );
   background-repeat: no-repeat;
-  background-size: 100% 55%;   /* 下 60％ だけ塗る */
-  background-position: 0 80%;  /* ちょい下寄せ */
-  box-decoration-break: clone; /* 改行しても塗りを継続 */
+  background-size: 100% 55%;
+  background-position: 0 80%;
+  box-decoration-break: clone;
 }
-
 
 /* === LICENCE HUB ELEMENTS =============================================== */
 .license-pill {
@@ -493,7 +499,7 @@ blockquote {
   margin-bottom: .8rem;
 }
 
-/* === AFFILIATE BANNERS =================================================== */
+/* === AFFILIATE BANNERS（テキストリンク版） ============================ */
 .aff-link a {
   display: inline-block;
   background-color: rgba(34, 156, 142, 0.08);
@@ -513,11 +519,18 @@ blockquote {
 @media (max-width: 768px) {
   h1 { font-size: 1.7rem; }
   h2 { font-size: 1.35rem; }
+
   .toc {
     font-size: .8rem;
     padding: .8rem .8rem 1rem;
   }
+
   .license-grid {
     gap: 1.1rem;
+  }
+
+  /* モバイルでは記事幅を画面いっぱいに近づける（左右の余白は残す） */
+  .article-body {
+    max-width: 100%;
   }
 }

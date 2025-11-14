@@ -415,7 +415,7 @@ useHead({
 }
 
 .hub-journey__card:hover {
-  @apply -translate-y-1 shadow-md border-[color:var(--brand-sub)];
+  @apply border-[color:var(--brand-sub)];
 }
 
 .hub-journey__step {
@@ -489,7 +489,7 @@ useHead({
 }
 
 .hub-card:hover {
-  @apply -translate-y-1 shadow-md border-[color:var(--brand-sub)];
+  @apply border-[color:var(--brand-sub)];
 }
 
 /* ラベル（Exam / Materials など） */
