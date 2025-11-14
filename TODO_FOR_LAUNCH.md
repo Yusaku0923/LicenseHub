@@ -113,14 +113,14 @@
 - [x] draft:true → noindex 除外 plugin（必要なら）- sitemap は公開記事のみを含む設定
 - [x] サイト全体の meta / OGP 設定
 - [x] OGP画像作成（共通1枚）
-- [ ] Google Search Console 登録
+- [x] Google Search Console 登録
 
 ---
 
 ## 💰 5. 収益導線・解析
 
 ### アクセス解析
-- [ ] GA4 or 代替ツール導入
+- [c] GA4 or 代替ツール導入
 - [ ] SPA 遷移対応のイベント確認
 
 ### AdSense
@@ -163,8 +163,8 @@
 - [x] 免責ページ公開済み
 - [x] ハブページの実装と動作確認
 - [ ] GA4 / AdSense 動作確認
-- [ ] Search Console エラーなし
-- [ ] レイアウト崩れなし
+- [x] Search Console エラーなし
+- [x] レイアウト崩れなし
 
 ---
 
