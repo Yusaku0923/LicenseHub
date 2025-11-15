@@ -283,7 +283,7 @@ blockquote {
 
 /* リストのカスタムドット */
 .article-body ul {
-  margin-left: 1.2rem;
+  margin-left: .2rem;
   padding-left: .2rem;
 }
 .article-body ul li {
