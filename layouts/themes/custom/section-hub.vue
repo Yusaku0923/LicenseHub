@@ -97,8 +97,14 @@ const listQuery = (doc: any) => {
                       decoding="async"
                     />
                   </div>
-                  <div v-else class="h-36 bg-slate-100 flex items-center justify-center text-slate-400 text-sm">
-                    no image
+                  <div v-else class="h-36 bg-slate-100 flex items-center justify-center text-slate-400 text-sm overflow-hidden">
+                    <img
+                      src="/images/cover.webp"
+                      alt="Default cover image"
+                      class="w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
 
                   <div class="p-4 flex flex-col gap-3 flex-1">

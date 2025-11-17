@@ -89,7 +89,7 @@
           >
             <div v-if="post.cover" class="h-32 bg-slate-100 flex items-center justify-center text-slate-400 text-sm">
               <img
-                :src="'/images/' + post.cover"
+                :src="'/images/' + post.cover "
                 :alt="post.title"
                 class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                 width="360"
@@ -99,8 +99,16 @@
                 decoding="async"
               />
             </div>
-            <div v-else class="h-32 bg-slate-100 flex items-center justify-center text-slate-400 text-sm">
-              no image
+            <div v-else class="h-32 bg-slate-100 flex items-center justify-center text-slate-400 text-sm overflow-hidden">
+              <img
+                src="/images/cover.webp"
+                alt="Default cover image"
+                class="w-full h-full object-cover"
+                width="360"
+                height="192"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
             <div class="p-4 flex flex-col gap-3 flex-1">
               <p
@@ -153,8 +161,16 @@
                   decoding="async"
                 />
               </div>
-              <div v-else class="h-32 bg-slate-100 flex items-center justify-center text-slate-400 text-sm">
-                no image
+              <div v-else class="h-32 bg-slate-100 flex items-center justify-center text-slate-400 text-sm overflow-hidden">
+                <img
+                  src="/images/cover.webp"
+                  alt="Default cover image"
+                  class="w-full h-full object-cover"
+                  width="360"
+                  height="192"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
 
               <!-- テキスト部（タイトル＋任意で説明＋日付） -->
@@ -264,7 +280,6 @@ const { data: allPosts } = await useAsyncData('home-posts', async () => {
         const dateB = new Date(b.date).getTime()
         return dateB - dateA
       })
-      .slice(0, 10)
     
     console.log('[home.vue] Filtered posts:', filtered.length)
     console.log('[home.vue] Filtered paths:', filtered.map((p: any) => p._path))
