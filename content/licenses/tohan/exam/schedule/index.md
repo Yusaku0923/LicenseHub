@@ -129,19 +129,16 @@ cover: "content/licenses/tohan/exam/schedule/2026.webp"
   <ul class="space-y-2">
     <li>
       <a href="https://px.a8.net/svt/ejp?a8mat=45GGT7+B5VM42+4N9Y+5YRHE" rel="nofollow sponsored" target="_blank" class="inline-flex items-center gap-1 font-semibold text-[color:var(--brand)] hover:underline">
-        <Icon icon="mdi:school" class="text-lg" />
         <span>三幸医療カレッジ公式サイト</span>
       </a>
     </li>
     <li>
       <a href="https://px.a8.net/svt/ejp?a8mat=45GGT7+B72HBM+4LOQ+5YJRM" rel="nofollow sponsored" target="_blank" class="inline-flex items-center gap-1 font-semibold text-[color:var(--brand)] hover:underline">
-        <Icon icon="mdi:laptop" class="text-lg" />
         <span>SMART合格講座公式サイト</span>
       </a>
     </li>
     <li>
       <a href="https://px.a8.net/svt/ejp?a8mat=45GGT7+B7NWXE+408S+60WN6" rel="nofollow sponsored" target="_blank" class="inline-flex items-center gap-1 font-semibold text-[color:var(--brand)] hover:underline">
-        <Icon icon="mdi:cellphone" class="text-lg" />
         <span>オンスク.JP公式サイト（ウケホーダイ）</span>
       </a>
     </li>
