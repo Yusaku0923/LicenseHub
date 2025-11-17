@@ -19,7 +19,7 @@ export default defineAppConfig({
     ogImageType: 'image/webp',
     ogImageAlt: 'LicenceHub',
   },
-  theme: 'mistral',
+  theme: 'custom',
   name: 'LicenceHub',
   language: 'ja',
   description: 'LicenceHub is a platform for medical license navigation',

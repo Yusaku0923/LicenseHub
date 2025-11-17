@@ -7,7 +7,6 @@ date: 2025-11-17
 listed: true
 toc: true
 draft: true
-cover: ""
 slug: "hiroshima"
 ---
 

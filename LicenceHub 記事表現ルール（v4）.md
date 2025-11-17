@@ -51,7 +51,7 @@ date: YYYY-MM-DD
 listed: true
 toc: true
 draft: false
-cover: ""
+
 ---
 ```
 
