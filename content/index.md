@@ -1,7 +1,6 @@
 ---
-title: Welcome to Bloggrify
-description: A simple blog with Bloggrify
+title: LicenceHub
+description: 資格学習・キャリア情報をわかりやすく提供するメディア
 layout: home
 listed: false
-date: 2025-10-31
 ---
