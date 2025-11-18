@@ -167,10 +167,10 @@ PDFは無料で確認できますが、**解説がないため初学者には難
 
 詳しくは以下の記事で解説しています。
 
-- 👉 [登録販売者試験の難易度と合格率](../difficulty)  
-- 👉 [試験の出題範囲まとめ](../scope)  
-- 👉 [登録販売者試験ガイド](../guide)  
-- 👉 [試験日程まとめ（47都道府県一覧）](../schedule)
+- 👉 [登録販売者試験の難易度と合格率](/licenses/tohan/exam/pass-rate)  
+- 👉 [試験の出題範囲まとめ](/licenses/tohan/exam/scope)  
+- 👉 [登録販売者試験ガイド](/licenses/tohan/exam)  
+- 👉 [試験日程まとめ（47都道府県一覧）](/licenses/tohan/exam/schedule)
 
 <p><span class="inline-highlight">自治体ごとの合格率を知ることで、学習の優先順位が明確になります。</span></p>
 

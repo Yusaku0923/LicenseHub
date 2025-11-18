@@ -274,7 +274,11 @@ LicenceHub では、2025 年度の最新情報にもとづいて、
 
 を外注でき、合格までの道のりが短くなるケースも少なくありません。
 
-（※ここは各講座レビュー記事への内部リンクを配置想定）
+詳しくは以下の講座レビュー記事をご参照ください。
+
+- 👉 [三幸医療カレッジの口コミ・評判まとめ](/licenses/tohan/materials/sanko)  
+- 👉 [SMART合格講座の特徴・口コミまとめ](/licenses/tohan/materials/smart)  
+- 👉 [オンスク.JPの評判・使い方まとめ](/licenses/tohan/materials/onsuku)
 
 <p>
   <span class="inline-highlight">「まず独学で始めてみて、厳しそうなら通信講座を併用する」という二段構えもおすすめです。</span>
