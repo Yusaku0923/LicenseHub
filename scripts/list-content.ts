@@ -3,6 +3,7 @@ import { join, relative } from 'path'
 
 interface FileInfo {
   path: string
+  name: string
   title: string
   isDirectory: boolean
   children?: FileInfo[]
@@ -54,6 +55,7 @@ async function scanDirectory(dirPath: string, basePath: string): Promise<FileInf
         if (children.length > 0) {
           items.push({
             path: relativePath,
+            name: entry,
             title: entry,
             isDirectory: true,
             children
@@ -66,6 +68,7 @@ async function scanDirectory(dirPath: string, basePath: string): Promise<FileInf
         if (title) {
           items.push({
             path: relativePath,
+            name: entry,
             title,
             isDirectory: false
           })
@@ -97,7 +100,8 @@ function formatTree(items: FileInfo[], prefix = '', isLast = true): string {
     const currentPrefix = prefix + (isLastItem ? '└─ ' : '├─ ')
     const nextPrefix = prefix + (isLastItem ? '   ' : '│  ')
     
-    output += currentPrefix + item.title + '\n'
+    const label = item.isDirectory ? item.title : `${item.name}: ${item.title}`
+    output += currentPrefix + label + '\n'
     
     if (item.isDirectory && item.children && item.children.length > 0) {
       output += formatTree(item.children, nextPrefix, isLastItem)

@@ -38,6 +38,12 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxtjs/robots',
   ],
+  sitemap: {
+    exclude: [
+      '/academy',
+      '/academy/**',
+    ]
+  },
   image: {
     format: ['webp'],
     provider: 'none',
