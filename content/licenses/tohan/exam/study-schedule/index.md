@@ -149,7 +149,7 @@ cover: "/content/licenses/tohan/exam/study-schedule/index.webp"
 - 勉強計画を自動化したい
 
 詳しい比較は下記にまとめています。  
-**[登録販売者の勉強法を徹底比較｜独学 vs 通信講座](/licenses/tohan/exam/study-method/)**
+**[登録販売者の勉強法を徹底比較｜独学 vs 通信講座](/licenses/tohan/exam/how-to-study/)** 
 
 <mark>短期合格を目指す場合、講座の受講は学習効率を大きく高める傾向があります。</mark>
 

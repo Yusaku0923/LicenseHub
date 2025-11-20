@@ -167,7 +167,7 @@ cover: "content/licenses/tohan/exam/study-plan/index.webp"
 ## 7. 次に読むべきおすすめ記事
 
 - 👉 [登録販売者試験の出題範囲まとめ](/licenses/tohan/exam/scope)
-- 👉 [独学と通信講座どちらが合格しやすい？](/licenses/tohan/exam/study-method)
+- 👉 [独学と通信講座どちらが合格しやすい？](/licenses/tohan/exam/how-to-study)
 - 👉 [過去問の効果的な使い方](/licenses/tohan/exam/past-questions)
 
 <p>
