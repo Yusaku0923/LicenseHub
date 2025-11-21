@@ -13,7 +13,7 @@ export default defineNuxtConfig({
       meta: [
         {
           name: 'google-adsense-account',
-          content: 'ca-pub-9801600107575630',
+          content: 'ca-pub-5447172429378250',
         },
       ],
       __dangerouslyDisableSanitizersByTagID: {
