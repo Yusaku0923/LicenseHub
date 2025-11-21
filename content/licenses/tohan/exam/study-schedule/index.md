@@ -96,7 +96,7 @@ cover: "/content/licenses/tohan/exam/study-schedule/index.webp"
 
 - 最新情報は必ずこちらで確認できます：**都道府県別の登録販売者試験日程一覧**
 
-## <p><span class="inline-highlight">地域ごとの実施日を把握し、試験日から逆算して学習計画を作ることが最も効率的です。</span></p>
+<p><span class="inline-highlight">地域ごとの実施日を把握し、試験日から逆算して学習計画を作ることが最も効率的です。</span></p>
 
 ## 3. 科目別の学習配分（出題範囲の難易度にもとづく）
 
