@@ -1,13 +1,13 @@
 export default defineAppConfig({
   site: {
-    name: 'LicenceHub',
+    name: 'LicenceHub｜登録販売者の資格ガイド',
     email: 'contact@licencehub.jp',
     domain: 'https://licencehub.jp',
     author: 'LicenceHub編集部',
     publisher: 'LicenceHub',
     title: 'LicenceHub｜登録販売者の試験情報・勉強法・通信講座ガイド',
     description: 'LicenceHubは、登録販売者の試験情報・勉強法・通信講座比較・教材レビューをわかりやすく解説する専門メディアです。',
-    ogTitle: 'LicenceHub｜登録販売者の試験情報ガイド',
+    ogTitle: 'LicenceHub｜登録販売者の資格ガイド',
     ogDescription: '登録販売者の試験対策・勉強法・教材比較を網羅。初学者でも理解しやすい情報を提供します。',
     ogUrl: 'https://licencehub.jp',
     ogType: 'website',
@@ -20,7 +20,7 @@ export default defineAppConfig({
     ogImageAlt: 'LicenceHub',
   },
   theme: 'custom',
-  name: 'LicenceHub',
+  name: 'LicenceHub｜登録販売者の資格ガイド',
   language: 'ja',
   description: 'LicenceHub is a platform for medical license navigation',
   menu: [
