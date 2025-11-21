@@ -10,9 +10,15 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
+      meta: [
+        {
+          name: 'google-adsense-account',
+          content: 'ca-pub-9801600107575630',
+        },
+      ],
       __dangerouslyDisableSanitizersByTagID: {
-        'gtag2': ['innerHTML']
-      }
+        'gtag2': ['innerHTML'],
+      },
     },
   },
   extends: [
