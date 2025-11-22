@@ -124,6 +124,10 @@ ol li {
   margin-bottom: .3rem;
 }
 
+ol {
+  padding-inline-start: .4rem !important;
+}
+
 /* === LINKS =============================================================== */
 a {
   color: var(--brand);
