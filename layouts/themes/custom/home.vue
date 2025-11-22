@@ -80,12 +80,15 @@
         </div>
 
         <!-- 新着記事 -->
-        <div v-if="latestPosts.length > 0" class="grid gap-6 md:grid-cols-3">
+        <div
+          v-if="latestPosts.length > 0"
+          class="flex gap-4 overflow-x-auto pb-2 px-1 snap-x snap-mandatory md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0"
+        >
           <NuxtLink
             v-for="post in latestPosts"
             :key="post._path"
             :to="post._path"
-            class="group bg-white rounded-xl border border-[rgba(15,23,42,0.02)] shadow-sm overflow-hidden flex flex-col transition"
+            class="group bg-white rounded-xl border border-[rgba(15,23,42,0.02)] shadow-sm overflow-hidden flex flex-col transition min-w-[70%] sm:min-w-[55%] md:min-w-0 snap-start"
           >
             <div v-if="post.cover" class="h-32 bg-slate-100 flex items-center justify-center text-slate-400 text-sm">
               <img
@@ -113,14 +116,14 @@
             <div class="p-4 flex flex-col gap-3 flex-1">
               <p
                 v-if="post.tags && post.tags.length"
-                class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[rgba(50,93,206,0.08)] text-[0.6rem] text-[color:var(--brand)] font-semibold w-fit"
+                class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[rgba(50,93,206,0.08)] text-[10px] md:text-[0.65rem] text-[color:var(--brand)] font-semibold w-fit"
               >
                 {{ post.tags[0] }}
               </p>
-              <p class="font-semibold text-[color:var(--heading)] leading-snug line-clamp-2 group-hover:text-[color:var(--brand)] transition-colors">
+              <p class="font-semibold text-[color:var(--heading)] leading-snug line-clamp-2 group-hover:text-[color:var(--brand)] transition-colors text-sm md:text-base">
                 {{ post.title }}
               </p>
-              <p v-if="post.date" class="text-xs text-[color:var(--text-muted)] mt-auto">
+              <p v-if="post.date" class="text-[11px] md:text-xs text-[color:var(--text-muted)] mt-auto">
                 {{ formatDate(post.date) }}
               </p>
             </div>
@@ -141,12 +144,15 @@
             </NuxtLink>
           </div>
 
-          <div v-if="section.items.length > 0" class="grid gap-6 md:grid-cols-3">
+          <div
+            v-if="section.items.length > 0"
+            class="flex gap-4 overflow-x-auto pb-2 px-1 snap-x snap-mandatory md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0"
+          >
             <NuxtLink
               v-for="post in section.items"
               :key="post._path"
               :to="post._path"
-              class="group bg-white rounded-xl border border-[rgba(15,23,42,0.02)] shadow-sm overflow-hidden flex flex-col transition"
+              class="group bg-white rounded-xl border border-[rgba(15,23,42,0.02)] shadow-sm overflow-hidden flex flex-col transition min-w-[70%] sm:min-w-[55%] md:min-w-0 snap-start"
             >
               <!-- サムネイル（新着と同じレイアウト） -->
               <div v-if="post.cover" class="h-32 bg-slate-100 flex items-center justify-center text-slate-400 text-sm">
@@ -175,15 +181,15 @@
 
               <!-- テキスト部（タイトル＋任意で説明＋日付） -->
               <div class="p-4 flex flex-col gap-3 flex-1">
-                <p v-if="post.date" class="text-xs text-[color:var(--text-muted)]">
+                <p v-if="post.date" class="text-[11px] md:text-xs text-[color:var(--text-muted)]">
                   {{ formatDate(post.date) }}
                 </p>
-                <p class="font-semibold text-[color:var(--heading)] leading-snug line-clamp-2 group-hover:text-[color:var(--brand)] transition-colors">
+                <p class="font-semibold text-[color:var(--heading)] leading-snug line-clamp-2 group-hover:text-[color:var(--brand)] transition-colors text-sm md:text-base">
                   {{ post.title }}
                 </p>
                 <p
                   v-if="post.description"
-                  class="text-xs text-[color:var(--text-muted)] leading-snug line-clamp-2"
+                  class="text-[11px] md:text-xs text-[color:var(--text-muted)] leading-snug line-clamp-2"
                 >
                   {{ post.description }}
                 </p>
@@ -298,7 +304,7 @@ const { data: allPosts } = await useAsyncData('home-posts', async () => {
 })
 
 const latestPosts = computed(() => {
-  return (allPosts.value || []).slice(0, 3)
+  return (allPosts.value || []).slice(0, 4)
 })
 
 const categorySections = computed(() => {
@@ -310,7 +316,7 @@ const categorySections = computed(() => {
       to: '/licenses/tohan/exam',
       items: posts.filter((p: any) => 
         p.tags?.includes('試験情報') || p._path?.startsWith('/licenses/tohan/exam')
-      ).slice(0, 3),
+      ).slice(0, 4),
     },
     {
       slug: 'materials',
@@ -319,7 +325,7 @@ const categorySections = computed(() => {
       items: posts.filter((p: any) => 
         p.tags?.some((tag: string) => ['教材', '通信講座', 'レビュー'].includes(tag)) || 
         p._path?.startsWith('/licenses/tohan/materials')
-      ).slice(0, 3),
+      ).slice(0, 4),
     },
     {
       slug: 'work',
@@ -328,7 +334,7 @@ const categorySections = computed(() => {
       items: posts.filter((p: any) => 
         p.tags?.some((tag: string) => ['仕事', '転職'].includes(tag)) || 
         p._path?.startsWith('/licenses/tohan/work')
-      ).slice(0, 3),
+      ).slice(0, 4),
     },
   ]
 })

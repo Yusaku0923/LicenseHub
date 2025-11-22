@@ -16,6 +16,13 @@ export default defineNuxtConfig({
           content: 'ca-pub-5447172429378250',
         },
       ],
+      script: [
+        {
+          src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5447172429378250',
+          async: true,
+          crossorigin: 'anonymous',
+        },
+      ],
       __dangerouslyDisableSanitizersByTagID: {
         'gtag2': ['innerHTML'],
       },
