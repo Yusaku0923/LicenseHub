@@ -304,7 +304,7 @@ const { data: allPosts } = await useAsyncData('home-posts', async () => {
 })
 
 const latestPosts = computed(() => {
-  return (allPosts.value || []).slice(0, 4)
+  return (allPosts.value || []).slice(0, 3)
 })
 
 const categorySections = computed(() => {
@@ -316,7 +316,7 @@ const categorySections = computed(() => {
       to: '/licenses/tohan/exam',
       items: posts.filter((p: any) => 
         p.tags?.includes('試験情報') || p._path?.startsWith('/licenses/tohan/exam')
-      ).slice(0, 4),
+      ).slice(0, 3),
     },
     {
       slug: 'materials',
@@ -325,7 +325,7 @@ const categorySections = computed(() => {
       items: posts.filter((p: any) => 
         p.tags?.some((tag: string) => ['教材', '通信講座', 'レビュー'].includes(tag)) || 
         p._path?.startsWith('/licenses/tohan/materials')
-      ).slice(0, 4),
+      ).slice(0, 3),
     },
     {
       slug: 'work',
@@ -334,7 +334,7 @@ const categorySections = computed(() => {
       items: posts.filter((p: any) => 
         p.tags?.some((tag: string) => ['仕事', '転職'].includes(tag)) || 
         p._path?.startsWith('/licenses/tohan/work')
-      ).slice(0, 4),
+      ).slice(0, 3),
     },
   ]
 })
