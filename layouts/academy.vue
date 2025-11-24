@@ -42,5 +42,14 @@
   import AcademyTopBar from '~/components/academy/layout/AcademyTopBar.vue'
   
   const sidebarOpen = ref(false)
-  </script>
-  
+useHead({
+  // noindex, nofollow
+  meta: [
+    {
+      name: 'robots',
+      content: 'noindex,nofollow',
+    },
+  ],
+})
+</script>
+ 
