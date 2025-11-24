@@ -31,13 +31,13 @@
           <div class="flex flex-wrap gap-3">
             <NuxtLink
               to="/licenses/tohan/exam"
-              class="inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold bg-white text-[color:var(--brand)] border border-[rgba(50,93,206,0.25)] hover:bg-[color:var(--brand)] hover:text-white transition"
+              class="inline-flex items-center rounded-full px-4 py-2 text-xl font-semibold bg-white text-[color:var(--brand)] border border-[rgba(50,93,206,0.25)] hover:bg-[color:var(--brand)] hover:text-white transition"
             >
               勉強の始め方を見る
             </NuxtLink>
             <NuxtLink
               to="/licenses/tohan/materials"
-              class="inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold bg-white text-[color:var(--brand)] border border-[rgba(50,93,206,0.25)] hover:bg-[color:var(--brand)] hover:text-white transition"
+              class="inline-flex items-center rounded-full px-4 py-2 text-xl font-semibold bg-white text-[color:var(--brand)] border border-[rgba(50,93,206,0.25)] hover:bg-[color:var(--brand)] hover:text-white transition"
             >
               通信講座・教材を比較する
             </NuxtLink>
@@ -47,8 +47,8 @@
 
       <!-- ② カテゴリクイックリンク -->
       <section class="mb-12">
-        <h2 class="section-title mb-3">まずはここから</h2>
-        <p class="text-xs text-[color:var(--text-muted)] mb-4">
+        <h2 class="section-title mb-3 text-xl font-bold">まずはここから</h2>
+        <p class="text-[15px] text-[color:var(--text-muted)] mb-4">
           勉強・教材・仕事の3つの入り口から、目的に合わせて情報を探せます。
         </p>
         <div class="grid gap-4 md:grid-cols-3">
@@ -56,7 +56,7 @@
             v-for="item in quickLinks"
             :key="item.to"
             :to="item.to"
-            class="group bg-white rounded-xl border border-[rgba(15,23,42,0.03)] shadow-sm p-4 flex items-center gap-3 transition"
+            class="group bg-white rounded-xl border border-[color:var(--brand)] shadow-sm p-4 flex items-center gap-3 transition"
           >
             <div
               class="w-10 h-10 rounded-full bg-[rgba(50,93,206,0.08)] flex items-center justify-center text-[color:var(--brand)]"
@@ -64,7 +64,7 @@
               <Icon :icon="item.icon" class="text-xl" />
             </div>
             <div>
-              <p class="font-semibold text-[color:var(--heading)] text-sm group-hover:text-[color:var(--brand)] transition-colors">{{ item.title }}</p>
+              <p class="font-semibold text-[color:var(--heading)] text-xl group-hover:text-[color:var(--brand)] transition-colors">{{ item.title }}</p>
               <p class="text-xs text-[color:var(--text-muted)] group-hover:text-[color:var(--brand)] transition-colors">{{ item.desc }}</p>
             </div>
           </NuxtLink>
@@ -75,7 +75,7 @@
       <!-- ③ 新着記事（ここに元の Mistral のコンポーネントを入れてもいい） -->
       <section class="mb-12">
         <div class="flex items-center justify-between mb-4">
-          <h2 class="section-title mb-0">新着記事</h2>
+          <h2 class="section-title mb-0 text-xl font-bold">新着記事</h2>
           <NuxtLink to="/licenses/tohan/articles" class="text-sm text-[color:var(--brand)] hover:underline">もっと見る</NuxtLink>
         </div>
 
@@ -138,7 +138,7 @@
       <section class="space-y-12 mb-4">
         <div v-for="section in categorySections" :key="section.slug">
           <div class="flex items-center justify-between mb-4">
-            <h2 class="section-title mb-0">{{ section.title }}</h2>
+            <h2 class="section-title mb-0 text-xl font-bold">{{ section.title }}</h2>
             <NuxtLink :to="section.to" class="text-sm text-[color:var(--brand)] hover:underline">
               もっと見る
             </NuxtLink>

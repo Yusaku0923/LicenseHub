@@ -57,7 +57,7 @@ const listQuery = (doc: any) => {
           <img
             src="/images/hub_mv.webp"
             alt="Section Hero Background"
-            class="absolute inset-0 z-0 w-full h-full object-cover"
+            class="absolute inset-0 z-0 w-full h-full object-cover opacity-60"
             loading="eager"
           />
           <div class="relative z-10">
