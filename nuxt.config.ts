@@ -41,7 +41,10 @@ export default defineNuxtConfig({
   components: {
     global: true,
     dirs: [
-      '~/components',
+      {
+        path: '~/components',
+        pathPrefix: false,
+      },
     ],
   },
   modules: [
@@ -51,6 +54,8 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/fonts',
     '@nuxtjs/robots',
+    '@nuxt/content',
+    '@nuxtjs/mdc',
   ],
   sitemap: {
     exclude: [

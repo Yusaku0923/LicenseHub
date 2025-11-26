@@ -17,14 +17,17 @@
     "@iconify-json/mdi": "^1.2.3",
     "@iconify/vue": "^5.0.0",
     "@nuxt/fonts": "^0.11.4",
+    "@nuxtjs/mdc": "^0.18.4",
     "@nuxtjs/robots": "^5.5.6",
     "@nuxtjs/sitemap": "^7.4.7",
+    "chart.js": "^4.5.1",
     "critters": "^0.0.25",
     "nuxt": "3.14.1592",
     "rehype-katex": "^7.0.0",
     "remark-math": "^6.0.0",
     "remark-mermaidjs": "^6.0.0",
-    "remark-reading-time": "2.0.1"
+    "remark-reading-time": "2.0.1",
+    "vue-chart-3": "^3.1.8"
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.7.1",

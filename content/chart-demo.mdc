@@ -1,0 +1,16 @@
+---
+title: チャート描画テスト
+description: vue-chart-3 で LineChart コンポーネントが描画できるかのテストページです。
+listed: false
+date: 2025-01-01
+draft: true
+---
+
+# チャート描画テスト
+
+`/chart-demo` では `LineChart` を Markdown 上でそのまま利用しています。Nuxt Content の MDC なので Vue コンポーネントがそのまま動きます。
+
+## Line（折れ線）
+
+::line-chart{title="週間セッション推移" labels='["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]' datasets='[{"label":"PV","data":[12,18,9,22,15,19,25],"borderColor":"#2563eb","backgroundColor":"#2563eb20","tension":0.35},{"label":"CV","data":[3,6,4,9,7,10,11],"borderColor":"#10b981","backgroundColor":"#10b98120","tension":0.35}]'}
+::
