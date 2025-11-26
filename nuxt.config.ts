@@ -25,6 +25,7 @@ export default defineNuxtConfig({
       ],
       __dangerouslyDisableSanitizersByTagID: {
         'gtag2': ['innerHTML'],
+        'website-jsonld': ['innerHTML'],
       },
     },
   },

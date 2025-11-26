@@ -252,6 +252,24 @@ useHead({
       href: `${appConfig.site.domain}${route.path}`,
     },
   ],
+  script: [
+    {
+      id: 'website-jsonld',
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        '@id': `${appConfig.site.domain}/#website`,
+        url: appConfig.site.domain,
+        name: appConfig.site.name,
+        inLanguage: 'ja',
+        publisher: {
+          '@type': 'Organization',
+          name: appConfig.site.publisher,
+        },
+      }),
+    },
+  ],
 })
 
 const quickLinks = [

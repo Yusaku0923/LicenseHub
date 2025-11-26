@@ -12,7 +12,7 @@ export default defineAppConfig({
     ogUrl: 'https://licencehub.jp',
     ogType: 'website',
     ogLocale: 'ja_JP',
-    ogSiteName: 'LicenceHub',
+    ogSiteName: 'LicenceHub｜登録販売者の資格ガイド',
     ogImage: '/images/ogp/ogp_default.webp',
     ogImageWidth: 1200,
     ogImageHeight: 630,

@@ -32,6 +32,7 @@ useSeoMeta({
   ogType: () => 'website',
   ogUrl: () => `${config.site.domain}${route.path}`,
   ogImage: () => `${config.site.domain}${config.site.ogImage}`,
+  ogSiteName: () => config.site.ogSiteName || config.site.name,
 })
 
 // ★ ここで lang を含めて head を上書き

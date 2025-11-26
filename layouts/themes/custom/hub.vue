@@ -300,7 +300,7 @@ import MistralHomeLayout from '~/components/content/MistralHomeLayout.vue'
 import MistralSidebar from '~/components/themes/mistral/MistralSidebar.vue'
 import MistralBreadcrumbs from '~/components/themes/mistral/MistralBreadcrumbs.vue'
 
-defineProps<{
+const { doc } = defineProps<{
   doc: any
 }>()
 
@@ -310,7 +310,22 @@ const route = useRoute()
 const activeSection = ref<'exam' | 'materials' | 'work' | 'articles'>('exam')
 
 useSeoMeta({
-  // 既存の SEO 設定をここに維持
+  title: () => doc?.title ? `${doc.title} | ${config.site.name}` : config.site.title,
+  description: () =>
+    doc?.description ??
+    config.site.description,
+  ogTitle: () => doc?.title ? `${doc.title} | ${config.site.name}` : config.site.ogTitle,
+  ogDescription: () =>
+    doc?.ogDescription ??
+    doc?.description ??
+    config.site.ogDescription,
+  ogType: () => 'website',
+  ogUrl: () => `${config.site.domain}${route.path}`,
+  ogImage: () =>
+    doc?.ogImage
+      ? `${config.site.domain}${doc.ogImage}`
+      : `${config.site.domain}${config.site.ogImage}`,
+  ogSiteName: () => config.site.ogSiteName || config.site.name,
 })
 
 useHead({

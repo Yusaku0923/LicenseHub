@@ -149,6 +149,7 @@ useSeoMeta({
     (props.doc?.cover
       ? `${config.site.domain}/images/${props.doc.cover}`
       : `${config.site.domain}${config.site.ogImage}`),
+  ogSiteName: () => config.site.ogSiteName || config.site.name,
   author: config.site.author,
   publisher: config.site.publisher,
 })
