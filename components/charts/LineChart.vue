@@ -2,6 +2,7 @@
 import { computed, onMounted } from 'vue'
 import { LineChart as Chart } from 'vue-chart-3'
 import type { ChartData, ChartOptions } from 'chart.js'
+import ChartDataLabels from 'chartjs-plugin-datalabels'
 
 const props = defineProps<{
   title?: string
@@ -99,7 +100,11 @@ const chartOptions = computed<ChartOptions<'line'>>(() => ({
   maintainAspectRatio: false,
   interaction: { mode: 'index', intersect: false },
   scales: {
-    x: { grid: { display: false }, ticks: { color: '#475569' } },
+    x: { 
+      grid: { display: false }, 
+      ticks: { color: '#475569' },
+      offset: true,
+    },
     y: { grid: { color: '#e2e8f0' }, ticks: { color: '#475569' } },
   },
   plugins: {
@@ -109,6 +114,22 @@ const chartOptions = computed<ChartOptions<'line'>>(() => ({
       labels: { color: '#475569', boxWidth: 12 },
     },
     tooltip: { backgroundColor: '#0f172a', titleColor: '#e2e8f0', bodyColor: '#e2e8f0' },
+    datalabels: {
+      display: true,
+      color: '#475569',
+      anchor: 'end',
+      align: 'top',
+      formatter: (value: number) => {
+        return value.toFixed(1) + '%'
+      },
+      font: {
+        size: 11,
+        weight: 500,
+      },
+      padding: {
+        top: 4,
+      },
+    },
   },
 }))
 </script>
@@ -123,6 +144,7 @@ const chartOptions = computed<ChartOptions<'line'>>(() => ({
         class="chart-card__canvas"
         :chart-data="chartData"
         :options="chartOptions"
+        :plugins="[ChartDataLabels]"
       />
     </ClientOnly>
   </div>

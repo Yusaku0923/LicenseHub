@@ -2,6 +2,7 @@
 import { computed, onMounted } from 'vue'
 import { BarChart as Chart } from 'vue-chart-3'
 import type { ChartData, ChartOptions } from 'chart.js'
+import ChartDataLabels from 'chartjs-plugin-datalabels'
 
 const props = defineProps<{
   title?: string
@@ -126,6 +127,22 @@ const chartOptions = computed<ChartOptions<'bar'>>(() => ({
       labels: { color: '#475569', boxWidth: 12 },
     },
     tooltip: { backgroundColor: '#0f172a', titleColor: '#e2e8f0', bodyColor: '#e2e8f0' },
+    datalabels: {
+      display: true,
+      color: '#475569',
+      anchor: 'end',
+      align: 'end',
+      formatter: (value: number) => {
+        return value.toFixed(1) + '%'
+      },
+      font: {
+        size: 11,
+        weight: 500,
+      },
+      padding: {
+        bottom: 4,
+      },
+    },
   },
 }))
 </script>
@@ -140,6 +157,7 @@ const chartOptions = computed<ChartOptions<'bar'>>(() => ({
         class="chart-card__canvas"
         :chart-data="chartData"
         :options="chartOptions"
+        :plugins="[ChartDataLabels]"
       />
     </ClientOnly>
   </div>
