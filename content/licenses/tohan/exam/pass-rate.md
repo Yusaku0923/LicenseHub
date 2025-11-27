@@ -12,8 +12,8 @@ keywords:
   - 登録販売者 試験 合格ライン
   - 登録販売者 合格率 全国平均
   - 登録販売者 受かりやすい 県
-date: 2025-11-09
-update: 2025-11-27
+created: 2025-11-09
+date: 2025-11-27
 listed: true
 toc: true
 draft: false
