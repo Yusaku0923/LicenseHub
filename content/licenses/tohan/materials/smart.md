@@ -134,5 +134,5 @@ SMART合格講座は、スマホで完結するオンライン講座の中でも
 
 ---
 
-<!-- TODO: ここに AffiliateLinksTohanMaterials コンポーネントを配置 -->
-<AffiliateLinksTohanMaterials />
+::affiliate-links-tohan-materials
+::

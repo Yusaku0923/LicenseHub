@@ -130,5 +130,5 @@ cover: "content/licenses/tohan/materials/sanko.webp"
 
 ---
 
-<!-- TODO: ここに AffiliateLinksTohanMaterials コンポーネントを配置 -->
-<AffiliateLinksTohanMaterials />
+::affiliate-links-tohan-materials
+::

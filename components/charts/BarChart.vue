@@ -1,19 +1,19 @@
 <script setup lang="ts">
 import { computed, onMounted } from 'vue'
-import { LineChart as Chart } from 'vue-chart-3'
+import { BarChart as Chart } from 'vue-chart-3'
 import type { ChartData, ChartOptions } from 'chart.js'
 
 const props = defineProps<{
   title?: string
   labels?: string | string[]
-  datasets?: string | ChartData<'line'>['datasets']
-  'data-sets'?: string | ChartData<'line'>['datasets']
+  datasets?: string | ChartData<'bar'>['datasets']
+  'data-sets'?: string | ChartData<'bar'>['datasets']
   datasetLabels?: string | string[]
   'dataset-labels'?: string | string[]
 }>()
 
 // MDCがケバブケースで渡す可能性に対応
-const datasetsProp = computed(() => props['data-sets'] || props.datasets || (props as any)['datasets'] || (props as any)['dataSets'])
+const datasetsProp = computed(() => props['data-sets'] || props.datasets)
 const datasetLabelsProp = computed(() => props['dataset-labels'] || props.datasetLabels)
 
 const parsedLabels = computed<string[]>(() => {
@@ -43,7 +43,7 @@ const parsedDatasetLabels = computed<string[]>(() => {
   return labels
 })
 
-const parsedDatasets = computed<ChartData<'line'>['datasets']>(() => {
+const parsedDatasets = computed<ChartData<'bar'>['datasets']>(() => {
   // すべての可能なプロパティ名をチェック
   const datasetsValue = 
     props['data-sets'] || 
@@ -53,10 +53,11 @@ const parsedDatasets = computed<ChartData<'line'>['datasets']>(() => {
   
   // datasetsが未指定の場合は空配列を返す
   if (!datasetsValue) {
+    console.warn('BarChart: datasets prop is not provided. Available props:', Object.keys(props))
     return []
   }
 
-  let datasets: ChartData<'line'>['datasets'] = []
+  let datasets: ChartData<'bar'>['datasets'] = []
   
   // 文字列として受け取ってパース
   if (typeof datasetsValue === 'string') {
@@ -64,15 +65,15 @@ const parsedDatasets = computed<ChartData<'line'>['datasets']>(() => {
       // JSON文字列をパース
       datasets = JSON.parse(datasetsValue)
     } catch (e) {
-      console.error('LineChart: Failed to parse datasets JSON:', e)
-      console.error('LineChart: Raw datasets value:', datasetsValue)
+      console.error('BarChart: Failed to parse datasets JSON:', e)
+      console.error('BarChart: Raw datasets value:', datasetsValue)
       return []
     }
   } else if (Array.isArray(datasetsValue)) {
     // 既に配列の場合はそのまま使用
     datasets = datasetsValue
   } else {
-    console.error('LineChart: datasets is neither string nor array:', typeof datasetsValue, datasetsValue)
+    console.error('BarChart: datasets is neither string nor array:', typeof datasetsValue, datasetsValue)
     return []
   }
 
@@ -89,18 +90,34 @@ const parsedDatasets = computed<ChartData<'line'>['datasets']>(() => {
   return datasets
 })
 
-const chartData = computed<ChartData<'line'>>(() => ({
+const chartData = computed<ChartData<'bar'>>(() => ({
   labels: parsedLabels.value,
   datasets: parsedDatasets.value,
 }))
 
-const chartOptions = computed<ChartOptions<'line'>>(() => ({
+onMounted(() => {
+  console.log('BarChart mounted - All props keys:', Object.keys(props))
+  console.log('BarChart mounted - props.datasets:', props.datasets)
+  console.log('BarChart mounted - props["data-sets"]:', props['data-sets'])
+  console.log('BarChart mounted - Full props object:', props)
+})
+
+const chartOptions = computed<ChartOptions<'bar'>>(() => ({
   responsive: true,
   maintainAspectRatio: false,
   interaction: { mode: 'index', intersect: false },
   scales: {
-    x: { grid: { display: false }, ticks: { color: '#475569' } },
-    y: { grid: { color: '#e2e8f0' }, ticks: { color: '#475569' } },
+    x: {
+      grid: { display: false },
+      ticks: {
+        color: '#475569',
+        maxRotation: 45,
+        minRotation: 0,
+        autoSkip: false,
+        maxTicksLimit: undefined,
+      },
+    },
+    y: { grid: { color: '#e2e8f0' }, ticks: { color: '#475569' }, beginAtZero: true },
   },
   plugins: {
     legend: {

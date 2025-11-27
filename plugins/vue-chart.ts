@@ -5,7 +5,7 @@ let registered = false
 
 export default defineNuxtPlugin(() => {
   if (!registered) {
-    ChartJS.register(...registerables)
+ChartJS.register(...registerables)
     registered = true
   }
 })

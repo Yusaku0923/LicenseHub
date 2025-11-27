@@ -111,5 +111,5 @@ cover: "content/licenses/tohan/materials/onsuku.webp"
 
 ---
 
-<!-- TODO: ここに AffiliateLinksTohanMaterials コンポーネントを配置 -->
-<AffiliateLinksTohanMaterials />
+::affiliate-links-tohan-materials
+::

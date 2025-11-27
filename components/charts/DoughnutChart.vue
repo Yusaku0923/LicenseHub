@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { computed, onMounted } from 'vue'
-import { LineChart as Chart } from 'vue-chart-3'
+import { DoughnutChart as Chart } from 'vue-chart-3'
 import type { ChartData, ChartOptions } from 'chart.js'
 
 const props = defineProps<{
   title?: string
   labels?: string | string[]
-  datasets?: string | ChartData<'line'>['datasets']
-  'data-sets'?: string | ChartData<'line'>['datasets']
+  datasets?: string | ChartData<'doughnut'>['datasets']
+  'data-sets'?: string | ChartData<'doughnut'>['datasets']
   datasetLabels?: string | string[]
   'dataset-labels'?: string | string[]
 }>()
@@ -43,7 +43,7 @@ const parsedDatasetLabels = computed<string[]>(() => {
   return labels
 })
 
-const parsedDatasets = computed<ChartData<'line'>['datasets']>(() => {
+const parsedDatasets = computed<ChartData<'doughnut'>['datasets']>(() => {
   // すべての可能なプロパティ名をチェック
   const datasetsValue = 
     props['data-sets'] || 
@@ -56,7 +56,7 @@ const parsedDatasets = computed<ChartData<'line'>['datasets']>(() => {
     return []
   }
 
-  let datasets: ChartData<'line'>['datasets'] = []
+  let datasets: ChartData<'doughnut'>['datasets'] = []
   
   // 文字列として受け取ってパース
   if (typeof datasetsValue === 'string') {
@@ -64,15 +64,15 @@ const parsedDatasets = computed<ChartData<'line'>['datasets']>(() => {
       // JSON文字列をパース
       datasets = JSON.parse(datasetsValue)
     } catch (e) {
-      console.error('LineChart: Failed to parse datasets JSON:', e)
-      console.error('LineChart: Raw datasets value:', datasetsValue)
+      console.error('DoughnutChart: Failed to parse datasets JSON:', e)
+      console.error('DoughnutChart: Raw datasets value:', datasetsValue)
       return []
     }
   } else if (Array.isArray(datasetsValue)) {
     // 既に配列の場合はそのまま使用
     datasets = datasetsValue
   } else {
-    console.error('LineChart: datasets is neither string nor array:', typeof datasetsValue, datasetsValue)
+    console.error('DoughnutChart: datasets is neither string nor array:', typeof datasetsValue, datasetsValue)
     return []
   }
 
@@ -89,19 +89,14 @@ const parsedDatasets = computed<ChartData<'line'>['datasets']>(() => {
   return datasets
 })
 
-const chartData = computed<ChartData<'line'>>(() => ({
+const chartData = computed<ChartData<'doughnut'>>(() => ({
   labels: parsedLabels.value,
   datasets: parsedDatasets.value,
 }))
 
-const chartOptions = computed<ChartOptions<'line'>>(() => ({
+const chartOptions = computed<ChartOptions<'doughnut'>>(() => ({
   responsive: true,
   maintainAspectRatio: false,
-  interaction: { mode: 'index', intersect: false },
-  scales: {
-    x: { grid: { display: false }, ticks: { color: '#475569' } },
-    y: { grid: { color: '#e2e8f0' }, ticks: { color: '#475569' } },
-  },
   plugins: {
     legend: {
       display: parsedDatasets.value.length > 1,

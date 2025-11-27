@@ -92,5 +92,5 @@ cover: "content/licenses/tohan/exam/how-to-study.webp"
   </span>
 </p>
 
-<!-- TODO: ここに AffiliateLinksTohanMaterials コンポーネントを配置 -->
-<AffiliateLinksTohanMaterials />
+::affiliate-links-tohan-materials
+::
