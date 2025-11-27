@@ -115,9 +115,6 @@ https://www.pref.ibaraki.jp/hokenfukushi/yakumu/yakuji/torokushiken/28c.html
 - **直前期（6〜8月）**：模試・弱点補強  
 - **願書受付（例年6月中旬〜7月初旬）**：出願忘れ防止のため早めに実施
 
-内部リンク案：  
-- 「登録販売者試験の勉強法まとめ」  
-- 「登録販売者試験はいつ？年度別試験日程まとめ」
 
 <p>
   <span class="inline-highlight">受付期間が長めでも、学習時間の確保のため出願は早めに済ませるのがおすすめです。</span>

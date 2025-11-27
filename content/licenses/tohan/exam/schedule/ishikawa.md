@@ -120,9 +120,6 @@ https://www.pref.ishikawa.lg.jp/yakuji/topic/shiken/touhan.html
 - **直前期（7〜9月）**：模試・弱点補強  
 - **願書受付（例年：6月上旬〜中旬）**：短期間のため早めの提出が重要
 
-内部リンク案：  
-- 「登録販売者試験の勉強法まとめ」  
-- 「登録販売者試験はいつ？年度別試験日程まとめ」
 
 <p>
   <span class="inline-highlight">受付期間が短いため、学習と出願準備を並行して進めることが合格への近道です。</span>

@@ -119,9 +119,6 @@ https://www.pref.nagano.lg.jp/yakuji/sangyo/shiken/iyakuhin/r7touhan.html
 - **直前期（6〜8月）**：模試・弱点対策  
 - **願書受付（例年：5月中旬〜下旬）**：早期受付のため準備は前倒し必須
 
-内部リンク案：  
-- 「登録販売者試験の勉強法まとめ」  
-- 「登録販売者試験はいつ？年度別試験日程まとめ」
 
 <p>
   <span class="inline-highlight">受付が非常に早い県のため、学習と出願準備を同時に進めることが成功のポイントです。</span>

@@ -128,9 +128,6 @@ https://www.pref.fukuoka.lg.jp/contents/r07tourokuhanbaisyashiken.html
 - **直前期（11〜12月）**：総仕上げ  
 - **受付（8/18〜29）**：早めに提出して学習に集中
 
-内部リンク案：  
-- 「登録販売者試験の勉強法まとめ」  
-- 「登録販売者試験はいつ？年度別試験日程まとめ」
 
 <p>
   <span class="inline-highlight">他県試験後からでも受験が間に合うため、最後のチャンスとして活用される県です。</span>

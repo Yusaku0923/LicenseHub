@@ -126,9 +126,6 @@ https://www.kouiki-kansai.jp/koikirengo/jisijimu/shikakumenkyo/touroku/touroku_R
 - **直前期（7〜8月）**：模試・総仕上げ  
 - **願書受付（6/2〜16）**：早めに提出
 
-内部リンク案：  
-- 「登録販売者試験の勉強法まとめ」  
-- 「登録販売者試験はいつ？年度別試験日程まとめ」
 
 <p>
   <span class="inline-highlight">徳島県はアクセスの準備も合格戦略の一部であるため、学習と並行して当日の移動計画も進める必要があります。</span>

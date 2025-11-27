@@ -127,9 +127,6 @@ https://www.pref.kagoshima.jp/ae10/kenko-fukushi/yakuji-eisei/touhan/r07touhan.h
 - **直前期（11〜12月）**：模試・総復習  
 - **受付（8/25〜9/5）**：早めに提出
 
-内部リンク案：  
-- 「登録販売者試験の勉強法まとめ」  
-- 「登録販売者試験はいつ？年度別試験日程まとめ」
 
 <p>
   <span class="inline-highlight">鹿児島県は南北に広いため、早めの交通手配が非常に重要です。</span>

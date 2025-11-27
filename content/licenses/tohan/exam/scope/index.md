@@ -164,6 +164,6 @@ cover: "content/licenses/tohan/exam/scope/index.webp"
 
 <p>
   <span class="inline-highlight">
-    必要な情報を体系的に押さえると、効率学習と回遊が自然に進みます。
+    必要な情報を体系的に押さえると、効率的な学習が自然に進みます。
   </span>
 </p>

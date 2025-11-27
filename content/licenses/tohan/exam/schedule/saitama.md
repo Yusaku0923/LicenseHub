@@ -120,9 +120,6 @@ https://www.pref.saitama.lg.jp/a0701/eiseishiken/touhanshiken/h30/goannai.html
 - **直前期（7〜9月）**：模試・弱点克服  
 - **願書受付（例年：5月下旬〜6月初旬）**：短期間のため早めの提出が重要
 
-内部リンク案：  
-- 「登録販売者試験の勉強法まとめ」  
-- 「登録販売者試験はいつ？年度別試験日程まとめ」
 
 <p>
   <span class="inline-highlight">受付期間が短いため、学習と出願の両方を計画的に進めることが合格の鍵です。</span>

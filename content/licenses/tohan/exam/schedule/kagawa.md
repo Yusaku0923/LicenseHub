@@ -127,9 +127,6 @@ https://www.pref.kagawa.lg.jp/yakumu/yakumu/hanbai/r07kouji2.html
 - **直前期（10月）**：模試・総復習  
 - **受付（7/11〜25）**：早めに出願
 
-内部リンク案：  
-- 「登録販売者試験の勉強法まとめ」  
-- 「登録販売者試験はいつ？年度別試験日程まとめ」
 
 <p>
   <span class="inline-highlight">アクセスが良く受験環境が安定しているため、四国の中では比較的受けやすい県です。</span>

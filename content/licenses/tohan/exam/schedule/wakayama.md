@@ -130,9 +130,6 @@ https://www.kouiki-kansai.jp/koikirengo/jisijimu/shikakumenkyo/touroku/touroku_R
 - **直前期（7〜8月）**：模試・総仕上げ  
 - **受付期間（6/2〜16）**：早めに提出して学習時間を確保
 
-内部リンク案：  
-- 「登録販売者試験の勉強法まとめ」  
-- 「登録販売者試験はいつ？年度別試験日程まとめ」
 
 <p>
   <span class="inline-highlight">試験会場への移動計画も、合格戦略の一部として考えておく必要があります。</span>

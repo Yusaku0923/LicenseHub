@@ -118,9 +118,6 @@ https://www.hokeniryo.metro.tokyo.lg.jp/anzen/iyaku/tourokushiken/r7shiken
 - **直前期（7〜9月）**：模試・弱点補強  
 - **願書受付（例年：5月下旬〜6月初旬）**：忘れずに提出
 
-内部リンク案：  
-- 「登録販売者試験の勉強法まとめ」  
-- 「登録販売者試験はいつ？年度別試験日程まとめ」
 
 <p>
   <span class="inline-highlight">受付期間が短く、受験者が多いため、学習と出願の両面で早めの行動が成功のポイントです。</span>

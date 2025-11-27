@@ -69,7 +69,6 @@ cover: "content/licenses/tohan/materials/compare.webp"
   </span>
 </p>
 
-<!-- A8：三幸医療カレッジ -->
 <div class="aff-link my-6">
   <a href="https://px.a8.net/svt/ejp?a8mat=45GGT7+B5VM42+4N9Y+5YRHE" rel="nofollow sponsored" target="_blank">
     圧倒的合格率82％！登録販売者受験対策講座【三幸医療カレッジ】
@@ -177,11 +176,11 @@ cover: "content/licenses/tohan/materials/compare.webp"
 
 ---
 
-## 編集部メモ（LicenceHub視点）
+## 選び方のポイント
 
-> 3校すべてに共通するのは「**動画＋問題演習の重要性**」。  
-> 登録販売者試験は暗記中心ですが、**反復演習の効率**が合否を左右します。  
-> まずは無料体験・資料請求で、自分に合った教材を確認するのがおすすめです。
+3校すべてに共通するのは「**動画＋問題演習の重要性**」です。  
+登録販売者試験は暗記中心ですが、**反復演習の効率**が合否を左右します。  
+まずは無料体験・資料請求で、自分に合った教材を確認するのがおすすめです。
 
 <p>
   <span class="inline-highlight">
@@ -197,7 +196,6 @@ cover: "content/licenses/tohan/materials/compare.webp"
 - [SMART合格講座公式サイト](https://px.a8.net/svt/ejp?a8mat=45GGT7+B72HBM+4LOQ+5YJRM){rel="nofollow sponsored" target="_blank"}
 - [オンスク.JP公式サイト（ウケホーダイ）](https://px.a8.net/svt/ejp?a8mat=45GGT7+B7NWXE+408S+60WN6){rel="nofollow sponsored" target="_blank"}
 
-<!-- トラッキングピクセル（A8必須） -->
 <img border="0" width="1" height="1" src="https://www11.a8.net/0.gif?a8mat=45GGT7+B5VM42+4N9Y+5YRHE" alt="">
 <img border="0" width="1" height="1" src="https://www14.a8.net/0.gif?a8mat=45GGT7+B72HBM+4LOQ+5YJRM" alt="">
 <img border="0" width="1" height="1" src="https://www11.a8.net/0.gif?a8mat=45GGT7+B7NWXE+408S+60WN6" alt="">

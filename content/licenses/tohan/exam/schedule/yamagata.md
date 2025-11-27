@@ -115,9 +115,6 @@ https://www.pref.yamagata.jp/090001/kenfuku/yakuji/yakuhin/tourokuhambai/hambais
 - **直前期（6〜8月）**：模試・弱点対策  
 - **願書受付（例年：6月上旬〜下旬）**：早めの提出が安心
 
-内部リンク案：  
-- 「登録販売者試験の勉強法まとめ」  
-- 「登録販売者試験はいつ？年度別試験日程まとめ」
 
 <p>
   <span class="inline-highlight">出願の準備を早めに整えておくことで、学習により集中して取り組めます。</span>

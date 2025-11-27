@@ -117,9 +117,6 @@ https://www.pref.tochigi.lg.jp/e07/welfare/kusuri/kusuri/touhan/r07touhan.html
 - **直前期（6〜8月）**：模試・弱点補強  
 - **願書受付（例年：6月中旬〜下旬）**：受付期間が短いため早めの提出が重要
 
-内部リンク案：  
-- 「登録販売者試験の勉強法まとめ」  
-- 「登録販売者試験はいつ？年度別試験日程まとめ」
 
 <p>
   <span class="inline-highlight">受付期間が非常に短いため、早めの書類準備と計画的な学習が不可欠です。</span>

@@ -124,9 +124,6 @@ https://www.pref.fukui.lg.jp/doc/iei/yakumu/tourokuhanbaisyayouryou_r07.html
 - **直前期（7〜8月）**：模試・総仕上げ  
 - **願書受付（例年：6月上旬〜中旬）**：早めに提出して学習時間を確保
 
-内部リンク案：  
-- 「登録販売者試験の勉強法まとめ」  
-- 「登録販売者試験はいつ？年度別試験日程まとめ」
 
 <p>
   <span class="inline-highlight">試験日が特に早いため、他県よりも早い学習開始が合格の鍵となります。</span>

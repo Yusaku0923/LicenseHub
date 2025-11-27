@@ -117,9 +117,6 @@ https://www.pref.aomori.lg.jp/soshiki/kenko/iryo/touroku.html
 - **直前期（6〜8月）**：模試・総復習  
 - **受付開始（例年：6月中旬）**：忘れずに出願
 
-内部リンク案：  
-- 「登録販売者試験の勉強法まとめ」  
-- 「登録販売者試験はいつ？年度別試験日程まとめ」
 
 <p>
   <span class="inline-highlight">受付期間が短めのため、出願の準備は早めに進めることをおすすめします。</span>

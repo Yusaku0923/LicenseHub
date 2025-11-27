@@ -132,9 +132,6 @@ https://www.pref.hiroshima.lg.jp/site/tourokuhannbaisya/touhanshiken.html
 - **直前期（10月）**：模試・総仕上げ  
 - **受付（7/11〜25）**：早めに提出
 
-内部リンク案：  
-- 「登録販売者試験の勉強法まとめ」  
-- 「登録販売者試験はいつ？年度別試験日程まとめ」
 
 <p>
   <span class="inline-highlight">10月試験のため追い込み期間が長く、学習計画を立てやすい県です。</span>

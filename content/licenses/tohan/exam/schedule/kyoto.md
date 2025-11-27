@@ -129,9 +129,6 @@ https://www.kouiki-kansai.jp/koikirengo/jisijimu/shikakumenkyo/touroku/touroku_R
 - **直前期（7〜8月）**：模試・弱点補強  
 - **願書受付（6/2〜16）**：余裕を持って処理
 
-内部リンク候補：  
-- 「登録販売者試験の勉強法まとめ」  
-- 「登録販売者試験はいつ？年度別試験日程まとめ」
 
 <p>
   <span class="inline-highlight">京都受験は会場混雑が大きいため、時間管理と当日の移動計画も合格戦略の一部となります。</span>

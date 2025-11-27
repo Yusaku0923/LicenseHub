@@ -129,9 +129,6 @@ https://www.pref.nagasaki.jp/object/shikaku-shiken-bosyu/shikaku-shiken/734734.h
 - **直前期（11〜12月）**：模試・総仕上げ  
 - **受付期間（8/18〜29）**：早めの提出で学習に集中
 
-内部リンク案：
-- 「登録販売者試験の勉強法まとめ」
-- 「登録販売者試験はいつ？年度別試験日程まとめ」
 
 <p>
   <span class="inline-highlight">離島含め広域の県のため、試験地選びや移動計画を早めに立てることが重要です。</span>
