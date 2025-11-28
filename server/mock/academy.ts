@@ -42,14 +42,14 @@ let dailyPlanToday: DailyPlanTodayResponse = {
     {
       id: 1,
       type: 'study',
-      title: '第1章 2-1：かぜの諸症状',
+      title: '第1章 1：医薬品の本質とリスク区分',
       description: 'テキスト 1 セクション分を読み進めましょう。',
       estimatedMinutes: 10,
       status: 'in_progress',
       progressPercent: 50,
       link: {
         kind: 'section',
-        sectionSlug: 'chapter1-section2-1',
+        sectionSlug: 'chapter1-section-1',
       },
     },
     {
@@ -94,6 +94,38 @@ const sectionDetails: Record<string, SectionDetailResponse> = {
 
 > 赤シートポイント: 発熱は **体温上昇** のみに限定されず、悪寒などの全身症状を伴うことが多い。`,
     estimatedMinutes: 10,
+  },
+  'chapter1-section-1': {
+    id: 2,
+    slug: 'chapter1-section-1',
+    chapterTitle: '第1章 医薬品に共通する特性と基本的な知識',
+    sectionTitle: '1. 医薬品の本質とリスク区分',
+    summary: '医薬品がもつ有効性とリスクの両面、リスク区分の考え方を整理します。',
+    bodyMarkdown: `# 医薬品の本質とリスク区分
+
+> 厚生労働省「登録販売者試験問題の作成に関する手引き（令和5年改訂）」より主要論点を抜粋。
+
+## 医薬品の本質
+- **有効性とリスクの両面** を持ち、適正使用が不可欠
+- 副作用や相互作用に留意し、生活者に正しい情報提供を行う
+
+## リスク区分（一般用医薬品）
+- **第1類医薬品**: リスクが高く、薬剤師による情報提供が必須
+- **第2類医薬品**: 比較的リスクが低いが、注意喚起が必要
+- **第3類医薬品**: リスクが最も低い区分
+
+### 要指導医薬品
+- スイッチ直後などでリスク評価中のもの。薬剤師による対面販売のみ。
+
+## 適正使用のポイント
+- 服用者の状態（年齢・既往症・併用薬）を確認
+- 服用時間・用量を守る
+- 重大な副作用症状（発疹、呼吸困難、むくみ等）に注意し、中止と受診を案内
+
+---
+
+このセクションを読み終えたら、次に演習で理解度をチェックしましょう。`,
+    estimatedMinutes: 8,
   },
 }
 
