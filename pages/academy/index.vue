@@ -1,40 +1,95 @@
 <!-- pages/academy/index.vue -->
 <template>
-  <div class="w-full space-y-8">
+  <div class="mx-auto max-w-5xl space-y-6 px-4 py-6 md:px-6 md:py-8">
     <AcademyPageHeader
       eyebrow="Dashboard"
       title="今日の学習"
-      subtitle="登録販売者試験までの進捗を確認して、今日のタスクから始めましょう。"
+      subtitle="今日のタスクを起点に学習を始めましょう。"
     >
       <button
         type="button"
-        class="rounded-md bg-emerald-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-emerald-700"
+        class="rounded-md bg-emerald-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-60"
+        :disabled="!firstTaskPath"
+        @click="startFirstTask"
       >
-        今日のレッスンを開始
+        今日のタスクをはじめる
       </button>
     </AcademyPageHeader>
 
+    <!-- 上段：今日のタスク（フル幅） -->
+    <AcademyTodayTasksPanel
+      :plan="dailyPlan"
+      :loading="dailyPlanLoading"
+    />
 
+    <!-- 下段 2 カラム -->
+    <div class="grid gap-6 lg:grid-cols-3">
+      <div class="space-y-6 lg:col-span-2">
+        <AcademyProgressSummaryPanel :plan="dailyPlan" />
+        <AcademyExamCountdownPanel :profile="me?.profile || null" />
+      </div>
 
-    <!-- 上段：今日のタスク + コース進捗 -->
-    <div class="grid gap-6 md:grid-cols-3">
-      <DashboardTodayTasks class="md:col-span-2" />
-      <DashboardCourseProgress />
+      <div class="space-y-6 lg:col-span-1">
+        <AcademyDailyFeedbackPanel
+          :feedback="dailyFeedback"
+          :loading="dailyFeedbackLoading"
+        />
+        <AcademyQuickLinksPanel />
+      </div>
     </div>
 
-    <!-- 下段：最近の学習履歴 -->
-    <DashboardRecentSessions />
+    <!-- 学習履歴（モチベ維持） -->
+    <AcademyRecentSessionsPanel />
   </div>
 </template>
 
 <script setup lang="ts">
+import AcademyDailyFeedbackPanel from '~/components/academy/AcademyDailyFeedbackPanel.vue'
+import AcademyExamCountdownPanel from '~/components/academy/AcademyExamCountdownPanel.vue'
+import AcademyPageHeader from '~/components/academy/common/AcademyPageHeader.vue'
+import AcademyProgressSummaryPanel from '~/components/academy/AcademyProgressSummaryPanel.vue'
+import AcademyQuickLinksPanel from '~/components/academy/AcademyQuickLinksPanel.vue'
+import AcademyRecentSessionsPanel from '~/components/academy/AcademyRecentSessionsPanel.vue'
+import AcademyTodayTasksPanel from '~/components/academy/AcademyTodayTasksPanel.vue'
+import { useDailyFeedback } from '~/composables/useDailyFeedback'
+import { useDailyPlan } from '~/composables/useDailyPlan'
+import { useMe } from '~/composables/useMe'
+import type { DailyPlanItem } from '~/types/academy'
+import { computed } from 'vue'
+
 definePageMeta({
   layout: 'academy',
-  // ここに auth 必須の middleware を後で差し込み予定
 })
 
-import AcademyPageHeader from '~/components/academy/common/AcademyPageHeader.vue'
-import DashboardTodayTasks from '~/components/academy/dashboard/DashboardTodayTasks.vue'
-import DashboardCourseProgress from '~/components/academy/dashboard/DashboardCourseProgress.vue'
-import DashboardRecentSessions from '~/components/academy/dashboard/DashboardRecentSessions.vue'
+const { me } = useMe()
+const { dailyPlan, loading: dailyPlanLoading } = useDailyPlan()
+const { dailyFeedback, loading: dailyFeedbackLoading } = useDailyFeedback()
+
+const tasks = computed<DailyPlanItem[]>(() => dailyPlan.value?.tasks ?? [])
+const firstIncompleteTask = computed(() =>
+  tasks.value.find((task) => task.status !== 'completed'),
+)
+const firstTaskPath = computed(() => resolveTaskLink(firstIncompleteTask.value))
+
+function resolveTaskLink(task?: DailyPlanItem | null) {
+  if (!task || !task.link) return null
+
+  switch (task.link.kind) {
+    case 'section':
+      return task.link.sectionSlug ? `/academy/sections/${task.link.sectionSlug}` : null
+    case 'practice_session':
+      return task.link.practiceSessionId
+        ? `/academy/practice/session/${task.link.practiceSessionId}`
+        : '/academy/practice'
+    case 'flashcard_batch':
+      return '/academy/flashcards/today'
+    default:
+      return null
+  }
+}
+
+const startFirstTask = async () => {
+  if (!firstTaskPath.value) return
+  await navigateTo(firstTaskPath.value)
+}
 </script>

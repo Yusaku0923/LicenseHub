@@ -42,14 +42,10 @@
   import AcademyTopBar from '~/components/academy/layout/AcademyTopBar.vue'
   
   const sidebarOpen = ref(false)
-useHead({
-  // noindex, nofollow
-  meta: [
-    {
-      name: 'robots',
-      content: 'noindex,nofollow',
-    },
-  ],
-})
+
+  // このレイアウト下のすべてのページをnoindex, nofollowに設定
+  useSeoMeta({
+    robots: 'noindex,nofollow',
+  })
 </script>
  
