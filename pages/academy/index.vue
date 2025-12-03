@@ -1,95 +1,87 @@
-<!-- pages/academy/index.vue -->
 <template>
-  <div class="mx-auto max-w-5xl space-y-6 px-4 py-6 md:px-6 md:py-8">
+  <div class="space-y-6">
     <AcademyPageHeader
       eyebrow="Dashboard"
-      title="今日の学習"
-      subtitle="今日のタスクを起点に学習を始めましょう。"
+      title="LicenceHub Academy"
+      subtitle="迷わず・続けて・合格できる、あなただけの学習ダッシュボード。"
     >
       <button
         type="button"
-        class="rounded-md bg-emerald-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-60"
-        :disabled="!firstTaskPath"
-        @click="startFirstTask"
+        class="rounded-full bg-emerald-700 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-emerald-200 hover:bg-emerald-800"
+        @click="startFirstAction"
       >
-        今日のタスクをはじめる
+        いちばん簡単なステップから始める
       </button>
     </AcademyPageHeader>
 
-    <!-- 上段：今日のタスク（フル幅） -->
-    <AcademyTodayTasksPanel
-      :plan="dailyPlan"
-      :loading="dailyPlanLoading"
+    <DashboardTodayTasks
+      :tasks="todayTasks"
+      @complete="completeTask"
+      @start="startTask"
     />
 
-    <!-- 下段 2 カラム -->
     <div class="grid gap-6 lg:grid-cols-3">
-      <div class="space-y-6 lg:col-span-2">
-        <AcademyProgressSummaryPanel :plan="dailyPlan" />
-        <AcademyExamCountdownPanel :profile="me?.profile || null" />
-      </div>
-
-      <div class="space-y-6 lg:col-span-1">
-        <AcademyDailyFeedbackPanel
-          :feedback="dailyFeedback"
-          :loading="dailyFeedbackLoading"
-        />
-        <AcademyQuickLinksPanel />
-      </div>
+      <DashboardProgressCard
+        class="lg:col-span-2"
+        :summary="progressSummary"
+      />
+      <DashboardContributionCalendar :contributions="contributionCalendar" />
     </div>
 
-    <!-- 学習履歴（モチベ維持） -->
-    <AcademyRecentSessionsPanel />
+    <DashboardChapterProgress :chapters="chapterProgress" />
   </div>
 </template>
 
 <script setup lang="ts">
-import AcademyDailyFeedbackPanel from '~/components/academy/AcademyDailyFeedbackPanel.vue'
-import AcademyExamCountdownPanel from '~/components/academy/AcademyExamCountdownPanel.vue'
-import AcademyPageHeader from '~/components/academy/common/AcademyPageHeader.vue'
-import AcademyProgressSummaryPanel from '~/components/academy/AcademyProgressSummaryPanel.vue'
-import AcademyQuickLinksPanel from '~/components/academy/AcademyQuickLinksPanel.vue'
-import AcademyRecentSessionsPanel from '~/components/academy/AcademyRecentSessionsPanel.vue'
-import AcademyTodayTasksPanel from '~/components/academy/AcademyTodayTasksPanel.vue'
-import { useDailyFeedback } from '~/composables/useDailyFeedback'
-import { useDailyPlan } from '~/composables/useDailyPlan'
-import { useMe } from '~/composables/useMe'
-import type { DailyPlanItem } from '~/types/academy'
 import { computed } from 'vue'
+import DashboardChapterProgress from '~/components/academy/DashboardChapterProgress.vue'
+import DashboardContributionCalendar from '~/components/academy/DashboardContributionCalendar.vue'
+import DashboardProgressCard from '~/components/academy/DashboardProgressCard.vue'
+import DashboardTodayTasks from '~/components/academy/DashboardTodayTasks.vue'
+import AcademyPageHeader from '~/components/academy/common/AcademyPageHeader.vue'
+import { useAcademyMock } from '~/composables/useAcademyMock'
 
 definePageMeta({
   layout: 'academy',
 })
 
-const { me } = useMe()
-const { dailyPlan, loading: dailyPlanLoading } = useDailyPlan()
-const { dailyFeedback, loading: dailyFeedbackLoading } = useDailyFeedback()
+const {
+  progressSummary,
+  chapterProgress,
+  todayTasks,
+  contributionCalendar,
+  lectureSections,
+  completeTask,
+} = useAcademyMock()
 
-const tasks = computed<DailyPlanItem[]>(() => dailyPlan.value?.tasks ?? [])
+const firstLectureSlug = computed(() => lectureSections.value[0]?.slug || null)
+
 const firstIncompleteTask = computed(() =>
-  tasks.value.find((task) => task.status !== 'completed'),
+  todayTasks.value.find((task) => !task.isCompleted),
 )
-const firstTaskPath = computed(() => resolveTaskLink(firstIncompleteTask.value))
 
-function resolveTaskLink(task?: DailyPlanItem | null) {
-  if (!task || !task.link) return null
-
-  switch (task.link.kind) {
-    case 'section':
-      return task.link.sectionSlug ? `/academy/sections/${task.link.sectionSlug}` : null
-    case 'practice_session':
-      return task.link.practiceSessionId
-        ? `/academy/practice/session/${task.link.practiceSessionId}`
-        : '/academy/practice'
-    case 'flashcard_batch':
-      return '/academy/flashcards/today'
-    default:
-      return null
+function resolveTaskPath(taskType: 'lecture' | 'practice' | 'flashcards') {
+  if (taskType === 'lecture' && firstLectureSlug.value) {
+    return `/academy/lecture/${firstLectureSlug.value}`
   }
+  if (taskType === 'practice') return '/academy/practice'
+  if (taskType === 'flashcards') return '/academy/flashcards'
+  return null
 }
 
-const startFirstTask = async () => {
-  if (!firstTaskPath.value) return
-  await navigateTo(firstTaskPath.value)
+const startTask = async (taskId: string) => {
+  const task = todayTasks.value.find((item) => item.id === taskId)
+  if (!task) return
+
+  const path = resolveTaskPath(task.type)
+  if (path) await navigateTo(path)
+}
+
+const startFirstAction = async () => {
+  const task = firstIncompleteTask.value || todayTasks.value[0]
+  if (!task) return
+
+  const path = resolveTaskPath(task.type)
+  if (path) await navigateTo(path)
 }
 </script>

@@ -1,72 +1,171 @@
 <template>
-  <div class="min-h-screen bg-gray-50">
-    <!-- Header -->
-    <header class="bg-white shadow-sm">
-      <div class="max-w-7xl mx-auto px-4 py-4">
-        <NuxtLink to="/academy" class="text-blue-600 hover:text-blue-700 mb-2 inline-block">
-          ← 戻る
-        </NuxtLink>
-        <h1 class="text-2xl font-bold text-gray-900">練習問題</h1>
-      </div>
-    </header>
+  <div class="space-y-6">
+    <AcademyPageHeader
+      eyebrow="Practice"
+      title="演習で理解を定着"
+      subtitle="一問ごとに正誤と解説を確認しながら合格力を積み上げましょう。"
+    >
+      <NuxtLink
+        to="/academy"
+        class="rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-800 ring-1 ring-slate-200 hover:bg-slate-50"
+      >
+        ダッシュボードに戻る
+      </NuxtLink>
+    </AcademyPageHeader>
 
-    <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 py-8">
-      <!-- Practice Options -->
-      <section class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-        <div class="bg-white p-6 rounded-lg shadow">
-          <h2 class="text-xl font-semibold mb-4">新しい練習セッション</h2>
-          <p class="text-gray-600 mb-4">問題を解いて実力を確認しましょう</p>
-          <button class="w-full px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-            練習を開始
+    <div class="rounded-2xl bg-white/80 p-6 shadow-sm ring-1 ring-slate-100">
+      <div class="flex items-center justify-between text-sm text-slate-600">
+        <div class="flex items-center gap-2">
+          <span class="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
+            Q{{ currentIndexLabel }}
+          </span>
+          <span>正答で学習量が加算されます</span>
+        </div>
+        <div class="flex items-center gap-2 text-xs font-semibold text-slate-700">
+          <span>進捗</span>
+          <div class="h-2 w-28 rounded-full bg-slate-100">
+            <div
+              class="h-2 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 transition-all"
+              :style="{ width: progressPercent }"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div v-if="question" class="mt-4 space-y-4">
+        <h2 class="text-xl font-semibold text-slate-900">
+          {{ question.question }}
+        </h2>
+
+        <div class="grid gap-3">
+          <button
+            v-for="(choice, idx) in question.choices"
+            :key="idx"
+            type="button"
+            class="w-full rounded-xl border px-4 py-3 text-left text-sm font-medium transition"
+            :class="choiceClass(idx)"
+            :disabled="isAnswered"
+            @click="submitAnswer(idx)"
+          >
+            {{ choice }}
           </button>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow">
-          <h2 class="text-xl font-semibold mb-4">設定</h2>
-          <div class="space-y-3">
-            <label class="flex items-center">
-              <input type="checkbox" class="rounded border-gray-300" checked />
-              <span class="ml-2 text-sm text-gray-700">ランダム出題</span>
-            </label>
-            <label class="flex items-center">
-              <input type="checkbox" class="rounded border-gray-300" />
-              <span class="ml-2 text-sm text-gray-700">間違えた問題のみ</span>
-            </label>
-            <select class="w-full px-4 py-2 border border-gray-300 rounded-lg">
-              <option>10問</option>
-              <option>20問</option>
-              <option>30問</option>
-            </select>
-          </div>
-        </div>
-      </section>
 
-      <!-- Recent Sessions -->
-      <section class="bg-white p-6 rounded-lg shadow">
-        <h2 class="text-xl font-semibold mb-4">最近のセッション</h2>
-        <div class="space-y-4">
-          <div
-            v-for="i in 5"
-            :key="i"
-            class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50"
+        <div v-if="isAnswered" class="rounded-xl bg-slate-50/80 px-4 py-3">
+          <p
+            class="text-sm font-semibold"
+            :class="isCorrect ? 'text-emerald-700' : 'text-rose-700'"
           >
-            <div>
-              <p class="font-medium text-gray-900">セッション {{ i }}</p>
-              <p class="text-sm text-gray-600">2024年1月{{ i }}日 - 正答率: {{ 60 + i * 5 }}%</p>
-            </div>
-            <button class="px-4 py-2 text-blue-600 hover:text-blue-700">
-              結果を見る
-            </button>
-          </div>
+            {{ isCorrect ? '正解！' : 'もう一度見直そう' }}
+          </p>
+          <p class="mt-1 text-sm text-slate-700">
+            {{ feedback }}
+          </p>
         </div>
-      </section>
-    </main>
+
+        <div class="flex items-center gap-3 pt-2">
+          <button
+          type="button"
+          class="rounded-full bg-emerald-700 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-800 disabled:opacity-50"
+          :disabled="!isAnswered || isLastQuestion"
+          @click="nextQuestion"
+        >
+          次の問題へ
+        </button>
+          <button
+            type="button"
+            class="rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-800 ring-1 ring-slate-200 hover:bg-slate-50"
+            @click="restart"
+          >
+            もう一度解く
+          </button>
+        </div>
+      </div>
+
+      <div v-else class="mt-6 text-sm text-slate-600">
+        すべての問題に回答しました。ダッシュボードから次のタスクへ進みましょう。
+      </div>
+    </div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { computed, ref } from 'vue'
+import AcademyPageHeader from '~/components/academy/common/AcademyPageHeader.vue'
+import { useAcademyMock } from '~/composables/useAcademyMock'
+
 definePageMeta({
-  layout: false
+  layout: 'academy',
 })
+
+const {
+  practiceQuestions,
+  currentPracticeIndex,
+  getCurrentPracticeQuestion,
+  answerPracticeQuestion,
+  gotoNextPracticeQuestion,
+} = useAcademyMock()
+
+const selectedIndex = ref<number | null>(null)
+const isAnswered = ref(false)
+const isCorrect = ref<boolean | null>(null)
+const feedback = ref('')
+
+const question = computed(() => getCurrentPracticeQuestion())
+
+const currentIndexLabel = computed(() => currentPracticeIndex.value + 1)
+const isLastQuestion = computed(
+  () => currentPracticeIndex.value >= practiceQuestions.value.length - 1,
+)
+const progressPercent = computed(() => {
+  if (!practiceQuestions.value.length) return '0%'
+  const percent =
+    ((currentPracticeIndex.value + (isAnswered.value ? 1 : 0)) / practiceQuestions.value.length) *
+    100
+  return `${percent}%`
+})
+
+const submitAnswer = (choiceIndex: number) => {
+  if (!question.value || isAnswered.value) return
+
+  selectedIndex.value = choiceIndex
+  const result = answerPracticeQuestion(choiceIndex)
+  isAnswered.value = true
+  isCorrect.value = result?.isCorrect ?? false
+  feedback.value = result?.explanation ?? ''
+}
+
+const nextQuestion = () => {
+  if (!isAnswered.value) return
+  gotoNextPracticeQuestion()
+  isAnswered.value = false
+  isCorrect.value = null
+  feedback.value = ''
+  selectedIndex.value = null
+}
+
+const restart = () => {
+  currentPracticeIndex.value = 0
+  isAnswered.value = false
+  isCorrect.value = null
+  feedback.value = ''
+  selectedIndex.value = null
+}
+
+const choiceClass = (idx: number) => {
+  if (!isAnswered.value) {
+    return 'border-slate-200 bg-white hover:border-emerald-300 hover:bg-emerald-50/60'
+  }
+
+  if (idx === question.value?.correctIndex) {
+    return 'border-emerald-200 bg-emerald-50 text-emerald-900'
+  }
+
+  if (idx === selectedIndex.value) {
+    return 'border-rose-200 bg-rose-50 text-rose-900'
+  }
+
+  return 'border-slate-200 bg-white text-slate-700'
+}
 </script>
 
