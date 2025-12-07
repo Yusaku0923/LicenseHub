@@ -46,6 +46,9 @@ cover: "content/licenses/tohan/work/salary.webp"
 
 ---
 
+::AdInArticleFixed
+::
+
 ## 手取り額のイメージ（300〜400万円の場合）
 
 年収を理解するには「手取り換算」が欠かせません。
@@ -80,7 +83,7 @@ cover: "content/licenses/tohan/work/salary.webp"
 
 <p>
   <span class="inline-highlight">出典：Indeed キャリアエクスプローラー（https://jp.indeed.com/career/登録販売者/salaries）</span>  
-  ※ 求人票掲載の給与レンジから算出された推定値であり、公的統計ではありません。
+  <br />※ 求人票掲載の給与レンジから算出された推定値であり、公的統計ではありません。
 </p>
 
 | 都道府県 | 月給平均値（円） | 年収平均値（円） |
@@ -154,6 +157,9 @@ cover: "content/licenses/tohan/work/salary.webp"
 </p>
 
 ---
+
+::AdInArticleFixed
+::
 
 ## 企業別の年収傾向（大手ドラッグストアの特徴）
 
@@ -237,6 +243,9 @@ cover: "content/licenses/tohan/work/salary.webp"
 </p>
 
 ---
+
+::AdInArticleFixed
+::
 
 ## 年収を上げる方法（再現性の高い順）
 
