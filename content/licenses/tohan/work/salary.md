@@ -25,6 +25,9 @@ cover: "content/licenses/tohan/work/salary.webp"
 
 ## 平均年収：登録販売者の収入の中心値は？
 
+::AdDisplay
+::
+
 登録販売者の給与は**平均値**を把握することで、実感に近いラインが見えてきます。
 
 ### ● 平均年収（医薬品販売職の統計ベース）
@@ -45,9 +48,6 @@ cover: "content/licenses/tohan/work/salary.webp"
 </p>
 
 ---
-
-::AdInArticleFixed
-::
 
 ## 手取り額のイメージ（300〜400万円の場合）
 
@@ -73,7 +73,10 @@ cover: "content/licenses/tohan/work/salary.webp"
 
 ---
 
-## 地域による年収差（求人平均値から見る“現実的な傾向”）
+## 地域による年収差（求人平均値から見る"現実的な傾向"）
+
+::AdInField
+::
 
 厚生労働省は地域別の平均年収を公表していません。  
 そのため本記事では、求人情報に基づく給与推定値を用いて地域差を整理します。
@@ -158,9 +161,6 @@ cover: "content/licenses/tohan/work/salary.webp"
 
 ---
 
-::AdInArticleFixed
-::
-
 ## 企業別の年収傾向（大手ドラッグストアの特徴）
 
 企業選びは年収を決める最重要ポイントの一つです。
@@ -244,9 +244,6 @@ cover: "content/licenses/tohan/work/salary.webp"
 
 ---
 
-::AdInArticleFixed
-::
-
 ## 年収を上げる方法（再現性の高い順）
 
 登録販売者が年収を伸ばす方法は明確です。
@@ -278,7 +275,10 @@ cover: "content/licenses/tohan/work/salary.webp"
 
 ---
 
-## まとめ：登録販売者の年収は“選択と戦略”で伸ばせる
+::AdDisplay
+::
+
+## まとめ：登録販売者の年収は"選択と戦略"で伸ばせる
 
 登録販売者の年収は 300〜400万円台が中心ですが、管理者・店長・本部職などのキャリアを選ぶことで、**400〜500万円台は十分に現実的**です。
 
@@ -293,3 +293,6 @@ cover: "content/licenses/tohan/work/salary.webp"
 - 独学と通信講座の比較  
 
 ---
+
+::AdMultiplex
+::

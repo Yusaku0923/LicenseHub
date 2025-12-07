@@ -3,11 +3,11 @@
     <ins
       ref="adSlot"
       class="adsbygoogle block max-w-full"
-      style="display:block; text-align:center; width:100%; min-width:320px;"
-      data-ad-layout="in-article"
-      data-ad-format="fluid"
+      style="display:block"
       data-ad-client="ca-pub-5447172429378250"
-      data-ad-slot="6117692499"
+      data-ad-slot="3990044993"
+      data-ad-format="auto"
+      data-full-width-responsive="true"
     />
   </div>
 </template>
@@ -38,3 +38,4 @@ onMounted(() => {
   tryInit()
 })
 </script>
+
