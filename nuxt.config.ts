@@ -6,6 +6,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://licencehub.jp',
+      adsenseClient: process.env.NUXT_PUBLIC_ADSENSE_CLIENT || 'ca-pub-5447172429378250',
+      adsenseSlot: process.env.NUXT_PUBLIC_ADSENSE_SLOT || '3990044993',
     },
   },
   app: {

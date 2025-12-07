@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { computed, onMounted } from 'vue'
+import { computed } from 'vue'
 import { DoughnutChart as Chart } from 'vue-chart-3'
 import type { ChartData, ChartOptions } from 'chart.js'
+import ChartDataLabels from 'chartjs-plugin-datalabels'
 
 const props = defineProps<{
   title?: string
@@ -10,6 +11,7 @@ const props = defineProps<{
   'data-sets'?: string | ChartData<'doughnut'>['datasets']
   datasetLabels?: string | string[]
   'dataset-labels'?: string | string[]
+  unit?: string
 }>()
 
 // MDCがケバブケースで渡す可能性に対応
@@ -104,6 +106,23 @@ const chartOptions = computed<ChartOptions<'doughnut'>>(() => ({
       labels: { color: '#475569', boxWidth: 12 },
     },
     tooltip: { backgroundColor: '#0f172a', titleColor: '#e2e8f0', bodyColor: '#e2e8f0' },
+    datalabels: {
+      display: true,
+      color: '#ffffff',
+      font: {
+        size: 12,
+        weight: 600,
+      },
+      formatter: (value: number) => {
+        const unit = props.unit || '%'
+        // 単位が%の場合は小数点1桁、それ以外は整数表示
+        if (unit === '%') {
+          return value.toFixed(1) + unit
+        } else {
+          return value.toLocaleString() + unit
+        }
+      },
+    },
   },
 }))
 </script>
@@ -118,6 +137,7 @@ const chartOptions = computed<ChartOptions<'doughnut'>>(() => ({
         class="chart-card__canvas"
         :chart-data="chartData"
         :options="chartOptions"
+        :plugins="[ChartDataLabels]"
       />
     </ClientOnly>
   </div>

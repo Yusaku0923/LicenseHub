@@ -9,7 +9,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "lint": "eslint .",
-    "list-content": "tsx scripts/list-content.ts"
+    "list-content": "tsx scripts/list-content.ts",
+    "salary-scrape": "tsx scripts/salary-scrape.ts"
   },
   "dependencies": {
     "@bloggrify/core": "2.0.0",

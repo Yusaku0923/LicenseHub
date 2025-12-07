@@ -1,4 +1,4 @@
-<template>
+﻿<template>
     <!-- ① ヘッダーはこれまで通り -->
     <MistralHeader />
   
@@ -9,10 +9,10 @@
           <MistralBreadcrumbs :doc="doc" />
         </div>
         <div v-if="doc" class="pt-6 pb-0 px-0">
-          <!-- ③ 記事ヘッダーをカード化したやつに -->
+          <!-- ③ 記事�EチE��ーをカード化しためE��に -->
           <ArticleHeader :article="doc" />
 
-           <!-- ② カバー画像 -->
+           <!-- ② カバ�E画僁E-->
           <div v-if="doc.cover" class="flex justify-center mb-4 mt-4">
             <img
               :src="'/images/' + doc.cover"
@@ -25,7 +25,7 @@
             />
           </div>
 
-          <!-- ③ リード文（カバーのあとに表示） -->
+          <!-- ③ リード文�E�カバ�Eのあとに表示�E�E-->
           <p
             v-if="doc.lead"
             class="text-sm md:text-base text-[color:var(--heading)]/85 leading-relaxed mb-6"
@@ -33,7 +33,7 @@
             {{ doc.lead }}
           </p>
 
-          <!-- ★ 目次カード（ArticleToc） -->
+          <!-- ☁E目次カード！ErticleToc�E�E-->
           <div class="mt-8 md:mt-10">
             <ArticleToc
               :links="doc.body.toc.links"
@@ -41,7 +41,7 @@
             />
           </div>
 
-          <!-- ④ 本文（カード）＋ 中に TOC を入れる -->
+          <!-- ④ 本斁E��カード）！E中に TOC を�Eれる -->
           <div class="mt-6">
             <article
               class="bg-white rounded-2xl shadow-sm border border-slate-100 px-5 py-6 md:px-7 md:py-7 mx-auto"
@@ -50,8 +50,8 @@
                 isTocEnabled ? 'lg:max-w-[var(--article-max)]' : 'lg:max-w-[var(--article-max)]'
               ]"
             >
-              <!-- 本文 -->
-              <ContentRenderer
+              <!-- 本斁E-->
+                            <ContentRenderer
                 id="nuxtContent"
                 :value="doc"
                 class="prose article-body max-w-none"
@@ -71,7 +71,7 @@
             </NuxtLink>
           </div>
     
-          <!-- シェア・コメント -->
+          <!-- シェア・コメンチE-->
           <hr class="my-8" />
           <!-- <ShareSection :title="doc.title" :cover="doc.cover" /> -->
           <!-- <CommentSystem :id="doc.id" :nocomments="doc.nocomments" /> -->
@@ -110,7 +110,7 @@ const isTocEnabled = computed(() => {
 })
 
 /**
- * キーワード（frontmatter の keywords → なければ tags を利用）
+ * キーワード！Erontmatter の keywords ↁEなければ tags を利用�E�E
  */
 const keywordString = computed(() => {
   if (props.doc?.keywords?.length) {
@@ -123,14 +123,14 @@ const keywordString = computed(() => {
 })
 
 /**
- * SEO 用タイトル（seoTitle があれば優先、なければ title、さらにサイト名）
+ * SEO 用タイトル�E�EeoTitle があれ�E優先、なければ title、さらにサイト名�E�E
  */
 const seoTitle = computed(() => props.doc?.seoTitle || props.doc?.title || config.site.name)
 
 /**
- * SEO メタ設定
- * Nuxt 3 では useSeoMeta は自動インポートされているので、
- * 追加の import は不要です。
+ * SEO メタ設宁E
+ * Nuxt 3 では useSeoMeta は自動インポ�EトされてぁE��ので、E
+ * 追加の import は不要です、E
  */
 useSeoMeta({
   title: () => seoTitle.value,
@@ -182,3 +182,6 @@ useHead({
   }
 }
 </style>
+
+
+

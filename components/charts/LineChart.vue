@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted } from 'vue'
+import { computed } from 'vue'
 import { LineChart as Chart } from 'vue-chart-3'
 import type { ChartData, ChartOptions } from 'chart.js'
 import ChartDataLabels from 'chartjs-plugin-datalabels'
@@ -11,6 +11,7 @@ const props = defineProps<{
   'data-sets'?: string | ChartData<'line'>['datasets']
   datasetLabels?: string | string[]
   'dataset-labels'?: string | string[]
+  unit?: string
 }>()
 
 // MDCがケバブケースで渡す可能性に対応
@@ -120,7 +121,13 @@ const chartOptions = computed<ChartOptions<'line'>>(() => ({
       anchor: 'end',
       align: 'top',
       formatter: (value: number) => {
-        return value.toFixed(1) + '%'
+        const unit = props.unit || '%'
+        // 単位が%の場合は小数点1桁、それ以外は整数表示
+        if (unit === '%') {
+          return value.toFixed(1) + unit
+        } else {
+          return value.toLocaleString() + unit
+        }
       },
       font: {
         size: 11,

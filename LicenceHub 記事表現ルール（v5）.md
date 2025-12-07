@@ -173,6 +173,7 @@ Google が最も重視する品質基準。YMYL ジャンルのため必須。
 | `labels`        | 否   | X 軸のラベル               | JSON 配列文字列（シングルクォートで囲む）                         |
 | `datasets`      | 否   | データセット               | JSON 配列文字列（シングルクォートで囲む）                         |
 | `datasetLabels` | 否   | データセットのラベル上書き | JSON 配列文字列（シングルクォートで囲む、複数データセット時のみ） |
+| `unit`          | 否   | データラベルの単位         | 文字列（例: `unit="円"`、`unit="人"`、`unit="万円"`。デフォルトは`%`） |
 
 **重要**: `datasets`は必ず文字列として渡し、コンポーネント側で自動的にパースされます。
 
@@ -181,6 +182,11 @@ Google が最も重視する品質基準。YMYL ジャンルのため必須。
 ### 基本例
 
 ::line-chart{title="週間セッション推移" labels='["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]' datasets='[{"label":"PV","data":[12,18,9,22,15,19,25],"borderColor":"#2563eb","backgroundColor":"#2563eb20","tension":0.35}]'}
+::
+
+### 単位指定の例
+
+::line-chart{title="週間売上推移" labels='["月","火","水","木","金","土","日"]' datasets='[{"label":"売上","data":[120000,180000,90000,220000,150000,190000,250000],"borderColor":"#2563eb","backgroundColor":"#2563eb20","tension":0.35}]' unit="円"}
 ::
 
 ### 複数データセット
@@ -203,6 +209,11 @@ Google が最も重視する品質基準。YMYL ジャンルのため必須。
 ::bar-chart{title="都道府県別比較" labels='["北海道","東京","大阪","福岡"]' datasets='[{"label":"受験者数","data":[120,240,180,140],"backgroundColor":"#2563eb"}]'}
 ::
 
+### 単位指定の例
+
+::bar-chart{title="地域別最低賃金（2024年度改定）" labels='["東京","大阪","愛知","宮城"]' datasets='[{"label":"最低賃金（円/時）","data":[1113,1064,1027,923],"backgroundColor":"#2563eb"}]' unit="円"}
+::
+
 ### 複数データセット
 
 ::bar-chart{title="都道府県別比較" labels='["北海道","東京","大阪","福岡"]' datasets='[{"label":"受験者数","data":[120,240,180,140],"backgroundColor":"#2563eb"},{"label":"合格者数","data":[72,150,110,90],"backgroundColor":"#10b981"}]'}
@@ -219,6 +230,11 @@ Google が最も重視する品質基準。YMYL ジャンルのため必須。
 ### 基本例
 
 ::doughnut-chart{title="セクション構成" labels='["法規","薬理","実務","生薬"]' datasets='[{"label":"配分","data":[25,35,30,10],"backgroundColor":["#2563eb","#10b981","#f59e0b","#ef4444"]}]'}
+::
+
+### 単位指定の例
+
+::doughnut-chart{title="学習時間の内訳" labels='["基礎","応用","実践","復習"]' datasets='[{"label":"時間","data":[30,25,20,25],"backgroundColor":["#2563eb","#10b981","#f59e0b","#8b5cf6"]}]' unit="時間"}
 ::
 
 ```
@@ -255,6 +271,7 @@ Google が最も重視する品質基準。YMYL ジャンルのため必須。
 6. **データセットが 1 つの場合**: 凡例は自動的に非表示になります
 7. **BarChart の X 軸**: すべてのラベルが表示されるように設定されています（`autoSkip: false`）
 8. **文字列として渡す**: `datasets`は必ず JSON 文字列として渡してください。コンポーネント側で自動的にパースされます
+9. **単位プロパティ（`unit`）**: データラベルに表示する単位を指定できます。デフォルトは`%`です。`unit="円"`のように指定すると、データラベルの上に単位が表示されます。`%`の場合は小数点1桁、それ以外は整数表示（カンマ区切り）になります
 
 ## 実例集
 
@@ -266,6 +283,11 @@ Google が最も重視する品質基準。YMYL ジャンルのため必須。
 ### カテゴリ比較（BarChart）
 
 ::bar-chart{title="科目別配点" labels='["法規","薬理","実務","生薬"]' datasets='[{"label":"配点","data":[25,35,30,10],"backgroundColor":"#2563eb"}]'}
+::
+
+### 単位指定（BarChart）
+
+::bar-chart{title="地域別最低賃金" labels='["東京","大阪","愛知","宮城"]' datasets='[{"label":"最低賃金（円/時）","data":[1113,1064,1027,923],"backgroundColor":"#2563eb"}]' unit="円"}
 ::
 
 ### 構成比（DoughnutChart）
