@@ -13,6 +13,9 @@ slug: "kyoto"
 
 ## 京都府の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 京都府の登録販売者試験は、関西広域連合が実施する共通試験で実施されます。  
 そのため **試験日・受付期間・受験料・合格発表日が6府県共通**です。
 
@@ -79,6 +82,9 @@ https://www.kouiki-kansai.jp/koikirengo/jisijimu/shikakumenkyo/touroku/touroku_R
 
 ## 試験会場と当日の注意点（京都府ローカル情報）
 
+::AdInField
+::
+
 京都府は大学キャンパスなど広い会場を使用することが多く、例年 **京都市内に受験生が集中**します。
 
 ### ■ 過去に使用された会場例
@@ -136,6 +142,9 @@ https://www.kouiki-kansai.jp/koikirengo/jisijimu/shikakumenkyo/touroku/touroku_R
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 京都府外からでも受験できますか？
@@ -150,3 +159,8 @@ https://www.kouiki-kansai.jp/koikirengo/jisijimu/shikakumenkyo/touroku/touroku_R
 <p>
   <span class="inline-highlight">制度・手続きは年度により変わる可能性がありますので、必ず最新要項をご確認ください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

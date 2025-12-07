@@ -23,6 +23,10 @@ cover: "content/licenses/tohan/exam/overview.webp"
 ---
 
 ## 登録販売者試験とは？
+
+::AdDisplay
+::
+
 登録販売者試験は、一般用医薬品の販売に関わる知識を確認する国家試験です。  
 試験は各都道府県で実施され、合格後は登録を行うことで販売に従事できます。
 
@@ -59,6 +63,9 @@ cover: "content/licenses/tohan/exam/overview.webp"
 ---
 
 ## 出題範囲と試験科目
+
+::AdInField
+::
 試験は全5科目で構成され、**医薬品の知識と販売に関する実務理解**を幅広く問われます。
 
 - **第1章：** 医薬品に共通する特性と基本的な知識  
@@ -116,6 +123,9 @@ cover: "content/licenses/tohan/exam/overview.webp"
 
 ---
 
+::AdDisplay
+::
+
 ## まとめ
 登録販売者試験は、医薬品販売の専門資格として社会的需要が高まっています。受験資格が広く、学びやすいことからキャリアの第一歩として人気です。
 
@@ -124,3 +134,8 @@ cover: "content/licenses/tohan/exam/overview.webp"
     まずは出題範囲と試験スケジュールを把握し、自分に合った勉強法を計画することが合格への近道です。
   </span>
 </p>
+
+---
+
+::AdMultiplex
+::

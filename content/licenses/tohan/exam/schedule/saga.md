@@ -13,6 +13,9 @@ slug: "saga"
 
 ## 佐賀県の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 佐賀県は福岡県と同じく **12月実施の“最終組”試験県** です。  
 受付期間が福岡県より長く、スケジュールに余裕がある県として知られています。
 
@@ -78,6 +81,9 @@ https://www.pref.saga.lg.jp/kiji003115067/index.html
 
 ## 試験会場と当日の注意点（佐賀県ローカル情報）
 
+::AdInField
+::
+
 佐賀県は人口規模の都合上、  
 **佐賀市内1〜2会場での開催** が一般的です。
 
@@ -135,6 +141,9 @@ https://www.pref.saga.lg.jp/kiji003115067/index.html
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 佐賀県外から受験できますか？
@@ -149,3 +158,8 @@ https://www.pref.saga.lg.jp/kiji003115067/index.html
 <p>
   <span class="inline-highlight">年度により変更の可能性があるため、最新の佐賀県公式の掲載内容を必ず確認してください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

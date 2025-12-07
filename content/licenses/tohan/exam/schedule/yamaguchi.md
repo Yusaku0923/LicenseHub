@@ -13,6 +13,9 @@ slug: "yamaguchi"
 
 ## 山口県の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 山口県は **単独で登録販売者試験を実施する県** で、中国地方の後期日程（10月）に属しています。  
 中国5県のなかでは「会場が広範囲に分散する」点が特徴です。
 
@@ -78,6 +81,9 @@ https://www.pref.yamaguchi.lg.jp/soshiki/48/20471.html
 
 ## 試験会場と当日の注意点（山口県ローカル情報）
 
+::AdInField
+::
+
 山口県は東西に細長い地形のため、  
 **山口市・周南市・下関市の3地域に会場が分かれる** 傾向があります。
 
@@ -134,6 +140,9 @@ https://www.pref.yamaguchi.lg.jp/soshiki/48/20471.html
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 山口県外から受験できますか？
@@ -148,3 +157,8 @@ https://www.pref.yamaguchi.lg.jp/soshiki/48/20471.html
 <p>
   <span class="inline-highlight">年度により運用が変わる場合があるため、必ず最新の山口県公式情報をご確認ください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

@@ -13,6 +13,9 @@ slug: "tochigi"
 
 ## 栃木県の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 栃木県の登録販売者試験は、茨城県と同じく **地域独自の日程（2025年は8月28日）** で実施されます。  
 願書受付期間は **わずか10日間（6月11日〜6月20日）** と非常に短いため、出願準備が重要です。
 
@@ -73,6 +76,9 @@ https://www.pref.tochigi.lg.jp/e07/welfare/kusuri/kusuri/touhan/r07touhan.html
 
 ## 試験会場と当日の注意点
 
+::AdInField
+::
+
 栃木県の試験会場は年度により変わりますが、例年 **宇都宮市内** が中心となります。  
 受験票には正式な会場情報が記載されます。
 
@@ -124,6 +130,9 @@ https://www.pref.tochigi.lg.jp/e07/welfare/kusuri/kusuri/touhan/r07touhan.html
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 栃木県外に住んでいても受験できますか？
@@ -138,3 +147,8 @@ https://www.pref.tochigi.lg.jp/e07/welfare/kusuri/kusuri/touhan/r07touhan.html
 <p>
   <span class="inline-highlight">制度や運用は年度により変わる可能性があるため、最終的には栃木県の公式要項を確認してください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

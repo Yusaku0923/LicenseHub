@@ -13,6 +13,9 @@ slug: "saitama"
 
 ## 埼玉県の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 埼玉県の登録販売者試験は、東京都・神奈川県・千葉県と同じ  
 **独自日程（2025年は9月7日）** で実施されます。
 
@@ -76,6 +79,9 @@ https://www.pref.saitama.lg.jp/a0701/eiseishiken/touhanshiken/h30/goannai.html
 
 ## 試験会場と当日の注意点
 
+::AdInField
+::
+
 埼玉県の試験会場は年度により変わりますが、例年 **さいたま市・川越市周辺** の会場が使用されます。  
 受験票に正式な会場名・集合時間などが記載されます。
 
@@ -127,6 +133,9 @@ https://www.pref.saitama.lg.jp/a0701/eiseishiken/touhanshiken/h30/goannai.html
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 埼玉県外に住んでいても受験できますか？
@@ -141,3 +150,8 @@ https://www.pref.saitama.lg.jp/a0701/eiseishiken/touhanshiken/h30/goannai.html
 <p>
   <span class="inline-highlight">年度ごとに制度が変わる可能性があるため、最終的には埼玉県公式要項をご確認ください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

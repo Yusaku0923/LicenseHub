@@ -20,6 +20,9 @@ cover: "content/licenses/tohan/materials/compare.webp"
 
 ## 登録販売者の通信講座を比較する前に
 
+::AdDisplay
+::
+
 登録販売者試験は、**独学でも合格可能**ですが、出題範囲が広く、教材選びが合否を左右します。  
 本記事では、人気の通信講座3校を比較し、それぞれの**強み・弱み・おすすめポイント**を整理しました。
 
@@ -50,6 +53,9 @@ cover: "content/licenses/tohan/materials/compare.webp"
 ---
 
 ## 1. 三幸医療カレッジの特徴
+
+::AdInField
+::
 
 **合格率89％・長年の実績**を誇る、王道の通信講座。  
 全国の医療系スクールを展開する日本教育クリエイトが運営しており、教材の品質とサポート体制に定評があります。
@@ -190,6 +196,9 @@ cover: "content/licenses/tohan/materials/compare.webp"
 
 ---
 
+::AdDisplay
+::
+
 ## 公式リンクまとめ
 
 - [三幸医療カレッジ公式サイト](https://px.a8.net/svt/ejp?a8mat=45GGT7+B5VM42+4N9Y+5YRHE){rel="nofollow sponsored" target="_blank"}
@@ -198,4 +207,9 @@ cover: "content/licenses/tohan/materials/compare.webp"
 
 <img border="0" width="1" height="1" src="https://www11.a8.net/0.gif?a8mat=45GGT7+B5VM42+4N9Y+5YRHE" alt="">
 <img border="0" width="1" height="1" src="https://www14.a8.net/0.gif?a8mat=45GGT7+B72HBM+4LOQ+5YJRM" alt="">
+
+---
+
+::AdMultiplex
+::
 <img border="0" width="1" height="1" src="https://www11.a8.net/0.gif?a8mat=45GGT7+B7NWXE+408S+60WN6" alt="">

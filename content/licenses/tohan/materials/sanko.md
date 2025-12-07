@@ -27,6 +27,10 @@ cover: "content/licenses/tohan/materials/sanko.webp"
 ---
 
 ## 三幸医療カレッジとは？
+
+::AdDisplay
+::
+
 登録販売者試験に特化した通信講座を提供する教育機関です。
 
 三幸医療カレッジは、医療・福祉系の専門学校を運営する「三幸学園グループ」が母体の通信講座ブランドです。信頼性の高い教材とサポートが特徴で、初学者でも学びやすい設計となっています。
@@ -64,6 +68,9 @@ cover: "content/licenses/tohan/materials/sanko.webp"
 ---
 
 ## 料金とコース内容
+
+::AdInField
+::
 三幸医療カレッジの登録販売者講座は、複数のプランが用意されています。
 
 - **標準講座：** 約35,000〜40,000円前後  
@@ -115,6 +122,9 @@ cover: "content/licenses/tohan/materials/sanko.webp"
 
 ---
 
+::AdDisplay
+::
+
 ## まとめ
 三幸医療カレッジの登録販売者講座は、「安心して学びたい初学者」に特に適しています。  
 教材の質・講師サポート・価格のバランスが取れており、合格までの伴走体制が整っています。
@@ -131,4 +141,9 @@ cover: "content/licenses/tohan/materials/sanko.webp"
 ---
 
 ::affiliate-links-tohan-materials
+::
+
+---
+
+::AdMultiplex
 ::

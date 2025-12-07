@@ -13,6 +13,9 @@ slug: "kagoshima"
 
 ## 鹿児島県の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 鹿児島県は九州南部の中心的な県で、  
 宮崎・熊本などからの **広域受験者も多い人気エリア** です。
 
@@ -78,6 +81,9 @@ https://www.pref.kagoshima.jp/ae10/kenko-fukushi/yakuji-eisei/touhan/r07touhan.h
 
 ## 試験会場と当日の注意点（鹿児島県ローカル情報）
 
+::AdInField
+::
+
 鹿児島県の試験会場は **鹿児島市周辺に集約** されることがほとんどです。
 
 ### ■ 過去に使用された主な会場
@@ -134,6 +140,9 @@ https://www.pref.kagoshima.jp/ae10/kenko-fukushi/yakuji-eisei/touhan/r07touhan.h
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 県外からの受験は可能ですか？
@@ -148,3 +157,8 @@ https://www.pref.kagoshima.jp/ae10/kenko-fukushi/yakuji-eisei/touhan/r07touhan.h
 <p>
   <span class="inline-highlight">年度によって要項が変更される可能性があるため、最新の鹿児島県公式情報をご確認ください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

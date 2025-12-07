@@ -13,6 +13,9 @@ slug: "kumamoto"
 
 ## 熊本県の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 熊本県は福岡・佐賀・長崎と同じく  
 **全国で最も遅い「12月試験（最終組）」** に属します。
 
@@ -78,6 +81,9 @@ https://www.pref.kumamoto.jp/soshiki/45/210005.html
 
 ## 試験会場と当日の注意点（熊本県ローカル情報）
 
+::AdInField
+::
+
 熊本県は広域から受験者が集まるため、  
 **熊本市を中心に複数会場** が設置されます。
 
@@ -135,6 +141,9 @@ https://www.pref.kumamoto.jp/soshiki/45/210005.html
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 熊本県外から受験できますか？
@@ -149,3 +158,8 @@ https://www.pref.kumamoto.jp/soshiki/45/210005.html
 <p>
   <span class="inline-highlight">年度によって変更される可能性があるため、最新の熊本県公式情報をご確認ください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

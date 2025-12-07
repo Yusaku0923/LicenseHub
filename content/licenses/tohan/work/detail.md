@@ -21,6 +21,10 @@ cover: "content/licenses/tohan/work/detail.webp"
 
 
 ## 登録販売者とは？医薬品販売の専門資格
+
+::AdDisplay
+::
+
 登録販売者は、一般用医薬品（第2類・第3類）を販売できる国家資格です。  
 薬剤師と異なり、調剤業務には携われませんが、地域の健康を支える重要な役割を担っています。
 
@@ -51,6 +55,10 @@ cover: "content/licenses/tohan/work/detail.webp"
 </p>
 
 ## 調剤薬局での仕事内容
+
+::AdInField
+::
+
 調剤薬局では薬剤師の補助業務を行い、医薬品の在庫管理やOTC販売を担当します。  
 調剤補助や受付業務など、医療チームの一員としてサポートするのが主な役割です。
 
@@ -82,6 +90,11 @@ cover: "content/licenses/tohan/work/detail.webp"
   </span>
 </p>
 
+---
+
+::AdDisplay
+::
+
 ## 求められるスキルとキャリアの展望
 登録販売者には、医薬品知識だけでなくコミュニケーション力や販売スキルも重要です。  
 経験を積むことで、管理者・店長・本部職などへのキャリアアップも可能です。
@@ -107,3 +120,8 @@ cover: "content/licenses/tohan/work/detail.webp"
     登録販売者は、身近な医療の現場で活躍できる「生活者に最も近い医療資格」です。
   </span>
 </p>
+
+---
+
+::AdMultiplex
+::

@@ -13,6 +13,9 @@ slug: "fukuoka"
 
 ## 福岡県の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 福岡県は **九州地方で最も受験者数が多い県** であり、  
 全国的に見ても珍しい **12月実施の“最終組”試験県** です。
 
@@ -78,6 +81,9 @@ https://www.pref.fukuoka.lg.jp/contents/r07tourokuhanbaisyashiken.html
 
 ## 試験会場と当日の注意点（福岡県ローカル情報）
 
+::AdInField
+::
+
 福岡県は人口・都市規模が大きいため、  
 **福岡市（中部）** と **北九州市（東部）** の2拠点制になることが多い県です。
 
@@ -135,6 +141,9 @@ https://www.pref.fukuoka.lg.jp/contents/r07tourokuhanbaisyashiken.html
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 福岡県外から受験できますか？
@@ -149,3 +158,8 @@ https://www.pref.fukuoka.lg.jp/contents/r07tourokuhanbaisyashiken.html
 <p>
   <span class="inline-highlight">年度により運用が変わる場合があるため、必ず最新の福岡県公式情報をご確認ください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

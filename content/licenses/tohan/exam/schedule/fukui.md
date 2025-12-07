@@ -13,6 +13,9 @@ slug: "fukui"
 
 ## 福井県の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 福井県の登録販売者試験は、北陸ブロックの中でも特に **試験日が早い県（2025年は8月23日）** です。
 
 願書受付は **6月2日〜6月16日**、受験料は **13,000円** と、全国的にも比較的低料金です。
@@ -74,6 +77,9 @@ https://www.pref.fukui.lg.jp/doc/iei/yakumu/tourokuhanbaisyayouryou_r07.html
 
 ## 試験会場と当日の注意点
 
+::AdInField
+::
+
 福井県の試験会場は年度により異なりますが、例年  
 **福井市内の公共施設・大学** が中心です。
 
@@ -131,6 +137,9 @@ https://www.pref.fukui.lg.jp/doc/iei/yakumu/tourokuhanbaisyayouryou_r07.html
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 福井県外からでも受験できますか？
@@ -145,3 +154,8 @@ https://www.pref.fukui.lg.jp/doc/iei/yakumu/tourokuhanbaisyayouryou_r07.html
 <p>
   <span class="inline-highlight">年度によって制度が変わる可能性があるため、最新の公式要項を必ずご確認ください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

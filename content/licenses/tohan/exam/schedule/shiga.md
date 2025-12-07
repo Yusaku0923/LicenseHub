@@ -13,6 +13,9 @@ slug: "shiga"
 
 ## 滋賀県の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 滋賀県の登録販売者試験は、関西広域連合が実施する「共通試験」の一部として開催されます。  
 そのため、**試験日・受験料・合格発表日は関西6府県で共通**です。
 
@@ -79,6 +82,9 @@ https://www.kouiki-kansai.jp/koikirengo/jisijimu/shikakumenkyo/touroku/touroku_R
 
 ## 試験会場と当日の注意点（滋賀県ローカル情報）
 
+::AdInField
+::
+
 滋賀県は人口規模の関係から、関西圏の中でも比較的落ち着いた会場運営がされることが多い地域です。
 
 ### ■ 過去に使用された主な会場
@@ -135,6 +141,9 @@ https://www.kouiki-kansai.jp/koikirengo/jisijimu/shikakumenkyo/touroku/touroku_R
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 滋賀県外からでも受験できますか？
@@ -149,3 +158,8 @@ https://www.kouiki-kansai.jp/koikirengo/jisijimu/shikakumenkyo/touroku/touroku_R
 <p>
   <span class="inline-highlight">年度により運用が変わる可能性があるため、最新の公式要項を必ず確認してください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

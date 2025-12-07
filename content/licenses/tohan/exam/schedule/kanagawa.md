@@ -13,6 +13,9 @@ slug: "kanagawa"
 
 ## 神奈川県の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 神奈川県の登録販売者試験は、東京都と同様に **独自の日程（2025年は9月7日）** で実施されます。  
 願書受付期間は **5月19日〜5月30日** と短く、準備の前倒しが必要です。
 
@@ -75,6 +78,9 @@ https://www.pref.kanagawa.jp/docs/n3x/evt/r6touhanshiken.html
 
 ## 試験会場と当日の注意点
 
+::AdInField
+::
+
 神奈川県の試験会場は年度により異なりますが、例年 **横浜市・川崎市内の会場** が中心です。  
 受験票に正式な会場情報・集合時間が記載されます。
 
@@ -126,6 +132,9 @@ https://www.pref.kanagawa.jp/docs/n3x/evt/r6touhanshiken.html
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 神奈川県外からでも受験できますか？
@@ -140,3 +149,8 @@ https://www.pref.kanagawa.jp/docs/n3x/evt/r6touhanshiken.html
 <p>
   <span class="inline-highlight">年度によって制度や試験運用が変わる可能性があるため、最新の神奈川県公式要項をご確認ください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

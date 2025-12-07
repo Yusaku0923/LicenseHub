@@ -13,6 +13,9 @@ slug: "tokyo"
 
 ## 東京都の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 東京都の登録販売者試験は、他の関東・東北エリアと異なり、**独自の日程（2025年は9月7日）** で実施されます。また、受験料が **13,600円** と全国で最も安い水準であることも特徴です。
 
 願書受付期間は **5月19日〜5月30日** と短めで、早めの準備が必要です。
@@ -74,6 +77,9 @@ https://www.hokeniryo.metro.tokyo.lg.jp/anzen/iyaku/tourokushiken/r7shiken
 
 ## 試験会場と当日の注意点
 
+::AdInField
+::
+
 東京都の試験会場は大規模で、例年 **23区内の大学・ホール** など複数会場が設定されます。  
 受験票に正式な会場と集合時間が記載されます。
 
@@ -125,6 +131,9 @@ https://www.hokeniryo.metro.tokyo.lg.jp/anzen/iyaku/tourokushiken/r7shiken
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 東京都外に住んでいても受験できますか？
@@ -132,3 +141,8 @@ https://www.hokeniryo.metro.tokyo.lg.jp/anzen/iyaku/tourokushiken/r7shiken
 
 ### Q. 登録販売者試験は未経験でも受験できますか？
 受験資格は不要です。
+
+---
+
+::AdMultiplex
+::

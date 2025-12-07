@@ -13,6 +13,9 @@ slug: "osaka"
 
 ## 大阪府の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 大阪府の登録販売者試験は関西広域連合の共通試験として実施され、  
 **関西で最も受験者が多い地域** です。
 
@@ -78,6 +81,9 @@ https://www.kouiki-kansai.jp/koikirengo/jisijimu/shikakumenkyo/touroku/touroku_R
 
 ## 試験会場と当日の注意点（大阪府ローカル情報）
 
+::AdInField
+::
+
 大阪府は関西最大の人口・受験者数を持つため、  
 **試験会場が最多・受験生数も最多** の県です。
 
@@ -138,6 +144,9 @@ https://www.kouiki-kansai.jp/koikirengo/jisijimu/shikakumenkyo/touroku/touroku_R
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 大阪府外からでも受験できますか？
@@ -152,3 +161,8 @@ https://www.kouiki-kansai.jp/koikirengo/jisijimu/shikakumenkyo/touroku/touroku_R
 <p>
   <span class="inline-highlight">年度により運用が変わる可能性があるため、最新の大阪府公式情報をご確認ください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

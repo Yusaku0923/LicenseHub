@@ -13,6 +13,9 @@ slug: "hiroshima"
 
 ## 広島県の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 広島県は中国地方の中で最も受験者数が多く、  
 **大規模会場を複数使用する、県内中心都市型の試験運営** が特徴です。
 
@@ -81,6 +84,9 @@ https://www.pref.hiroshima.lg.jp/site/tourokuhannbaisya/touhanshiken.html
 
 ## 試験会場と当日の注意点（広島県ローカル情報）
 
+::AdInField
+::
+
 広島県は中国地方の交通の拠点であるため、  
 **広島市と福山市の2会場制** となる年度が多いです。
 
@@ -139,6 +145,9 @@ https://www.pref.hiroshima.lg.jp/site/tourokuhannbaisya/touhanshiken.html
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 他県から受験できますか？
@@ -153,3 +162,8 @@ https://www.pref.hiroshima.lg.jp/site/tourokuhannbaisya/touhanshiken.html
 <p>
   <span class="inline-highlight">年度により要項が変更される場合があるため、必ず最新の広島県公式情報をご確認ください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

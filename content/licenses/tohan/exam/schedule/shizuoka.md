@@ -13,6 +13,9 @@ slug: "shizuoka"
 
 ## 静岡県の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 静岡県の登録販売者試験は、北陸・東海ブロックと同じ  
 **独自日程（2025年は9月3日）** にて実施されます。
 
@@ -76,6 +79,9 @@ https://www.pref.shizuoka.jp/kenkofukushi/eiseiyakuji/yakuji/1003165/1003155/107
 
 ## 試験会場と当日の注意点
 
+::AdInField
+::
+
 静岡県の試験会場は年度により異なりますが、例年  
 **静岡市・浜松市** の施設が中心です。  
 受験票に正式な会場や集合時間が記載されます。
@@ -132,6 +138,9 @@ https://www.pref.shizuoka.jp/kenkofukushi/eiseiyakuji/yakuji/1003165/1003155/107
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 静岡県外からでも受験できますか？
@@ -146,3 +155,8 @@ https://www.pref.shizuoka.jp/kenkofukushi/eiseiyakuji/yakuji/1003165/1003155/107
 <p>
   <span class="inline-highlight">静岡県の制度は年度により変更される場合があるため、必ず最新の公式要項を確認してください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

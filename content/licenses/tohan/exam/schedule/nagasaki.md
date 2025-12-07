@@ -13,6 +13,9 @@ slug: "nagasaki"
 
 ## 長崎県の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 長崎県は福岡県・佐賀県と同じく **全国でも最も遅い「12月試験」組** に属します。  
 試験会場は地域特性上、長崎市・佐世保市に分かれることが多く、  
 九州内外からの受験者も一定数みられます。
@@ -79,6 +82,9 @@ https://www.pref.nagasaki.jp/object/shikaku-shiken-bosyu/shikaku-shiken/734734.h
 
 ## 試験会場と当日の注意点（長崎県ローカル情報）
 
+::AdInField
+::
+
 長崎県は地形が特徴的なため、  
 **長崎市・佐世保市の2拠点開催** が一般的です。
 
@@ -136,6 +142,9 @@ https://www.pref.nagasaki.jp/object/shikaku-shiken-bosyu/shikaku-shiken/734734.h
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 長崎県外から受験できますか？
@@ -150,3 +159,8 @@ https://www.pref.nagasaki.jp/object/shikaku-shiken-bosyu/shikaku-shiken/734734.h
 <p>
   <span class="inline-highlight">年度により運用が変更される場合があるため、必ず長崎県公式の最新情報をご確認ください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

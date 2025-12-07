@@ -13,6 +13,9 @@ slug: "miyagi"
 
 ## 宮城県の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 宮城県の登録販売者試験は、例年 **8月下旬の全国統一日** に実施され、願書受付期間は **6月上旬〜下旬** に設定される傾向があります。
 
 2025年度の試験はすでに終了しているため、次年度（2026年度）を目指す方は例年の時期を参考にし、早めの準備を進めることが重要です。
@@ -72,6 +75,9 @@ https://www.pref.miyagi.jp/soshiki/yakumu/r7touhan.html
 
 ## 試験会場と当日の注意点
 
+::AdInField
+::
+
 宮城県では例年、**仙台市内の会場** が中心となります。  
 会場の詳細は受験票にて正式に案内されます。
 
@@ -123,6 +129,9 @@ https://www.pref.miyagi.jp/soshiki/yakumu/r7touhan.html
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 宮城県外に住んでいても受験できますか？
@@ -137,3 +146,8 @@ https://www.pref.miyagi.jp/soshiki/yakumu/r7touhan.html
 <p>
   <span class="inline-highlight">制度や運用は年度により変わるため、最終的には宮城県の最新公式要項をご確認ください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

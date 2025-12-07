@@ -13,6 +13,9 @@ slug: "hyogo"
 
 ## 兵庫県の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 兵庫県の登録販売者試験は、関西広域連合の共通試験として実施されます。  
 大阪府に次ぐ規模の受験者数を持ち、**会場が広域に分散される県**です。
 
@@ -78,6 +81,9 @@ https://www.kouiki-kansai.jp/koikirengo/jisijimu/shikakumenkyo/touroku/touroku_R
 
 ## 試験会場と当日の注意点（兵庫県ローカル情報）
 
+::AdInField
+::
+
 兵庫県は広域で人口も多いため、会場が複数地域に分かれます。
 
 ### ■ 過去の主な会場（傾向）
@@ -134,6 +140,9 @@ https://www.kouiki-kansai.jp/koikirengo/jisijimu/shikakumenkyo/touroku/touroku_R
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 兵庫県外からの受験は可能ですか？
@@ -148,3 +157,8 @@ https://www.kouiki-kansai.jp/koikirengo/jisijimu/shikakumenkyo/touroku/touroku_R
 <p>
   <span class="inline-highlight">制度は年度により変わる場合があるため、最新の兵庫県公式要項を必ず確認してください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

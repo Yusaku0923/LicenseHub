@@ -18,6 +18,9 @@ cover: "content/licenses/tohan/exam/study-plan/index.webp"
 
 ## 1. 登録販売者の勉強は「3〜6 か月」が目安
 
+::AdDisplay
+::
+
 登録販売者試験は科目数が多く、内容も薬理・症状・制度など多岐にわたります。公式な学習期間の目安はありませんが、独学・講座いずれの方式でも **3〜6 か月** を想定すると、無理のないスケジュールになります。
 
 ### 学習期間の一般的な目安
@@ -74,6 +77,9 @@ cover: "content/licenses/tohan/exam/study-plan/index.webp"
 ---
 
 ## 3. 3〜4 か月前から始める場合のスケジュール
+
+::AdInField
+::
 
 3〜4 か月前からの計画では、スケジュールを詰める必要がありますが、十分に合格可能です。
 
@@ -164,11 +170,19 @@ cover: "content/licenses/tohan/exam/study-plan/index.webp"
 
 ---
 
+::AdDisplay
+::
+
 ## 7. 次に読むべきおすすめ記事
 
 - 👉 [登録販売者試験の出題範囲まとめ](/licenses/tohan/exam/scope)
 - 👉 [独学と通信講座どちらが合格しやすい？](/licenses/tohan/exam/how-to-study)
 - 👉 [過去問の効果的な使い方](/licenses/tohan/exam/past-questions)
+
+---
+
+::AdMultiplex
+::
 
 <p>
   <span class="inline-highlight">学習計画の理解後は、出題範囲や勉強法のページへ進むことで、体系的に合格力が高まります。</span>

@@ -13,6 +13,9 @@ slug: "toyama"
 
 ## 富山県の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 富山県の登録販売者試験は、東京都・神奈川県・関東ブロックとは異なり、  
 **独自の日程（2025年は9月3日）** で実施される点が特徴です。
 
@@ -75,6 +78,9 @@ https://www.pref.toyama.jp/1208/kusuri/touhanshiken_kouji_07.html
 
 ## 試験会場と当日の注意点
 
+::AdInField
+::
+
 富山県の試験会場は年度により変わりますが、例年 **富山市内の会場（大学・会議施設）** が使用されます。  
 受験票に正式な会場名、集合時間、持ち物が記載されます。
 
@@ -130,6 +136,9 @@ https://www.pref.toyama.jp/1208/kusuri/touhanshiken_kouji_07.html
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 富山県外からでも受験できますか？
@@ -144,3 +153,8 @@ https://www.pref.toyama.jp/1208/kusuri/touhanshiken_kouji_07.html
 <p>
   <span class="inline-highlight">年度ごとに制度や手続きが変わる可能性があるため、公式要項の最新情報を必ず確認してください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

@@ -13,6 +13,9 @@ slug: "oita"
 
 ## 大分県の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 大分県は熊本県・福岡県・佐賀県・長崎県と同じく  
 **全国でも最も遅い12月21日（日）実施の「最終組」** に属します。
 
@@ -78,6 +81,9 @@ https://www.pref.oita.jp/soshiki/12610/r07tourokuhannbai.html
 
 ## 試験会場と当日の注意点（大分県ローカル情報）
 
+::AdInField
+::
+
 大分県の試験会場は基本的に **大分市に集中** します。
 
 ### ■ 過去に使用された主な会場
@@ -134,6 +140,9 @@ https://www.pref.oita.jp/soshiki/12610/r07tourokuhannbai.html
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 大分県外から受験できますか？
@@ -148,3 +157,8 @@ https://www.pref.oita.jp/soshiki/12610/r07tourokuhannbai.html
 <p>
   <span class="inline-highlight">年度によって要項が変更されることがあるため、必ず大分県公式情報をご確認ください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

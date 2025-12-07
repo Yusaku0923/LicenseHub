@@ -36,6 +36,9 @@ cover: "content/licenses/tohan/exam/pass-rate.webp"
 
 ## 1. 【最新】令和6年度（令和7年3月31日現在）の合格率まとめ
 
+::AdDisplay
+::
+
 最新年度となる **令和6年度（公表：令和7年3月31日）** の全国平均は次のとおりです。
 
 - **全国平均：46.7%（目安）**
@@ -118,6 +121,9 @@ cover: "content/licenses/tohan/exam/pass-rate.webp"
 
 ## 3. 合格率が高い県・低い県の傾向
 
+::AdInField
+::
+
 厚生労働省は「県ごとの差の理由」を公表していません。
 そのため、断定は避けつつ、見える範囲の傾向を丁寧に整理します。
 
@@ -178,6 +184,9 @@ cover: "content/licenses/tohan/exam/pass-rate.webp"
 
 ---
 
+::AdDisplay
+::
+
 ## 6. まとめ
 
 * 最新年度（令和6年度）の全国平均は **46.7％前後**
@@ -187,3 +196,8 @@ cover: "content/licenses/tohan/exam/pass-rate.webp"
 * 最終的には **過去問×理解度×反復量** が合否を左右する
 
 <p><span class="inline-highlight">合格率を正しく把握し、学習計画に役立てていただければ幸いです。</span></p>
+
+---
+
+::AdMultiplex
+::

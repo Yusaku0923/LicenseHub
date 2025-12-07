@@ -13,6 +13,9 @@ slug: "kagawa"
 
 ## 香川県の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 香川県は四国地方の単独実施県で、  
 試験日・受付期間は中国地方の後期試験と同じスケジュールです。
 
@@ -78,6 +81,9 @@ https://www.pref.kagawa.lg.jp/yakumu/yakumu/hanbai/r07kouji2.html
 
 ## 試験会場と当日の注意点（香川県ローカル情報）
 
+::AdInField
+::
+
 香川県の試験会場は例年 **高松市内に集中** します。  
 公共交通アクセスが良く、受験環境として安定しています。
 
@@ -134,6 +140,9 @@ https://www.pref.kagawa.lg.jp/yakumu/yakumu/hanbai/r07kouji2.html
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 香川県外から受験できますか？
@@ -148,3 +157,8 @@ https://www.pref.kagawa.lg.jp/yakumu/yakumu/hanbai/r07kouji2.html
 <p>
   <span class="inline-highlight">年度により変更がある場合があるため、最新の香川県公式要項を必ず確認してください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

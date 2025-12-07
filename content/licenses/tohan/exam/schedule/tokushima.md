@@ -13,6 +13,9 @@ slug: "tokushima"
 
 ## 徳島県の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 徳島県の登録販売者試験は、関西広域連合の共通試験として実施されます。  
 日程・受験料などは関西6府県で共通ですが、徳島県ならではの特徴として、
 
@@ -78,6 +81,9 @@ https://www.kouiki-kansai.jp/koikirengo/jisijimu/shikakumenkyo/touroku/touroku_R
 
 ## 試験会場と当日の注意点（徳島県ローカル情報）
 
+::AdInField
+::
+
 徳島県は人口規模の関係で **会場数が非常に少なく、徳島市内にほぼ集中** します。
 
 ### ■ これまで使用された主な会場
@@ -133,6 +139,9 @@ https://www.kouiki-kansai.jp/koikirengo/jisijimu/shikakumenkyo/touroku/touroku_R
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 徳島県外から受験できますか？
@@ -147,3 +156,8 @@ https://www.kouiki-kansai.jp/koikirengo/jisijimu/shikakumenkyo/touroku/touroku_R
 <p>
   <span class="inline-highlight">年度により運用が変わる可能性があるため、最新の徳島県公式要項を確認してください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

@@ -13,6 +13,9 @@ slug: "wakayama"
 
 ## 和歌山県の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 和歌山県の登録販売者試験は、関西広域連合が実施する「共通試験」に属します。  
 基本的な日程や受験料は 6 府県で共通ですが、  
 **和歌山県は会場数が少なく、交通アクセス面の注意点が特に多い県** です。
@@ -80,6 +83,9 @@ https://www.kouiki-kansai.jp/koikirengo/jisijimu/shikakumenkyo/touroku/touroku_R
 
 ## 試験会場と当日の注意点（和歌山県ローカル情報）
 
+::AdInField
+::
+
 和歌山県は人口規模の関係で、試験会場がほぼ **和歌山市中心部の大型施設** に固定される傾向があります。
 
 ### ■ 過去に使用された主な会場
@@ -137,6 +143,9 @@ https://www.kouiki-kansai.jp/koikirengo/jisijimu/shikakumenkyo/touroku/touroku_R
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 和歌山県外からの受験はできますか？
@@ -151,3 +160,8 @@ https://www.kouiki-kansai.jp/koikirengo/jisijimu/shikakumenkyo/touroku/touroku_R
 <p>
   <span class="inline-highlight">制度は年度により変更される可能性があるため、必ず最新要項をご確認ください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

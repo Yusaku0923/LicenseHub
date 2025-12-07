@@ -13,6 +13,9 @@ slug: "nagano"
 
 ## 長野県の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 長野県の登録販売者試験は、北関東と同じく **地域独自の日程（2025年は8月28日）** で行われます。  
 また、願書受付期間が **5月19日〜5月30日** と全国でも極めて早い設定で、出願準備が前倒しで求められます。
 
@@ -75,6 +78,9 @@ https://www.pref.nagano.lg.jp/yakuji/sangyo/shiken/iyakuhin/r7touhan.html
 
 ## 試験会場と当日の注意点
 
+::AdInField
+::
+
 長野県の試験会場は年度によって異なりますが、例年 **長野市・松本市** のいずれかが中心となります。  
 受験票に正式な会場、集合時間、持ち物が記載されます。
 
@@ -126,6 +132,9 @@ https://www.pref.nagano.lg.jp/yakuji/sangyo/shiken/iyakuhin/r7touhan.html
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 長野県外に住んでいても受験できますか？
@@ -140,3 +149,8 @@ https://www.pref.nagano.lg.jp/yakuji/sangyo/shiken/iyakuhin/r7touhan.html
 <p>
   <span class="inline-highlight">年度により制度や手続きが変更される可能性があるため、最新の長野県公式要項を確認してください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

@@ -13,6 +13,9 @@ slug: "fukushima"
 
 ## 福島県の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 福島県の登録販売者試験は、毎年 **8月下旬の全国統一日** に実施され、  
 願書受付期間は **5月下旬～6月下旬** と、東北地方の中ではもっとも早く受付が始まる県です。
 
@@ -73,6 +76,9 @@ https://www.pref.fukushima.lg.jp/sec/21045f/r7touhanshikenzisshi.html
 
 ## 試験会場と当日の注意点
 
+::AdInField
+::
+
 福島県の試験会場は年度によって異なりますが、例年 **福島市や郡山市の会場** が中心です。  
 受験票で、集合時間・会場の詳細・持ち物が案内されます。
 
@@ -124,6 +130,9 @@ https://www.pref.fukushima.lg.jp/sec/21045f/r7touhanshikenzisshi.html
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 福島県外からの受験は可能ですか？
@@ -138,3 +147,8 @@ https://www.pref.fukushima.lg.jp/sec/21045f/r7touhanshikenzisshi.html
 <p>
   <span class="inline-highlight">細かな条件は年度ごとに変更されることがあるため、最終的には福島県の公式要項の確認が必要です。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

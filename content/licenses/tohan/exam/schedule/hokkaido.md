@@ -13,6 +13,9 @@ slug: "hokkaido"
 
 ## 北海道の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 北海道の登録販売者試験は、毎年 **8月下旬** に実施されるのが通例で、願書受付は約2か月前の **6月上旬〜6月下旬** に設定されます。
 
 2025年度（令和7年度）の試験はすでに終了しており、次年度（2026年度）を目指す方は例年の動きを把握して準備を進めるのが安心です。
@@ -71,6 +74,9 @@ https://www.pref.hokkaido.lg.jp/hf/iyk/r7tohansiken.html
 
 ## 試験会場と当日の注意点
 
+::AdInField
+::
+
 北海道では例年、**札幌市内の会場**が中心となります（年度により変更の可能性あり）。  
 受験票には、集合時間・持ち物・試験会場の詳細が明記されます。
 
@@ -127,6 +133,9 @@ https://www.pref.hokkaido.lg.jp/hf/iyk/r7tohansiken.html
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 北海道在住でなくても受験できますか？
@@ -141,3 +150,8 @@ https://www.pref.hokkaido.lg.jp/hf/iyk/r7tohansiken.html
 <p>
   <span class="inline-highlight">細かな条件は年度や自治体によって異なるため、必ず公式要項の最新情報で確認してください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

@@ -13,6 +13,9 @@ slug: "yamagata"
 
 ## 山形県の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 山形県の登録販売者試験は、例年 **8月下旬の全国統一日** に実施され、願書受付期間は **6月上旬〜下旬** に設定されます。東北エリアの中でも比較的わかりやすいスケジュールで、全国の傾向とほぼ一致しています。
 
 2025年度の試験はすでに終了しているため、次年度（2026年度）を目指す方は例年の動きを参考にしつつ、早めに公式情報を確認して準備を進めることが大切です。
@@ -72,6 +75,9 @@ https://www.pref.yamagata.jp/090001/kenfuku/yakuji/yakuhin/tourokuhambai/hambais
 
 ## 試験会場と当日の注意点
 
+::AdInField
+::
+
 山形県の試験会場は年度により変わりますが、例年 **山形市内の会場** が中心となります。受験票に正式な会場情報が記載されます。
 
 ### 当日の主な注意点
@@ -122,6 +128,9 @@ https://www.pref.yamagata.jp/090001/kenfuku/yakuji/yakuhin/tourokuhambai/hambais
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 山形県外に住んでいても受験できますか？
@@ -136,3 +145,8 @@ https://www.pref.yamagata.jp/090001/kenfuku/yakuji/yakuhin/tourokuhambai/hambais
 <p>
   <span class="inline-highlight">制度や運用は年度により変更される可能性があるため、必ず最新の公式要項を確認してください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

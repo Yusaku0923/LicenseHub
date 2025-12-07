@@ -13,6 +13,9 @@ slug: "aichi"
 
 ## 愛知県の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 愛知県の登録販売者試験は、北陸・東海ブロックと同じく  
 **独自日程（2025年は9月3日）** で実施されます。
 
@@ -76,6 +79,9 @@ https://www.pref.aichi.jp/soshiki/iyaku/touhannananen.html
 
 ## 試験会場と当日の注意点
 
+::AdInField
+::
+
 愛知県内の試験会場は年度により異なりますが、例年  
 **名古屋市内の大学・公共施設** が中心です。
 
@@ -133,6 +139,9 @@ https://www.pref.aichi.jp/soshiki/iyaku/touhannananen.html
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 愛知県外に住んでいても受験できますか？
@@ -147,3 +156,8 @@ https://www.pref.aichi.jp/soshiki/iyaku/touhannananen.html
 <p>
   <span class="inline-highlight">年度により制度が変わる可能性があるため、最新の愛知県公式要項を必ず確認してください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

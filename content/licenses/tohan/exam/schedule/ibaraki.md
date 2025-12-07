@@ -13,6 +13,9 @@ slug: "ibaraki"
 
 ## 茨城県の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 茨城県の登録販売者試験は、全国統一日ではなく、**地域独自の日程（2025年は8月28日）** で実施される点が特徴です。また、願書受付期間は **6月中旬〜7月初旬** と比較的長めで、余裕をもって出願できる設定です。
 
 2025年度の試験はすでに終了しているため、次年度（2026年度）の受験を目指す方は、例年の動きを参考に早めの準備を進めることが大切です。
@@ -72,6 +75,9 @@ https://www.pref.ibaraki.jp/hokenfukushi/yakumu/yakuji/torokushiken/28c.html
 
 ## 試験会場と当日の注意点
 
+::AdInField
+::
+
 茨城県の試験会場は年度により異なりますが、例年 **水戸市やつくば市周辺** に設定されることが多いです。受験票には正式な会場・集合時間・持ち物が記載されます。
 
 ### 当日の主な注意点
@@ -122,6 +128,9 @@ https://www.pref.ibaraki.jp/hokenfukushi/yakumu/yakuji/torokushiken/28c.html
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 茨城県外に住んでいても受験できますか？
@@ -136,3 +145,8 @@ https://www.pref.ibaraki.jp/hokenfukushi/yakumu/yakuji/torokushiken/28c.html
 <p>
   <span class="inline-highlight">細かな条件は年度により変更されるため、最新の茨城県公式要項を確認してください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

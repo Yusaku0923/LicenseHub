@@ -13,6 +13,9 @@ slug: "yamanashi"
 
 ## 山梨県の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 山梨県の登録販売者試験は、茨城・栃木・群馬・新潟と同様に  
 **地域独自の日程（2025年は8月28日）** で実施されるのが特徴です。
 
@@ -74,6 +77,9 @@ https://www.pref.yamanashi.jp/eisei-ykm/tourokuhanbaisha.html
 
 ## 試験会場と当日の注意点
 
+::AdInField
+::
+
 山梨県の試験会場は年度により異なりますが、例年 **甲府市周辺** の会場が中心です。  
 受験票に正式な会場・集合時間・持ち物が記載されます。
 
@@ -125,6 +131,9 @@ https://www.pref.yamanashi.jp/eisei-ykm/tourokuhanbaisha.html
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 山梨県外に住んでいても受験できますか？
@@ -139,3 +148,8 @@ https://www.pref.yamanashi.jp/eisei-ykm/tourokuhanbaisha.html
 <p>
   <span class="inline-highlight">年度により制度や運用が変わる可能性があるため、必ず最新の山梨県公式要項を確認してください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

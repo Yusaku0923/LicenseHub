@@ -53,6 +53,9 @@ cover: "content/licenses/tohan/materials/onsuku.webp"
 ---
 
 ## 実際の口コミ・評判
+
+::AdInField
+::
 受講者から寄せられた主な口コミを紹介します。
 
 > 「動画のテンポがちょうど良く、忙しくても続けられる」  
@@ -101,6 +104,9 @@ cover: "content/licenses/tohan/materials/onsuku.webp"
 
 ---
 
+::AdDisplay
+::
+
 ## まとめ：オンスク.JPは「始めやすさ」で選ぶ講座
 月額制・スマホ完結という強みから、オンスク.JPは「学習を始めたいけれど迷っている」人に最適です。  
 コスパと手軽さで多くの初学者に支持されています。
@@ -112,4 +118,9 @@ cover: "content/licenses/tohan/materials/onsuku.webp"
 ---
 
 ::affiliate-links-tohan-materials
+::
+
+---
+
+::AdMultiplex
 ::

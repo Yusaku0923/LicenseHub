@@ -18,6 +18,9 @@ cover: "content/licenses/tohan/exam/study-lifestyle.webp"
 
 ## 忙しい社会人向け｜平日1時間 × 週末まとめ学習プラン
 
+::AdDisplay
+::
+
 社会人は、平日に十分な勉強時間を確保しにくいため **「平日＝インプット、休日＝アウトプット」** の役割分担を明確にすることで合格可能性が高まります。特に業務後は疲労が強いため、集中力を必要としない軽めの学習を中心に据えると継続しやすくなります。
 
 ### 学習イメージ
@@ -67,6 +70,9 @@ cover: "content/licenses/tohan/exam/study-lifestyle.webp"
 ---
 
 ## 毎日1時間しか取れない人向け｜最短効率の集中プラン
+
+::AdInField
+::
 
 1日の学習時間が限られる場合は、**出題頻度の高い領域から順に学ぶ“効率特化型”** が向いています。理解の深さより「触れた回数」を重視し、反復中心の学び方にすることで得点ラインに届きやすくなります。
 
@@ -130,6 +136,9 @@ cover: "content/licenses/tohan/exam/study-lifestyle.webp"
 
 ---
 
+::AdDisplay
+::
+
 # まとめ
 
 本記事では、**社会人・主婦・1時間学習者・初学者** の4タイプを中心に、生活スタイルに合わせた効果的な学習計画を整理しました。  
@@ -140,4 +149,9 @@ cover: "content/licenses/tohan/exam/study-lifestyle.webp"
 - 📘 [登録販売者の勉強法まとめ｜独学と通信講座の比較](/licenses/tohan/exam/how-to-study)  
 - 📚 [登録販売者試験の出題範囲](/licenses/tohan/exam/scope)  
 - 📝 [登録販売者の過去問と出題傾向](/licenses/tohan/exam/past-questions)
+
+---
+
+::AdMultiplex
+::
 

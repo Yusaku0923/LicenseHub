@@ -13,6 +13,9 @@ slug: "ishikawa"
 
 ## 石川県の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 石川県の登録販売者試験は、北陸ブロックの特徴として  
 **独自日程（2025年は9月3日）** で実施されます。
 
@@ -76,6 +79,9 @@ https://www.pref.ishikawa.lg.jp/yakuji/topic/shiken/touhan.html
 
 ## 試験会場と当日の注意点
 
+::AdInField
+::
+
 石川県の試験会場は年度により異なりますが、例年 **金沢市内の会場**（大学・研修センターなど）が使用されます。  
 受験票に正式な会場・集合時間が記載されます。
 
@@ -127,6 +133,9 @@ https://www.pref.ishikawa.lg.jp/yakuji/topic/shiken/touhan.html
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 石川県外に住んでいても受験できますか？
@@ -141,3 +150,8 @@ https://www.pref.ishikawa.lg.jp/yakuji/topic/shiken/touhan.html
 <p>
   <span class="inline-highlight">年度ごとに細かな条件が変わる可能性があるため、最新の石川県公式要項を確認してください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

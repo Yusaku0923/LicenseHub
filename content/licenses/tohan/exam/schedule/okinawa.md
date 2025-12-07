@@ -13,6 +13,9 @@ slug: "okinawa"
 
 ## 沖縄県の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 沖縄県は **全国で最も受付開始が遅い県（9月開始）** であり、  
 九州地方と同じく **12月の最終試験組** に属します。
 
@@ -78,6 +81,9 @@ https://www.pref.okinawa.jp/iryokenko/iryo/1005251/1005261/1005265/1034565/index
 
 ## 試験会場と当日の注意点（沖縄県ローカル情報）
 
+::AdInField
+::
+
 沖縄県は地理的特性により、試験会場は **那覇市内に集中** します。
 
 ### ■ 過去に使用された主な会場
@@ -134,6 +140,9 @@ https://www.pref.okinawa.jp/iryokenko/iryo/1005251/1005261/1005265/1034565/index
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 県外から受験できますか？
@@ -148,3 +157,8 @@ https://www.pref.okinawa.jp/iryokenko/iryo/1005251/1005261/1005265/1034565/index
 <p>
   <span class="inline-highlight">年度により要項が変更される可能性があるため、最新の沖縄県公式情報を必ずご確認ください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

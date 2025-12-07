@@ -13,6 +13,9 @@ slug: "chiba"
 
 ## 千葉県の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 千葉県の登録販売者試験は、東京都・神奈川県と同じ **独自日程（2025年は9月7日）** で実施され、関東広域の中でも比較的受験しやすい県です。
 
 願書受付期間は **6月2日〜6月20日** と関東圏では長めで、余裕をもって出願できる点が特徴です。受験料は **14,000円** と全国的にも低価格です。
@@ -74,6 +77,9 @@ https://www.pref.chiba.lg.jp/yakumu/hanbaishashiken/r7-hanbaishashiken.html
 
 ## 試験会場と当日の注意点
 
+::AdInField
+::
+
 千葉県の試験会場は年度により異なりますが、例年 **千葉市・船橋市** などの大規模会場が使用されます。  
 受験票に正式な会場や集合時間が記載されます。
 
@@ -125,6 +131,9 @@ https://www.pref.chiba.lg.jp/yakumu/hanbaishashiken/r7-hanbaishashiken.html
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 千葉県外に住んでいても受験できますか？
@@ -139,3 +148,8 @@ https://www.pref.chiba.lg.jp/yakumu/hanbaishashiken/r7-hanbaishashiken.html
 <p>
   <span class="inline-highlight">年度により制度が変わる可能性があるため、最新の千葉県公式要項を確認してください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

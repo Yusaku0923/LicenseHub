@@ -13,6 +13,9 @@ slug: "shimane"
 
 ## 島根県の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 島根県は **単独で登録販売者試験を実施する県** で、  
 日程・受験料・受付期間は鳥取県と非常に近いスケジュールで運用されています。
 
@@ -78,6 +81,9 @@ https://www.pref.shimane.lg.jp/medical/yakuji/yakuji/yakuji_info/toroku_hanbaish
 
 ## 試験会場と当日の注意点（島根県ローカル情報）
 
+::AdInField
+::
+
 島根県は県の地形上、会場が **松江市・出雲市** に二分される傾向があります。
 
 ### ■ 過去の主な会場
@@ -99,6 +105,9 @@ https://www.pref.shimane.lg.jp/medical/yakuji/yakuji/yakuji_info/toroku_hanbaish
 
 ---
 
+::AdDisplay
+::
+
 ## 合格発表と合格後の流れ
 
 ### ■ 合格発表
@@ -110,4 +119,13 @@ https://www.pref.shimane.lg.jp/medical/yakuji/yakuji/yakuji_info/toroku_hanbaish
 合格してもすぐに働けるわけではありません。  
 勤務先所在地の市町村で **販売従事登録** が必要です。
 
-- 申請先：市役所または
+- 申請先：市役所または保健所
+
+<p>
+  <span class="inline-highlight">島根県は松江市・出雲市で手続き方法が異なる場合があるため、事前確認が重要です。</span>
+</p>
+
+---
+
+::AdMultiplex
+::

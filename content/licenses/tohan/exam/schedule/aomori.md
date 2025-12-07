@@ -13,6 +13,9 @@ slug: "aomori"
 
 ## 青森県の登録販売者試験のポイント
 
+::AdDisplay
+::
+
 青森県の登録販売者試験は、例年 **北海道・東北の他県と同じく8月下旬** に実施され、  
 願書受付は **6月中旬以降の1週間程度** に設定される傾向があります。
 
@@ -72,6 +75,9 @@ https://www.pref.aomori.lg.jp/soshiki/kenko/iryo/touroku.html
 
 ## 試験会場と当日の注意点
 
+::AdInField
+::
+
 青森県の試験会場は例年、**県内の主要都市（青森市・弘前市・八戸市など）** に設定されることが多いですが、年度ごとに変更があります。
 
 受験票には、正確な会場・集合時間・持ち物が記載されます。
@@ -124,6 +130,9 @@ https://www.pref.aomori.lg.jp/soshiki/kenko/iryo/touroku.html
 
 ---
 
+::AdDisplay
+::
+
 ## よくある質問（FAQ）
 
 ### Q. 青森県に住んでいなくても受験できますか？
@@ -138,3 +147,8 @@ https://www.pref.aomori.lg.jp/soshiki/kenko/iryo/touroku.html
 <p>
   <span class="inline-highlight">年度や自治体によって細かな条件は変わるため、最新の青森県公式要項を確認してください。</span>
 </p>
+
+---
+
+::AdMultiplex
+::

@@ -18,6 +18,8 @@ cover: "content/licenses/tohan/exam/scope/index.webp"
 
 ## 1. 登録販売者試験の全体構成
 
+::AdDisplay
+::
 
 登録販売者試験は全国共通で、次の **5 科目** から構成されています。
 
@@ -60,6 +62,9 @@ cover: "content/licenses/tohan/exam/scope/index.webp"
 ---
 
 ## 3. 科目② 人体の働きと医薬品（難易度：やや高）
+
+::AdInField
+::
 
 
 「人体」は暗記量が多く、初学者がつまずきやすい科目です。臓器の名称・働き・関連疾患など、体系的に覚える必要があります。
@@ -157,10 +162,18 @@ cover: "content/licenses/tohan/exam/scope/index.webp"
 
 ---
 
+::AdDisplay
+::
+
 ## 8. 関連記事
 
 - [登録販売者の勉強法を徹底比較（独学 vs 通信講座）](/licenses/tohan/exam/how-to-study)
 - [通信講座3校比較（三幸・SMART・オンスク）](/licenses/tohan/materials/compare)
+
+---
+
+::AdMultiplex
+::
 
 <p>
   <span class="inline-highlight">
