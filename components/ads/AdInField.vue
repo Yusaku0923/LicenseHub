@@ -3,11 +3,11 @@
     <ins
       ref="adSlot"
       class="adsbygoogle block max-w-full"
-      style="display:block"
+      style="display:block; text-align:center;"
+      data-ad-layout="in-article"
       data-ad-format="fluid"
-      data-ad-layout-key="-fb+5w+4e-db+86"
       data-ad-client="ca-pub-5447172429378250"
-      data-ad-slot="4149827091"
+      data-ad-slot="7813917545"
     />
   </div>
 </template>
