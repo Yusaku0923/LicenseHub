@@ -1,4 +1,5 @@
 const prerenderErrors: Array<{ route: string; error: unknown }> = []
+const adsenseId = process.env.NUXT_PUBLIC_ADSENSE_CLIENT || 'ca-pub-5447172429378250'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -14,7 +15,7 @@ export default defineNuxtConfig({
       meta: [
         {
           name: 'google-adsense-account',
-          content: 'ca-pub-5447172429378250',
+          content: adsenseId,
         },
       ],
       link: [
@@ -34,6 +35,14 @@ export default defineNuxtConfig({
           type: 'image/png',
           sizes: '32x32',
           href: '/favicon-32x32.png',
+        },
+      ],
+      script: [
+        {
+          src: `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseId}`,
+          async: true,
+          crossorigin: 'anonymous',
+          'data-ad-client': adsenseId,
         },
       ],
       __dangerouslyDisableSanitizersByTagID: {
@@ -69,12 +78,13 @@ export default defineNuxtConfig({
     '@nuxtjs/robots',
     '@nuxt/content',
     '@nuxtjs/mdc',
-    '@nuxtjs/google-adsense',
+    ['@nuxtjs/google-adsense', {
+      id: adsenseId,
+      pageLevelAds: true,
+      analyticsUacct: process.env.NUXT_PUBLIC_ANALYTICS_UACCT,
+      analyticsDomainName: process.env.NUXT_PUBLIC_ANALYTICS_DOMAIN,
+    }],
   ],
-  googleAdsense: {
-    id: 'ca-pub-5447172429378250',
-    test: true,
-  },
   sitemap: {
     exclude: [
       '/academy',
