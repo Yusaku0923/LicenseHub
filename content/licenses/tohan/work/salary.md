@@ -25,8 +25,19 @@ cover: "content/licenses/tohan/work/salary.webp"
 
 ## 平均年収：登録販売者の収入の中心値は？
 
-::AdDisplay
-::
+<div class="article-ad my-8 flex justify-center">
+  <ins
+    class="adsbygoogle block max-w-full"
+    style="display:block"
+    data-ad-client="ca-pub-5447172429378250"
+    data-ad-slot="3990044993"
+    data-ad-format="auto"
+    data-full-width-responsive="true"
+  ></ins>
+</div>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 登録販売者の給与は**平均値**を把握することで、実感に近いラインが見えてきます。
 
@@ -75,8 +86,19 @@ cover: "content/licenses/tohan/work/salary.webp"
 
 ## 地域による年収差（求人平均値から見る"現実的な傾向"）
 
-::AdInField
-::
+<div class="article-ad my-8 flex justify-center">
+  <ins
+    class="adsbygoogle block max-w-full"
+    style="display:block; text-align:center;"
+    data-ad-layout="in-article"
+    data-ad-format="fluid"
+    data-ad-client="ca-pub-5447172429378250"
+    data-ad-slot="7813917545"
+  ></ins>
+</div>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 厚生労働省は地域別の平均年収を公表していません。  
 そのため本記事では、求人情報に基づく給与推定値を用いて地域差を整理します。
@@ -275,8 +297,19 @@ cover: "content/licenses/tohan/work/salary.webp"
 
 ---
 
-::AdDisplay
-::
+<div class="article-ad my-8 flex justify-center">
+  <ins
+    class="adsbygoogle block max-w-full"
+    style="display:block"
+    data-ad-client="ca-pub-5447172429378250"
+    data-ad-slot="3990044993"
+    data-ad-format="auto"
+    data-full-width-responsive="true"
+  ></ins>
+</div>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 ## まとめ：登録販売者の年収は"選択と戦略"で伸ばせる
 
@@ -294,5 +327,15 @@ cover: "content/licenses/tohan/work/salary.webp"
 
 ---
 
-::AdMultiplex
-::
+<div class="article-ad my-8 flex justify-center">
+  <ins
+    class="adsbygoogle block max-w-full"
+    style="display:block"
+    data-ad-format="autorelaxed"
+    data-ad-client="ca-pub-5447172429378250"
+    data-ad-slot="7897500416"
+  ></ins>
+</div>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
