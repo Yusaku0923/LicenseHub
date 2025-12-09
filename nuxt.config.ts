@@ -37,14 +37,6 @@ export default defineNuxtConfig({
           href: '/favicon-32x32.png',
         },
       ],
-      script: [
-        {
-          src: `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseId}`,
-          async: true,
-          crossorigin: 'anonymous',
-          'data-ad-client': adsenseId,
-        },
-      ],
       __dangerouslyDisableSanitizersByTagID: {
         'gtag2': ['innerHTML'],
         'website-jsonld': ['innerHTML'],
