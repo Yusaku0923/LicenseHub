@@ -37,13 +37,6 @@ export default defineNuxtConfig({
           href: '/favicon-32x32.png',
         },
       ],
-      script: [
-        {
-          src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5447172429378250',
-          async: true,
-          crossorigin: 'anonymous',
-        },
-      ],
       __dangerouslyDisableSanitizersByTagID: {
         'gtag2': ['innerHTML'],
         'website-jsonld': ['innerHTML'],
@@ -77,6 +70,9 @@ export default defineNuxtConfig({
     '@nuxtjs/robots',
     '@nuxt/content',
     '@nuxtjs/mdc',
+    ['@nuxtjs/google-adsense', {
+      id: 'ca-pub-5447172429378250',
+    }],
   ],
   sitemap: {
     exclude: [

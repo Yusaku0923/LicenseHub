@@ -23,6 +23,9 @@ importers:
       '@nuxt/fonts':
         specifier: ^0.11.4
         version: 0.11.4(db0@0.3.4)(ioredis@5.8.2)(magicast@0.5.1)(vite@5.4.21(sass@1.32.0)(terser@5.44.1))
+      '@nuxtjs/google-adsense':
+        specifier: ^3.0.0
+        version: 3.0.0(magicast@0.5.1)(vue@3.5.24(typescript@5.9.3))
       '@nuxtjs/mdc':
         specifier: ^0.18.4
         version: 0.18.4(magicast@0.5.1)
@@ -947,6 +950,9 @@ packages:
     engines: {node: ^14.18.0 || >=16.10.0}
     peerDependencies:
       vue: ^3.3.4
+
+  '@nuxtjs/google-adsense@3.0.0':
+    resolution: {integrity: sha512-fR1rbj6mnfBCWMkVSocPUYX11rGzTwSs1v2sajG6wtXGjXLGRjJSFKSynYHdwO3V4o4xRvtve0W/Db96eiTKmA==}
 
   '@nuxtjs/mdc@0.18.4':
     resolution: {integrity: sha512-lM4R0Mbbhw5h5Fwj7LqGiw6eanqjjPkzi+9FaXfn1BdmfbW8GlR2quLIiBXTbw0wUrWYyOWoc5FGIE/gpZUTjQ==}
@@ -7221,6 +7227,16 @@ snapshots:
       - vls
       - vti
       - vue-tsc
+
+  '@nuxtjs/google-adsense@3.0.0(magicast@0.5.1)(vue@3.5.24(typescript@5.9.3))':
+    dependencies:
+      '@nuxt/kit': 3.20.1(magicast@0.5.1)
+      '@vueuse/core': 10.11.1(vue@3.5.24(typescript@5.9.3))
+      defu: 6.1.4
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - magicast
+      - vue
 
   '@nuxtjs/mdc@0.18.4(magicast@0.5.1)':
     dependencies:
