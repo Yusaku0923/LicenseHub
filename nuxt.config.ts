@@ -7,7 +7,6 @@ export default defineNuxtConfig({
     public: {
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://licencehub.jp',
       adsenseClient: process.env.NUXT_PUBLIC_ADSENSE_CLIENT || 'ca-pub-5447172429378250',
-      adsenseSlot: process.env.NUXT_PUBLIC_ADSENSE_SLOT || '3990044993',
     },
   },
   app: {
@@ -74,6 +73,7 @@ export default defineNuxtConfig({
   ],
   googleAdsense: {
     id: 'ca-pub-5447172429378250',
+    test: true,
   },
   sitemap: {
     exclude: [
