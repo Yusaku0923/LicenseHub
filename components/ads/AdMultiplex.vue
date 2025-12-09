@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { nextTick, onMounted, ref, watch } from 'vue'
+import { nextTick, onMounted, ref } from 'vue'
 import { useRoute } from '#app'
 
 const route = useRoute()
@@ -18,6 +18,7 @@ const adClient = runtimeConfig.public.adsenseClient || 'ca-pub-5447172429378250'
 const adSlot = '7897500416'
 
 let adsScriptPromise: Promise<void> | null = null
+let hasRendered = false
 
 const loadAdsScript = () => {
   if (typeof window === 'undefined') {
@@ -54,6 +55,7 @@ const loadAdsScript = () => {
 }
 
 const renderAd = async () => {
+  if (hasRendered) return
   if (!adContainer.value) return
   adContainer.value.innerHTML = ''
 
@@ -73,6 +75,7 @@ const renderAd = async () => {
     await nextTick()
     ;(window as any).adsbygoogle = (window as any).adsbygoogle || []
     ;(window as any).adsbygoogle.push({})
+    hasRendered = true
   } catch (error) {
     console.warn('ads render error', error)
   }
@@ -81,8 +84,4 @@ const renderAd = async () => {
 onMounted(() => {
   renderAd()
 })
-
-watch(() => route.fullPath, () => {
-  renderAd()
-}, { flush: 'post' })
 </script>
