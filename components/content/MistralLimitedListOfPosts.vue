@@ -15,7 +15,7 @@
                             class="col-span-2 p-4"
                             :class="article.cover ? 'col-span-2' : 'col-span-3'"
                         >
-                            <NuxtLink :to="article._path">
+                            <a :href="article._path">
                                 <h2 class="text-3xl font-bold mb-2">
                                     {{ article.title }}
                                 </h2>
@@ -30,23 +30,23 @@
                                         article.readingTime.text
                                     }}</span>
                                 </div>
-                            </NuxtLink>
+                            </a>
                             <div class="flex flex-wrap gap-2">
-                                <NuxtLink
+                                <a
                                     v-for="tag in article.tags"
                                     :key="tag"
                                     class="bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700"
-                                    :to="`/tags/${tag}`"
+                                    :href="`/tags/${tag}`"
                                 >
                                     {{ tag }}
-                                </NuxtLink>
+                                </a>
                             </div>
                         </div>
                         <div
                             v-if="article.cover"
                             class="col-span-1 p-4 flex justify-center items-center"
                         >
-                    <NuxtLink :to="article._path" class="w-full">
+                    <a :href="article._path" class="w-full">
                                 <img
                                     :src="'/images/' + article.cover"
                                     :alt="article.title"
@@ -57,16 +57,16 @@
                                     loading="lazy"
                                     decoding="async"
                                 />
-                            </NuxtLink>
+                            </a>
                         </div>
                     </div>
                     <hr>
                 </div>
 
                 <div class="flex items-center justify-center mt-10">
-                    <NuxtLink to="/archives" class="mt-2 bg-black hover:bg-slate-800 text-white font-semibold py-2 px-4 rounded">
+                    <a href="/archives" class="mt-2 bg-black hover:bg-slate-800 text-white font-semibold py-2 px-4 rounded">
                         View all posts
-                    </NuxtLink>
+                    </a>
                 </div>
             </div>
         </template>

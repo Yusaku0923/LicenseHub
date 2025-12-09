@@ -17,9 +17,9 @@ const props = defineProps<{
     </h2>
     <ul class="space-y-2 text-sm">
       <li v-for="item in items" :key="item.href">
-        <NuxtLink :to="item.href" class="font-medium underline">
+        <a :href="item.href" class="font-medium underline">
           {{ item.label }}
-        </NuxtLink>
+        </a>
         <span v-if="item.description" class="ml-1 text-gray-600">
           - {{ item.description }}
         </span>

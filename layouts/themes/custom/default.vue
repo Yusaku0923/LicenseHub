@@ -61,14 +61,14 @@
 
           <!-- タグ -->
           <div class="flex flex-wrap gap-3 mt-10">
-            <NuxtLink
+            <a
               v-for="tag in doc.tags"
               :key="tag"
-              :to="`/tags/${tag}`"
+              :href="`/tags/${tag}`"
               class="bg-slate-100 rounded-full px-3 py-1 text-sm font-semibold text-slate-700"
             >
               {{ tag }}
-            </NuxtLink>
+            </a>
           </div>
     
           <!-- シェア・コメンチE-->

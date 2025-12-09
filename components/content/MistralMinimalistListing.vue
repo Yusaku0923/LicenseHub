@@ -12,11 +12,11 @@
                 class="block rounded-lg border border-gray-200 bg-white p-6 transition-shadow hover:shadow-md dark:border-neutral-700 dark:bg-neutral-800"
             >
                 <!-- Titre -->
-                <NuxtLink :to="article._path">
+                <a :href="article._path">
                     <h2 class="text-lg font-medium text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-gray-300">
                         {{ article.title }}
                     </h2>
-                </NuxtLink>
+                </a>
 
                 <!-- Date -->
                 <p class="mt-2 text-sm italic text-gray-600 dark:text-gray-400">
@@ -25,14 +25,14 @@
 
                 <!-- Tags -->
                 <div class="mt-4 flex flex-wrap gap-2">
-                    <NuxtLink
+                    <a
                         v-for="tagArticle in article.tags"
                         :key="tagArticle"
-                        :to="`/tags/${tagArticle}`"
+                        :href="`/tags/${tagArticle}`"
                         class="rounded-md bg-gray-100 px-2 py-1 text-xs text-gray-800 dark:bg-neutral-700 dark:text-gray-200"
                     >
                         {{ tagArticle }}
-                    </NuxtLink>
+                    </a>
                 </div>
             </div>
         </div>
@@ -51,9 +51,9 @@
                         class="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
                     >
                         <div class="flex flex-col">
-                            <NuxtLink
-                                :to="article._path"
-                                class="text-gray-600 dark:text-gray-400"
+                            <a
+                              :href="article._path"
+                              class="text-gray-600 dark:text-gray-400"
                             >
                                 <div class="text-base font-normal">
                                     <span
@@ -63,7 +63,7 @@
                                 <div class="text-sm font-normal">
                                     {{ article.description }}
                                 </div>
-                            </NuxtLink>
+                            </a>
                             <div class="text-gray-600 dark:text-gray-400">
                                 <span
                                     class="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400"
@@ -84,8 +84,8 @@
                                     &nbsp; -  &nbsp;
                                 </span>
                                 <span v-for="tagArticle in article.tags" :key="tagArticle" class=" text-xs font-normal text-gray-500 dark:text-gray-400">
-                                    <NuxtLink class="underline" :to="`/tags/${tagArticle}`">{{ tagArticle }}</NuxtLink>
-                                               &nbsp;
+                                    <a class="underline" :href="`/tags/${tagArticle}`">{{ tagArticle }}</a>
+                                    &nbsp;
 
                                 </span>
                             </div>

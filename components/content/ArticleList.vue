@@ -12,8 +12,8 @@
             :key="article._path"
             class="article-card"
           >
-            <NuxtLink 
-              :to="article._path" 
+            <a 
+              :href="article._path" 
               class="block p-4 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 transition-all duration-200"
             >
               <div class="flex items-start justify-between gap-4">
@@ -41,7 +41,7 @@
                 </div>
                 <span class="text-slate-400 text-xl font-bold flex-shrink-0">→</span>
               </div>
-            </NuxtLink>
+            </a>
           </article>
         </div>
         <p v-else class="text-[color:var(--text-muted)] py-8">記事が見つかりませんでした。</p>

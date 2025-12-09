@@ -19,14 +19,14 @@
                                 `${getYear(article.date)}年`
                             }}</span>
                         </div>
-                        <NuxtLink :to="article._path" class="text-gray-700 underline decoration-dashed underline-offset-4">
+                        <a :href="article._path" class="text-gray-700 underline decoration-dashed underline-offset-4">
                             <span>{{ article.date }}</span> &middot;
                             <span>{{ article.title }}</span>
-                        </NuxtLink>
+                        </a>
                         <span v-if="article.tags && article.tags.length > 0">&nbsp; &middot;</span>
-                        <NuxtLink v-for="tag in article.tags" :key="tag" :to="`/tags/${tag}`" class="bg-gray-200 rounded-full px-1.5 py-1 text-xs font-semibold text-gray-700 mx-1.5">
+                        <a v-for="tag in article.tags" :key="tag" :href="`/tags/${tag}`" class="bg-gray-200 rounded-full px-1.5 py-1 text-xs font-semibold text-gray-700 mx-1.5">
                             {{ tag }}
-                        </NuxtLink>
+                        </a>
                     </div>
                 </template>
             </ContentList>
