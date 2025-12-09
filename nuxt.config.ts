@@ -70,10 +70,11 @@ export default defineNuxtConfig({
     '@nuxtjs/robots',
     '@nuxt/content',
     '@nuxtjs/mdc',
-    ['@nuxtjs/google-adsense', {
-      id: 'ca-pub-5447172429378250',
-    }],
+    '@nuxtjs/google-adsense',
   ],
+  googleAdsense: {
+    id: 'ca-pub-5447172429378250',
+  },
   sitemap: {
     exclude: [
       '/academy',
