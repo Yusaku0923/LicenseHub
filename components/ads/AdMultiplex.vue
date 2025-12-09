@@ -1,16 +1,14 @@
 <template>
-  <ClientOnly>
-    <div class="article-ad my-8 flex justify-center">
-      <ins
-        ref="adSlot"
-        class="adsbygoogle block max-w-full"
-        style="display:block"
-        data-ad-format="autorelaxed"
-        data-ad-client="ca-pub-5447172429378250"
-        data-ad-slot="7897500416"
-      ></ins>
-    </div>
-  </ClientOnly>
+  <div class="article-ad my-8 flex justify-center">
+    <ins
+      ref="adSlot"
+      class="adsbygoogle block max-w-full"
+      style="display:block"
+      data-ad-format="autorelaxed"
+      data-ad-client="ca-pub-5447172429378250"
+      data-ad-slot="7897500416"
+    ></ins>
+  </div>
 </template>
 
 <script setup lang="ts">

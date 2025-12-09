@@ -13,25 +13,36 @@
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
+
 const adSlot = ref<HTMLElement | null>(null)
 
+const MAX_RETRY = 10
+
 function pushAds() {
+  if (typeof window === 'undefined') return
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  ;(window as any).adsbygoogle = (window as any).adsbygoogle || []
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  ;(window as any).adsbygoogle.push({})
+  const w = window as any
+  w.adsbygoogle = w.adsbygoogle || []
+  w.adsbygoogle.push({})
 }
 
-function tryInit() {
-  if (process.server) return
+function tryInit(retry = 0) {
   const el = adSlot.value
   if (!el) return
   // Avoid "No slot size for availableWidth=0"
   if (el.offsetWidth === 0) {
-    requestAnimationFrame(tryInit)
+    if (retry >= MAX_RETRY) return
+    requestAnimationFrame(() => tryInit(retry + 1))
     return
   }
-  pushAds()
+
+  try {
+    pushAds()
+  } catch (e) {
+    console.error('Adsense in-field init error:', e)
+  }
 }
 
 onMounted(() => {
