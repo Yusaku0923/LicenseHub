@@ -3,8 +3,11 @@
     <div class="article-ad my-8 flex justify-center">
       <Adsbygoogle
         ref="adComponent"
+        :key="route.fullPath"
         ad-slot="7897500416"
         ad-format="autorelaxed"
+        :page-url="pageUrl"
+        include-query
         class="block max-w-full"
       />
     </div>
@@ -12,14 +15,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useRoute } from '#app'
 
 const route = useRoute()
 const adComponent = ref<any>(null)
+const runtimeConfig = useRuntimeConfig()
+const pageUrl = computed(() => `${runtimeConfig.public.siteUrl}${route.fullPath}`)
 
 // ルート変更時に広告を更新
-watch(() => route.path, () => {
+watch(() => route.fullPath, () => {
   if (adComponent.value?.updateAd) {
     // 少し遅延させてから更新（DOM更新を待つ）
     setTimeout(() => {
