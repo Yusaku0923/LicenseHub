@@ -1,12 +1,12 @@
 <template>
   <ClientOnly>
-    <div class="article-ad my-8 flex justify-center">
+    <div class="article-ad my-8 flex justify-center w-full">
       <Adsbygoogle
         :key="route.fullPath"
         ad-slot="7813917545"
         ad-format="fluid"
         ad-layout="in-article"
-        :ad-style="{ display: 'block', textAlign: 'center' }"
+        :ad-style="{ display: 'block', textAlign: 'center', width: '100%', minWidth: '320px' }"
         :page-url="pageUrl"
         include-query
         class="block max-w-full"
