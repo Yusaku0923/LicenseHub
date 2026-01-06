@@ -10,7 +10,9 @@
     "preview": "nuxt preview",
     "lint": "eslint .",
     "list-content": "tsx scripts/list-content.ts",
-    "salary-scrape": "tsx scripts/salary-scrape.ts"
+    "salary-scrape": "tsx scripts/salary-scrape.ts",
+    "generate:tohan-2026-schedule": "tsx scripts/generate-tohan-2026-schedule.ts",
+    "validate:tohan-2026-schedule": "tsx scripts/validate-tohan-2026-schedule.ts"
   },
   "dependencies": {
     "@bloggrify/core": "2.0.0",

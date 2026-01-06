@@ -1,0 +1,839 @@
+// schema.prisma
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// =========================================================
+// 共通方針
+// - bigserial -> BigInt @default(autoincrement())
+// - timestamptz -> DateTime @db.Timestamptz
+// - date -> DateTime @db.Date
+// - jsonb -> Json
+// =========================================================
+
+// ---------------------------------------------------------
+// 1. 認証・ユーザー基盤
+// ---------------------------------------------------------
+
+model User {
+  id                 BigInt      @id @default(autoincrement())
+  email              String      @unique @db.VarChar(255)
+  passwordHash       String      @map("password_hash") @db.VarChar(255)
+  emailVerified      Boolean     @default(false) @map("email_verified")
+  lastLoginAt        DateTime?   @map("last_login_at") @db.Timestamptz
+  status             UserStatus  @default(ACTIVE)
+
+  stripeCustomerId        String? @unique @map("stripe_customer_id") @db.VarChar(255)
+  currentSubscriptionId   BigInt? @map("current_subscription_id")
+  currentSubscription     Subscription? @relation("CurrentSubscription", fields: [currentSubscriptionId], references: [id])
+
+  // Relations
+  profile             UserProfile?
+  subscriptions       Subscription[] @relation("UserSubscriptions")
+  practiceSessions    PracticeSession[]
+  practiceAnswers     PracticeAnswer[]
+  flashcardReviews    FlashcardReview[]
+  masteryScores       UserMasteryScore[]
+  dailyPlans          UserDailyPlan[]
+  dailySummaries      UserDailySummary[]
+  aiDailyFeedbacks    AiDailyFeedback[]
+  aiWeaknessAnalyses  AiWeaknessAnalysis[]
+  activityLogs        ActivityLog[]
+  passwordResetTokens PasswordResetToken[]
+  paymentEvents       PaymentEvent[]
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@map("users")
+}
+
+enum UserStatus {
+  ACTIVE    @map("active")
+  SUSPENDED @map("suspended")
+  DELETED   @map("deleted")
+}
+
+model UserProfile {
+  id             BigInt   @id @default(autoincrement())
+  userId         BigInt   @unique @map("user_id")
+
+  displayName    String?  @map("display_name") @db.VarChar(100)
+  birthYear      Int?     @map("birth_year") @db.SmallInt
+  gender         String?  @db.VarChar(10)
+  prefectureCode Int?     @map("prefecture_code") @db.SmallInt
+
+  targetExamRegionId     BigInt  @map("target_exam_region_id")
+  targetExamYearId       BigInt  @map("target_exam_year_id")
+  targetExamDateOverride DateTime? @map("target_exam_date_override") @db.Date
+
+  handedness        String? @db.VarChar(10) // right / left / ambi
+  dailyStudyMinutes Int     @default(30) @map("daily_study_minutes") @db.SmallInt
+  experienceLevel   String? @map("experience_level") @db.VarChar(20)
+  memo              String? @db.Text
+
+  user         User      @relation(fields: [userId], references: [id])
+  targetRegion ExamRegion @relation(fields: [targetExamRegionId], references: [id])
+  targetYear   ExamYear   @relation(fields: [targetExamYearId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@index([targetExamRegionId])
+  @@index([targetExamYearId])
+  @@map("user_profiles")
+}
+
+model PasswordResetToken {
+  id        BigInt    @id @default(autoincrement())
+  userId    BigInt    @map("user_id")
+  token     String    @unique @db.VarChar(255)
+  expiresAt DateTime  @map("expires_at") @db.Timestamptz
+  usedAt    DateTime? @map("used_at") @db.Timestamptz
+
+  user User @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@index([userId])
+  @@map("password_reset_tokens")
+}
+
+// ---------------------------------------------------------
+// 2. 課金（Stripe）
+// ---------------------------------------------------------
+
+model Subscription {
+  id                   BigInt   @id @default(autoincrement())
+  userId               BigInt   @map("user_id")
+
+  stripeSubscriptionId String?  @unique @map("stripe_subscription_id") @db.VarChar(255)
+  planCode             PlanCode @default(STANDARD) @map("plan_code")
+  status               SubscriptionStatus @map("status")
+
+  currentPeriodStart   DateTime? @map("current_period_start") @db.Timestamptz
+  currentPeriodEnd     DateTime? @map("current_period_end") @db.Timestamptz
+  cancelAtPeriodEnd    Boolean   @default(false) @map("cancel_at_period_end")
+  canceledAt           DateTime? @map("canceled_at") @db.Timestamptz
+
+  user User @relation("UserSubscriptions", fields: [userId], references: [id])
+  currentUser User[] @relation("CurrentSubscription")
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@index([userId])
+  @@map("subscriptions")
+}
+
+enum PlanCode {
+  STANDARD @map("standard")
+}
+
+enum SubscriptionStatus {
+  ACTIVE              @map("active")
+  TRIALING            @map("trialing")
+  PAST_DUE            @map("past_due")
+  CANCELED            @map("canceled")
+  UNPAID              @map("unpaid")
+  INCOMPLETE          @map("incomplete")
+  INCOMPLETE_EXPIRED  @map("incomplete_expired")
+  PAUSED              @map("paused")
+}
+
+model PaymentEvent {
+  id            BigInt    @id @default(autoincrement())
+  userId        BigInt?   @map("user_id")
+
+  stripeEventId String?   @unique @map("stripe_event_id") @db.VarChar(255)
+  eventType     String?   @map("event_type") @db.VarChar(100)
+  rawPayload    Json      @map("raw_payload")
+  receivedAt    DateTime? @map("received_at") @db.Timestamptz
+
+  user User? @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@index([userId])
+  @@map("payment_events")
+}
+
+// ---------------------------------------------------------
+// 3. 試験地域・年度・都道府県マッピング
+// ---------------------------------------------------------
+
+model ExamRegion {
+  id          BigInt  @id @default(autoincrement())
+  courseId    BigInt  @map("course_id")
+  code        String  @db.VarChar(50)
+  name        String  @db.VarChar(100)
+  description String? @db.Text
+
+  course Course @relation(fields: [courseId], references: [id])
+
+  prefectures      ExamRegionPrefecture[]
+  schedules        ExamSchedule[]
+  userProfiles     UserProfile[]
+  questionSources  QuestionSource[]
+  regionTopicStats RegionTopicStat[]
+  practiceSessions PracticeSession[]
+  mockExams        MockExam[]
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@unique([courseId, code])
+  @@index([courseId])
+  @@map("exam_regions")
+}
+
+model ExamYear {
+  id    BigInt @id @default(autoincrement())
+  year  Int    @unique @db.SmallInt
+  label String @db.VarChar(50)
+
+  userProfiles    UserProfile[]
+  schedules       ExamSchedule[]
+  questionSources QuestionSource[]
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@map("exam_years")
+}
+
+model ExamRegionPrefecture {
+  id             BigInt @id @default(autoincrement())
+  courseId       BigInt @map("course_id")
+  examRegionId   BigInt @map("exam_region_id")
+  prefectureCode Int    @map("prefecture_code") @db.SmallInt
+
+  course    Course    @relation(fields: [courseId], references: [id])
+  examRegion ExamRegion @relation(fields: [examRegionId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@unique([courseId, prefectureCode])
+  @@index([examRegionId])
+  @@index([courseId])
+  @@map("exam_region_prefectures")
+}
+
+model ExamSchedule {
+  id               BigInt   @id @default(autoincrement())
+  courseId         BigInt   @map("course_id")
+  examRegionId     BigInt   @map("exam_region_id")
+  examYearId       BigInt   @map("exam_year_id")
+
+  examDate         DateTime @map("exam_date") @db.Date
+  applicationStart DateTime? @map("application_start") @db.Date
+  applicationEnd   DateTime? @map("application_end") @db.Date
+  resultDate       DateTime? @map("result_date") @db.Date
+  note             String?   @db.Text
+
+  examRegion ExamRegion @relation(fields: [examRegionId], references: [id])
+  examYear   ExamYear   @relation(fields: [examYearId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@unique([courseId, examRegionId, examYearId])
+  @@index([examRegionId])
+  @@index([examYearId])
+  @@index([courseId])
+  @@map("exam_schedules")
+}
+
+// ---------------------------------------------------------
+// 4. 講座構造（Courses / Chapters / Sections / Topics）
+// ---------------------------------------------------------
+
+model Course {
+  id          BigInt  @id @default(autoincrement())
+  code        String? @unique @db.VarChar(50)
+  name        String? @db.VarChar(100)
+  description String? @db.Text
+  isActive    Boolean @default(true) @map("is_active")
+
+  chapters    Chapter[]
+  examRegions ExamRegion[]
+  questions   Question[]
+  flashcards  Flashcard[]
+  mockExams   MockExam[]
+  regionPrefectures ExamRegionPrefecture[]
+  schedules   ExamSchedule[]
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@map("courses")
+}
+
+model Chapter {
+  id            BigInt  @id @default(autoincrement())
+  courseId      BigInt  @map("course_id")
+  chapterNumber Int?    @map("chapter_number") @db.SmallInt
+  title         String? @db.VarChar(255)
+  summary       String? @db.Text
+  displayOrder  Int?    @map("display_order") @db.SmallInt
+
+  course   Course    @relation(fields: [courseId], references: [id])
+  sections Section[]
+
+  practiceSessions PracticeSession[]
+  dailyPlanItems   UserDailyPlanItem[]
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@index([courseId])
+  @@map("chapters")
+}
+
+model Section {
+  id            BigInt  @id @default(autoincrement())
+  chapterId     BigInt  @map("chapter_id")
+  sectionNumber Int?    @map("section_number") @db.SmallInt
+  title         String? @db.VarChar(255)
+  slug          String  @db.VarChar(255)
+  summary       String? @db.Text
+  displayOrder  Int?    @map("display_order") @db.SmallInt
+
+  chapter Chapter @relation(fields: [chapterId], references: [id])
+  topics  Topic[]
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@index([chapterId])
+  @@map("sections")
+}
+
+model Topic {
+  id               BigInt  @id @default(autoincrement())
+  sectionId        BigInt  @map("section_id")
+  code             String  @db.VarChar(100)
+  name             String  @db.VarChar(255)
+  description      String? @db.Text
+  importanceGlobal Int     @default(3) @map("importance_global") @db.SmallInt
+
+  section Section @relation(fields: [sectionId], references: [id])
+
+  questionTopics   QuestionTopic[]
+  regionTopicStats RegionTopicStat[]
+  flashcards       Flashcard[]
+  masteryScores    UserMasteryScore[]
+  dailyPlanItems   UserDailyPlanItem[]
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@index([sectionId])
+  @@map("topics")
+}
+
+// ---------------------------------------------------------
+// 5. 問題（過去問＋オリジナル）
+// ---------------------------------------------------------
+
+model Question {
+  id           BigInt @id @default(autoincrement())
+  courseId     BigInt @map("course_id")
+  questionType QuestionType @default(SINGLE_CHOICE) @map("question_type")
+  text         String @db.Text
+  explanation  String? @db.Text
+  difficulty   Int    @default(3) @db.SmallInt
+  sourceType   QuestionSourceType @map("source_type")
+  isActive     Boolean @default(true) @map("is_active")
+
+  course Course @relation(fields: [courseId], references: [id])
+
+  choices           QuestionChoice[]
+  topics            QuestionTopic[]
+  sources           QuestionSource[]
+  categoryLinks     QuestionCategoryLink[]
+  practiceAnswers   PracticeAnswer[]
+  mockExamQuestions MockExamQuestion[]
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@index([courseId])
+  @@map("questions")
+}
+
+enum QuestionType {
+  SINGLE_CHOICE @map("single_choice")
+}
+
+enum QuestionSourceType {
+  PAST_EXAM @map("past_exam")
+  ORIGINAL @map("original")
+}
+
+model QuestionChoice {
+  id          BigInt  @id @default(autoincrement())
+  questionId  BigInt  @map("question_id")
+  choiceLabel String  @map("choice_label") @db.VarChar(5)
+  text        String  @db.Text
+  isCorrect   Boolean @map("is_correct")
+  explanation String? @db.Text
+
+  question        Question         @relation(fields: [questionId], references: [id])
+  practiceAnswers PracticeAnswer[]
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@index([questionId])
+  @@map("question_choices")
+}
+
+model QuestionTopic {
+  id         BigInt @id @default(autoincrement())
+  questionId BigInt @map("question_id")
+  topicId    BigInt @map("topic_id")
+  weight     Int    @default(1) @db.SmallInt
+
+  question Question @relation(fields: [questionId], references: [id])
+  topic    Topic    @relation(fields: [topicId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@index([questionId])
+  @@index([topicId])
+  @@map("question_topics")
+}
+
+model QuestionSource {
+  id             BigInt  @id @default(autoincrement())
+  questionId     BigInt  @map("question_id")
+  examRegionId   BigInt  @map("exam_region_id")
+  examYearId     BigInt  @map("exam_year_id")
+  questionNumber Int?    @map("question_number") @db.SmallInt
+  note           String? @db.Text
+
+  question   Question   @relation(fields: [questionId], references: [id])
+  examRegion ExamRegion @relation(fields: [examRegionId], references: [id])
+  examYear   ExamYear   @relation(fields: [examYearId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@index([questionId])
+  @@index([examRegionId])
+  @@index([examYearId])
+  @@map("question_sources")
+}
+
+model QuestionCategory {
+  id    BigInt @id @default(autoincrement())
+  code  String @unique @db.VarChar(50)
+  name  String @db.VarChar(100)
+
+  links QuestionCategoryLink[]
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@map("question_categories")
+}
+
+model QuestionCategoryLink {
+  id         BigInt @id @default(autoincrement())
+  questionId BigInt @map("question_id")
+  categoryId BigInt @map("category_id")
+
+  question Question         @relation(fields: [questionId], references: [id])
+  category QuestionCategory @relation(fields: [categoryId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@unique([questionId, categoryId])
+  @@index([questionId])
+  @@index([categoryId])
+  @@map("question_category_links")
+}
+
+// ---------------------------------------------------------
+// 6. 地域別出題傾向
+// ---------------------------------------------------------
+
+model RegionTopicStat {
+  id              BigInt   @id @default(autoincrement())
+  examRegionId    BigInt   @map("exam_region_id")
+  topicId         BigInt   @map("topic_id")
+  examYearFrom    Int      @map("exam_year_from") @db.SmallInt
+  examYearTo      Int      @map("exam_year_to") @db.SmallInt
+  questionCount   Int      @default(0) @map("question_count")
+  examCount       Int      @default(0) @map("exam_count")
+  appearanceRate  Decimal  @default(0) @map("appearance_rate") @db.Decimal(5, 2)
+  importanceScore Int      @default(3) @map("importance_score") @db.SmallInt
+
+  examRegion ExamRegion @relation(fields: [examRegionId], references: [id])
+  topic      Topic      @relation(fields: [topicId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@index([examRegionId])
+  @@index([topicId])
+  @@map("region_topic_stats")
+}
+
+// ---------------------------------------------------------
+// 7. 演習ログ
+// ---------------------------------------------------------
+
+model PracticeSession {
+  id                 BigInt   @id @default(autoincrement())
+  userId             BigInt   @map("user_id")
+  sessionType        PracticeSessionType @map("session_type")
+  targetExamRegionId BigInt?  @map("target_exam_region_id")
+  targetChapterId    BigInt?  @map("target_chapter_id")
+
+  startedAt       DateTime? @map("started_at") @db.Timestamptz
+  endedAt         DateTime? @map("ended_at") @db.Timestamptz
+  questionCount   Int?      @map("question_count")
+  correctCount    Int?      @map("correct_count")
+  scorePercentage Decimal?  @map("score_percentage") @db.Decimal(5, 2)
+
+  user         User        @relation(fields: [userId], references: [id])
+  targetRegion ExamRegion? @relation(fields: [targetExamRegionId], references: [id])
+  targetChapter Chapter?   @relation(fields: [targetChapterId], references: [id])
+
+  answers PracticeAnswer[]
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@index([userId])
+  @@index([targetExamRegionId])
+  @@index([targetChapterId])
+  @@map("practice_sessions")
+}
+
+enum PracticeSessionType {
+  DAILY_TASK   @map("daily_task")
+  CHAPTER      @map("chapter")
+  WEAKNESS     @map("weakness")
+  RANDOM       @map("random")
+  REGION       @map("region")
+  PAST_SET     @map("past_set")
+}
+
+model PracticeAnswer {
+  id                BigInt   @id @default(autoincrement())
+  practiceSessionId BigInt   @map("practice_session_id")
+  userId            BigInt   @map("user_id")
+  questionId        BigInt   @map("question_id")
+  selectedChoiceId  BigInt?  @map("selected_choice_id")
+
+  isCorrect        Boolean  @map("is_correct")
+  answeredAt       DateTime @map("answered_at") @db.Timestamptz
+  timeTakenSeconds Int?     @map("time_taken_seconds")
+
+  session        PracticeSession @relation(fields: [practiceSessionId], references: [id])
+  user           User            @relation(fields: [userId], references: [id])
+  question       Question        @relation(fields: [questionId], references: [id])
+  selectedChoice QuestionChoice? @relation(fields: [selectedChoiceId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@index([practiceSessionId])
+  @@index([userId])
+  @@index([questionId])
+  @@index([answeredAt])
+  @@map("practice_answers")
+}
+
+// ---------------------------------------------------------
+// 8. 暗記カード
+// ---------------------------------------------------------
+
+model Flashcard {
+  id                BigInt  @id @default(autoincrement())
+  courseId          BigInt  @map("course_id")
+  topicId           BigInt? @map("topic_id")
+
+  frontText         String  @map("front_text") @db.Text
+  backText          String  @map("back_text") @db.Text
+  sourceSectionSlug String? @map("source_section_slug") @db.VarChar(255)
+  isActive          Boolean @default(true) @map("is_active")
+
+  course  Course @relation(fields: [courseId], references: [id])
+  topic   Topic?  @relation(fields: [topicId], references: [id])
+  reviews FlashcardReview[]
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@index([courseId])
+  @@index([topicId])
+  @@map("flashcards")
+}
+
+model FlashcardReview {
+  id           BigInt   @id @default(autoincrement())
+  userId       BigInt   @map("user_id")
+  flashcardId  BigInt   @map("flashcard_id")
+
+  reviewedAt   DateTime @map("reviewed_at") @db.Timestamptz
+  rating       Int      @db.SmallInt // 1=Again, 2=Normal, 3=Easy（アプリ側でバリデーション推奨）
+  nextReviewAt DateTime? @map("next_review_at") @db.Timestamptz
+  intervalDays Int?      @map("interval_days")
+  streak       Int       @default(0) @db.SmallInt
+
+  user      User      @relation(fields: [userId], references: [id])
+  flashcard Flashcard @relation(fields: [flashcardId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@index([userId])
+  @@index([flashcardId])
+  @@index([nextReviewAt])
+  @@map("flashcard_reviews")
+}
+
+// ---------------------------------------------------------
+// 9. 習熟度・学習計画
+// ---------------------------------------------------------
+
+model UserMasteryScore {
+  id             BigInt   @id @default(autoincrement())
+  userId         BigInt   @map("user_id")
+  topicId        BigInt   @map("topic_id")
+
+  masteryScore   Decimal  @default(0) @map("mastery_score") @db.Decimal(4, 2)
+  correctCount   Int      @default(0) @map("correct_count")
+  wrongCount     Int      @default(0) @map("wrong_count")
+  lastAnsweredAt DateTime? @map("last_answered_at") @db.Timestamptz
+
+  user  User  @relation(fields: [userId], references: [id])
+  topic Topic @relation(fields: [topicId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@unique([userId, topicId])
+  @@index([userId])
+  @@index([topicId])
+  @@map("user_mastery_scores")
+}
+
+model UserDailyPlan {
+  id               BigInt @id @default(autoincrement())
+  userId           BigInt @map("user_id")
+  planDate         DateTime @map("plan_date") @db.Date
+  estimatedMinutes Int    @map("estimated_minutes") @db.SmallInt
+  status           DailyPlanStatus @default(PLANNED) @map("status")
+
+  user  User               @relation(fields: [userId], references: [id])
+  items UserDailyPlanItem[]
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@unique([userId, planDate])
+  @@index([userId])
+  @@index([planDate])
+  @@map("user_daily_plans")
+}
+
+enum DailyPlanStatus {
+  PLANNED     @map("planned")
+  IN_PROGRESS @map("in_progress")
+  COMPLETED   @map("completed")
+  SKIPPED     @map("skipped")
+}
+
+model UserDailyPlanItem {
+  id             BigInt @id @default(autoincrement())
+  dailyPlanId    BigInt @map("daily_plan_id")
+
+  itemType       DailyPlanItemType @map("item_type")
+  chapterId      BigInt? @map("chapter_id")
+  topicId        BigInt? @map("topic_id")
+
+  targetCount    Int? @map("target_count")
+  completedCount Int? @map("completed_count")
+  status         DailyPlanItemStatus @default(PLANNED) @map("status")
+
+  dailyPlan UserDailyPlan @relation(fields: [dailyPlanId], references: [id])
+  chapter   Chapter?      @relation(fields: [chapterId], references: [id])
+  topic     Topic?        @relation(fields: [topicId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@index([dailyPlanId])
+  @@index([chapterId])
+  @@index([topicId])
+  @@map("user_daily_plan_items")
+}
+
+enum DailyPlanItemType {
+  LECTURE   @map("lecture")
+  PRACTICE  @map("practice")
+  FLASHCARD @map("flashcard")
+}
+
+enum DailyPlanItemStatus {
+  PLANNED     @map("planned")
+  IN_PROGRESS @map("in_progress")
+  COMPLETED   @map("completed")
+  SKIPPED     @map("skipped")
+}
+
+model UserDailySummary {
+  id                BigInt @id @default(autoincrement())
+  userId            BigInt @map("user_id")
+  date              DateTime @db.Date
+
+  totalStudyMinutes Int     @default(0) @map("total_study_minutes") @db.SmallInt
+  questionsAnswered Int     @default(0) @map("questions_answered")
+  cardsReviewed     Int     @default(0) @map("cards_reviewed")
+  avgCorrectRate    Decimal? @map("avg_correct_rate") @db.Decimal(5, 2)
+
+  user User @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@unique([userId, date])
+  @@index([userId])
+  @@index([date])
+  @@map("user_daily_summaries")
+}
+
+// ---------------------------------------------------------
+// 10. 地域別模試
+// ---------------------------------------------------------
+
+model MockExam {
+  id            BigInt @id @default(autoincrement())
+  courseId      BigInt @map("course_id")
+  examRegionId  BigInt @map("exam_region_id")
+  name          String? @db.VarChar(255)
+  description   String? @db.Text
+  questionCount Int?    @map("question_count")
+
+  course     Course     @relation(fields: [courseId], references: [id])
+  examRegion ExamRegion @relation(fields: [examRegionId], references: [id])
+
+  questions MockExamQuestion[]
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@index([courseId])
+  @@index([examRegionId])
+  @@map("mock_exams")
+}
+
+model MockExamQuestion {
+  id         BigInt @id @default(autoincrement())
+  mockExamId BigInt @map("mock_exam_id")
+  questionId BigInt @map("question_id")
+  order      Int?   @db.SmallInt
+
+  mockExam MockExam @relation(fields: [mockExamId], references: [id])
+  question Question @relation(fields: [questionId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@index([mockExamId])
+  @@index([questionId])
+  @@map("mock_exam_questions")
+}
+
+// ---------------------------------------------------------
+// 11. AI 生成ログ
+// ---------------------------------------------------------
+
+model AiDailyFeedback {
+  id            BigInt   @id @default(autoincrement())
+  userId        BigInt   @map("user_id")
+  date          DateTime @db.Date
+
+  summaryText   String? @map("summary_text") @db.Text
+  inputSnapshot Json?   @map("input_snapshot")
+  modelName     String? @map("model_name") @db.VarChar(100)
+  generatedAt   DateTime? @map("generated_at") @db.Timestamptz
+
+  user User @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@unique([userId, date])
+  @@index([userId])
+  @@index([date])
+  @@map("ai_daily_feedbacks")
+}
+
+model AiWeaknessAnalysis {
+  id            BigInt   @id @default(autoincrement())
+  userId        BigInt   @map("user_id")
+
+  analysisText  String? @map("analysis_text") @db.Text
+  inputSnapshot Json?   @map("input_snapshot")
+  modelName     String? @map("model_name") @db.VarChar(100)
+  generatedAt   DateTime? @map("generated_at") @db.Timestamptz
+
+  user User @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@index([userId])
+  @@map("ai_weakness_analyses")
+}
+
+// ---------------------------------------------------------
+// 12. 管理・監査
+// ---------------------------------------------------------
+
+model AdminUser {
+  id           BigInt @id @default(autoincrement())
+  email        String @unique @db.VarChar(255)
+  passwordHash String @map("password_hash") @db.VarChar(255)
+  role         String @db.VarChar(20)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@map("admin_users")
+}
+
+model ActivityLog {
+  id         BigInt    @id @default(autoincrement())
+  userId     BigInt?   @map("user_id")
+
+  action     String?   @db.VarChar(100)
+  metadata   Json?
+  occurredAt DateTime? @map("occurred_at") @db.Timestamptz
+
+  user User? @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@index([userId])
+  @@index([occurredAt])
+  @@map("activity_logs")
+}

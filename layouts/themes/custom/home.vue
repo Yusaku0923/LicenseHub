@@ -4,205 +4,211 @@
   <MistralHomeLayout>
     <!-- メインコンテンツ -->
     <template #posts>
-      <!-- ① Hero -->
+      <!-- ① Hero Section: Refined with Premium Feel -->
       <section
-        class="hero-section bg-white rounded-2xl border border-[rgba(50,93,206,0.05)] p-6 md:p-10 flex flex-col gap-6 md:flex-row md:items-center mt-10 mb-10 relative overflow-hidden"
+        class="hero-section bg-premium-gradient rounded-[2rem] p-8 md:p-14 flex flex-col gap-8 md:flex-row md:items-center mt-6 mb-12 relative overflow-hidden border border-[rgba(34,156,142,0.1)] shadow-sm"
       >
+        <!-- LCP Image Integration -->
         <img
           src="/images/mv.webp"
           alt="Hero Background"
-          class="absolute inset-0 z-0 w-full h-full object-cover"
+          class="absolute inset-0 z-0 w-full h-full object-cover opacity-20 md:opacity-30 mix-blend-overlay"
           loading="eager"
         />
-        <div class="flex-1 relative z-10">
-          <p class="inline-flex items-center px-2 py-1 mb-3 text-xs font-semibold rounded-full bg-white text-[color:var(--brand)] border border-[rgba(50,93,206,0.16)]">
-            LicenceHub｜登録販売者の情報ガイド
-          </p>
+        <!-- Background Decoration -->
+        <div class="absolute top-[-100px] right-[-100px] w-64 h-64 bg-brand opacity-10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-[-50px] left-[-50px] w-48 h-48 bg-accent opacity-10 rounded-full blur-3xl"></div>
+        
+        <div class="flex-1 relative z-10 text-center md:text-left">
+          <div class="inline-flex items-center px-3 py-1 mb-6 text-xs font-bold rounded-full bg-white text-[color:var(--brand)] shadow-sm border border-[rgba(34,156,142,0.1)]">
+            <span class="flex h-2 w-2 rounded-full bg-[color:var(--brand)] mr-2 animate-pulse"></span>
+            LicenceHub｜登録販売者のための総合ガイド
+          </div>
 
-          <h1 class="text-3xl md:text-4xl font-bold text-[color:#1f1f1f] mb-4 leading-tight">
-            登録販売者をめざすあなたへ。<br class="hidden md:block" />
-            勉強・合格・仕事探しを、この一つに。
+          <h1 class="text-3xl md:text-5xl font-extrabold text-[color:var(--heading)] mb-6 leading-[1.2] tracking-tight">
+            登録販売者を<span class="text-brand">めざす</span>あなたへ。<br class="hidden md:block" />
+            <span class="text-gradient">合格とその先</span>を、これ一つに。
           </h1>
 
-          <p class="text-[15px] md:text-lg text-[color:#1f1f1f] mb-5">
-            試験対策・教材比較・現場での働き方まで、登録販売者に関する情報を発信しています。
+          <p class="text-base md:text-xl text-[color:var(--text-muted)] mb-8 leading-relaxed max-w-2xl">
+            試験対策から教材の徹底比較、現場でのキャリアアップまで。<br class="hidden md:block" />
+            専門家が届ける信頼の情報で、あなたの挑戦をサポートします。
           </p>
 
-          <div class="flex flex-wrap gap-3">
+          <div class="flex flex-wrap justify-center md:justify-start gap-4">
             <NuxtLink
               to="/licenses/tohan/exam"
-              class="inline-flex items-center rounded-full px-4 py-2 text-xl font-semibold bg-white text-[color:var(--brand)] border border-[rgba(50,93,206,0.25)] hover:bg-[color:var(--brand)] hover:text-white transition"
+              class="btn-primary px-8 py-3.5 text-lg rounded-full shadow-lg shadow-brand/20 hover:scale-105 active:scale-95 transition-all"
             >
-              勉強の始め方を見る
+              勉強の始め方
+              <Icon icon="mdi:chevron-right" class="text-xl" />
             </NuxtLink>
             <NuxtLink
               to="/licenses/tohan/materials"
-              class="inline-flex items-center rounded-full px-4 py-2 text-xl font-semibold bg-white text-[color:var(--brand)] border border-[rgba(50,93,206,0.25)] hover:bg-[color:var(--brand)] hover:text-white transition"
+              class="inline-flex items-center rounded-full px-8 py-3.5 text-lg font-bold bg-white text-[color:var(--brand)] border border-[rgba(34,156,142,0.2)] hover:bg-slate-50 hover:border-[color:var(--brand)] shadow-sm hover:scale-105 active:scale-95 transition-all"
             >
-              通信講座・教材を比較する
+              教材を比較する
             </NuxtLink>
           </div>
         </div>
       </section>
 
-      <!-- ② カテゴリクイックリンク -->
-      <section class="mb-12">
-        <h2 class="section-title mb-3 text-xl font-bold">まずはここから</h2>
-        <p class="text-[15px] text-[color:var(--text-muted)] mb-4">
-          勉強・教材・仕事の3つの入り口から、目的に合わせて情報を探せます。
-        </p>
-        <div class="grid gap-4 md:grid-cols-3">
+      <!-- ② Category Quick Links: Premium Cards -->
+      <section class="mb-16">
+        <div class="flex flex-col items-center mb-10 text-center">
+          <span class="section-eyebrow">GUIDE NAVIGATION</span>
+          <h2 class="text-2xl font-bold md:text-3xl">まずはここからチェック</h2>
+          <div class="w-12 h-1 bg-brand mt-3 rounded-full"></div>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-3">
           <NuxtLink
             v-for="item in quickLinks"
             :key="item.to"
             :to="item.to"
-            class="group bg-white rounded-xl border border-[color:var(--brand)] shadow-sm p-4 flex items-center gap-3 transition"
+            class="group card--premium p-6 flex flex-col items-center text-center gap-4 transition-all duration-300 rounded-[1.5rem]"
           >
             <div
-              class="w-10 h-10 rounded-full bg-[rgba(50,93,206,0.08)] flex items-center justify-center text-[color:var(--brand)]"
+              class="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center text-[color:var(--brand)] group-hover:bg-brand group-hover:text-white transition-all duration-300"
             >
-              <Icon :icon="item.icon" class="text-xl" />
+              <Icon :icon="item.icon" class="text-3xl" />
             </div>
             <div>
-              <p class="font-semibold text-[color:var(--heading)] text-xl group-hover:text-[color:var(--brand)] transition-colors">{{ item.title }}</p>
-              <p class="text-xs text-[color:var(--text-muted)] group-hover:text-[color:var(--brand)] transition-colors">{{ item.desc }}</p>
+              <p class="font-bold text-[color:var(--heading)] text-xl mb-1 transition-colors">{{ item.title }}</p>
+              <p class="text-sm text-[color:var(--text-muted)] leading-relaxed">{{ item.desc }}</p>
             </div>
           </NuxtLink>
         </div>
       </section>
 
-
-      <!-- ③ 新着記事（ここに元の Mistral のコンポーネントを入れてもいい） -->
-      <section class="mb-12">
-        <div class="flex items-center justify-between mb-4">
-          <h2 class="section-title mb-0 text-xl font-bold">新着記事</h2>
-          <NuxtLink to="/licenses/tohan/articles" class="text-sm text-[color:var(--brand)] hover:underline">もっと見る</NuxtLink>
+      <!-- ③ Latest Articles: Dynamic Grid -->
+      <section class="mb-16">
+        <div class="flex items-end justify-between mb-8">
+          <div>
+            <span class="section-eyebrow">NEW ARRIVALS</span>
+            <h2 class="text-2xl font-bold">新着記事</h2>
+          </div>
+          <NuxtLink to="/licenses/tohan/articles" class="text-sm font-bold text-[color:var(--brand)] hover:opacity-70 flex items-center gap-1 group">
+            記事一覧へ
+            <Icon icon="mdi:arrow-right" class="group-hover:translate-x-1 transition-transform" />
+          </NuxtLink>
         </div>
 
-        <!-- 新着記事 -->
-        <div
-          v-if="latestPosts.length > 0"
-          class="flex gap-4 overflow-x-auto pb-2 px-1 snap-x snap-mandatory md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0"
-        >
+        <div v-if="latestPosts.length > 0" class="flex flex-col gap-8">
+          <!-- Featured Article (Horizontal Card) -->
           <NuxtLink
-            v-for="post in latestPosts"
-            :key="post._path"
-            :to="post._path"
-            class="group bg-white rounded-xl border border-[rgba(15,23,42,0.02)] shadow-sm overflow-hidden flex flex-col transition min-w-[70%] sm:min-w-[55%] md:min-w-0 snap-start"
+            v-if="latestPosts[0]"
+            :to="latestPosts[0]._path"
+            class="group relative bg-white rounded-[2rem] border border-[rgba(15,23,42,0.05)] shadow-md overflow-hidden flex flex-col md:flex-row transition-all hover:shadow-xl hover:-translate-y-1"
           >
-            <div v-if="post.cover" class="h-32 bg-slate-100 flex items-center justify-center text-slate-400 text-sm">
+            <div class="md:w-1/2 h-64 md:h-auto relative overflow-hidden">
               <img
-                :src="'/images/' + post.cover "
-                :alt="post.title"
-                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-                width="360"
-                height="192"
-                sizes="(max-width: 768px) 100vw, 360px"
+                :src="latestPosts[0].cover ? '/images/' + latestPosts[0].cover : '/images/cover.webp'"
+                :alt="latestPosts[0].title"
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 loading="lazy"
-                decoding="async"
               />
+              <div class="absolute top-4 left-4">
+                <span class="px-3 py-1 bg-brand text-white text-[10px] font-bold rounded-full uppercase tracking-widest shadow-lg">Featured</span>
+              </div>
             </div>
-            <div v-else class="h-32 bg-slate-100 flex items-center justify-center text-slate-400 text-sm overflow-hidden">
-              <img
-                src="/images/cover.webp"
-                alt="Default cover image"
-                class="w-full h-full object-cover"
-                width="360"
-                height="192"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div class="p-4 flex flex-col gap-3 flex-1">
-              <p
-                v-if="post.tags && post.tags.length"
-                class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[rgba(50,93,206,0.08)] text-[10px] md:text-[0.65rem] text-[color:var(--brand)] font-semibold w-fit"
-              >
-                {{ post.tags[0] }}
+            <div class="md:w-1/2 p-8 md:p-10 flex flex-col justify-center gap-4">
+              <div class="flex items-center gap-3">
+                <span v-if="latestPosts[0].tags?.[0]" class="license-pill">{{ latestPosts[0].tags[0] }}</span>
+                <p class="text-xs text-[color:var(--text-muted)]">{{ formatDate(latestPosts[0].date) }}</p>
+              </div>
+              <h3 class="text-2xl md:text-3xl font-bold text-[color:var(--heading)] group-hover:text-brand transition-colors leading-tight">
+                {{ latestPosts[0].title }}
+              </h3>
+              <p class="text-[color:var(--text-muted)] line-clamp-3 text-sm md:text-base leading-relaxed">
+                {{ latestPosts[0].description }}
               </p>
-              <p class="font-semibold text-[color:var(--heading)] leading-snug line-clamp-2 group-hover:text-[color:var(--brand)] transition-colors text-sm md:text-base">
-                {{ post.title }}
-              </p>
-              <p v-if="post.date" class="text-[11px] md:text-xs text-[color:var(--text-muted)] mt-auto">
-                {{ formatDate(post.date) }}
-              </p>
+              <div class="mt-4 flex items-center font-bold text-brand group-hover:gap-2 transition-all">
+                記事を読む
+                <Icon icon="mdi:chevron-right" />
+              </div>
             </div>
           </NuxtLink>
-        </div>
-        <div v-else class="text-center text-[color:var(--text-muted)] py-8">
-          記事がまだありません
+
+          <!-- Other Latest Posts -->
+          <div class="grid gap-6 md:grid-cols-2">
+            <NuxtLink
+              v-for="post in latestPosts.slice(1)"
+              :key="post._path"
+              :to="post._path"
+              class="group bg-white rounded-2xl border border-[rgba(15,23,42,0.02)] shadow-sm overflow-hidden flex flex-col transition-all hover:shadow-md"
+            >
+              <div class="h-48 overflow-hidden">
+                <img
+                  :src="post.cover ? '/images/' + post.cover : '/images/cover.webp'"
+                  :alt="post.title"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+              <div class="p-6 flex flex-col gap-3">
+                <div class="flex items-center justify-between">
+                  <span v-if="post.tags?.[0]" class="license-pill text-[10px]">{{ post.tags[0] }}</span>
+                  <p class="text-[10px] text-[color:var(--text-muted)]">{{ formatDate(post.date) }}</p>
+                </div>
+                <h3 class="font-bold text-lg text-[color:var(--heading)] group-hover:text-[color:var(--brand)] transition-colors line-clamp-2">
+                  {{ post.title }}
+                </h3>
+              </div>
+            </NuxtLink>
+          </div>
         </div>
       </section>
 
-      <!-- ④ カテゴリ別セクション -->
-      <section class="space-y-12 mb-4">
-        <div v-for="section in categorySections" :key="section.slug">
-          <div class="flex items-center justify-between mb-4">
-            <h2 class="section-title mb-0 text-xl font-bold">{{ section.title }}</h2>
-            <NuxtLink :to="section.to" class="text-sm text-[color:var(--brand)] hover:underline">
-              もっと見る
+      <!-- ④ Category Sections: Clean & Professional -->
+      <section class="space-y-16 mb-12">
+        <div v-for="section in categorySections" :key="section.slug" class="category-block">
+          <div class="flex items-end justify-between mb-8 border-b border-[rgba(34,156,142,0.1)] pb-4">
+            <div>
+              <h2 class="text-2xl font-bold flex items-center gap-2">
+                <div class="w-1 h-6 bg-brand rounded-full"></div>
+                {{ section.title }}
+              </h2>
+            </div>
+            <NuxtLink :to="section.to" class="text-sm font-bold text-[color:var(--brand)] hover:underline">
+              すべて表示
             </NuxtLink>
           </div>
 
-          <div
-            v-if="section.items.length > 0"
-            class="flex gap-4 overflow-x-auto pb-2 px-1 snap-x snap-mandatory md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0"
-          >
+          <div v-if="section.items.length > 0" class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <NuxtLink
               v-for="post in section.items"
               :key="post._path"
               :to="post._path"
-              class="group bg-white rounded-xl border border-[rgba(15,23,42,0.02)] shadow-sm overflow-hidden flex flex-col transition min-w-[70%] sm:min-w-[55%] md:min-w-0 snap-start"
+              class="group bg-white rounded-xl border border-[rgba(15,23,42,0.03)] shadow-sm overflow-hidden flex flex-col transition-all hover:shadow-md hover:-translate-y-0.5"
             >
-              <!-- サムネイル（新着と同じレイアウト） -->
-              <div v-if="post.cover" class="h-32 bg-slate-100 flex items-center justify-center text-slate-400 text-sm">
+              <div class="h-40 overflow-hidden bg-slate-50">
                 <img
-                  :src="'/images/' + post.cover"
+                  :src="post.cover ? '/images/' + post.cover : '/images/cover.webp'"
                   :alt="post.title"
-                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-                  width="360"
-                  height="192"
-                  sizes="(max-width: 768px) 100vw, 360px"
+                  class="w-full h-full object-cover group-hover:opacity-90 transition-opacity"
                   loading="lazy"
-                  decoding="async"
                 />
               </div>
-              <div v-else class="h-32 bg-slate-100 flex items-center justify-center text-slate-400 text-sm overflow-hidden">
-                <img
-                  src="/images/cover.webp"
-                  alt="Default cover image"
-                  class="w-full h-full object-cover"
-                  width="360"
-                  height="192"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-
-              <!-- テキスト部（タイトル＋任意で説明＋日付） -->
-              <div class="p-4 flex flex-col gap-3 flex-1">
-                <p v-if="post.date" class="text-[11px] md:text-xs text-[color:var(--text-muted)]">
+              <div class="p-5 flex flex-col gap-3 flex-1">
+                <p class="text-[10px] text-[color:var(--text-muted)] flex items-center gap-1">
+                  <Icon icon="mdi:calendar-blank" />
                   {{ formatDate(post.date) }}
                 </p>
-                <p class="font-semibold text-[color:var(--heading)] leading-snug line-clamp-2 group-hover:text-[color:var(--brand)] transition-colors text-sm md:text-base">
+                <h3 class="font-bold text-[color:var(--heading)] leading-snug line-clamp-2 group-hover:text-[color:var(--brand)] transition-colors">
                   {{ post.title }}
-                </p>
-                <p
-                  v-if="post.description"
-                  class="text-[11px] md:text-xs text-[color:var(--text-muted)] leading-snug line-clamp-2"
-                >
+                </h3>
+                <p v-if="post.description" class="text-xs text-[color:var(--text-muted)] leading-relaxed line-clamp-2">
                   {{ post.description }}
                 </p>
               </div>
             </NuxtLink>
           </div>
-
-          <div v-else class="text-center text-[color:var(--text-muted)] py-4 text-sm">
-            該当する記事がありません
+          <div v-else class="bg-slate-50 rounded-xl py-12 text-center text-[color:var(--text-muted)] text-sm border border-dashed border-slate-200">
+            このカテゴリの記事は準備中です
           </div>
         </div>
       </section>
-
     </template>
 
     <!-- サイドバー -->

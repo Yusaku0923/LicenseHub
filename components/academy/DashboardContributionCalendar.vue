@@ -1,34 +1,32 @@
 <template>
-  <div class="rounded-3xl bg-gradient-to-b from-emerald-50/60 to-white p-6 shadow-sm ring-1 ring-emerald-100/60">
-    <div class="flex items-center justify-between gap-4">
-      <div>
-        <p class="text-xs font-semibold uppercase tracking-wide text-emerald-700">
-          学習カレンダー
-        </p>
-        <h2 class="text-lg font-semibold text-slate-900">30日間の積み上げ</h2>
-        <p class="text-sm text-slate-600">少しずつの積み重ねが合格に繋がります。</p>
+  <div class="space-y-4">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-4 text-[10px] font-bold text-slate-400">
+        <div class="flex items-center gap-1.5">
+          <span class="h-2.5 w-2.5 rounded-sm bg-slate-100" />
+          <span>Less</span>
+        </div>
+        <div class="flex items-center gap-1">
+          <span class="h-2.5 w-2.5 rounded-sm bg-emerald-200" />
+          <span class="h-2.5 w-2.5 rounded-sm bg-emerald-400" />
+          <span class="h-2.5 w-2.5 rounded-sm bg-emerald-600" />
+        </div>
+        <div class="flex items-center gap-1.5">
+          <span>More</span>
+        </div>
       </div>
-      <div class="flex items-center gap-2 text-xs text-slate-600">
-        <span class="h-3 w-3 rounded bg-slate-200" />
-        <span>0</span>
-        <span class="h-3 w-3 rounded bg-green-200" />
-        <span>1-5</span>
-        <span class="h-3 w-3 rounded bg-green-300" />
-        <span>6-10</span>
-        <span class="h-3 w-3 rounded bg-green-400" />
-        <span>11-20</span>
-        <span class="h-3 w-3 rounded bg-green-500" />
-        <span>21+</span>
+      <div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+        Last 35 Days
       </div>
     </div>
 
-    <div class="mt-4 grid grid-cols-7 gap-1.5">
+    <div class="grid grid-cols-7 gap-2 md:grid-cols-12 lg:grid-cols-7 xl:grid-cols-12">
       <div
         v-for="entry in displayCells"
         :key="entry.date"
-        class="aspect-square rounded-md border border-white/40 shadow-sm"
+        class="aspect-square rounded-[4px] transition-all hover:scale-110 hover:shadow-lg hover:shadow-emerald-500/20"
         :class="colorClass(entry.score)"
-        :title="`学習量: ${entry.score}`"
+        :title="`${entry.date}: ${entry.score}`"
       />
     </div>
   </div>
@@ -45,13 +43,15 @@ const props = defineProps<{
 const sorted = computed(() =>
   [...props.contributions].sort((a, b) => a.date.localeCompare(b.date)),
 )
-const displayCells = computed(() => sorted.value.slice(-35))
+// Desktop displays 35 days, could be adjusted for layout
+const displayCells = computed(() => sorted.value.slice(-36))
 
 const colorClass = (score: number) => {
-  if (score === 0) return 'bg-slate-200'
-  if (score <= 5) return 'bg-green-200'
-  if (score <= 10) return 'bg-green-300'
-  if (score <= 20) return 'bg-green-400'
-  return 'bg-green-500'
+  if (score === 0) return 'bg-slate-100'
+  if (score <= 5) return 'bg-emerald-100'
+  if (score <= 10) return 'bg-emerald-200'
+  if (score <= 15) return 'bg-emerald-400'
+  if (score <= 22) return 'bg-emerald-500'
+  return 'bg-emerald-600'
 }
 </script>

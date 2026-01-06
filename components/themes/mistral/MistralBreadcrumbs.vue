@@ -51,7 +51,8 @@ function humanize(segment: string): string {
     exam: '受験対策',
     materials: '教材比較',
     work: '仕事・転職',
-    articles: '記事一覧'
+    articles: '記事一覧',
+    schedule: '試験日程',
   }
   if (labelMap[segment]) return labelMap[segment]
   return segment.replace(/[-_]/g, ' ')

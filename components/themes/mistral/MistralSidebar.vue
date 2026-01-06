@@ -1,29 +1,62 @@
 <template>
-  <div class="space-y-6">
-    <!-- タグなど -->
-    <div v-if="displayTags.length > 0" class="card">
-      <h3 class="text-sm font-semibold mb-3 text-[color:var(--heading)]">タグ</h3>
-      <div class="flex flex-wrap gap-2">
-        <a v-for="tag in displayTags" :key="tag" :href="`/tags/${tag}`" class="bg-[rgba(15,23,42,0.04)] px-2 py-1 rounded text-xs hover:bg-[rgba(15,23,42,0.07)] transition-colors">
-          {{ tag }}
-        </a>
+  <div class="space-y-8">
+    <!-- おすすめ記事セクション -->
+    <div class="card--premium p-6">
+      <h3 class="text-base font-bold mb-4 flex items-center gap-2">
+        <Icon icon="mdi:star-outline" class="text-brand text-xl" />
+        おすすめの記事
+      </h3>
+      <div class="space-y-4">
+        <NuxtLink
+          v-for="post in recommendedPosts"
+          :key="post._path"
+          :to="post._path"
+          class="group flex gap-3 items-start"
+        >
+          <div class="w-16 h-12 flex-shrink-0 rounded-md overflow-hidden bg-slate-100 border border-[rgba(15,23,42,0.05)]">
+            <img
+              :src="post.cover ? '/images/' + post.cover : '/images/cover.webp'"
+              :alt="post.title"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+            />
+          </div>
+          <p class="text-[13px] font-bold text-[color:var(--heading)] line-clamp-2 group-hover:text-brand transition-colors leading-snug">
+            {{ post.title }}
+          </p>
+        </NuxtLink>
       </div>
     </div>
-    <!-- A8バナー置き場 -->
-    <div class="aff-box">
-      <p class="aff-box-title text-[color:var(--heading)] font-semibold text-base mb-2">
-        登録販売者の通信講座をお探しの方へ
-      </p>
-      <p class="aff-box-text text-[color:var(--text-muted)] text-sm mb-4 leading-relaxed">
-        試験対策を効率的に進めたい方には、合格実績のある通信講座がおすすめです。  
-        以下は編集部が特に評判の高い講座を厳選しました。
-      </p>
 
-      <AffiliateBanner type="studying" />
-      <AffiliateBanner type="onsuku" />
-      <AffiliateBanner type="sanko" />
+    <!-- A8バナー置き場 -->
+    <div class="aff-box p-6 border border-[rgba(34,156,142,0.15)] bg-[rgba(34,156,142,0.02)] rounded-2xl">
+      <p class="text-brand font-bold text-sm mb-1 uppercase tracking-wider">Promotion</p>
+      <p class="text-[color:var(--heading)] font-bold text-base mb-3 leading-snug">
+        効率的に合格を目指すなら<br />通信講座がおすすめ
+      </p>
+      <div class="space-y-3">
+        <AffiliateBanner type="studying" />
+        <AffiliateBanner type="onsuku" />
+        <AffiliateBanner type="sanko" />
+      </div>
     </div>
 
+    <!-- タグセクション -->
+    <div v-if="displayTags.length > 0" class="card--premium p-6">
+      <h3 class="text-sm font-bold mb-4 flex items-center gap-2">
+        <Icon icon="mdi:tag-outline" class="text-brand" />
+        注目のキーワード
+      </h3>
+      <div class="flex flex-wrap gap-2">
+        <NuxtLink 
+          v-for="tag in displayTags" 
+          :key="tag" 
+          :to="`/tags/${tag}`" 
+          class="license-pill text-[10px] py-1 px-3 hover:bg-brand hover:text-white transition-all cursor-pointer"
+        >
+          {{ tag }}
+        </NuxtLink>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -39,6 +72,18 @@ const props = withDefaults(defineProps<Props>(), {
   tags: () => [],
 })
 
+// おすすめ記事を自動取得
+const { data: recommendedPostsData } = await useAsyncData('recommended-posts', () => {
+  return queryContent()
+    .only(['title', '_path', 'cover', 'date'])
+    .where({ date: { $exists: true } })
+    .limit(5)
+    .sort({ date: -1 })
+    .find()
+})
+
+const recommendedPosts = computed(() => recommendedPostsData.value || [])
+
 const displayTags = computed(() => {
   const merged = new Set<string>()
 
@@ -50,4 +95,3 @@ const displayTags = computed(() => {
   return Array.from(merged)
 })
 </script>
-
