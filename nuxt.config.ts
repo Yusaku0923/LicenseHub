@@ -72,7 +72,7 @@ export default defineNuxtConfig({
     '@nuxtjs/mdc',
     ['@nuxtjs/google-adsense', {
       id: adsenseId,
-      pageLevelAds: true,
+      pageLevelAds: false,
       analyticsUacct: process.env.NUXT_PUBLIC_ANALYTICS_UACCT,
       analyticsDomainName: process.env.NUXT_PUBLIC_ANALYTICS_DOMAIN,
     }],
