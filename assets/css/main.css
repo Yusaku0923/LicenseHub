@@ -149,15 +149,13 @@ ol {
 /* === LINKS =============================================================== */
 a {
   color: var(--brand);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  text-decoration: none;
   transition: color .15s ease-out;
 }
 
 a:hover {
   color: #188070;
   /* brand より 15〜20% 濃いグリーン */
-  text-decoration-thickness: 2px;
 }
 
 /* === CALLOUT / BLOCKQUOTE =============================================== */

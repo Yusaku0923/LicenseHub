@@ -57,8 +57,8 @@
 
     <!-- Empty State -->
     <div v-if="tasks.every(t => t.isCompleted)" class="rounded-3xl bg-emerald-50/50 p-6 text-center border border-emerald-100/50">
-      <p class="text-sm font-bold text-emerald-800">🎉 All tasks completed!</p>
-      <p class="mt-0.5 text-[10px] text-emerald-600 font-medium">Keep up the great work.</p>
+      <p class="text-sm font-bold text-emerald-800">🎉 全てのタスクが完了しました！</p>
+      <p class="mt-0.5 text-[10px] text-emerald-600 font-medium">素晴らしい進捗です。この調子でいきましょう。</p>
     </div>
   </div>
 </template>
@@ -76,9 +76,9 @@ defineEmits<{
 }>()
 
 const labelFor = (type: DailyTask['type']) => {
-  if (type === 'lecture') return 'Lec'
-  if (type === 'practice') return 'Prac'
-  return 'Memo'
+  if (type === 'lecture') return '講義'
+  if (type === 'practice') return '演習'
+  return '暗記'
 }
 
 const typeStyles = (type: DailyTask['type']) => {

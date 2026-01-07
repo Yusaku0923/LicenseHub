@@ -46,6 +46,22 @@ export interface Flashcard {
   back: string
 }
 
+export interface LectureStats {
+  completedSections: number
+  totalSections: number
+  progressPercent: number
+}
+
+export interface PracticeStats {
+  weeklyAnswered: number
+  weeklyCorrectRate: number // 0-100
+}
+
+export interface FlashcardStats {
+  dueCards: number
+  totalCards: number
+}
+
 export interface DailyContribution {
   date: string // YYYY-MM-DD
   score: number // 今日の学習量（0〜数十）
@@ -322,5 +338,20 @@ export function useAcademyMock() {
     gotoNextPracticeQuestion,
     getCurrentFlashcard,
     rateFlashcard,
+    incompleteTasksCount: computed(() => todayTasks.value.filter((t) => !t.isCompleted).length),
+    // Mock Stats for Learning Menu
+    lectureStats: computed<LectureStats>(() => ({
+      completedSections: 12,
+      totalSections: 45,
+      progressPercent: Math.round((12 / 45) * 100),
+    })),
+    practiceStats: computed<PracticeStats>(() => ({
+      weeklyAnswered: 35,
+      weeklyCorrectRate: 68,
+    })),
+    flashcardStats: computed<FlashcardStats>(() => ({
+      dueCards: 18,
+      totalCards: 120,
+    })),
   }
 }

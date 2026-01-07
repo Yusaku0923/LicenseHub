@@ -1,0 +1,839 @@
+// schema.prisma
+
+datasource db {
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// =========================================================
+// 共通方針
+// - bigserial -> BigInt @default(autoincrement())
+// - timestamptz -> DateTime 
+// - date -> DateTime 
+// - jsonb -> Json
+// =========================================================
+
+// ---------------------------------------------------------
+// 1. 認証・ユーザー基盤
+// ---------------------------------------------------------
+
+model User {
+  id            BigInt     @id @default(autoincrement())
+  email         String     @unique
+  passwordHash  String     @map("password_hash")
+  emailVerified Boolean    @default(false) @map("email_verified")
+  lastLoginAt   DateTime?  @map("last_login_at")
+  status        UserStatus @default(active)
+
+  stripeCustomerId      String?       @unique @map("stripe_customer_id")
+  currentSubscriptionId BigInt?       @map("current_subscription_id")
+  currentSubscription   Subscription? @relation("CurrentSubscription", fields: [currentSubscriptionId], references: [id])
+
+  // Relations
+  profile             UserProfile?
+  subscriptions       Subscription[]       @relation("UserSubscriptions")
+  practiceSessions    PracticeSession[]
+  practiceAnswers     PracticeAnswer[]
+  flashcardReviews    FlashcardReview[]
+  masteryScores       UserMasteryScore[]
+  dailyPlans          UserDailyPlan[]
+  dailySummaries      UserDailySummary[]
+  aiDailyFeedbacks    AiDailyFeedback[]
+  aiWeaknessAnalyses  AiWeaknessAnalysis[]
+  activityLogs        ActivityLog[]
+  passwordResetTokens PasswordResetToken[]
+  paymentEvents       PaymentEvent[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("users")
+}
+
+enum UserStatus {
+  active
+  suspended
+  deleted
+}
+
+model UserProfile {
+  id     BigInt @id @default(autoincrement())
+  userId BigInt @unique @map("user_id")
+
+  displayName    String? @map("display_name")
+  birthYear      Int?    @map("birth_year")
+  gender         String?
+  prefectureCode Int?    @map("prefecture_code")
+
+  targetExamRegionId     BigInt    @map("target_exam_region_id")
+  targetExamYearId       BigInt    @map("target_exam_year_id")
+  targetExamDateOverride DateTime? @map("target_exam_date_override")
+
+  handedness        String? // right / left / ambi
+  dailyStudyMinutes Int     @default(30) @map("daily_study_minutes")
+  experienceLevel   String? @map("experience_level")
+  memo              String?
+
+  user         User       @relation(fields: [userId], references: [id])
+  targetRegion ExamRegion @relation(fields: [targetExamRegionId], references: [id])
+  targetYear   ExamYear   @relation(fields: [targetExamYearId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([targetExamRegionId])
+  @@index([targetExamYearId])
+  @@map("user_profiles")
+}
+
+model PasswordResetToken {
+  id        BigInt    @id @default(autoincrement())
+  userId    BigInt    @map("user_id")
+  token     String    @unique
+  expiresAt DateTime  @map("expires_at")
+  usedAt    DateTime? @map("used_at")
+
+  user User @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([userId])
+  @@map("password_reset_tokens")
+}
+
+// ---------------------------------------------------------
+// 2. 課金（Stripe）
+// ---------------------------------------------------------
+
+model Subscription {
+  id     BigInt @id @default(autoincrement())
+  userId BigInt @map("user_id")
+
+  stripeSubscriptionId String?            @unique @map("stripe_subscription_id")
+  planCode             PlanCode           @default(standard) @map("plan_code")
+  status               SubscriptionStatus @map("status")
+
+  currentPeriodStart DateTime? @map("current_period_start")
+  currentPeriodEnd   DateTime? @map("current_period_end")
+  cancelAtPeriodEnd  Boolean   @default(false) @map("cancel_at_period_end")
+  canceledAt         DateTime? @map("canceled_at")
+
+  user        User   @relation("UserSubscriptions", fields: [userId], references: [id])
+  currentUser User[] @relation("CurrentSubscription")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([userId])
+  @@map("subscriptions")
+}
+
+enum PlanCode {
+  standard
+}
+
+enum SubscriptionStatus {
+  active
+  trialing
+  past_due
+  canceled
+  unpaid
+  incomplete
+  incomplete_expired
+  paused
+}
+
+model PaymentEvent {
+  id     BigInt  @id @default(autoincrement())
+  userId BigInt? @map("user_id")
+
+  stripeEventId String?   @unique @map("stripe_event_id")
+  eventType     String?   @map("event_type")
+  rawPayload    Json      @map("raw_payload")
+  receivedAt    DateTime? @map("received_at")
+
+  user User? @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([userId])
+  @@map("payment_events")
+}
+
+// ---------------------------------------------------------
+// 3. 試験地域・年度・都道府県マッピング
+// ---------------------------------------------------------
+
+model ExamRegion {
+  id          BigInt  @id @default(autoincrement())
+  courseId    BigInt  @map("course_id")
+  code        String
+  name        String
+  description String?
+
+  course Course @relation(fields: [courseId], references: [id])
+
+  prefectures      ExamRegionPrefecture[]
+  schedules        ExamSchedule[]
+  userProfiles     UserProfile[]
+  questionSources  QuestionSource[]
+  regionTopicStats RegionTopicStat[]
+  practiceSessions PracticeSession[]
+  mockExams        MockExam[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@unique([courseId, code])
+  @@index([courseId])
+  @@map("exam_regions")
+}
+
+model ExamYear {
+  id    BigInt @id @default(autoincrement())
+  year  Int    @unique
+  label String
+
+  userProfiles    UserProfile[]
+  schedules       ExamSchedule[]
+  questionSources QuestionSource[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("exam_years")
+}
+
+model ExamRegionPrefecture {
+  id             BigInt @id @default(autoincrement())
+  courseId       BigInt @map("course_id")
+  examRegionId   BigInt @map("exam_region_id")
+  prefectureCode Int    @map("prefecture_code")
+
+  course     Course     @relation(fields: [courseId], references: [id])
+  examRegion ExamRegion @relation(fields: [examRegionId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@unique([courseId, prefectureCode])
+  @@index([examRegionId])
+  @@index([courseId])
+  @@map("exam_region_prefectures")
+}
+
+model ExamSchedule {
+  id           BigInt @id @default(autoincrement())
+  courseId     BigInt @map("course_id")
+  examRegionId BigInt @map("exam_region_id")
+  examYearId   BigInt @map("exam_year_id")
+
+  examDate         DateTime  @map("exam_date")
+  applicationStart DateTime? @map("application_start")
+  applicationEnd   DateTime? @map("application_end")
+  resultDate       DateTime? @map("result_date")
+  note             String?
+
+  examRegion ExamRegion @relation(fields: [examRegionId], references: [id])
+  examYear   ExamYear   @relation(fields: [examYearId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  course    Course   @relation(fields: [courseId], references: [id])
+
+  @@unique([courseId, examRegionId, examYearId])
+  @@index([examRegionId])
+  @@index([examYearId])
+  @@index([courseId])
+  @@map("exam_schedules")
+}
+
+// ---------------------------------------------------------
+// 4. 講座構造（Courses / Chapters / Sections / Topics）
+// ---------------------------------------------------------
+
+model Course {
+  id          BigInt  @id @default(autoincrement())
+  code        String? @unique
+  name        String?
+  description String?
+  isActive    Boolean @default(true) @map("is_active")
+
+  chapters          Chapter[]
+  examRegions       ExamRegion[]
+  questions         Question[]
+  flashcards        Flashcard[]
+  mockExams         MockExam[]
+  regionPrefectures ExamRegionPrefecture[]
+  schedules         ExamSchedule[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("courses")
+}
+
+model Chapter {
+  id            BigInt  @id @default(autoincrement())
+  courseId      BigInt  @map("course_id")
+  chapterNumber Int?    @map("chapter_number")
+  title         String?
+  summary       String?
+  displayOrder  Int?    @map("display_order")
+
+  course   Course    @relation(fields: [courseId], references: [id])
+  sections Section[]
+
+  practiceSessions PracticeSession[]
+  dailyPlanItems   UserDailyPlanItem[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([courseId])
+  @@map("chapters")
+}
+
+model Section {
+  id            BigInt  @id @default(autoincrement())
+  chapterId     BigInt  @map("chapter_id")
+  sectionNumber Int?    @map("section_number")
+  title         String?
+  slug          String
+  summary       String?
+  displayOrder  Int?    @map("display_order")
+
+  chapter Chapter @relation(fields: [chapterId], references: [id])
+  topics  Topic[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([chapterId])
+  @@map("sections")
+}
+
+model Topic {
+  id               BigInt  @id @default(autoincrement())
+  sectionId        BigInt  @map("section_id")
+  code             String
+  name             String
+  description      String?
+  importanceGlobal Int     @default(3) @map("importance_global")
+
+  section Section @relation(fields: [sectionId], references: [id])
+
+  questionTopics   QuestionTopic[]
+  regionTopicStats RegionTopicStat[]
+  flashcards       Flashcard[]
+  masteryScores    UserMasteryScore[]
+  dailyPlanItems   UserDailyPlanItem[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([sectionId])
+  @@map("topics")
+}
+
+// ---------------------------------------------------------
+// 5. 問題（過去問＋オリジナル）
+// ---------------------------------------------------------
+
+model Question {
+  id           BigInt             @id @default(autoincrement())
+  courseId     BigInt             @map("course_id")
+  questionType QuestionType       @default(single_choice) @map("question_type")
+  text         String
+  explanation  String?
+  difficulty   Int                @default(3)
+  sourceType   QuestionSourceType @map("source_type")
+  isActive     Boolean            @default(true) @map("is_active")
+
+  course Course @relation(fields: [courseId], references: [id])
+
+  choices           QuestionChoice[]
+  topics            QuestionTopic[]
+  sources           QuestionSource[]
+  categoryLinks     QuestionCategoryLink[]
+  practiceAnswers   PracticeAnswer[]
+  mockExamQuestions MockExamQuestion[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([courseId])
+  @@map("questions")
+}
+
+enum QuestionType {
+  single_choice
+}
+
+enum QuestionSourceType {
+  past_exam
+  original
+}
+
+model QuestionChoice {
+  id          BigInt  @id @default(autoincrement())
+  questionId  BigInt  @map("question_id")
+  choiceLabel String  @map("choice_label")
+  text        String
+  isCorrect   Boolean @map("is_correct")
+  explanation String?
+
+  question        Question         @relation(fields: [questionId], references: [id])
+  practiceAnswers PracticeAnswer[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([questionId])
+  @@map("question_choices")
+}
+
+model QuestionTopic {
+  id         BigInt @id @default(autoincrement())
+  questionId BigInt @map("question_id")
+  topicId    BigInt @map("topic_id")
+  weight     Int    @default(1)
+
+  question Question @relation(fields: [questionId], references: [id])
+  topic    Topic    @relation(fields: [topicId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([questionId])
+  @@index([topicId])
+  @@map("question_topics")
+}
+
+model QuestionSource {
+  id             BigInt  @id @default(autoincrement())
+  questionId     BigInt  @map("question_id")
+  examRegionId   BigInt  @map("exam_region_id")
+  examYearId     BigInt  @map("exam_year_id")
+  questionNumber Int?    @map("question_number")
+  note           String?
+
+  question   Question   @relation(fields: [questionId], references: [id])
+  examRegion ExamRegion @relation(fields: [examRegionId], references: [id])
+  examYear   ExamYear   @relation(fields: [examYearId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([questionId])
+  @@index([examRegionId])
+  @@index([examYearId])
+  @@map("question_sources")
+}
+
+model QuestionCategory {
+  id   BigInt @id @default(autoincrement())
+  code String @unique
+  name String
+
+  links QuestionCategoryLink[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("question_categories")
+}
+
+model QuestionCategoryLink {
+  id         BigInt @id @default(autoincrement())
+  questionId BigInt @map("question_id")
+  categoryId BigInt @map("category_id")
+
+  question Question         @relation(fields: [questionId], references: [id])
+  category QuestionCategory @relation(fields: [categoryId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@unique([questionId, categoryId])
+  @@index([questionId])
+  @@index([categoryId])
+  @@map("question_category_links")
+}
+
+// ---------------------------------------------------------
+// 6. 地域別出題傾向
+// ---------------------------------------------------------
+
+model RegionTopicStat {
+  id              BigInt  @id @default(autoincrement())
+  examRegionId    BigInt  @map("exam_region_id")
+  topicId         BigInt  @map("topic_id")
+  examYearFrom    Int     @map("exam_year_from")
+  examYearTo      Int     @map("exam_year_to")
+  questionCount   Int     @default(0) @map("question_count")
+  examCount       Int     @default(0) @map("exam_count")
+  appearanceRate  Decimal @default(0) @map("appearance_rate")
+  importanceScore Int     @default(3) @map("importance_score")
+
+  examRegion ExamRegion @relation(fields: [examRegionId], references: [id])
+  topic      Topic      @relation(fields: [topicId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([examRegionId])
+  @@index([topicId])
+  @@map("region_topic_stats")
+}
+
+// ---------------------------------------------------------
+// 7. 演習ログ
+// ---------------------------------------------------------
+
+model PracticeSession {
+  id                 BigInt              @id @default(autoincrement())
+  userId             BigInt              @map("user_id")
+  sessionType        PracticeSessionType @map("session_type")
+  targetExamRegionId BigInt?             @map("target_exam_region_id")
+  targetChapterId    BigInt?             @map("target_chapter_id")
+
+  startedAt       DateTime? @map("started_at")
+  endedAt         DateTime? @map("ended_at")
+  questionCount   Int?      @map("question_count")
+  correctCount    Int?      @map("correct_count")
+  scorePercentage Decimal?  @map("score_percentage")
+
+  user          User        @relation(fields: [userId], references: [id])
+  targetRegion  ExamRegion? @relation(fields: [targetExamRegionId], references: [id])
+  targetChapter Chapter?    @relation(fields: [targetChapterId], references: [id])
+
+  answers PracticeAnswer[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([userId])
+  @@index([targetExamRegionId])
+  @@index([targetChapterId])
+  @@map("practice_sessions")
+}
+
+enum PracticeSessionType {
+  daily_task
+  chapter
+  weakness
+  random
+  region
+  past_set
+}
+
+model PracticeAnswer {
+  id                BigInt  @id @default(autoincrement())
+  practiceSessionId BigInt  @map("practice_session_id")
+  userId            BigInt  @map("user_id")
+  questionId        BigInt  @map("question_id")
+  selectedChoiceId  BigInt? @map("selected_choice_id")
+
+  isCorrect        Boolean  @map("is_correct")
+  answeredAt       DateTime @map("answered_at")
+  timeTakenSeconds Int?     @map("time_taken_seconds")
+
+  session        PracticeSession @relation(fields: [practiceSessionId], references: [id])
+  user           User            @relation(fields: [userId], references: [id])
+  question       Question        @relation(fields: [questionId], references: [id])
+  selectedChoice QuestionChoice? @relation(fields: [selectedChoiceId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([practiceSessionId])
+  @@index([userId])
+  @@index([questionId])
+  @@index([answeredAt])
+  @@map("practice_answers")
+}
+
+// ---------------------------------------------------------
+// 8. 暗記カード
+// ---------------------------------------------------------
+
+model Flashcard {
+  id       BigInt  @id @default(autoincrement())
+  courseId BigInt  @map("course_id")
+  topicId  BigInt? @map("topic_id")
+
+  frontText         String  @map("front_text")
+  backText          String  @map("back_text")
+  sourceSectionSlug String? @map("source_section_slug")
+  isActive          Boolean @default(true) @map("is_active")
+
+  course  Course            @relation(fields: [courseId], references: [id])
+  topic   Topic?            @relation(fields: [topicId], references: [id])
+  reviews FlashcardReview[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([courseId])
+  @@index([topicId])
+  @@map("flashcards")
+}
+
+model FlashcardReview {
+  id          BigInt @id @default(autoincrement())
+  userId      BigInt @map("user_id")
+  flashcardId BigInt @map("flashcard_id")
+
+  reviewedAt   DateTime  @map("reviewed_at")
+  rating       Int // 1=Again, 2=Normal, 3=Easy（アプリ側でバリデーション推奨）
+  nextReviewAt DateTime? @map("next_review_at")
+  intervalDays Int?      @map("interval_days")
+  streak       Int       @default(0)
+
+  user      User      @relation(fields: [userId], references: [id])
+  flashcard Flashcard @relation(fields: [flashcardId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([userId])
+  @@index([flashcardId])
+  @@index([nextReviewAt])
+  @@map("flashcard_reviews")
+}
+
+// ---------------------------------------------------------
+// 9. 習熟度・学習計画
+// ---------------------------------------------------------
+
+model UserMasteryScore {
+  id      BigInt @id @default(autoincrement())
+  userId  BigInt @map("user_id")
+  topicId BigInt @map("topic_id")
+
+  masteryScore   Decimal   @default(0) @map("mastery_score")
+  correctCount   Int       @default(0) @map("correct_count")
+  wrongCount     Int       @default(0) @map("wrong_count")
+  lastAnsweredAt DateTime? @map("last_answered_at")
+
+  user  User  @relation(fields: [userId], references: [id])
+  topic Topic @relation(fields: [topicId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@unique([userId, topicId])
+  @@index([userId])
+  @@index([topicId])
+  @@map("user_mastery_scores")
+}
+
+model UserDailyPlan {
+  id               BigInt          @id @default(autoincrement())
+  userId           BigInt          @map("user_id")
+  planDate         DateTime        @map("plan_date")
+  estimatedMinutes Int             @map("estimated_minutes")
+  status           DailyPlanStatus @default(planned) @map("status")
+
+  user  User                @relation(fields: [userId], references: [id])
+  items UserDailyPlanItem[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@unique([userId, planDate])
+  @@index([userId])
+  @@index([planDate])
+  @@map("user_daily_plans")
+}
+
+enum DailyPlanStatus {
+  planned
+  in_progress
+  completed
+  skipped
+}
+
+model UserDailyPlanItem {
+  id          BigInt @id @default(autoincrement())
+  dailyPlanId BigInt @map("daily_plan_id")
+
+  itemType  DailyPlanItemType @map("item_type")
+  chapterId BigInt?           @map("chapter_id")
+  topicId   BigInt?           @map("topic_id")
+
+  targetCount    Int?                @map("target_count")
+  completedCount Int?                @map("completed_count")
+  status         DailyPlanItemStatus @default(planned) @map("status")
+
+  dailyPlan UserDailyPlan @relation(fields: [dailyPlanId], references: [id])
+  chapter   Chapter?      @relation(fields: [chapterId], references: [id])
+  topic     Topic?        @relation(fields: [topicId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([dailyPlanId])
+  @@index([chapterId])
+  @@index([topicId])
+  @@map("user_daily_plan_items")
+}
+
+enum DailyPlanItemType {
+  LECTURE   @map("lecture")
+  PRACTICE  @map("practice")
+  FLASHCARD @map("flashcard")
+}
+
+enum DailyPlanItemStatus {
+  planned
+  in_progress
+  completed
+  skipped
+}
+
+model UserDailySummary {
+  id     BigInt   @id @default(autoincrement())
+  userId BigInt   @map("user_id")
+  date   DateTime
+
+  totalStudyMinutes Int      @default(0) @map("total_study_minutes")
+  questionsAnswered Int      @default(0) @map("questions_answered")
+  cardsReviewed     Int      @default(0) @map("cards_reviewed")
+  avgCorrectRate    Decimal? @map("avg_correct_rate")
+
+  user User @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@unique([userId, date])
+  @@index([userId])
+  @@index([date])
+  @@map("user_daily_summaries")
+}
+
+// ---------------------------------------------------------
+// 10. 地域別模試
+// ---------------------------------------------------------
+
+model MockExam {
+  id            BigInt  @id @default(autoincrement())
+  courseId      BigInt  @map("course_id")
+  examRegionId  BigInt  @map("exam_region_id")
+  name          String?
+  description   String?
+  questionCount Int?    @map("question_count")
+
+  course     Course     @relation(fields: [courseId], references: [id])
+  examRegion ExamRegion @relation(fields: [examRegionId], references: [id])
+
+  questions MockExamQuestion[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([courseId])
+  @@index([examRegionId])
+  @@map("mock_exams")
+}
+
+model MockExamQuestion {
+  id         BigInt @id @default(autoincrement())
+  mockExamId BigInt @map("mock_exam_id")
+  questionId BigInt @map("question_id")
+  order      Int?
+
+  mockExam MockExam @relation(fields: [mockExamId], references: [id])
+  question Question @relation(fields: [questionId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([mockExamId])
+  @@index([questionId])
+  @@map("mock_exam_questions")
+}
+
+// ---------------------------------------------------------
+// 11. AI 生成ログ
+// ---------------------------------------------------------
+
+model AiDailyFeedback {
+  id     BigInt   @id @default(autoincrement())
+  userId BigInt   @map("user_id")
+  date   DateTime
+
+  summaryText   String?   @map("summary_text")
+  inputSnapshot Json?     @map("input_snapshot")
+  modelName     String?   @map("model_name")
+  generatedAt   DateTime? @map("generated_at")
+
+  user User @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@unique([userId, date])
+  @@index([userId])
+  @@index([date])
+  @@map("ai_daily_feedbacks")
+}
+
+model AiWeaknessAnalysis {
+  id     BigInt @id @default(autoincrement())
+  userId BigInt @map("user_id")
+
+  analysisText  String?   @map("analysis_text")
+  inputSnapshot Json?     @map("input_snapshot")
+  modelName     String?   @map("model_name")
+  generatedAt   DateTime? @map("generated_at")
+
+  user User @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([userId])
+  @@map("ai_weakness_analyses")
+}
+
+// ---------------------------------------------------------
+// 12. 管理・監査
+// ---------------------------------------------------------
+
+model AdminUser {
+  id           BigInt @id @default(autoincrement())
+  email        String @unique
+  passwordHash String @map("password_hash")
+  role         String
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("admin_users")
+}
+
+model ActivityLog {
+  id     BigInt  @id @default(autoincrement())
+  userId BigInt? @map("user_id")
+
+  action     String?
+  metadata   Json?
+  occurredAt DateTime? @map("occurred_at")
+
+  user User? @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([userId])
+  @@index([occurredAt])
+  @@map("activity_logs")
+}
