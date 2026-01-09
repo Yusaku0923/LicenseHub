@@ -159,21 +159,21 @@ const menus = computed(() => [
   {
     title: '講義資料',
     description: '体系的な知識のインプット',
-    to: '/academy/lecture',
+    to: '/academy/learn/topics', // Updated
     stat: lectureStats.value.progressPercent,
     unit: '%'
   },
   {
     title: '過去問演習',
     description: 'AIによる実践アウトプット',
-    to: '/academy/practice',
+    to: '/academy/learn/review', // Updated
     stat: practiceStats.value.weeklyAnswered,
     unit: '問'
   },
   {
     title: '暗記カード',
     description: '隙間時間を活用した復習',
-    to: '/academy/flashcards',
+    to: '/academy/learn/review/flashcards', // Updated
     stat: flashcardStats.value.dueCards,
     unit: '枚'
   }

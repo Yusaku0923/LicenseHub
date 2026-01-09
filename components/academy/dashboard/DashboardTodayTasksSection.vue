@@ -117,9 +117,9 @@ const todayMission = computed<MissionData>(() => {
 // --- Helpers ---
 function getTypeRoute(type: string): string {
   switch (type) {
-    case 'lecture': return '/academy/lecture'
-    case 'practice': return '/academy/practice'
-    case 'flashcard': return '/academy/flashcards'
+    case 'lecture': return '/academy/learn/topics'
+    case 'practice': return '/academy/learn/review'
+    case 'flashcard': return '/academy/learn/review/flashcards'
     default: return '/academy'
   }
 }

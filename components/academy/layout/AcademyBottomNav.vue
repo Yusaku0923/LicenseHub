@@ -14,12 +14,11 @@
             : 'text-slate-400 hover:text-slate-600'
         "
       >
-        <span
-          class="text-xl transition-transform duration-200 group-active:scale-90"
+        <Icon
+          :icon="item.icon"
+          class="text-2xl transition-transform duration-200 group-active:scale-90"
           :class="isActive(item.to) ? 'scale-110' : ''"
-        >
-          {{ item.icon }}
-        </span>
+        />
         <span class="text-[9px] font-bold">{{ item.label }}</span>
 
         <!-- Active indicator dot -->
@@ -39,11 +38,11 @@ import { useRoute } from "vue-router";
 const route = useRoute();
 
 const navItems = [
-  { label: "ホーム", to: "/academy", icon: "🏠" },
-  { label: "コース", to: "/academy/course/tohan", icon: "📚" },
-  { label: "レッスン", to: "/academy/course/tohan/today", icon: "🗓️" },
-  { label: "演習", to: "/academy/practice", icon: "✏️" },
-  { label: "暗記", to: "/academy/flashcards/today", icon: "🧠" }, // Changed label from '暗記カード' to '暗記' to fit mobile
+  { label: "ホーム", to: "/academy", icon: "ph:house-fill" },
+  { label: "コース", to: "/academy/course/tohan", icon: "ph:flag-banner-fill" },
+  { label: "レッスン", to: "/academy/course/tohan/today", icon: "ph:calendar-check-fill" },
+  { label: "演習", to: "/academy/practice", icon: "ph:pencil-circle-fill" },
+  { label: "暗記", to: "/academy/flashcards", icon: "ph:brain-fill" },
 ];
 
 const isActive = (path: string) => {

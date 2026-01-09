@@ -29,14 +29,14 @@
         v-for="item in navItems"
         :key="item.to"
         :to="item.to"
-        class="flex items-center gap-2 rounded-lg px-3 py-2 transition"
+        class="group flex items-center gap-3 rounded-xl px-3 py-2.5 transition-all duration-200"
         :class="
           isActive(item.to)
-            ? 'bg-emerald-50 text-emerald-700 font-medium'
-            : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+            ? 'bg-emerald-50 text-emerald-900 font-bold'
+            : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
         "
       >
-        <span class="text-base">{{ item.icon }}</span>
+        <Icon :icon="item.icon" class="w-5 h-5 transition-colors" :class="isActive(item.to) ? 'text-emerald-600' : 'text-slate-400 group-hover:text-slate-600'" />
         <span>{{ item.label }}</span>
       </NuxtLink>
     </nav>
@@ -63,15 +63,16 @@ defineEmits<{
 const route = useRoute();
 
 const navItems = [
-  { label: "ダッシュボード", to: "/academy", icon: "🏠" },
-  { label: "コース", to: "/academy/course/tohan", icon: "📚" },
-  { label: "今日のレッスン", to: "/academy/course/tohan/today", icon: "🗓️" },
-  { label: "演習", to: "/academy/practice", icon: "✏️" },
-  { label: "暗記カード", to: "/academy/flashcards/today", icon: "🧠" },
-  { label: "アカウント", to: "/academy/user", icon: "👤" },
+  { label: "ダッシュボード", to: "/academy", icon: "ph:house-fill" },
+  { label: "コース", to: "/academy/course/tohan", icon: "ph:flag-banner-fill" }, // Course Map
+  { label: "今日のレッスン", to: "/academy/learn/today", icon: "ph:calendar-check-fill" }, // Updated
+  { label: "演習", to: "/academy/learn/review", icon: "ph:pencil-circle-fill" }, // Updated
+  { label: "暗記カード", to: "/academy/learn/review/flashcards", icon: "ph:brain-fill" }, // Updated
+  { label: "資料ライブラリ", to: "/academy/learn/topics", icon: "ph:books-fill" }, // Updated
+  { label: "学習データ", to: "/academy/progress/overview", icon: "ph:chart-line-up-fill" }, // Updated
+  { label: "アカウント", to: "/academy/settings", icon: "ph:user-circle-fill" }, // Updated
 ];
 
 const isActive = (path: string) =>
-  computed(() => route.path === path || route.path.startsWith(path + "/"))
-    .value;
+  computed(() => route.path === path || route.path.startsWith(path + "/")).value;
 </script>

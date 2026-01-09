@@ -17,12 +17,7 @@
         </div>
         <!-- Progress Dots -->
         <div class="flex gap-1.5">
-          <div 
-            v-for="i in mission.progress.total" 
-            :key="i"
-            class="w-3 h-3 rounded-full transition-all"
-            :class="i <= mission.progress.done ? 'bg-emerald-500' : 'bg-slate-200'"
-          ></div>
+          
         </div>
       </div>
 
