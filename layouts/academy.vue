@@ -14,7 +14,7 @@
 
         <!-- コンテンツ（ここだけ縦スクロール） -->
         <main class="flex-1 overflow-y-auto flex flex-col">
-          <div class="mx-auto max-w-7xl w-full flex-1 pb-8">
+          <div class="mx-auto max-w-[1200px] w-full flex-1 px-4 py-4 md:py-10">
             <slot />
           </div>
           <AcademyFooter />

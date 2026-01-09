@@ -67,7 +67,7 @@ const navItems = [
   { label: "コース", to: "/academy/course/tohan", icon: "ph:flag-banner-fill" }, // Course Map
   { label: "今日のレッスン", to: "/academy/learn/today", icon: "ph:calendar-check-fill" }, // Updated
   { label: "演習", to: "/academy/learn/review", icon: "ph:pencil-circle-fill" }, // Updated
-  { label: "暗記カード", to: "/academy/learn/review/flashcards", icon: "ph:brain-fill" }, // Updated
+  { label: "暗記カード", to: "/academy/learn/flashcards", icon: "ph:brain-fill" }, // Updated
   { label: "資料ライブラリ", to: "/academy/learn/topics", icon: "ph:books-fill" }, // Updated
   { label: "学習データ", to: "/academy/progress/overview", icon: "ph:chart-line-up-fill" }, // Updated
   { label: "アカウント", to: "/academy/settings", icon: "ph:user-circle-fill" }, // Updated

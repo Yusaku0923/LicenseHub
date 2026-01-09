@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto max-w-[1200px] px-4 py-4 md:py-10">
+  <div>
     
     <!-- Mobile Layout (Mission Style) -->
     <div class="lg:hidden">
@@ -17,33 +17,31 @@
         </div>
       </section>
       
-      <!-- Left Column (Main Flow) - 8/12 -->
       <div class="lg:col-span-8 space-y-10">
-        <!-- Dashboard Today Tasks (Mission Style) -->
+        <!-- Today's Tasks -->
         <DashboardTodayTasksSection />
-        
-        <!-- Learning Record (Contribution) -->
-        <section class="space-y-4">
-          <h2 class="text-xs font-black text-slate-400 uppercase tracking-widest px-2">学習の記録</h2>
-          <div class="rounded-3xl border border-slate-100 bg-white p-7 shadow-sm">
-            <div class="mb-6 flex items-center justify-between">
-              <div class="flex items-center gap-5">
-                  <div class="text-4xl font-black text-slate-900 tracking-tighter">12<span class="text-[11px] text-slate-300 ml-1 font-bold uppercase tracking-[0.2em]">Days</span></div>
-                  <div class="h-8 w-[1px] bg-slate-100"></div>
-                  <p class="text-[11px] font-bold text-slate-400 leading-relaxed max-w-[200px]">素晴らしいです！コンスタントに学習を進められています。</p>
-              </div>
-            </div>
-            <div class="overflow-x-auto pb-2 custom-scrollbar">
-              <DashboardContributionCalendar :contributions="contributionCalendar" color="#10b981" />
-            </div>
-          </div>
-        </section>
-        
       </div>
 
       <!-- Right Column (Stats & Info) - 4/12 -->
       <div class="lg:col-span-4 space-y-10">
         
+        <!-- Learning Record (Contribution) -->
+        <section class="space-y-4">
+          <h2 class="text-xs font-black text-slate-400 uppercase tracking-widest px-2">学習の記録</h2>
+          <div class="rounded-3xl border border-slate-100 bg-white p-7 shadow-sm">
+            <div class="mb-4 flex items-center justify-between">
+              <div class="flex items-center gap-4">
+                  <div class="text-3xl font-black text-slate-900 tracking-tighter">12<span class="text-[10px] text-slate-300 ml-1 font-bold uppercase">Days</span></div>
+                  <div class="h-6 w-[1px] bg-slate-100"></div>
+                  <p class="text-[10px] font-bold text-slate-400 leading-tight">継続は力なり！</p>
+              </div>
+            </div>
+            <div class="overflow-x-auto pb-1 custom-scrollbar">
+              <DashboardContributionCalendar :contributions="contributionCalendar" color="#10b981" />
+            </div>
+          </div>
+        </section>
+
         <!-- Learning Menu -->
         <section class="space-y-4">
           <h2 class="text-xs font-black text-slate-400 uppercase tracking-widest px-2">学習メニュー</h2>
@@ -159,21 +157,21 @@ const menus = computed(() => [
   {
     title: '講義資料',
     description: '体系的な知識のインプット',
-    to: '/academy/learn/topics', // Updated
+    to: '/academy/learn/topics',
     stat: lectureStats.value.progressPercent,
     unit: '%'
   },
   {
     title: '過去問演習',
     description: 'AIによる実践アウトプット',
-    to: '/academy/learn/review', // Updated
+    to: '/academy/practice',
     stat: practiceStats.value.weeklyAnswered,
     unit: '問'
   },
   {
     title: '暗記カード',
     description: '隙間時間を活用した復習',
-    to: '/academy/learn/review/flashcards', // Updated
+    to: '/academy/flashcards',
     stat: flashcardStats.value.dueCards,
     unit: '枚'
   }

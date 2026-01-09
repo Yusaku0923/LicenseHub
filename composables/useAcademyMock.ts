@@ -32,8 +32,17 @@ export interface LectureSection {
   estimatedMinutes: number
 }
 
+export interface Category {
+  slug: string
+  title: string
+  description: string
+  icon: string
+  color: string
+}
+
 export interface PracticeQuestion {
   id: string
+  categorySlug: string
   question: string
   choices: string[]
   correctIndex: number
@@ -42,6 +51,7 @@ export interface PracticeQuestion {
 
 export interface Flashcard {
   id: string
+  categorySlug: string
   front: string
   back: string
 }
@@ -129,6 +139,37 @@ export function useAcademyMock() {
     { id: 'chap-2', title: '人体の構造と機能', percent: 48 },
     { id: 'chap-3', title: '臨床医学の基礎', percent: 27 },
     { id: 'chap-4', title: '公衆衛生・疫学', percent: 54 },
+  ])
+
+  const categories = useState<Category[]>('academy-categories', () => [
+    {
+      slug: 'medical-ethics',
+      title: '医療倫理と法規',
+      description: '患者の権利、インフォームド・コンセント、守秘義務など',
+      icon: 'ph:scales-fill',
+      color: 'indigo',
+    },
+    {
+      slug: 'anatomy',
+      title: '人体の構造と機能',
+      description: '解剖学、生理学の基礎知識',
+      icon: 'ph:heart-fill',
+      color: 'rose',
+    },
+    {
+      slug: 'clinical-basics',
+      title: '臨床医学の基礎',
+      description: '診断・治療の基本原則',
+      icon: 'ph:stethoscope-fill',
+      color: 'emerald',
+    },
+    {
+      slug: 'public-health',
+      title: '公衆衛生・疫学',
+      description: '感染症対策、統計学、保健制度',
+      icon: 'ph:chart-line-up-fill',
+      color: 'amber',
+    },
   ])
 
   const todayTasks = useState<DailyTask[]>('academy-today-tasks', () => [
@@ -252,6 +293,7 @@ export function useAcademyMock() {
   const practiceQuestions = useState<PracticeQuestion[]>('academy-practice-questions', () => [
     {
       id: 'pq-1',
+      categorySlug: 'medical-ethics',
       question: 'インフォームド・コンセントの要件として最も重要なのはどれか？',
       choices: ['医療者の専門性', '患者の理解と同意', '家族の署名', '病院の規模'],
       correctIndex: 1,
@@ -259,6 +301,7 @@ export function useAcademyMock() {
     },
     {
       id: 'pq-2',
+      categorySlug: 'medical-ethics',
       question: '守秘義務に関する説明として正しいものはどれか？',
       choices: [
         '患者が未成年の場合は守秘義務は免除される',
@@ -271,33 +314,86 @@ export function useAcademyMock() {
     },
     {
       id: 'pq-3',
+      categorySlug: 'medical-ethics',
       question: '医療倫理の四原則に含まれないものはどれか？',
       choices: ['自律尊重', '無危害', '善行', '利益相反'],
       correctIndex: 3,
       explanation: '利益相反は管理対象ではありますが、四原則の構成要素ではありません。',
+    },
+    {
+      id: 'pq-4',
+      categorySlug: 'anatomy',
+      question: '心臓の左心室から血液が送られる血管はどれか？',
+      choices: ['肺動脈', '大動脈', '肺静脈', '冠状動脈'],
+      correctIndex: 1,
+      explanation: '左心室から大動脈を通じて全身に酸素化された血液が送られます。',
+    },
+    {
+      id: 'pq-5',
+      categorySlug: 'clinical-basics',
+      question: 'バイタルサインに含まれないものはどれか？',
+      choices: ['体温', '血圧', '血糖値', '脈拍'],
+      correctIndex: 2,
+      explanation: '血糖値は重要な検査値ですが、バイタルサインの定義には含まれません。',
+    },
+    {
+      id: 'pq-6',
+      categorySlug: 'public-health',
+      question: '感染症法で定める一類感染症はどれか？',
+      choices: ['インフルエンザ', 'エボラ出血熱', '結核', 'HIV'],
+      correctIndex: 1,
+      explanation: 'エボラ出血熱は最も危険度の高い一類感染症に分類されます。',
     },
   ])
 
   const flashcards = useState<Flashcard[]>('academy-flashcards', () => [
     {
       id: 'fc-1',
+      categorySlug: 'medical-ethics',
       front: '自律尊重の原則',
       back: '患者が自分の価値観に基づいて意思決定できるよう支援し、その選択を尊重すること。',
     },
     {
       id: 'fc-2',
+      categorySlug: 'medical-ethics',
       front: '無危害の原則',
       back: '患者に不利益や危害を与えないよう行動するという基本姿勢。利益よりも先に害の回避を考える。',
     },
     {
       id: 'fc-3',
+      categorySlug: 'medical-ethics',
       front: '善行の原則',
       back: '患者にとっての利益を最大化し、生活の質を高めるために積極的に介入すること。',
     },
     {
       id: 'fc-4',
+      categorySlug: 'medical-ethics',
       front: '正義の原則',
       back: '医療資源の公平な分配と、差別のない対応を指す。優先順位の透明性が重要。',
+    },
+    {
+      id: 'fc-5',
+      categorySlug: 'anatomy',
+      front: '心房と心室',
+      back: '心臓は上部の心房と下部の心室で構成。右側は肺循環、左側は体循環を担う。',
+    },
+    {
+      id: 'fc-6',
+      categorySlug: 'anatomy',
+      front: '肺循環と体循環',
+      back: '肺循環は右心室→肺→左心房、体循環は左心室→全身→右心房のルート。',
+    },
+    {
+      id: 'fc-7',
+      categorySlug: 'clinical-basics',
+      front: 'バイタルサイン',
+      back: '生命徴候。体温、脈拍、呼吸、血圧の4つが基本。意識レベルを加えることも。',
+    },
+    {
+      id: 'fc-8',
+      categorySlug: 'public-health',
+      front: '一類感染症',
+      back: 'エボラ、ペスト、ラッサ熱など。感染力・致死率が極めて高い。即時隔離が必要。',
     },
   ])
 
@@ -401,9 +497,23 @@ export function useAcademyMock() {
     }
   }
 
+  // カテゴリ関連ヘルパー
+  function getCategoryBySlug(slug: string) {
+    return categories.value.find((cat) => cat.slug === slug)
+  }
+
+  function getPracticeQuestionsByCategory(categorySlug: string) {
+    return practiceQuestions.value.filter((q) => q.categorySlug === categorySlug)
+  }
+
+  function getFlashcardsByCategory(categorySlug: string) {
+    return flashcards.value.filter((card) => card.categorySlug === categorySlug)
+  }
+
   return {
     progressSummary,
     chapterProgress,
+    categories,
     todayTasks,
     dailyPlan,
     aiDailyFeedback,
@@ -416,6 +526,9 @@ export function useAcademyMock() {
     completeTask,
     addContribution,
     getLectureBySlug,
+    getCategoryBySlug,
+    getPracticeQuestionsByCategory,
+    getFlashcardsByCategory,
     getCurrentPracticeQuestion,
     answerPracticeQuestion,
     gotoNextPracticeQuestion,
