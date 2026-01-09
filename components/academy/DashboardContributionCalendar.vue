@@ -8,13 +8,7 @@
         <div
           class="flex h-10 w-10 items-center justify-center rounded-full bg-orange-100 text-orange-500"
         >
-          <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
-            <path
-              fill-rule="evenodd"
-              d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z"
-              clip-rule="evenodd"
-            />
-          </svg>
+          <Icon icon="ph:fire-fill" class="h-6 w-6" />
         </div>
         <div>
           <p class="text-xs font-bold uppercase tracking-wider text-orange-400">
@@ -28,23 +22,23 @@
       </div>
     </div>
 
-    <!-- 7 Day Timeline -->
-    <div class="flex items-center justify-between px-2">
+    <!-- 5 Day Timeline -->
+    <div class="flex items-center justify-between px-4">
       <div
-        v-for="(day, index) in last7Days"
+        v-for="(day, index) in displayDays"
         :key="day.date"
-        class="flex flex-col items-center gap-2"
+        class="flex flex-col items-center gap-3"
       >
         <div class="relative">
           <!-- Connection Line -->
           <div
-            v-if="index < last7Days.length - 1"
-            class="absolute left-full top-1/2 h-0.5 w-[calc(100%_+_1.5rem)] -translate-y-1/2 bg-slate-100"
+            v-if="index < displayDays.length - 1"
+            class="absolute left-full top-1/2 h-0.5 w-[calc(100%_+_2rem)] -translate-y-1/2 bg-slate-100"
             :class="{
               'bg-emerald-200':
-                day.completed && last7Days[index + 1]?.completed,
+                day.completed && displayDays[index + 1]?.completed,
             }"
-            style="width: 200%; z-index: 0"
+            style="width: 300%; z-index: 0"
           ></div>
 
           <!-- Circle -->
@@ -56,29 +50,25 @@
                 : 'bg-slate-100 text-slate-300'
             "
           >
-            <svg
+            <Icon
               v-if="day.completed"
+              icon="ph:check-bold"
               class="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="3"
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
+            />
             <span v-else class="h-2 w-2 rounded-full bg-slate-300"></span>
           </div>
         </div>
-        <span
-          class="text-[10px] font-bold uppercase tracking-wider"
-          :class="day.isToday ? 'text-emerald-600' : 'text-slate-400'"
-        >
-          {{ day.label }}
-        </span>
+        
+        <!-- Date Label -->
+        <div class="text-center flex flex-col items-center gap-0.5">
+          <span class="text-[10px] font-bold text-slate-400 leading-none">{{ day.dateLabel }}</span>
+          <span
+            class="text-[10px] font-black uppercase tracking-wider"
+            :class="day.isToday ? 'text-emerald-600' : 'text-slate-300'"
+          >
+            {{ day.weekLabel }}
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -98,10 +88,10 @@ const sorted = computed(() =>
 
 const today = new Date();
 
-// Helper to get last 7 days
-const last7Days = computed(() => {
+// Helper to get last 5 days
+const displayDays = computed(() => {
   const days = [];
-  for (let i = 6; i >= 0; i--) {
+  for (let i = 4; i >= 0; i--) {
     const d = new Date(today);
     d.setDate(today.getDate() - i);
     const dateStr = d.toISOString().slice(0, 10);
@@ -109,7 +99,10 @@ const last7Days = computed(() => {
 
     days.push({
       date: dateStr,
-      label: d.toLocaleDateString("ja-JP", { weekday: "short" }),
+      // M/D (e.g. 1/8)
+      dateLabel: `${d.getMonth() + 1}/${d.getDate()}`,
+      // Weekday (e.g. Mon)
+      weekLabel: d.toLocaleDateString("en-US", { weekday: "short" }),
       isToday: i === 0,
       completed: !!(entry && entry.score > 0),
     });

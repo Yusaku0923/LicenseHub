@@ -62,6 +62,39 @@ export interface FlashcardStats {
   totalCards: number
 }
 
+export type DailyPlanStatus = 'planned' | 'in_progress' | 'completed' | 'skipped'
+export type DailyPlanItemType = 'lecture' | 'practice' | 'flashcard'
+export type DailyPlanItemStatus = 'planned' | 'in_progress' | 'completed' | 'skipped'
+
+export interface UserDailyPlanItem {
+  id: string
+  type: DailyPlanItemType
+  status: DailyPlanItemStatus
+  targetCount: number // questions or minutes or cards
+  completedCount: number
+  chapterId?: string
+  topicId?: string
+  // Display helpers
+  title: string
+  subtitle: string
+  estimatedMinutes: number
+}
+
+export interface UserDailyPlan {
+  id: string
+  date: string
+  totalEstimatedMinutes: number
+  status: DailyPlanStatus
+  items: UserDailyPlanItem[]
+}
+
+export interface AiDailyFeedback {
+  id: string
+  date: string
+  summaryText: string
+  mood: 'happy' | 'neutral' | 'concerned' // UI helper
+}
+
 export interface DailyContribution {
   date: string // YYYY-MM-DD
   score: number // 今日の学習量（0〜数十）
@@ -124,6 +157,54 @@ export function useAcademyMock() {
       isCompleted: false,
     },
   ])
+
+  // --- New Prisma-aligned State ---
+  const dailyPlan = useState<UserDailyPlan>('academy-daily-plan', () => ({
+    id: 'plan-today',
+    date: new Date().toISOString().slice(0, 10),
+    totalEstimatedMinutes: 25,
+    status: 'planned',
+    items: [
+      {
+        id: 'item-1',
+        type: 'lecture',
+        status: 'planned',
+        targetCount: 1,
+        completedCount: 0,
+        title: '講義',
+        subtitle: '基礎概念を解説',
+        estimatedMinutes: 10,
+        chapterId: 'chap-3', // 胃腸薬
+      },
+      {
+        id: 'item-2',
+        type: 'practice',
+        status: 'planned',
+        targetCount: 5,
+        completedCount: 0,
+        title: '演習',
+        subtitle: '理解を確認',
+        estimatedMinutes: 10,
+      },
+      {
+        id: 'item-3',
+        type: 'flashcard',
+        status: 'planned',
+        targetCount: 10,
+        completedCount: 0,
+        title: '暗記カード',
+        subtitle: '記憶に定着',
+        estimatedMinutes: 5,
+      },
+    ],
+  }))
+
+  const aiDailyFeedback = useState<AiDailyFeedback>('academy-ai-feedback', () => ({
+    id: 'feedback-today',
+    date: new Date().toISOString().slice(0, 10),
+    summaryText: 'Nakayamaさん、こんにちは！昨日の『胃腸薬』は正答率80%で絶好調でした☀️ 今日はこの調子でStep 1へ進みましょう！',
+    mood: 'happy',
+  }))
 
   const contributionCalendar = useState<DailyContribution[]>('academy-contribution-calendar', () =>
     createRecentContributions(),
@@ -324,6 +405,8 @@ export function useAcademyMock() {
     progressSummary,
     chapterProgress,
     todayTasks,
+    dailyPlan,
+    aiDailyFeedback,
     contributionCalendar,
     lectureSections,
     practiceQuestions,

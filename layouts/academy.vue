@@ -13,11 +13,11 @@
         <AcademyTopBar @toggleSidebar="sidebarOpen = !sidebarOpen" />
 
         <!-- コンテンツ（ここだけ縦スクロール） -->
-        <main class="flex-1 overflow-y-auto">
-          <div class="mx-auto max-w-7xl pb-8">
+        <main class="flex-1 overflow-y-auto flex flex-col">
+          <div class="mx-auto max-w-7xl w-full flex-1 pb-8">
             <slot />
-            <AcademyFooter />
           </div>
+          <AcademyFooter />
         </main>
       </div>
     </div>
