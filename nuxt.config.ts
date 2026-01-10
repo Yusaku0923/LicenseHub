@@ -89,7 +89,6 @@ export default defineNuxtConfig({
   },
   nitro: {
     routeRules: {
-      '/_nuxt/**': { headers: { 'Cache-Control': 'public, max-age=31536000, immutable' } },
       '/**': { headers: { 'Cache-Control': 'public, max-age=0, must-revalidate' } },
     },
     logLevel: 4, // より詳細なログ

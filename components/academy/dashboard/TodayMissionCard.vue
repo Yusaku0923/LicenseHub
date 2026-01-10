@@ -30,7 +30,7 @@
       </div>
 
       <!-- AI Reason / Context -->
-      <div class="bg-slate-50 rounded-xl border border-slate-100 p-4 relative">
+      <div class="mb-3 bg-slate-50 rounded-xl border border-slate-100 p-4 relative">
         <!-- Decoration -->
         <div class="absolute -top-2.5 left-4 px-2 bg-white text-[10px] font-black text-slate-400 border border-slate-100 rounded-full flex items-center gap-1">
            <Icon icon="ph:robot-fill" class="text-blue-500" />

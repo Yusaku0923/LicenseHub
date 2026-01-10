@@ -23,53 +23,43 @@
     </div>
 
     <!-- 5 Day Timeline -->
-    <div class="flex items-center justify-between px-4">
-      <div
-        v-for="(day, index) in displayDays"
-        :key="day.date"
-        class="flex flex-col items-center gap-3"
-      >
-        <div class="relative">
-          <!-- Connection Line -->
-          <div
-            v-if="index < displayDays.length - 1"
-            class="absolute left-full top-1/2 h-0.5 w-[calc(100%_+_2rem)] -translate-y-1/2 bg-slate-100"
-            :class="{
-              'bg-emerald-200':
-                day.completed && displayDays[index + 1]?.completed,
-            }"
-            style="width: 300%; z-index: 0"
-          ></div>
-
+    <div class="flex items-start px-4">
+      <template v-for="(day, index) in displayDays" :key="day.date">
+        <div class="flex flex-col items-center gap-3">
           <!-- Circle -->
           <div
-            class="relative z-10 flex h-10 w-10 items-center justify-center rounded-full ring-4 ring-white transition-all"
+            class="flex h-10 w-10 items-center justify-center rounded-full ring-4 ring-white transition-all"
             :class="
               day.completed
                 ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/30'
                 : 'bg-slate-100 text-slate-300'
             "
           >
-            <Icon
-              v-if="day.completed"
-              icon="ph:check-bold"
-              class="h-5 w-5"
-            />
+            <Icon v-if="day.completed" icon="ph:check-bold" class="h-5 w-5" />
             <span v-else class="h-2 w-2 rounded-full bg-slate-300"></span>
           </div>
+
+          <!-- Date Label -->
+          <div class="text-center flex flex-col items-center gap-0.5">
+            <span class="text-[10px] font-bold text-slate-400 leading-none">{{ day.dateLabel }}</span>
+            <span
+              class="text-[10px] font-black uppercase tracking-wider"
+              :class="day.isToday ? 'text-emerald-600' : 'text-slate-300'"
+            >
+              {{ day.weekLabel }}
+            </span>
+          </div>
         </div>
-        
-        <!-- Date Label -->
-        <div class="text-center flex flex-col items-center gap-0.5">
-          <span class="text-[10px] font-bold text-slate-400 leading-none">{{ day.dateLabel }}</span>
-          <span
-            class="text-[10px] font-black uppercase tracking-wider"
-            :class="day.isToday ? 'text-emerald-600' : 'text-slate-300'"
-          >
-            {{ day.weekLabel }}
-          </span>
-        </div>
-      </div>
+
+        <!-- Connection Line (between circles) -->
+        <div
+          v-if="index < displayDays.length - 1"
+          class="mt-5 h-0.5 flex-1 bg-slate-100"
+          :class="{
+            'bg-emerald-200': day.completed && displayDays[index + 1]?.completed,
+          }"
+        />
+      </template>
     </div>
   </div>
 </template>

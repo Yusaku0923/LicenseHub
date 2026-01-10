@@ -25,7 +25,7 @@
 
 <script setup lang="ts">
 const links = [
-  { to: '/academy/course/tohan', label: '教材一覧' },
+  { to: '/academy/learn/topics', label: '資料' },
   { to: '/academy/practice', label: '演習トップ' },
   { to: '/academy/flashcards/today', label: '今日の暗記カード' },
   { to: '/licenses/tohan/exam/schedule', label: '試験日程' },

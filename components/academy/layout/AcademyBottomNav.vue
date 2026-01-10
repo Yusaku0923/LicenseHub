@@ -39,10 +39,10 @@ const route = useRoute();
 
 const navItems = [
   { label: "ホーム", to: "/academy", icon: "ph:house-fill" },
-  { label: "コース", to: "/academy/course/tohan", icon: "ph:flag-banner-fill" },
-  { label: "レッスン", to: "/academy/course/tohan/today", icon: "ph:calendar-check-fill" },
+  { label: "資料", to: "/academy/learn/topics", icon: "ph:books-fill" },
   { label: "演習", to: "/academy/practice", icon: "ph:pencil-circle-fill" },
-  { label: "暗記", to: "/academy/flashcards", icon: "ph:brain-fill" },
+  { label: "暗記", to: "/academy/flashcards", icon: "ph:cards-three-fill" },
+  { label: "設定", to: "/academy/settings", icon: "ph:user-circle-fill" },
 ];
 
 const isActive = (path: string) => {

@@ -44,7 +44,7 @@
                   <p class="text-[10px] font-bold text-slate-400 leading-tight">継続は力なり！</p>
               </div>
             </div>
-            <div class="overflow-x-auto pb-1 custom-scrollbar">
+            <div class="pb-1">
               <DashboardContributionCalendar :contributions="contributionCalendar" color="#10b981" />
             </div>
           </div>
@@ -61,7 +61,7 @@
               class="group flex items-center justify-between rounded-2xl border border-slate-100 bg-white p-5 transition-all hover:shadow-lg hover:shadow-slate-200/40 hover:-translate-y-0.5"
             >
               <div class="flex items-center gap-4">
-                 <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-slate-50 text-lg transition-all group-hover:bg-slate-900 group-hover:text-white">
+                 <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-slate-50 text-lg transition-all group-hover:bg-emerald-500 group-hover:text-white">
                   <Icon v-if="menu.title === '講義資料'" icon="ph:book-open-text-fill" class="w-5 h-5 text-blue-500 group-hover:text-white" />
                   <Icon v-else-if="menu.title === '過去問演習'" icon="ph:target-fill" class="w-5 h-5 text-emerald-500 group-hover:text-white" />
                   <Icon v-else icon="ph:lightbulb-fill" class="w-5 h-5 text-amber-500 group-hover:text-white" />
@@ -96,7 +96,7 @@
                 <p class="text-[11px] font-bold text-slate-400 leading-relaxed max-w-[200px]">素晴らしいです！コンスタントに学習を進められています。</p>
             </div>
           </div>
-          <div class="overflow-x-auto pb-2 custom-scrollbar">
+          <div class="pb-2">
             <DashboardContributionCalendar :contributions="contributionCalendar" color="#10b981" />
           </div>
         </div>
@@ -113,7 +113,7 @@
             class="group flex items-center justify-between rounded-2xl border border-slate-100 bg-white px-6 py-5 transition-all hover:shadow-lg hover:shadow-slate-200/40 hover:-translate-y-0.5"
           >
             <div class="flex items-center gap-5">
-              <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-50 text-xl transition-all group-hover:bg-slate-900 group-hover:text-white">
+              <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-50 text-xl transition-all group-hover:bg-emerald-500 group-hover:text-white">
                 <Icon v-if="menu.title === '講義資料'" icon="ph:book-open-text-fill" class="w-6 h-6 text-blue-500 group-hover:text-white" />
                 <Icon v-else-if="menu.title === '過去問演習'" icon="ph:target-fill" class="w-6 h-6 text-emerald-500 group-hover:text-white" />
                 <Icon v-else icon="ph:lightbulb-fill" class="w-6 h-6 text-amber-500 group-hover:text-white" />
@@ -126,7 +126,7 @@
             
             <div class="flex items-center gap-8">
                 <div class="text-right">
-                    <div class="text-2xl font-black text-slate-100 group-hover:text-slate-900 transition-colors">
+                    <div class="text-2xl font-black text-slate-100 group-hover:text-emerald-600 transition-colors">
                         {{ menu.stat }}<span class="text-[10px] ml-0.5 font-bold">{{ menu.unit }}</span>
                     </div>
                 </div>
