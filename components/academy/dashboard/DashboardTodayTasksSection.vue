@@ -38,6 +38,7 @@ import StepProgressList, { type StepItem, type StepStatus } from './StepProgress
 import { useAcademyMock } from '~/composables/useAcademyMock'
 
 const router = useRouter()
+const route = useRoute()
 const { dailyPlan, aiDailyFeedback } = useAcademyMock()
 
 // --- Data Transformation (Mock -> View Model) ---
@@ -70,7 +71,25 @@ const steps = computed<StepItem[]>(() => {
 })
 
 // 2. Identify Current Mission
-const currentStepIndex = computed(() => steps.value.findIndex(s => s.status === 'NEXT'))
+const autoCurrentStepIndex = computed(() => steps.value.findIndex(s => s.status === 'NEXT'))
+
+// URLクエリで「今のステップ」を強制指定できるようにする（例: /academy?step=2）
+// - 1始まりで指定
+// - 範囲外/不正値は無視
+const forcedStepIndex = computed<number | null>(() => {
+  const raw = route.query.step
+  const stepStr = Array.isArray(raw) ? raw[0] : raw
+  if (!stepStr) return null
+
+  const parsed = Number.parseInt(String(stepStr), 10)
+  if (Number.isNaN(parsed)) return null
+
+  const idx = parsed - 1
+  if (idx < 0 || idx >= steps.value.length) return null
+  return idx
+})
+
+const currentStepIndex = computed(() => forcedStepIndex.value ?? autoCurrentStepIndex.value)
 const nextStepIndex = computed(() => currentStepIndex.value === -1 ? steps.value.length : currentStepIndex.value) // If all done, index is length? Or handle all done.
 const currentStep = computed(() => {
   if (currentStepIndex.value !== -1) return steps.value[currentStepIndex.value]

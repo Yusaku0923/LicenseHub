@@ -129,3 +129,5 @@ export default defineNuxtConfig({
     sitemap: 'https://licencehub.jp/sitemap.xml',
   }
 })
+
+// Touched to trigger restart

@@ -4,6 +4,14 @@
     <!-- Mobile Layout (Mission Style) -->
     <div class="lg:hidden">
       <DashboardTodayTasksSection />
+
+      <!-- Progress Feedback Section (Mobile) -->
+      <section class="mt-6 space-y-4">
+        <h2 class="text-xs font-black text-slate-400 uppercase tracking-widest px-2">学習進捗</h2>
+        <div class="rounded-3xl border border-slate-100 bg-white p-4 shadow-sm">
+          <DashboardProgressFeedback :compact="true" />
+        </div>
+      </section>
     </div>
 
     <!-- PC Layout (2 Columns) -->
@@ -76,7 +84,7 @@
     </div>
 
     <!-- Original Mobile Section Content (Visible only on mobile) -->
-    <div class="lg:hidden space-y-12 mt-10">
+    <div class="lg:hidden space-y-8 mt-8">
       <!-- 学習の記録 -->
       <section class="space-y-4">
         <h2 class="text-xs font-black text-slate-400 uppercase tracking-widest px-2">学習の継続</h2>

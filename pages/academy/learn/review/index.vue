@@ -94,7 +94,8 @@
         </div>
         <h3 class="text-2xl font-black text-slate-900">All Completed!</h3>
         <p class="text-slate-500 font-medium">すべての問題に回答しました。</p>
-        <NuxtLink to="/academy" class="inline-block rounded-full bg-slate-900 text-white px-8 py-3 font-bold hover:bg-slate-800 transition-colors">
+        <!-- 完了後は「次のステップ（例: STEP3）」を“今”として表示できるようにクエリを付与 -->
+        <NuxtLink :to="{ path: '/academy', query: { step: '3' } }" class="inline-block rounded-full bg-slate-900 text-white px-8 py-3 font-bold hover:bg-slate-800 transition-colors">
             ダッシュボードへ戻る
         </NuxtLink>
       </div>

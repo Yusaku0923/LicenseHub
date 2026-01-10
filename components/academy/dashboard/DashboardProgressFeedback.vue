@@ -156,7 +156,7 @@ const smallSvgSize = (props.smallRadius + props.smallStrokeWidth + 4) * 2
         <!-- 背景装飾 -->
         <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-slate-200 via-blue-200 to-emerald-200 opacity-30"></div>
 
-        <div class="relative mt-2">
+        <div class="relative mt-2 dashboard-float-gauge">
           <!-- メインゲージSVG -->
           <svg
             :width="mainSvgSize"
@@ -261,11 +261,11 @@ const smallSvgSize = (props.smallRadius + props.smallStrokeWidth + 4) * 2
       </div>
 
       <!-- 2. 本日の伸びしろ (Right Context) -->
-      <div class="flex-1 p-5 lg:p-6 bg-slate-50/30 flex flex-col">
+      <div class="flex-1 p-2 lg:p-6 bg-slate-50/30 flex flex-col">
         <div class="flex items-center justify-between mb-4 lg:mb-5">
           <h4 class="text-[11px] font-black text-slate-400 uppercase tracking-widest flex items-center gap-2">
             <Icon icon="ph:plant-fill" class="w-4 h-4 text-emerald-500" />
-            本日の伸びしろ (Growth Areas)
+            本日の伸びしろ
           </h4>
           <NuxtLink to="/academy/analytics" class="group flex items-center gap-1 text-[11px] font-bold text-slate-400 hover:text-emerald-600 transition-colors">
             詳細分析
@@ -277,7 +277,8 @@ const smallSvgSize = (props.smallRadius + props.smallStrokeWidth + 4) * 2
           <div
             v-for="(domain, index) in topDomains"
             :key="domain.id"
-            class="flex items-center gap-3 lg:gap-4 bg-white rounded-xl border border-slate-100 p-3 shadow-[0_2px_4px_rgba(0,0,0,0.02)] hover:shadow-md hover:border-emerald-100 transition-all group"
+            class="flex items-center bg-white rounded-xl border border-slate-100 shadow-[0_2px_4px_rgba(0,0,0,0.02)] hover:shadow-md hover:border-emerald-100 transition-all group"
+            :class="compact ? 'p-2.5 gap-2.5' : 'p-3 gap-3 lg:gap-4'"
           >
             <!-- 左：ミニチャート -->
             <div class="relative shrink-0 flex items-center justify-center w-12 h-12">
@@ -311,13 +312,13 @@ const smallSvgSize = (props.smallRadius + props.smallStrokeWidth + 4) * 2
                     <h5 class="text-sm font-bold text-slate-800 truncate">{{ domain.name }}</h5>
                     <span v-if="index === 0" class="px-1.5 py-0.5 bg-amber-50 text-amber-600 text-[9px] font-bold rounded-full border border-amber-100">重点</span>
                 </div>
-                <div class="flex items-center text-[10px] text-slate-500 gap-2">
-                    <span>優先度高</span>
-                    <span class="w-0.5 h-0.5 bg-slate-300 rounded-full"></span>
-                    <span v-if="domain.delta > 0" class="text-blue-500 font-bold">
+                <div class="flex items-center text-[10px] text-slate-500 gap-1.5 tracking-wide flex-wrap">
+                    <span>優先度 高</span>
+                    <span class="w-0.5 h-0.5 bg-slate-300 rounded-full shrink-0"></span>
+                    <span v-if="domain.delta > 0" class="text-blue-500 font-bold whitespace-nowrap">
                         前日比 +{{ domain.delta.toFixed(1) }}
                     </span>
-                    <span v-else>変化なし</span>
+                    <span v-else class="whitespace-nowrap">変化なし</span>
                 </div>
             </div>
 
@@ -331,3 +332,32 @@ const smallSvgSize = (props.smallRadius + props.smallStrokeWidth + 4) * 2
     </div>
   </div>
 </template>
+
+<style scoped>
+@keyframes dashboardGaugeFloat {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  35% {
+    transform: translate3d(0, -3px, 0) rotate(-0.35deg);
+  }
+  70% {
+    transform: translate3d(0, 1px, 0) rotate(0.25deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+}
+
+.dashboard-float-gauge {
+  animation: dashboardGaugeFloat 6.5s ease-in-out infinite;
+  will-change: transform;
+  transform-origin: 50% 70%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dashboard-float-gauge {
+    animation: none;
+  }
+}
+</style>

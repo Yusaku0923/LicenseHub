@@ -1,18 +1,18 @@
 <template>
-  <div class="bg-white rounded-2xl border border-emerald-100 shadow-xl shadow-emerald-500/10 p-5 md:p-6 relative overflow-hidden group">
+  <div class="bg-white rounded-2xl border border-emerald-100 shadow-xl shadow-emerald-500/10 p-4 md:p-6 relative overflow-hidden group">
     <!-- Subtle Background Pattern (Optional) -->
     <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-50/50 rounded-full translate-x-1/3 -translate-y-1/3 blur-3xl pointer-events-none"></div>
 
     <div class="relative z-10">
       <!-- Header: Title & Progress -->
-      <div class="flex items-center justify-between mb-4">
+      <div class="flex items-center justify-between">
         <div>
-          <h2 class="text-xs font-black text-emerald-600 uppercase tracking-widest bg-emerald-50 inline-block px-2 py-1 rounded mb-2">
+          <h2 class="text-xs font-bold text-emerald-600 uppercase tracking-widest bg-emerald-50 inline-block px-2 py-1 rounded mb-2">
             TODAY'S MISSION
           </h2>
-          <div class="text-3xl font-black text-slate-900 leading-tight">
+          <div class="text-2xl md:text-3xl font-black text-slate-900 leading-snug">
             今日のメインタスク
-            <span class="text-base font-bold text-slate-400 ml-2">({{ mission.totalMinutes }}分)</span>
+            <span class="text-sm md:text-base font-bold text-slate-400 ml-1 md:ml-2 whitespace-nowrap">({{ mission.totalMinutes }}分)</span>
           </div>
         </div>
         <!-- Progress Dots -->
@@ -30,7 +30,7 @@
       </div>
 
       <!-- AI Reason / Context -->
-      <div class="mb-6 bg-slate-50 rounded-xl border border-slate-100 p-4 relative">
+      <div class="bg-slate-50 rounded-xl border border-slate-100 p-4 relative">
         <!-- Decoration -->
         <div class="absolute -top-2.5 left-4 px-2 bg-white text-[10px] font-black text-slate-400 border border-slate-100 rounded-full flex items-center gap-1">
            <Icon icon="ph:robot-fill" class="text-blue-500" />
