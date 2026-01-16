@@ -28,7 +28,10 @@
     "rehype-katex": "^7.0.0",
     "remark-math": "^6.0.0",
     "remark-mermaidjs": "^6.0.0",
-    "remark-reading-time": "2.0.1"
+    "remark-reading-time": "2.0.1",
+    "chart.js": "^4.5.1",
+    "chartjs-plugin-datalabels": "^2.2.0",
+    "vue-chart-3": "^3.1.8"
   },
   "devDependencies": {
     "@iconify-json/ph": "^1.2.2",
