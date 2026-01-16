@@ -1,5 +1,5 @@
 <template>
-  <div class="space-y-8">
+  <div class="space-y-8 lg:sticky lg:top-28 lg:self-start">
     <!-- おすすめ記事セクション -->
     <div class="card--premium p-6">
       <h3 class="text-base font-bold mb-4 flex items-center gap-2">
@@ -72,17 +72,30 @@ const props = withDefaults(defineProps<Props>(), {
   tags: () => [],
 })
 
-// おすすめ記事を自動取得
+// 固定表示する記事のパス
+const pinnedPaths = [
+  '/licenses/tohan/exam/overview',
+  '/licenses/tohan/exam/how-to-study',
+  '/licenses/tohan/materials/compare',
+  '/licenses/tohan/work/salary',
+  '/licenses/tohan/exam/pass-rate'
+]
+
+// 固定記事を取得
 const { data: recommendedPostsData } = await useAsyncData('recommended-posts', () => {
   return queryContent()
     .only(['title', '_path', 'cover', 'date'])
-    .where({ date: { $exists: true } })
-    .limit(5)
-    .sort({ date: -1 })
+    .where({ _path: { $in: pinnedPaths } })
     .find()
 })
 
-const recommendedPosts = computed(() => recommendedPostsData.value || [])
+// 指定した順序で並び替え
+const recommendedPosts = computed(() => {
+  if (!recommendedPostsData.value) return []
+  return pinnedPaths
+    .map(path => recommendedPostsData.value.find(p => p._path === path))
+    .filter((p): p is NonNullable<typeof p> => !!p)
+})
 
 const displayTags = computed(() => {
   const merged = new Set<string>()

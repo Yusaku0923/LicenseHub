@@ -1,4 +1,3 @@
-const prerenderErrors: Array<{ route: string; error: unknown }> = []
 const adsenseId = process.env.NUXT_PUBLIC_ADSENSE_CLIENT || 'ca-pub-5447172429378250'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -7,7 +6,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://licencehub.jp',
-      adsenseClient: process.env.NUXT_PUBLIC_ADSENSE_CLIENT || 'ca-pub-5447172429378250',
+      adsenseClient: adsenseId,
     },
   },
   app: {
@@ -19,23 +18,9 @@ export default defineNuxtConfig({
         },
       ],
       link: [
-        {
-          rel: 'icon',
-          type: 'image/x-icon',
-          href: '/favicon.ico',
-        },
-        {
-          rel: 'icon',
-          type: 'image/png',
-          sizes: '16x16',
-          href: '/favicon-16x16.png',
-        },
-        {
-          rel: 'icon',
-          type: 'image/png',
-          sizes: '32x32',
-          href: '/favicon-32x32.png',
-        },
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
+        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
       ],
       __dangerouslyDisableSanitizersByTagID: {
         'gtag2': ['innerHTML'],
@@ -78,10 +63,7 @@ export default defineNuxtConfig({
     }],
   ],
   sitemap: {
-    exclude: [
-      '/academy',
-      '/academy/**',
-    ]
+    // サイトマップ設定が必要な場合はここに追加
   },
   image: {
     format: ['webp'],
@@ -91,42 +73,10 @@ export default defineNuxtConfig({
     routeRules: {
       '/**': { headers: { 'Cache-Control': 'public, max-age=0, must-revalidate' } },
     },
-    logLevel: 4, // より詳細なログ
-    hooks: {
-      'prerender:generate'() {
-        prerenderErrors.length = 0
-      },
-      'prerender:fail'(ctx) {
-        prerenderErrors.push({ route: ctx.route, error: ctx.error })
-      },
-      async close() {
-        if (prerenderErrors.length === 0) {
-          console.log('\n✅ Prerender summary: エラーは発生しませんでした。')
-          return
-        }
-
-        console.error('\n❌ Prerender summary (エラー件数: ' + prerenderErrors.length + ')')
-        prerenderErrors.forEach((entry, index) => {
-          const message = entry.error instanceof Error ? entry.error.message : String(entry.error)
-          console.error(`  [${index + 1}] ルート: ${entry.route}`)
-          console.error(`       メッセージ: ${message}`)
-          if (entry.error instanceof Error && entry.error.stack) {
-            console.error('       詳細:')
-            console.error(entry.error.stack.split('\n').slice(0, 5).join('\n'))
-          }
-        })
-        console.error('========================================\n')
-      },
-    },
-  },
-  // 詳細なログを有効化
-  image: {
-    format: ['webp'],
   },
   robots: {
     rules: [{ UserAgent: '*', Disallow: '' }],
     sitemap: 'https://licencehub.jp/sitemap.xml',
   }
 })
-
-// Touched to trigger restart
+ // Force restart for component scan

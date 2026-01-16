@@ -3,7 +3,6 @@
   "name": "bloggrify-mistral-demo",
   "type": "module",
   "scripts": {
-    "preinstall": "npx playwright install",
     "build": "nuxt build",
     "dev": "nuxt dev --port 8080",
     "generate": "nuxt generate",
@@ -24,23 +23,24 @@
     "@nuxtjs/mdc": "^0.18.4",
     "@nuxtjs/robots": "^5.5.6",
     "@nuxtjs/sitemap": "^7.4.7",
-    "chart.js": "^4.5.1",
-    "chartjs-plugin-datalabels": "^2.2.0",
     "critters": "^0.0.25",
     "nuxt": "3.14.1592",
     "rehype-katex": "^7.0.0",
     "remark-math": "^6.0.0",
     "remark-mermaidjs": "^6.0.0",
-    "remark-reading-time": "2.0.1",
-    "vue-chart-3": "^3.1.8"
+    "remark-reading-time": "2.0.1"
   },
   "devDependencies": {
     "@iconify-json/ph": "^1.2.2",
     "@nuxt/eslint-config": "^0.7.1",
-    "@playwright/test": "^1.45.1",
     "autoprefixer": "10.4.20",
     "eslint": "8.57.1",
     "sass": "1.32.0",
     "tsx": "^4.20.6"
+  },
+  "pnpm": {
+    "overrides": {
+      "resolve": "^1.22.11"
+    }
   }
 }

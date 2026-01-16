@@ -11,7 +11,8 @@ keywords:
   - 登録販売者 独学
   - 登録販売者 独学 テキスト
   - 登録販売者 勉強法 独学
-date: 2025-11-09
+date: 2026-01-16
+created: 2025-11-09
 listed: true
 toc: true
 draft: false
@@ -20,6 +21,14 @@ cover: "content/licenses/tohan/materials/compare.webp"
 
 ## 登録販売者の通信講座を比較する前に
 
+---
+
+## 受験生アンケートご協力のお願い
+
+より良い学習サービス提供のため、1〜2分程度のアンケートにご協力をお願いします。  
+👉 **[アンケートに回答する（別タブで開きます）](https://forms.gle/NY7GT92ah8zqB2rr7){target="_blank"}**
+
+---
 ::AdDisplay
 ::
 
@@ -207,6 +216,38 @@ cover: "content/licenses/tohan/materials/compare.webp"
 
 <img border="0" width="1" height="1" src="https://www11.a8.net/0.gif?a8mat=45GGT7+B5VM42+4N9Y+5YRHE" alt="">
 <img border="0" width="1" height="1" src="https://www14.a8.net/0.gif?a8mat=45GGT7+B72HBM+4LOQ+5YJRM" alt="">
+
+---
+
+---
+
+## 📝 LicenceHubAcademy（LHA）開発のご協力をお願いします
+
+### あなたの声が、より良い学習環境を作ります
+
+受験生の皆様のリアルな学習状況や課題を知ることで、本当に役立つ機能・コンテンツを提供できます。以下のような情報を募集しています：
+
+- 📚 **学習環境**：どのような教材を使っているか、1日の学習時間
+- 💡 **学習の悩み**：難しいと感じる科目、つまずきやすいポイント
+- 🎯 **求める機能**：こんな機能があったら嬉しい、こんなコンテンツが欲しい
+- 📊 **学習スタイル**：独学か通信講座か、スマホ学習の頻度など
+
+### アンケートにご協力ください（所要時間：約2〜3分）
+
+👉 **[受験生アンケートフォームはこちら](https://forms.gle/NY7GT92ah8zqB2rr7){target="_blank"}**
+
+皆様からいただいた貴重なご意見は、LHAの機能開発・コンテンツ制作に反映させていただきます。  
+より多くの方のご協力をお待ちしています！
+
+---
+
+## あわせて読みたい：おすすめの記事
+
+- 👉 [**2026年（令和8年）の試験日程・合格発表をチェック**](/licenses/tohan/exam/schedule/2026)
+- 👉 [**登録販売者試験の目的・受験資格を詳しく知る**](/licenses/tohan/exam/overview)
+- 👉 [**独学か通信講座か？効率的な勉強法を比較する**](/licenses/tohan/exam/how-to-study)
+- 👉 [**登録販売者の年収・給料の実態と上げ方**](/licenses/tohan/work/salary)
+- 👉 [**【最新】都道府県別の合格率データを確認する**](/licenses/tohan/exam/pass-rate)
 
 ---
 
